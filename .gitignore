@@ -1,0 +1,141 @@
+# =====================================================================
+# 基于 GitHub 官方 gitignore 模板整理（github.com/github/gitignore）：
+#   Python 段 —— Python.gitignore
+#   JS/HTML/CSS 段 —— Node.gitignore 中适用于纯静态前端的条目
+#   项目自定义段 —— cemc-param-db 专有
+# =====================================================================
+
+# ------------------------- Python（GitHub 官方模板） -------------------------
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django / Flask 实例（本项目暂不使用，保留模板条目）
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+instance/
+.webassets-cache
+
+# Scrapy / Sphinx / PyBuilder / Jupyter / IPython
+.scrapy
+docs/_build/
+.pybuilder/
+target/
+.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# PEP 582 / pdm / pipenv / poetry / uv
+__pypackages__/
+.pdm.toml
+.pdm-python
+.pdm-build/
+Pipfile.lock
+poetry.lock
+
+# Celery / SageMath / environments / type checkers / IDEs
+celerybeat-schedule
+celerybeat.pid
+*.sage.py
+.env
+.envrc
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+.cython_debug/
+
+# ------------------------- JS / HTML / CSS（Node 模板适用条目） -------------------------
+# 本项目前端为无构建的原生 JS/CSS，以下条目覆盖将来引入工具链或
+# 编辑器/压缩产物的情况（GitHub 无独立 HTML/CSS 模板）
+node_modules/
+jspm_packages/
+bower_components/
+.npm
+.yarn/
+.pnp.*
+*.min.css.map
+*.min.js.map
+
+# 前端构建/打包产物（若将来引入打包器）
+.parcel-cache/
+.next/
+.nuxt/
+.vuepress/dist
+.serverless/
+
+# 编辑器与操作系统
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# ------------------------- 项目自定义 -------------------------
+# 注意：cemc_param.db 是编辑真源，应纳入版本管理，勿加入本文件

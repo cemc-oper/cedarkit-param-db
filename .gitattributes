@@ -1,0 +1,2 @@
+# cemc_param.db 是 SQLite 二进制文件：禁止文本 diff/合并/换行符转换
+*.db binary

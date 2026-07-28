@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cemc-param-db"
+version = "0.1.0"
+description = "CEMC GRIB2 要素数据库：reki param_registry.yaml 的编辑真源（SQLite）"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+cemc_param_db = ["schema.sql"]
