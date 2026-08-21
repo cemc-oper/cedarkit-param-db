@@ -7,7 +7,11 @@ name = "cemc-param-db"
 version = "0.1.0"
 description = "CEMC GRIB2 要素数据库：reki param_registry.yaml 的编辑真源（SQLite）"
 readme = "README.md"
+license = {file = "LICENSE"}
 requires-python = ">=3.10"
+classifiers = [
+    'License :: OSI Approved :: Apache Software License',
+]
 dependencies = [
     "pyyaml",
 ]
