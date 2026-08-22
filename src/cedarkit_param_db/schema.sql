@@ -23,7 +23,7 @@ CREATE TABLE entries (
     number         INTEGER NOT NULL CHECK (number     BETWEEN 0 AND 255),
 
     -- 命名（spec §3.1）
-    name           TEXT NOT NULL CHECK (length(trim(name)) > 0),  -- 通用名，CEMC 优先
+    name           TEXT NOT NULL CHECK (length(trim(name)) > 0),  -- 业务通用名优先
     wgrib2_name    TEXT CHECK (wgrib2_name IS NULL OR length(trim(wgrib2_name)) > 0),
 
     -- 元数据（E3：不需要时存 NULL，不存空串）

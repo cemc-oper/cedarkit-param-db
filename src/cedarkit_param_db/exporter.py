@@ -13,7 +13,7 @@ import yaml
 #: YAML 快照头部注释（导出时写入）
 HEADER = (
     "# GRIB2 要素注册表。约束规范见同目录 param_registry_spec.md，请勿违反编号规则。\n"
-    "# 本文件由 cemc-param-db 从要素数据库导出（python -m cemc_param_db export），请勿手工编辑。\n"
+    "# 本文件由 cedarkit-param-db 从要素数据库导出（python -m cedarkit_param_db export），请勿手工编辑。\n"
 )
 
 #: when 键在 YAML 中的书写顺序（spec §3.4 白名单顺序；when_json 按键名排序存储，
@@ -37,7 +37,7 @@ _VARIANT_FIELDS = (
     "unit", "description", "description_cn",
 )
 
-#: params.json 的 schema 版本（cemc-param-web 构建时校验兼容性）
+#: params.json 的 schema 版本（cedarkit-param-web 构建时校验兼容性）
 JSON_SCHEMA_VERSION = 1
 
 #: params.json 的字段顺序（规范化契约的一部分，保证 diff 可读）
@@ -60,7 +60,7 @@ def _order_fields(data: dict, order: tuple) -> dict:
 
 def export_entries(db_path: Path | str) -> list:
     """从数据库读出条目列表（结构等同 param_registry.yaml 的 safe_load 结果）。"""
-    from cemc_param_db.db import connect
+    from cedarkit_param_db.db import connect
 
     conn = connect(db_path)
     try:
@@ -165,7 +165,7 @@ def export_full_entries(db_path: Path | str) -> list:
     remark/updated_at，变体列表键名为 variants（与数据库表名一致）。
     只含规范化原始数据，不含任何展示层预加工字段。
     """
-    from cemc_param_db.db import connect
+    from cedarkit_param_db.db import connect
 
     conn = connect(db_path)
     try:
@@ -232,14 +232,14 @@ def export_full_entries(db_path: Path | str) -> list:
 def export_json(db_path: Path | str) -> str:
     """导出 params.json 文本（确定性：字段顺序、缩进、末尾换行固定）。
 
-    这是 cemc-param-db 与 cemc-param-web 之间的契约文件：
+    这是 cedarkit-param-db 与 cedarkit-param-web 之间的契约文件：
     结构变更必须递增 meta.schema_version。
     """
     entries = export_full_entries(db_path)
     doc = {
         "meta": {
             "schema_version": JSON_SCHEMA_VERSION,
-            "generated_by": "cemc-param-db",
+            "generated_by": "cedarkit-param-db",
             "stats": {
                 "entries": len(entries),
                 "variants": sum(len(e.get("variants", [])) for e in entries),

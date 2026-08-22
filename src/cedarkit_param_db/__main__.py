@@ -1,18 +1,18 @@
-"""命令行入口：python -m cemc_param_db <init|import|export|export-json|check>"""
+"""命令行入口：python -m cedarkit_param_db <init|import|export|export-json|check>"""
 
 import argparse
 import difflib
 import sys
 from pathlib import Path
 
-from cemc_param_db.db import DEFAULT_DB_PATH, init_db
-from cemc_param_db.exporter import export_file, export_json, export_json_file, export_text
-from cemc_param_db.importer import import_registry
+from cedarkit_param_db.db import DEFAULT_DB_PATH, init_db
+from cedarkit_param_db.exporter import export_file, export_json, export_json_file, export_text
+from cedarkit_param_db.importer import import_registry
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
-        prog="cemc_param_db",
+        prog="cedarkit_param_db",
         description="GRIB2 要素数据库（param_registry.yaml 的编辑真源）",
     )
     parser.add_argument(
@@ -30,7 +30,7 @@ def main(argv=None) -> int:
     p_export.add_argument("-o", "--out", type=Path, help="输出文件（缺省打印到 stdout）")
 
     p_export_json = sub.add_parser(
-        "export-json", help="从数据库导出 params.json（cemc-param-web 的契约文件）"
+        "export-json", help="从数据库导出 params.json（cedarkit-param-web 的契约文件）"
     )
     p_export_json.add_argument("-o", "--out", type=Path, help="输出文件（缺省打印到 stdout）")
 

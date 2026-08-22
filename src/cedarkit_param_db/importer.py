@@ -23,7 +23,7 @@ def canonicalize_when(when: dict) -> str:
 
 def import_registry(yaml_path: Path | str, db_path: Path | str) -> dict:
     """把注册表 YAML 全量灌入数据库，返回统计信息。"""
-    from cemc_param_db.db import connect
+    from cedarkit_param_db.db import connect
 
     yaml_path = Path(yaml_path)
     with open(yaml_path, encoding="utf-8") as f:

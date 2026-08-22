@@ -9,11 +9,11 @@ from pathlib import Path
 import pytest
 import yaml
 
-from cemc_param_db.db import init_db
-from cemc_param_db.exporter import HEADER, export_entries, export_text
-from cemc_param_db.importer import canonicalize_when, import_registry
+from cedarkit_param_db.db import init_db
+from cedarkit_param_db.exporter import HEADER, export_entries, export_text
+from cedarkit_param_db.importer import canonicalize_when, import_registry
 
-#: data/cemc-param-db/tests/ → 上三级为 devel 根目录
+#: data/cedarkit-param-db/tests/ → 上三级为 devel 根目录
 REGISTRY_YAML = (
     Path(__file__).resolve().parents[3]
     / "repo/reki/reki/readers/grib/config/param_registry.yaml"
@@ -82,7 +82,7 @@ class TestConstraints:
     """schema 硬约束：U1 / U2 / C4 / E1。"""
 
     def test_U1_duplicate_triple_rejected(self, db_path):
-        from cemc_param_db.db import connect
+        from cedarkit_param_db.db import connect
         conn = connect(db_path)
         try:
             with pytest.raises(sqlite3.IntegrityError):
@@ -94,7 +94,7 @@ class TestConstraints:
             conn.close()
 
     def test_U2_duplicate_variant_name_rejected(self, db_path):
-        from cemc_param_db.db import connect
+        from cedarkit_param_db.db import connect
         conn = connect(db_path)
         try:
             entry_id = conn.execute(
@@ -110,7 +110,7 @@ class TestConstraints:
             conn.close()
 
     def test_C4_duplicate_when_rejected(self, db_path):
-        from cemc_param_db.db import connect
+        from cedarkit_param_db.db import connect
         conn = connect(db_path)
         try:
             entry_id = conn.execute(
@@ -130,7 +130,7 @@ class TestConstraints:
             conn.close()
 
     def test_E1_empty_name_rejected(self, db_path):
-        from cemc_param_db.db import connect
+        from cedarkit_param_db.db import connect
         conn = connect(db_path)
         try:
             with pytest.raises(sqlite3.IntegrityError):
@@ -142,7 +142,7 @@ class TestConstraints:
             conn.close()
 
     def test_V2_empty_when_rejected(self, db_path):
-        from cemc_param_db.db import connect
+        from cedarkit_param_db.db import connect
         conn = connect(db_path)
         try:
             with pytest.raises(sqlite3.IntegrityError):

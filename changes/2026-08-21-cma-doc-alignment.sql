@@ -4,10 +4,10 @@
 -- 依据：data/doc/CMA天气模式数据 - 2026.06.docx（2026-08-21 更新版）
 --       五个业务系统（CMA-GFS / CMA-MESO-3KM / CMA-TYM / CMA-GEPS / CMA-REPS）
 --       GRIB2 产品要素清单
--- 执行方式：sqlite3 cemc_param.db < 本文件（整体在一个事务中）
+-- 执行方式：sqlite3 cedarkit_param.db < 本文件（整体在一个事务中）
 -- 执行后记得重新导出：
---   python -m cemc_param_db export -o <reki>/reki/readers/grib/config/param_registry.yaml
---   python -m cemc_param_db export-json -o <cemc-param-web>/public/params.json
+--   python -m cedarkit_param_db export -o <reki>/reki/readers/grib/config/param_registry.yaml
+--   python -m cedarkit_param_db export-json -o <cedarkit-param-web>/public/params.json
 -- ============================================================================
 
 BEGIN;

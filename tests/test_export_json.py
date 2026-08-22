@@ -8,12 +8,12 @@ from pathlib import Path
 
 import pytest
 
-from cemc_param_db.__main__ import main
-from cemc_param_db.db import init_db
-from cemc_param_db.exporter import JSON_SCHEMA_VERSION, export_json
-from cemc_param_db.importer import import_registry
+from cedarkit_param_db.__main__ import main
+from cedarkit_param_db.db import init_db
+from cedarkit_param_db.exporter import JSON_SCHEMA_VERSION, export_json
+from cedarkit_param_db.importer import import_registry
 
-#: data/cemc-param-db/tests/ → 上三级为 devel 根目录
+#: data/cedarkit-param-db/tests/ → 上三级为 devel 根目录
 REGISTRY_YAML = (
     Path(__file__).resolve().parents[3]
     / "repo/reki/reki/readers/grib/config/param_registry.yaml"

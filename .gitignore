@@ -2,7 +2,7 @@
 # 基于 GitHub 官方 gitignore 模板整理（github.com/github/gitignore）：
 #   Python 段 —— Python.gitignore
 #   JS/HTML/CSS 段 —— Node.gitignore 中适用于纯静态前端的条目
-#   项目自定义段 —— cemc-param-db 专有
+#   项目自定义段 —— cedarkit-param-db 专有
 # =====================================================================
 
 # ------------------------- Python（GitHub 官方模板） -------------------------
@@ -138,4 +138,4 @@ desktop.ini
 *.sublime-workspace
 
 # ------------------------- 项目自定义 -------------------------
-# 注意：cemc_param.db 是编辑真源，应纳入版本管理，勿加入本文件
+# 注意：cedarkit_param.db 是编辑真源，应纳入版本管理，勿加入本文件
