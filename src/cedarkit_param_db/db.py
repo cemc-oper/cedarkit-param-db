@@ -9,6 +9,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 #: 默认数据库文件位置（项目根目录下，可直接纳入版本管理）
 DEFAULT_DB_PATH = PROJECT_ROOT / "cedarkit_param.db"
+SCHEMA_VERSION = 2
 
 
 def connect(db_path: Path | str = DEFAULT_DB_PATH) -> sqlite3.Connection:
@@ -30,3 +31,22 @@ def init_db(db_path: Path | str = DEFAULT_DB_PATH) -> Path:
     finally:
         conn.close()
     return db_path
+
+
+def schema_version(db_path: Path | str = DEFAULT_DB_PATH) -> int:
+    """Return the database schema version, rejecting incomplete migrations."""
+    conn = connect(db_path)
+    try:
+        row = conn.execute("SELECT value FROM schema_meta WHERE key = 'schema_version'").fetchone()
+        if row is None:
+            raise ValueError("database has no schema version; run the stage-2 migration")
+        version = int(row["value"])
+        if version != SCHEMA_VERSION:
+            raise ValueError(f"unsupported database schema version: {version}")
+        for table in ("entries", "variants"):
+            missing = conn.execute(f"SELECT count(*) AS count FROM {table} WHERE parameter_id IS NULL OR parameter_id = ''").fetchone()["count"]
+            if missing:
+                raise ValueError(f"database migration incomplete: {table} has {missing} missing parameter_id values")
+        return version
+    finally:
+        conn.close()

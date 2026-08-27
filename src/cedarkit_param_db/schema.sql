@@ -11,11 +11,18 @@
 
 PRAGMA foreign_keys = ON;
 
+CREATE TABLE schema_meta (
+    key TEXT PRIMARY KEY,
+    value TEXT NOT NULL
+);
+INSERT INTO schema_meta (key, value) VALUES ('schema_version', '2');
+
 -- ----------------------------------------------------------
 -- 条目：一个 GRIB2 要素（编号三元组唯一确定）
 -- ----------------------------------------------------------
 CREATE TABLE entries (
     id             INTEGER PRIMARY KEY,
+    parameter_id   TEXT NOT NULL UNIQUE CHECK (parameter_id GLOB 'cedarkit.[a-z0-9-]*'),
 
     -- key 三元组（spec §3.2, K1-K3）
     discipline     INTEGER NOT NULL CHECK (discipline BETWEEN 0 AND 255),
@@ -49,6 +56,7 @@ CREATE TABLE entries (
 CREATE TABLE variants (
     id           INTEGER PRIMARY KEY,
     entry_id     INTEGER NOT NULL REFERENCES entries(id) ON DELETE CASCADE,
+    parameter_id TEXT NOT NULL UNIQUE CHECK (parameter_id GLOB 'cedarkit.[a-z0-9-]*'),
 
     name         TEXT NOT NULL CHECK (length(trim(name)) > 0),
 
@@ -94,6 +102,11 @@ CREATE TABLE aliases (
 );
 
 CREATE INDEX idx_aliases_alias ON aliases (alias);
+
+CREATE TABLE parameter_id_tombstones (
+    parameter_id TEXT PRIMARY KEY CHECK (parameter_id GLOB 'cedarkit.[a-z0-9-]*'),
+    retired_reason TEXT NOT NULL
+);
 
 -- ----------------------------------------------------------
 -- 变更履历（预留）：记录谁在什么时候改了什么

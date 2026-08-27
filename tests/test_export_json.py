@@ -38,11 +38,14 @@ class TestExportJson:
         assert doc["meta"]["schema_version"] == JSON_SCHEMA_VERSION
         stats = doc["meta"]["stats"]
         assert stats["entries"] == len(doc["entries"]) > 0
+        assert stats["parameter_ids"] == 221
 
         entry = next(e for e in doc["entries"] if e["name"] == "t")
         assert entry["key"] == {"discipline": 0, "category": 0, "number": 0}
+        assert entry["parameter_id"] == "cedarkit.t"
         assert entry["updated_at"]  # 数据库独有字段必须存在
         variant = next(v for v in entry["variants"] if v["name"] == "t2m")
+        assert variant["parameter_id"] == "cedarkit.t2m"
         # when 恢复为 spec 语义顺序
         assert list(variant["when"]) == ["first_level_type", "first_level"]
 

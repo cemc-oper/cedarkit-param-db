@@ -28,21 +28,22 @@ WHEN_KEY_ORDER = (
 )
 
 _ENTRY_FIELDS = (
-    "key", "name", "aliases", "wgrib2_name", "unit", "description",
+    "parameter_id", "key", "name", "aliases", "wgrib2_name", "unit", "description",
     "description_cn", "typeOfLevel", "level", "params",
 )
 
 _VARIANT_FIELDS = (
-    "name", "aliases", "when", "typeOfLevel", "level",
+    "parameter_id", "name", "aliases", "when", "typeOfLevel", "level",
     "unit", "description", "description_cn",
 )
 
 #: params.json 的 schema 版本（cedarkit-param-web 构建时校验兼容性）
-JSON_SCHEMA_VERSION = 1
+JSON_SCHEMA_VERSION = 2
+PARAMETER_REGISTRY_API_VERSION = "reki.parameter-registry/v2"
 
 #: params.json 的字段顺序（规范化契约的一部分，保证 diff 可读）
 _JSON_ENTRY_FIELDS = (
-    "key", "name", "aliases", "wgrib2_name", "unit", "description",
+    "parameter_id", "key", "name", "aliases", "wgrib2_name", "unit", "description",
     "description_cn", "typeOfLevel", "level", "remark", "updated_at", "variants",
 )
 
@@ -70,6 +71,7 @@ def export_entries(db_path: Path | str) -> list:
         ).fetchall()
         for row in entry_rows:
             entry = {
+                "parameter_id": row["parameter_id"],
                 "key": {
                     "discipline": row["discipline"],
                     "category": row["category"],
@@ -98,7 +100,7 @@ def export_entries(db_path: Path | str) -> list:
                 (row["id"],),
             ).fetchall()
             for v in variant_rows:
-                variant = {"name": v["name"]}
+                variant = {"parameter_id": v["parameter_id"], "name": v["name"]}
                 v_aliases = _aliases_of(conn, "variant", v["id"])
                 if v_aliases:
                     variant["aliases"] = v_aliases
@@ -138,9 +140,14 @@ def _decode_when(when_json: str) -> dict:
     return ordered
 
 
+def export_document(db_path: Path | str) -> dict:
+    """Export the versioned reki parameter-registry v2 document."""
+    return {"api_version": PARAMETER_REGISTRY_API_VERSION, "entries": export_entries(db_path)}
+
+
 def export_text(db_path: Path | str) -> str:
     """导出完整的 YAML 文本（含头部注释）。"""
-    entries = export_entries(db_path)
+    entries = export_document(db_path)
     body = yaml.safe_dump(
         entries,
         allow_unicode=True,
@@ -175,6 +182,7 @@ def export_full_entries(db_path: Path | str) -> list:
         ).fetchall()
         for row in entry_rows:
             entry = {
+                "parameter_id": row["parameter_id"],
                 "key": {
                     "discipline": row["discipline"],
                     "category": row["category"],
@@ -207,7 +215,7 @@ def export_full_entries(db_path: Path | str) -> list:
                 (row["id"],),
             ).fetchall()
             for v in variant_rows:
-                variant = {"name": v["name"]}
+                variant = {"parameter_id": v["parameter_id"], "name": v["name"]}
                 v_aliases = _aliases_of(conn, "variant", v["id"])
                 if v_aliases:
                     variant["aliases"] = v_aliases
@@ -248,6 +256,7 @@ def export_json(db_path: Path | str) -> str:
                     + sum(len(v.get("aliases", [])) for v in e.get("variants", []))
                     for e in entries
                 ),
+                "parameter_ids": len(entries) + sum(len(e.get("variants", [])) for e in entries),
             },
         },
         "entries": entries,

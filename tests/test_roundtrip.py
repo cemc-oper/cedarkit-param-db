@@ -10,7 +10,7 @@ import pytest
 import yaml
 
 from cedarkit_param_db.db import init_db
-from cedarkit_param_db.exporter import HEADER, export_entries, export_text
+from cedarkit_param_db.exporter import HEADER, PARAMETER_REGISTRY_API_VERSION, export_document, export_entries, export_text
 from cedarkit_param_db.importer import canonicalize_when, import_registry
 
 #: data/cedarkit-param-db/tests/ → 上三级为 devel 根目录
@@ -41,7 +41,15 @@ def source_entries():
 class TestRoundtrip:
     def test_entries_data_equal(self, db_path, source_entries):
         """导出结果与源 YAML 的 safe_load 结构完全一致。"""
-        assert export_entries(db_path) == source_entries
+        assert source_entries["api_version"] == PARAMETER_REGISTRY_API_VERSION
+        assert export_document(db_path) == source_entries
+
+    def test_all_ids_are_non_empty_and_unique(self, db_path):
+        entries = export_entries(db_path)
+        ids = [entry["parameter_id"] for entry in entries]
+        ids.extend(variant["parameter_id"] for entry in entries for variant in entry.get("params", []))
+        assert len(ids) == len(set(ids)) == 221
+        assert all(value.startswith("cedarkit.") for value in ids)
 
     def test_byte_identical_after_header(self, db_path):
         """除头部注释外，导出文本与源文件逐字节一致。"""

@@ -28,7 +28,11 @@ def import_registry(yaml_path: Path | str, db_path: Path | str) -> dict:
     yaml_path = Path(yaml_path)
     with open(yaml_path, encoding="utf-8") as f:
         # 跳过文件头注释，safe_load 天然忽略注释行
-        entries = yaml.safe_load(f)
+        document = yaml.safe_load(f)
+    if isinstance(document, dict) and document.get("api_version") == "reki.parameter-registry/v2":
+        entries = document.get("entries")
+    else:
+        entries = document
     if not isinstance(entries, list):
         raise ValueError(f"{yaml_path}: 顶层结构必须是条目列表（F2）")
 
@@ -45,12 +49,12 @@ def import_registry(yaml_path: Path | str, db_path: Path | str) -> dict:
                 cur = conn.execute(
                     """
                     INSERT INTO entries
-                        (discipline, category, number, name, wgrib2_name,
+                        (parameter_id, discipline, category, number, name, wgrib2_name,
                          unit, description, description_cn, type_of_level, level)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
-                        key["discipline"], key["category"], key["number"],
+                        entry["parameter_id"], key["discipline"], key["category"], key["number"],
                         entry["name"], entry.get("wgrib2_name"),
                         entry.get("unit"), entry.get("description"),
                         entry.get("description_cn"), entry.get("typeOfLevel"),
@@ -71,12 +75,12 @@ def import_registry(yaml_path: Path | str, db_path: Path | str) -> dict:
                     cur = conn.execute(
                         """
                         INSERT INTO variants
-                            (entry_id, name, when_json, type_of_level, level,
+                            (entry_id, parameter_id, name, when_json, type_of_level, level,
                              unit, description, description_cn, sort_order)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                         """,
                         (
-                            entry_id, variant["name"], canonicalize_when(variant["when"]),
+                            entry_id, variant["parameter_id"], variant["name"], canonicalize_when(variant["when"]),
                             variant.get("typeOfLevel"), variant.get("level"),
                             variant.get("unit"), variant.get("description"),
                             variant.get("description_cn"), sort_order,
