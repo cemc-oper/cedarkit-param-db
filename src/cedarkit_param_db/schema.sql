@@ -15,7 +15,7 @@ CREATE TABLE schema_meta (
     key TEXT PRIMARY KEY,
     value TEXT NOT NULL
 );
-INSERT INTO schema_meta (key, value) VALUES ('schema_version', '2');
+INSERT INTO schema_meta (key, value) VALUES ('schema_version', '3');
 
 -- ----------------------------------------------------------
 -- 条目：一个 GRIB2 要素（编号三元组唯一确定）
@@ -88,6 +88,32 @@ CREATE TABLE variants (
 );
 
 CREATE INDEX idx_variants_entry ON variants (entry_id, sort_order);
+
+-- ----------------------------------------------------------
+-- 外部服务要素词表及基础 entry 映射。词表与 dataset/catalog 标识无关；
+-- variant 由其 entry 继承，因而不能直接出现在本表中。
+-- ----------------------------------------------------------
+CREATE TABLE external_elements (
+    namespace      TEXT NOT NULL CHECK (namespace GLOB '[a-z][a-z0-9_-]*'),
+    code           TEXT NOT NULL CHECK (code GLOB '[A-Z][A-Z0-9_]*'),
+    description_cn TEXT NOT NULL CHECK (length(trim(description_cn)) > 0),
+    source_ref     TEXT NOT NULL CHECK (length(trim(source_ref)) > 0),
+    PRIMARY KEY (namespace, code)
+);
+
+CREATE TABLE entry_external_elements (
+    entry_id   INTEGER NOT NULL REFERENCES entries(id) ON DELETE CASCADE,
+    namespace  TEXT NOT NULL,
+    code       TEXT NOT NULL,
+    PRIMARY KEY (entry_id, namespace),
+    UNIQUE (namespace, code),
+    FOREIGN KEY (namespace, code)
+        REFERENCES external_elements(namespace, code)
+        ON DELETE RESTRICT
+);
+
+CREATE INDEX idx_entry_external_elements_code
+    ON entry_external_elements(namespace, code);
 
 -- ----------------------------------------------------------
 -- 别名：条目级与变体级统一存放（U4 的条内部分）

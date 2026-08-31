@@ -8,6 +8,7 @@ from pathlib import Path
 from cedarkit_param_db.db import DEFAULT_DB_PATH, init_db
 from cedarkit_param_db.exporter import export_file, export_json, export_json_file, export_text
 from cedarkit_param_db.importer import import_registry
+from cedarkit_param_db.cmadaas import import_vocabulary, inventory_json
 
 
 def main(argv=None) -> int:
@@ -37,6 +38,11 @@ def main(argv=None) -> int:
     p_check = sub.add_parser("check", help="drift 检查：数据库导出结果与快照逐字节对比")
     p_check.add_argument("--yaml", type=Path, help="待对比的 param_registry.yaml 路径")
     p_check.add_argument("--json", type=Path, help="待对比的 params.json 路径")
+
+    p_vocab = sub.add_parser("import-cmadaas-vocabulary", help="只读导入 CMADaaS 外部要素词表（不创建 mapping）")
+    p_vocab.add_argument("--source", type=Path, required=True, help="cmadaas_param_names.md 路径")
+    p_inventory = sub.add_parser("cmadaas-inventory", help="输出稳定的 CMADaaS mapping inventory JSON")
+    p_inventory.add_argument("-o", "--out", type=Path, help="输出文件（缺省打印到 stdout）")
 
     args = parser.parse_args(argv)
 
@@ -93,6 +99,20 @@ def main(argv=None) -> int:
                   f"请从数据库重新导出，或将快照变更导入数据库（import）。")
             failed = True
         return 1 if failed else 0
+
+    if args.command == "import-cmadaas-vocabulary":
+        count = import_vocabulary(args.source, args.db)
+        print(f"imported {count} CMADaaS external elements from {args.source}")
+        return 0
+
+    if args.command == "cmadaas-inventory":
+        text = inventory_json(args.db)
+        if args.out:
+            args.out.write_text(text, encoding="utf-8")
+            print(f"exported CMADaaS inventory to {args.out}")
+        else:
+            sys.stdout.write(text)
+        return 0
 
     return 2
 

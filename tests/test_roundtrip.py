@@ -12,11 +12,16 @@ import yaml
 from cedarkit_param_db.db import init_db
 from cedarkit_param_db.exporter import HEADER, PARAMETER_REGISTRY_API_VERSION, export_document, export_entries, export_text
 from cedarkit_param_db.importer import canonicalize_when, import_registry
+from cedarkit_param_db.cmadaas import import_vocabulary, inventory
 
 #: data/cedarkit-param-db/tests/ → 上三级为 devel 根目录
 REGISTRY_YAML = (
     Path(__file__).resolve().parents[3]
     / "repo/reki/reki/readers/grib/config/param_registry.yaml"
+)
+CMADAAS_VOCABULARY = (
+    Path(__file__).resolve().parents[3]
+    / "source/nuwe-cmadaas-devel/cmadaas_param_names.md"
 )
 
 pytestmark = pytest.mark.skipif(
@@ -158,5 +163,32 @@ class TestConstraints:
                     "INSERT INTO variants (entry_id, name, when_json, sort_order) "
                     "VALUES (1, 'x', '{}', 0)"
                 )
+        finally:
+            conn.close()
+
+
+class TestCmadaasExternalElements:
+    def test_import_is_complete_idempotent_and_unmapped_is_visible(self, db_path):
+        assert import_vocabulary(CMADAAS_VOCABULARY, db_path) == 146
+        first = inventory(db_path)
+        assert len(first["elements"]) == 146
+        assert len({item["code"] for item in first["elements"]}) == 146
+        assert all(item["status"] == "unmapped" for item in first["elements"])
+        assert import_vocabulary(CMADAAS_VOCABULARY, db_path) == 146
+        assert inventory(db_path) == first
+
+    def test_mapping_requires_a_real_entry_and_cascades(self, db_path):
+        from cedarkit_param_db.db import connect
+        import_vocabulary(CMADAAS_VOCABULARY, db_path)
+        conn = connect(db_path)
+        try:
+            with pytest.raises(sqlite3.IntegrityError):
+                conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (999999, 'cmadaas', 'TEM')")
+            entry_id = conn.execute("SELECT id FROM entries WHERE parameter_id = 'cedarkit.t'").fetchone()["id"]
+            conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (?, 'cmadaas', 'TEM')", (entry_id,))
+            conn.commit()
+            assert inventory(db_path)["elements"][next(i for i, item in enumerate(inventory(db_path)["elements"]) if item["code"] == "TEM")]["parameter_id"] == "cedarkit.t"
+            with pytest.raises(sqlite3.IntegrityError):
+                conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (?, 'cmadaas', 'TEM')", (entry_id,))
         finally:
             conn.close()

@@ -9,7 +9,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 #: 默认数据库文件位置（项目根目录下，可直接纳入版本管理）
 DEFAULT_DB_PATH = PROJECT_ROOT / "cedarkit_param.db"
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 
 def connect(db_path: Path | str = DEFAULT_DB_PATH) -> sqlite3.Connection:
@@ -47,6 +47,10 @@ def schema_version(db_path: Path | str = DEFAULT_DB_PATH) -> int:
             missing = conn.execute(f"SELECT count(*) AS count FROM {table} WHERE parameter_id IS NULL OR parameter_id = ''").fetchone()["count"]
             if missing:
                 raise ValueError(f"database migration incomplete: {table} has {missing} missing parameter_id values")
+        for table in ("external_elements", "entry_external_elements"):
+            row = conn.execute("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?", (table,)).fetchone()
+            if row is None:
+                raise ValueError(f"database migration incomplete: missing {table}")
         return version
     finally:
         conn.close()

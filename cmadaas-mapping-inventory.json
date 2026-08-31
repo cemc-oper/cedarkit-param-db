@@ -1,0 +1,886 @@
+{
+  "namespace": "cmadaas",
+  "elements": [
+    {
+      "code": "ADI",
+      "description_cn": "绝对散度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "ALB",
+      "description_cn": "反射率",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "AVO",
+      "description_cn": "绝对涡度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "BLDI",
+      "description_cn": "边界层离散",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "BLI",
+      "description_cn": "最佳抬升指数（到500hPa）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "CCC",
+      "description_cn": "对流云量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "CIC",
+      "description_cn": "云冰量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "COS",
+      "description_cn": "对流雪量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "CPE",
+      "description_cn": "对流降水",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "CUD",
+      "description_cn": "流方向",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "CUP",
+      "description_cn": "流速度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "CUU",
+      "description_cn": "流的U分量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "CUV",
+      "description_cn": "流的V分量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "CWA",
+      "description_cn": "云水量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "DEN",
+      "description_cn": "密度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "DPD",
+      "description_cn": "温度露点差(或亏值)",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "DPT",
+      "description_cn": "露点温度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "DSL",
+      "description_cn": "海平面距平",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "EVA",
+      "description_cn": "蒸发量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "EWD",
+      "description_cn": "次要的波浪方向",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "EWP",
+      "description_cn": "次要的波浪的平均周期",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "GMH",
+      "description_cn": "几何高度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "GPH",
+      "description_cn": "位势高度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "mapped",
+      "parameter_id": "cedarkit.h.any"
+    },
+    {
+      "code": "GRFU",
+      "description_cn": "全球辐射通量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "GRTE",
+      "description_cn": "地面温度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "HCC",
+      "description_cn": "高云量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "HIFE",
+      "description_cn": "高度预报误差",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "HMR",
+      "description_cn": "湿度混合比",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "ICO",
+      "description_cn": "冰覆盖（有冰时为1，没冰时为0）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "IDD",
+      "description_cn": "浮冰方向",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "IDI",
+      "description_cn": "冰散度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "IDP",
+      "description_cn": "浮冰速度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "IDU",
+      "description_cn": "浮冰的u分量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "IDV",
+      "description_cn": "浮冰的v分量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "IGR",
+      "description_cn": "冰增长率",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "IMDA",
+      "description_cn": "图象数据",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "ITH",
+      "description_cn": "冰厚度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "KIDX",
+      "description_cn": "K指数",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "LCC",
+      "description_cn": "低云量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "LHFU",
+      "description_cn": "潜热通量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "LITE",
+      "description_cn": "亮度温度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "LOV",
+      "description_cn": "陆地覆盖（1=陆地0=海洋）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "LPE",
+      "description_cn": "大尺度降水",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "LRA",
+      "description_cn": "直减率",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "LRFU",
+      "description_cn": "长波辐射通量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "LSS",
+      "description_cn": "大尺度雪量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MCC",
+      "description_cn": "中云量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MFUU",
+      "description_cn": "动量通量的u分量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MFUV",
+      "description_cn": "动量通量的v分量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MFVO",
+      "description_cn": "水汽通量散度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MLD",
+      "description_cn": "混合层深度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MNT",
+      "description_cn": "最低温度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MOFU",
+      "description_cn": "水汽通量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MPVH",
+      "description_cn": "湿位涡水平分量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MPVV",
+      "description_cn": "湿位涡垂直分量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MSF",
+      "description_cn": "蒙哥马利流函数",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MTA",
+      "description_cn": "主要的斜温层距平",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MTD",
+      "description_cn": "主要的斜温层深度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MWD",
+      "description_cn": "主要的波浪方向",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MWP",
+      "description_cn": "主要的波浪的平均周期",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "MXT",
+      "description_cn": "最高温度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "NLRA",
+      "description_cn": "净长波辐射通量（大气层顶）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "NLRF",
+      "description_cn": "净长波辐射通量（地面）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "NSRA",
+      "description_cn": "净短波辐射通量（大气层顶）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "NSRF",
+      "description_cn": "净短波辐射通量（地面）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "PAN",
+      "description_cn": "气压距平",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "PHA",
+      "description_cn": "位势高度距平",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "PLI",
+      "description_cn": "气块抬升指数（到500hPa）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "POT",
+      "description_cn": "位势",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "POV",
+      "description_cn": "位势涡度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "PPT",
+      "description_cn": "假绝热位温/假相当位温",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "PPTE",
+      "description_cn": "假相当位温",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "PRE",
+      "description_cn": "降水量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "mapped",
+      "parameter_id": "cedarkit.rain.any"
+    },
+    {
+      "code": "PRR",
+      "description_cn": "降水率",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "PRS",
+      "description_cn": "气压",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "PRT",
+      "description_cn": "气压趋势",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "PTE",
+      "description_cn": "位温",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "PVA",
+      "description_cn": "水汽压",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "RDI",
+      "description_cn": "相对散度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "RHF2",
+      "description_cn": "2米相对湿度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "RHU",
+      "description_cn": "相对湿度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "RS1",
+      "description_cn": "雷达谱（1）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "RS2",
+      "description_cn": "雷达谱（2）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "RS3",
+      "description_cn": "雷达谱（3）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "RVO",
+      "description_cn": "相对涡度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "RWLE",
+      "description_cn": "辐射（关于波长）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "RWNU",
+      "description_cn": "辐射（关于波数）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SAD",
+      "description_cn": "饱和差",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SAH",
+      "description_cn": "ICAO标准大气参照高度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SAL",
+      "description_cn": "盐度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SDE",
+      "description_cn": "雪深",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SDH",
+      "description_cn": "高度的标准偏差",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SDW",
+      "description_cn": "积雪深度水当量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SFU",
+      "description_cn": "流函数",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SHFU",
+      "description_cn": "感热通量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SHU",
+      "description_cn": "比湿",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SIFU",
+      "description_cn": "地表热辐射（通量）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SMC",
+      "description_cn": "土壤水分含量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SME",
+      "description_cn": "雪融化量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SNI",
+      "description_cn": "桑拿指数",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SOI",
+      "description_cn": "土壤温度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SORH",
+      "description_cn": "土壤湿度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SPFE",
+      "description_cn": "海平面气压预报误差",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SRFU",
+      "description_cn": "短波辐射通量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SRO",
+      "description_cn": "地面粗糙度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SSI",
+      "description_cn": "地表太阳辐射",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SSP",
+      "description_cn": "订正的平均海平面气压",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SSWC",
+      "description_cn": "表面储水池含量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SVV",
+      "description_cn": "σ坐标垂直速度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SWD",
+      "description_cn": "涌浪方向",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SWE",
+      "description_cn": "降雪率水当量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SWH",
+      "description_cn": "涌浪的有效高度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "SWP",
+      "description_cn": "涌浪的平均周期",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "TAN",
+      "description_cn": "温度距平",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "TCC",
+      "description_cn": "总云量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "TEAD",
+      "description_cn": "温度平流",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "TEDP",
+      "description_cn": "温度露点差",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "TEF2",
+      "description_cn": "2米温度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "TEFE",
+      "description_cn": "温度预报误差",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "TEM",
+      "description_cn": "温度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "mapped",
+      "parameter_id": "cedarkit.t"
+    },
+    {
+      "code": "TOZ",
+      "description_cn": "总臭氧",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "TPE",
+      "description_cn": "总降水量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "TPR",
+      "description_cn": "雷暴概率",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "TTD",
+      "description_cn": "瞬间的斜温层深度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "VEG",
+      "description_cn": "植被",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "VIS",
+      "description_cn": "能见度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "VOAD",
+      "description_cn": "涡度平流",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "VPO",
+      "description_cn": "速度势",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "VSU",
+      "description_cn": "u分量垂直切变",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "VSV",
+      "description_cn": "v分量垂直切变",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "VTE",
+      "description_cn": "虚温",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "VVM",
+      "description_cn": "垂直速度（几何的）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "VVP",
+      "description_cn": "垂直速度（气压）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "WID",
+      "description_cn": "风向",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "WIP",
+      "description_cn": "风速",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "WIU",
+      "description_cn": "风的u分量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "mapped",
+      "parameter_id": "cedarkit.u"
+    },
+    {
+      "code": "WIV",
+      "description_cn": "风的v分量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "mapped",
+      "parameter_id": "cedarkit.v"
+    },
+    {
+      "code": "WMEN",
+      "description_cn": "风混合能量",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "WRO",
+      "description_cn": "水径流",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "WS1",
+      "description_cn": "波谱（1）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "WS2",
+      "description_cn": "波谱（2）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "WS3",
+      "description_cn": "波谱（3）",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "WSH",
+      "description_cn": "风浪和涌浪合成的有效高度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "WTE",
+      "description_cn": "水温",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "WWD",
+      "description_cn": "风浪方向",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    },
+    {
+      "code": "WWH",
+      "description_cn": "风浪的有效高度",
+      "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
+      "status": "unmapped"
+    }
+  ]
+}

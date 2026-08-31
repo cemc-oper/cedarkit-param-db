@@ -28,6 +28,17 @@ schema 与其字段一一对应，约束分工：
 `when` 条件存为规范化 JSON 文本列（键排序、紧凑分隔符），C4 唯一索引因此
 不受键序/空白影响；导出时恢复为 spec §3.4 白名单的书写顺序。
 
+CMADaaS 词表使用独立的 `external_elements` 与 `entry_external_elements` 表。前者是
+完整、可审计的服务名称词表，后者只能把基础 entry 映射到一个 namespace/code；variant
+继承 mapping。该模型不存 dataset、`data_code`、endpoint 或认证信息。用 SQL change
+script 审核人工 mapping，并通过下列命令导入及检查词表：
+
+```bash
+python -m cedarkit_param_db import-cmadaas-vocabulary \
+  --source ../../source/nuwe-cmadaas-devel/cmadaas_param_names.md
+python -m cedarkit_param_db cmadaas-inventory -o cmadaas-mapping-inventory.json
+```
+
 ## 项目结构
 
 ```
