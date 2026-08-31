@@ -29,7 +29,7 @@ def import_registry(yaml_path: Path | str, db_path: Path | str) -> dict:
     with open(yaml_path, encoding="utf-8") as f:
         # 跳过文件头注释，safe_load 天然忽略注释行
         document = yaml.safe_load(f)
-    if isinstance(document, dict) and document.get("api_version") == "reki.parameter-registry/v2":
+    if isinstance(document, dict) and document.get("api_version") in {"reki.parameter-registry/v2", "reki.parameter-registry/v3"}:
         entries = document.get("entries")
     else:
         entries = document
@@ -63,6 +63,21 @@ def import_registry(yaml_path: Path | str, db_path: Path | str) -> dict:
                 )
                 entry_id = cur.lastrowid
                 stats["entries"] += 1
+
+                for namespace, code in entry.get("external_names", {}).items():
+                    exists = conn.execute(
+                        "SELECT 1 FROM external_elements WHERE namespace = ? AND code = ?",
+                        (namespace, code),
+                    ).fetchone()
+                    if exists is None:
+                        raise ValueError(
+                            f"{yaml_path}: external name {namespace}:{code} is not in external_elements; "
+                            "import its vocabulary first"
+                        )
+                    conn.execute(
+                        "INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (?, ?, ?)",
+                        (entry_id, namespace, code),
+                    )
 
                 for alias in entry.get("aliases", []):
                     conn.execute(

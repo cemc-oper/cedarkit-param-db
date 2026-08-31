@@ -33,6 +33,7 @@ pytestmark = pytest.mark.skipif(
 def db_path(tmp_path_factory):
     path = tmp_path_factory.mktemp("db") / "test.db"
     init_db(path)
+    import_vocabulary(CMADAAS_VOCABULARY, path)
     import_registry(REGISTRY_YAML, path)
     return path
 
@@ -70,6 +71,7 @@ class TestRoundtrip:
         yaml_path.write_text(first, encoding="utf-8")
         db2 = tmp_path / "second.db"
         init_db(db2)
+        import_vocabulary(CMADAAS_VOCABULARY, db2)
         import_registry(yaml_path, db2)
         assert export_text(db2) == first
 
@@ -173,7 +175,8 @@ class TestCmadaasExternalElements:
         first = inventory(db_path)
         assert len(first["elements"]) == 146
         assert len({item["code"] for item in first["elements"]}) == 146
-        assert all(item["status"] == "unmapped" for item in first["elements"])
+        mapped = {item["code"] for item in first["elements"] if item["status"] == "mapped"}
+        assert mapped == {"TEM", "GPH", "WIU", "WIV", "PRE"}
         assert import_vocabulary(CMADAAS_VOCABULARY, db_path) == 146
         assert inventory(db_path) == first
 
@@ -183,12 +186,12 @@ class TestCmadaasExternalElements:
         conn = connect(db_path)
         try:
             with pytest.raises(sqlite3.IntegrityError):
-                conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (999999, 'cmadaas', 'TEM')")
-            entry_id = conn.execute("SELECT id FROM entries WHERE parameter_id = 'cedarkit.t'").fetchone()["id"]
-            conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (?, 'cmadaas', 'TEM')", (entry_id,))
+                conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (999999, 'cmadaas', 'AVO')")
+            entry_id = conn.execute("SELECT id FROM entries WHERE parameter_id = 'cedarkit.td'").fetchone()["id"]
+            conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (?, 'cmadaas', 'AVO')", (entry_id,))
             conn.commit()
-            assert inventory(db_path)["elements"][next(i for i, item in enumerate(inventory(db_path)["elements"]) if item["code"] == "TEM")]["parameter_id"] == "cedarkit.t"
+            assert inventory(db_path)["elements"][next(i for i, item in enumerate(inventory(db_path)["elements"]) if item["code"] == "AVO")]["parameter_id"] == "cedarkit.td"
             with pytest.raises(sqlite3.IntegrityError):
-                conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (?, 'cmadaas', 'TEM')", (entry_id,))
+                conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (?, 'cmadaas', 'AVO')", (entry_id,))
         finally:
             conn.close()

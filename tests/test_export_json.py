@@ -12,11 +12,16 @@ from cedarkit_param_db.__main__ import main
 from cedarkit_param_db.db import init_db
 from cedarkit_param_db.exporter import JSON_SCHEMA_VERSION, export_json
 from cedarkit_param_db.importer import import_registry
+from cedarkit_param_db.cmadaas import import_vocabulary
 
 #: data/cedarkit-param-db/tests/ → 上三级为 devel 根目录
 REGISTRY_YAML = (
     Path(__file__).resolve().parents[3]
     / "repo/reki/reki/readers/grib/config/param_registry.yaml"
+)
+CMADAAS_VOCABULARY = (
+    Path(__file__).resolve().parents[3]
+    / "source/nuwe-cmadaas-devel/cmadaas_param_names.md"
 )
 
 pytestmark = pytest.mark.skipif(
@@ -28,6 +33,7 @@ pytestmark = pytest.mark.skipif(
 def db_path(tmp_path_factory):
     path = tmp_path_factory.mktemp("db") / "json_test.db"
     init_db(path)
+    import_vocabulary(CMADAAS_VOCABULARY, path)
     import_registry(REGISTRY_YAML, path)
     return path
 
@@ -43,6 +49,7 @@ class TestExportJson:
         entry = next(e for e in doc["entries"] if e["name"] == "t")
         assert entry["key"] == {"discipline": 0, "category": 0, "number": 0}
         assert entry["parameter_id"] == "cedarkit.t"
+        assert entry["external_names"] == {"cmadaas": "TEM"}
         assert entry["updated_at"]  # 数据库独有字段必须存在
         variant = next(v for v in entry["variants"] if v["name"] == "t2m")
         assert variant["parameter_id"] == "cedarkit.t2m"

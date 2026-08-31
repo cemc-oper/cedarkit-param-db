@@ -28,7 +28,7 @@ WHEN_KEY_ORDER = (
 )
 
 _ENTRY_FIELDS = (
-    "parameter_id", "key", "name", "aliases", "wgrib2_name", "unit", "description",
+    "parameter_id", "key", "name", "aliases", "external_names", "wgrib2_name", "unit", "description",
     "description_cn", "typeOfLevel", "level", "params",
 )
 
@@ -38,12 +38,12 @@ _VARIANT_FIELDS = (
 )
 
 #: params.json 的 schema 版本（cedarkit-param-web 构建时校验兼容性）
-JSON_SCHEMA_VERSION = 2
-PARAMETER_REGISTRY_API_VERSION = "reki.parameter-registry/v2"
+JSON_SCHEMA_VERSION = 3
+PARAMETER_REGISTRY_API_VERSION = "reki.parameter-registry/v3"
 
 #: params.json 的字段顺序（规范化契约的一部分，保证 diff 可读）
 _JSON_ENTRY_FIELDS = (
-    "parameter_id", "key", "name", "aliases", "wgrib2_name", "unit", "description",
+    "parameter_id", "key", "name", "aliases", "external_names", "wgrib2_name", "unit", "description",
     "description_cn", "typeOfLevel", "level", "remark", "updated_at", "variants",
 )
 
@@ -82,6 +82,9 @@ def export_entries(db_path: Path | str) -> list:
             aliases = _aliases_of(conn, "entry", row["id"])
             if aliases:
                 entry["aliases"] = aliases
+            external_names = _external_names_of(conn, row["id"])
+            if external_names:
+                entry["external_names"] = external_names
             for col, field in (
                 ("wgrib2_name", "wgrib2_name"),
                 ("unit", "unit"),
@@ -131,6 +134,14 @@ def _aliases_of(conn, owner_type: str, owner_id: int) -> list:
     return [r["alias"] for r in rows]
 
 
+def _external_names_of(conn, entry_id: int) -> dict[str, str]:
+    rows = conn.execute(
+        "SELECT namespace, code FROM entry_external_elements WHERE entry_id = ? ORDER BY namespace",
+        (entry_id,),
+    ).fetchall()
+    return {row["namespace"]: row["code"] for row in rows}
+
+
 def _decode_when(when_json: str) -> dict:
     when = json.loads(when_json)
     ordered = {k: when[k] for k in WHEN_KEY_ORDER if k in when}
@@ -141,7 +152,7 @@ def _decode_when(when_json: str) -> dict:
 
 
 def export_document(db_path: Path | str) -> dict:
-    """Export the versioned reki parameter-registry v2 document."""
+    """Export the versioned reki parameter-registry v3 document."""
     return {"api_version": PARAMETER_REGISTRY_API_VERSION, "entries": export_entries(db_path)}
 
 
@@ -193,6 +204,9 @@ def export_full_entries(db_path: Path | str) -> list:
             aliases = _aliases_of(conn, "entry", row["id"])
             if aliases:
                 entry["aliases"] = aliases
+            external_names = _external_names_of(conn, row["id"])
+            if external_names:
+                entry["external_names"] = external_names
             for col, field in (
                 ("wgrib2_name", "wgrib2_name"),
                 ("unit", "unit"),

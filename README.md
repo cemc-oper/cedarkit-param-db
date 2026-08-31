@@ -14,7 +14,8 @@ cedarkit_param.db ──export──────> param_registry.yaml ──打�
 禁止手工编辑 YAML 快照；所有要素维护通过 SQL 修改数据库后重新导出。
 
 数据模型与约束规则见 reki 仓库的 `param_registry_spec.md`。参数快照使用
-`reki.parameter-registry/v2`；entry 和 variant 都有稳定的 `parameter_id`。ID 是
+`reki.parameter-registry/v3`；entry 和 variant 都有稳定的 `parameter_id`。v3 的
+基础 entry 还可发布 `external_names`，variant 由父 entry 继承。ID 是
 发布契约，重命名或增加 alias 时不得重算；删除的 ID 必须记录 tombstone，不能复用。
 schema 与其字段一一对应，约束分工：
 
