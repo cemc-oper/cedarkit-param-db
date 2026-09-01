@@ -14,6 +14,13 @@
       "status": "unmapped"
     },
     {
+      "code": "ALBO",
+      "description_cn": "地表反照率",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.albedo.any"
+    },
+    {
       "code": "AVO",
       "description_cn": "绝对涡度",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
@@ -32,6 +39,13 @@
       "status": "unmapped"
     },
     {
+      "code": "CAPE",
+      "description_cn": "对流有效位能",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.cape.any"
+    },
+    {
       "code": "CCC",
       "description_cn": "对流云量",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
@@ -44,6 +58,27 @@
       "status": "unmapped"
     },
     {
+      "code": "CIN",
+      "description_cn": "对流抑制能",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.cin.any"
+    },
+    {
+      "code": "CLCO",
+      "description_cn": "云量",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.cc"
+    },
+    {
+      "code": "CMRA",
+      "description_cn": "云水混合比",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.qc"
+    },
+    {
       "code": "COS",
       "description_cn": "对流雪量",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
@@ -53,7 +88,8 @@
       "code": "CPE",
       "description_cn": "对流降水",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.rainc.any"
     },
     {
       "code": "CUD",
@@ -86,6 +122,13 @@
       "status": "unmapped"
     },
     {
+      "code": "DCAPE",
+      "description_cn": "下沉有效位能",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.dcape"
+    },
+    {
       "code": "DEN",
       "description_cn": "密度",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
@@ -95,13 +138,15 @@
       "code": "DPD",
       "description_cn": "温度露点差(或亏值)",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.ttd"
     },
     {
       "code": "DPT",
       "description_cn": "露点温度",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.td"
     },
     {
       "code": "DSL",
@@ -147,6 +192,13 @@
       "status": "unmapped"
     },
     {
+      "code": "GRSP",
+      "description_cn": "霰",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.graupel"
+    },
+    {
       "code": "GRTE",
       "description_cn": "地面温度",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
@@ -156,7 +208,15 @@
       "code": "HCC",
       "description_cn": "高云量",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.hcc"
+    },
+    {
+      "code": "HIDX",
+      "description_cn": "冰雹指数",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.hi.any"
     },
     {
       "code": "HIFE",
@@ -169,6 +229,13 @@
       "description_cn": "湿度混合比",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
       "status": "unmapped"
+    },
+    {
+      "code": "HT0",
+      "description_cn": "0℃层高度",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.ht0.any"
     },
     {
       "code": "ICO",
@@ -225,16 +292,25 @@
       "status": "unmapped"
     },
     {
+      "code": "IWMR",
+      "description_cn": "冰水混合比",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.qi"
+    },
+    {
       "code": "KIDX",
       "description_cn": "K指数",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.kidx.any"
     },
     {
       "code": "LCC",
       "description_cn": "低云量",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.lcc"
     },
     {
       "code": "LHFU",
@@ -258,7 +334,8 @@
       "code": "LPE",
       "description_cn": "大尺度降水",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.rainnc.any"
     },
     {
       "code": "LRA",
@@ -282,7 +359,8 @@
       "code": "MCC",
       "description_cn": "中云量",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.mcc"
     },
     {
       "code": "MFUU",
@@ -300,7 +378,8 @@
       "code": "MFVO",
       "description_cn": "水汽通量散度",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.qdiv"
     },
     {
       "code": "MLD",
@@ -318,7 +397,8 @@
       "code": "MOFU",
       "description_cn": "水汽通量",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.qflx"
     },
     {
       "code": "MPVH",
@@ -399,6 +479,20 @@
       "status": "unmapped"
     },
     {
+      "code": "PBLH",
+      "description_cn": "边界层高度",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.pblh.any"
+    },
+    {
+      "code": "PC",
+      "description_cn": "抬升凝结高度",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.pc.any"
+    },
+    {
       "code": "PHA",
       "description_cn": "位势高度距平",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
@@ -408,7 +502,8 @@
       "code": "PLI",
       "description_cn": "气块抬升指数（到500hPa）",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.pli.any"
     },
     {
       "code": "POT",
@@ -426,7 +521,8 @@
       "code": "PPT",
       "description_cn": "假绝热位温/假相当位温",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.theta-se"
     },
     {
       "code": "PPTE",
@@ -472,6 +568,20 @@
       "status": "unmapped"
     },
     {
+      "code": "RACR",
+      "description_cn": "雷达组合反射率",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.cdbz"
+    },
+    {
+      "code": "RAR",
+      "description_cn": "雷达反射率",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.dbz"
+    },
+    {
       "code": "RDI",
       "description_cn": "相对散度",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
@@ -484,10 +594,32 @@
       "status": "unmapped"
     },
     {
+      "code": "RHMAX",
+      "description_cn": "最大相对湿度",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.rhmax"
+    },
+    {
+      "code": "RHMIN",
+      "description_cn": "最小相对湿度",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.rhmin"
+    },
+    {
       "code": "RHU",
       "description_cn": "相对湿度",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.rh"
+    },
+    {
+      "code": "RMRA",
+      "description_cn": "雨水混合比",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.qr"
     },
     {
       "code": "RS1",
@@ -547,7 +679,8 @@
       "code": "SDE",
       "description_cn": "雪深",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.sd.any"
     },
     {
       "code": "SDH",
@@ -574,10 +707,18 @@
       "status": "unmapped"
     },
     {
+      "code": "SHID",
+      "description_cn": "沙氏指数",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.si.any"
+    },
+    {
       "code": "SHU",
       "description_cn": "比湿",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.q"
     },
     {
       "code": "SIFU",
@@ -596,6 +737,13 @@
       "description_cn": "雪融化量",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
       "status": "unmapped"
+    },
+    {
+      "code": "SMRA",
+      "description_cn": "雪水混合比",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.qs"
     },
     {
       "code": "SNI",
@@ -643,7 +791,8 @@
       "code": "SSP",
       "description_cn": "订正的平均海平面气压",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.psl.any"
     },
     {
       "code": "SSWC",
@@ -676,6 +825,13 @@
       "status": "unmapped"
     },
     {
+      "code": "SWID",
+      "description_cn": "强天气胁迫指数",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.sweatidx.any"
+    },
+    {
       "code": "SWP",
       "description_cn": "涌浪的平均周期",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
@@ -691,13 +847,29 @@
       "code": "TCC",
       "description_cn": "总云量",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.tcc"
+    },
+    {
+      "code": "TCCI",
+      "description_cn": "总柱状云冰",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.tiw.any"
+    },
+    {
+      "code": "TCCW",
+      "description_cn": "总柱状云水",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.tcw.any"
     },
     {
       "code": "TEAD",
       "description_cn": "温度平流",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.tadv"
     },
     {
       "code": "TEDP",
@@ -723,6 +895,20 @@
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
       "status": "mapped",
       "parameter_id": "cedarkit.t"
+    },
+    {
+      "code": "TIWV",
+      "description_cn": "总柱状比湿（整层水汽含量）",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.tvw.any"
+    },
+    {
+      "code": "TOSN",
+      "description_cn": "降雪量",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.sf.any"
     },
     {
       "code": "TOZ",
@@ -758,13 +944,15 @@
       "code": "VIS",
       "description_cn": "能见度",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.vis.any"
     },
     {
       "code": "VOAD",
       "description_cn": "涡度平流",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.voradv"
     },
     {
       "code": "VPO",
@@ -794,7 +982,8 @@
       "code": "VVM",
       "description_cn": "垂直速度（几何的）",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
-      "status": "unmapped"
+      "status": "mapped",
+      "parameter_id": "cedarkit.w.any"
     },
     {
       "code": "VVP",
@@ -807,6 +996,13 @@
       "description_cn": "风向",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
       "status": "unmapped"
+    },
+    {
+      "code": "WIDX",
+      "description_cn": "大风指数",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.wi.any"
     },
     {
       "code": "WIP",
@@ -859,6 +1055,13 @@
       "status": "unmapped"
     },
     {
+      "code": "WSGU",
+      "description_cn": "阵风风速",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.gust"
+    },
+    {
       "code": "WSH",
       "description_cn": "风浪和涌浪合成的有效高度",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
@@ -881,6 +1084,13 @@
       "description_cn": "风浪的有效高度",
       "provenance": "source/nuwe-cmadaas-devel/cmadaas_param_names.md#sha256=67e3320d89eace0764827d661529d9d753e19ac42c832013d48910262ce80285",
       "status": "unmapped"
+    },
+    {
+      "code": "ZNT",
+      "description_cn": "粗糙度",
+      "provenance": "doc/ref/cmadaas-cemc-data.md (CEMC product element tables; accessed 2026-09-01)",
+      "status": "mapped",
+      "parameter_id": "cedarkit.znt.any"
     }
   ]
 }

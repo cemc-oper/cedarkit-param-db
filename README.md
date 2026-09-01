@@ -31,8 +31,9 @@ schema 与其字段一一对应，约束分工：
 
 CMADaaS 词表使用独立的 `external_elements` 与 `entry_external_elements` 表。前者是
 完整、可审计的服务名称词表，后者只能把基础 entry 映射到一个 namespace/code；variant
-继承 mapping。该模型不存 dataset、`data_code`、endpoint 或认证信息。用 SQL change
-script 审核人工 mapping，并通过下列命令导入及检查词表：
+继承 mapping。该模型不存 dataset、`data_code`、endpoint 或认证信息。通用词表可由下列
+命令导入；CEMC 产品表中通用词表缺少、但已核验的 code 必须随可评审 SQL change script
+补充，并在 `source_ref` 记录产品文档，不能绕过外键直接写 mapping：
 
 ```bash
 python -m cedarkit_param_db import-cmadaas-vocabulary \

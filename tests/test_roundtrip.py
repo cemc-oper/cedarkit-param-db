@@ -24,6 +24,55 @@ CMADAAS_VOCABULARY = (
     / "source/nuwe-cmadaas-devel/cmadaas_param_names.md"
 )
 
+
+CMADAAS_MAPPINGS = {
+    "cedarkit.albedo.any": "ALBO", "cedarkit.cape.any": "CAPE",
+    "cedarkit.cc": "CLCO", "cedarkit.cdbz": "RACR", "cedarkit.cin.any": "CIN",
+    "cedarkit.dbz": "RAR", "cedarkit.dcape": "DCAPE", "cedarkit.graupel": "GRSP",
+    "cedarkit.gust": "WSGU", "cedarkit.h.any": "GPH", "cedarkit.hcc": "HCC",
+    "cedarkit.hi.any": "HIDX", "cedarkit.ht0.any": "HT0", "cedarkit.kidx.any": "KIDX",
+    "cedarkit.lcc": "LCC", "cedarkit.mcc": "MCC", "cedarkit.pblh.any": "PBLH",
+    "cedarkit.pc.any": "PC", "cedarkit.pli.any": "PLI", "cedarkit.psl.any": "SSP",
+    "cedarkit.q": "SHU", "cedarkit.qc": "CMRA", "cedarkit.qdiv": "MFVO",
+    "cedarkit.qflx": "MOFU", "cedarkit.qi": "IWMR", "cedarkit.qr": "RMRA",
+    "cedarkit.qs": "SMRA", "cedarkit.rain.any": "PRE", "cedarkit.rainc.any": "CPE",
+    "cedarkit.rainnc.any": "LPE", "cedarkit.rh": "RHU", "cedarkit.rhmax": "RHMAX",
+    "cedarkit.rhmin": "RHMIN", "cedarkit.sd.any": "SDE", "cedarkit.sf.any": "TOSN",
+    "cedarkit.si.any": "SHID", "cedarkit.sweatidx.any": "SWID", "cedarkit.t": "TEM",
+    "cedarkit.tadv": "TEAD", "cedarkit.tcc": "TCC", "cedarkit.tcw.any": "TCCW",
+    "cedarkit.td": "DPT", "cedarkit.theta-se": "PPT", "cedarkit.tiw.any": "TCCI",
+    "cedarkit.ttd": "DPD", "cedarkit.tvw.any": "TIWV", "cedarkit.u": "WIU",
+    "cedarkit.v": "WIV", "cedarkit.vis.any": "VIS", "cedarkit.voradv": "VOAD",
+    "cedarkit.w.any": "VVM", "cedarkit.wi.any": "WIDX", "cedarkit.znt.any": "ZNT",
+}
+
+CEMC_EXTERNAL_ELEMENTS = {
+    "ALBO": "地表反照率", "CAPE": "对流有效位能", "CIN": "对流抑制能",
+    "CLCO": "云量", "CMRA": "云水混合比", "DCAPE": "下沉有效位能",
+    "GRSP": "霰", "HIDX": "冰雹指数", "HT0": "0℃层高度",
+    "IWMR": "冰水混合比", "PC": "抬升凝结高度", "PBLH": "边界层高度", "RACR": "雷达组合反射率",
+    "RAR": "雷达反射率", "RHMAX": "最大相对湿度", "RHMIN": "最小相对湿度",
+    "RMRA": "雨水混合比", "SHID": "沙氏指数", "SMRA": "雪水混合比",
+    "SWID": "强天气胁迫指数", "TCCI": "总柱状云冰", "TCCW": "总柱状云水",
+    "TIWV": "总柱状比湿（整层水汽含量）", "TOSN": "降雪量", "WIDX": "大风指数",
+    "WSGU": "阵风风速", "ZNT": "粗糙度",
+}
+
+
+def import_cemc_m06_elements(path):
+    """Add the CEMC-only vocabulary rows required by the published v3 snapshot."""
+    from cedarkit_param_db.db import connect
+    conn = connect(path)
+    try:
+        with conn:
+            conn.executemany(
+                "INSERT INTO external_elements(namespace, code, description_cn, source_ref) VALUES (?, ?, ?, ?)",
+                [("cmadaas", code, description, "doc/ref/cmadaas-cemc-data.md")
+                 for code, description in CEMC_EXTERNAL_ELEMENTS.items()],
+            )
+    finally:
+        conn.close()
+
 pytestmark = pytest.mark.skipif(
     not REGISTRY_YAML.exists(), reason="reki param_registry.yaml 不在预期位置"
 )
@@ -34,6 +83,7 @@ def db_path(tmp_path_factory):
     path = tmp_path_factory.mktemp("db") / "test.db"
     init_db(path)
     import_vocabulary(CMADAAS_VOCABULARY, path)
+    import_cemc_m06_elements(path)
     import_registry(REGISTRY_YAML, path)
     return path
 
@@ -72,6 +122,7 @@ class TestRoundtrip:
         db2 = tmp_path / "second.db"
         init_db(db2)
         import_vocabulary(CMADAAS_VOCABULARY, db2)
+        import_cemc_m06_elements(db2)
         import_registry(yaml_path, db2)
         assert export_text(db2) == first
 
@@ -173,10 +224,10 @@ class TestCmadaasExternalElements:
     def test_import_is_complete_idempotent_and_unmapped_is_visible(self, db_path):
         assert import_vocabulary(CMADAAS_VOCABULARY, db_path) == 146
         first = inventory(db_path)
-        assert len(first["elements"]) == 146
-        assert len({item["code"] for item in first["elements"]}) == 146
+        assert len(first["elements"]) == 173
+        assert len({item["code"] for item in first["elements"]}) == 173
         mapped = {item["code"] for item in first["elements"] if item["status"] == "mapped"}
-        assert mapped == {"TEM", "GPH", "WIU", "WIV", "PRE"}
+        assert mapped == set(CMADAAS_MAPPINGS.values())
         assert import_vocabulary(CMADAAS_VOCABULARY, db_path) == 146
         assert inventory(db_path) == first
 
@@ -187,10 +238,10 @@ class TestCmadaasExternalElements:
         try:
             with pytest.raises(sqlite3.IntegrityError):
                 conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (999999, 'cmadaas', 'AVO')")
-            entry_id = conn.execute("SELECT id FROM entries WHERE parameter_id = 'cedarkit.td'").fetchone()["id"]
+            entry_id = conn.execute("SELECT id FROM entries WHERE parameter_id = 'cedarkit.apd'").fetchone()["id"]
             conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (?, 'cmadaas', 'AVO')", (entry_id,))
             conn.commit()
-            assert inventory(db_path)["elements"][next(i for i, item in enumerate(inventory(db_path)["elements"]) if item["code"] == "AVO")]["parameter_id"] == "cedarkit.td"
+            assert inventory(db_path)["elements"][next(i for i, item in enumerate(inventory(db_path)["elements"]) if item["code"] == "AVO")]["parameter_id"] == "cedarkit.apd"
             with pytest.raises(sqlite3.IntegrityError):
                 conn.execute("INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (?, 'cmadaas', 'AVO')", (entry_id,))
         finally:

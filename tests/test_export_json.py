@@ -24,6 +24,12 @@ CMADAAS_VOCABULARY = (
     / "source/nuwe-cmadaas-devel/cmadaas_param_names.md"
 )
 
+CEMC_M06_CODES = (
+    "ALBO", "CAPE", "CIN", "CLCO", "CMRA", "DCAPE", "GRSP", "HIDX", "HT0",
+    "IWMR", "PC", "PBLH", "RACR", "RAR", "RHMAX", "RHMIN", "RMRA", "SHID", "SMRA",
+    "SWID", "TCCI", "TCCW", "TIWV", "TOSN", "WIDX", "WSGU", "ZNT",
+)
+
 pytestmark = pytest.mark.skipif(
     not REGISTRY_YAML.exists(), reason="reki param_registry.yaml 不在预期位置"
 )
@@ -34,6 +40,14 @@ def db_path(tmp_path_factory):
     path = tmp_path_factory.mktemp("db") / "json_test.db"
     init_db(path)
     import_vocabulary(CMADAAS_VOCABULARY, path)
+    from cedarkit_param_db.db import connect
+    conn = connect(path)
+    with conn:
+        conn.executemany(
+            "INSERT INTO external_elements(namespace, code, description_cn, source_ref) VALUES (?, ?, ?, ?)",
+            [("cmadaas", code, code, "doc/ref/cmadaas-cemc-data.md") for code in CEMC_M06_CODES],
+        )
+    conn.close()
     import_registry(REGISTRY_YAML, path)
     return path
 
