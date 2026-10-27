@@ -24,7 +24,7 @@ test = ["pytest"]
 where = ["src"]
 
 [tool.setuptools.package-data]
-cedarkit_param_db = ["schema.sql"]
+cedarkit_param_db = ["schema.sql", "review.sql"]
 
 [tool.uv.sources]
 cedarkit-query = { path = "../../repo/cedarkit-query", editable = true }

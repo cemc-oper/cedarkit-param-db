@@ -13,7 +13,7 @@ import yaml
 from cedarkit_query import QueryError, normalize_fixed
 
 from .db import connect, init_db, transaction
-from .exporter import compact, json_text, pending_issues, read_resources
+from .exporter import compact, json_text, read_resources
 from .importer import insert_mappings, insert_parameters
 
 SURFACES = {
@@ -493,6 +493,15 @@ def migration_report(db_path):
         conn.execute("BEGIN")
         p, ms = read_resources(conn)
         index = {r["parameter_id"]: r for r in p["parameters"]}
+        from .review import review_states
+        from collections import Counter
+
+        assessments = review_states(conn, p, ms)
+        definition_states = {
+            r["parameter_id"]: r["review_status"]
+            for r in assessments
+            if r["aspect"] == "definition"
+        }
         rows = []
         for r in conn.execute("SELECT * FROM migration_records ORDER BY parameter_id"):
             old = json.loads(r["legacy_json"])
@@ -502,6 +511,9 @@ def migration_report(db_path):
                     "source_sha256": r["source_sha256"],
                     "legacy": old,
                     "current": index.get(r["parameter_id"]),
+                    "definition_review_status": definition_states.get(
+                        r["parameter_id"], "unreviewed"
+                    ),
                     "state": "active_review"
                     if r["parameter_id"] in index
                     else "quarantined",
@@ -523,7 +535,11 @@ def migration_report(db_path):
                     == old.get("parent_id"),
                 }
             )
-        pending = pending_issues(conn)
+        pending = [
+            r
+            for r in assessments
+            if r["review_status"] not in {"resolved", "not_applicable"}
+        ]
         return {
             "schema_version": 4,
             "scope": "offline parameter authoring migration; not product/backend acceptance",
@@ -546,7 +562,19 @@ def migration_report(db_path):
                 ).fetchone()[0],
                 "unresolved": len(pending),
             },
-            "full_migration_complete": not pending,
+            "full_migration_complete": not pending
+            and not conn.execute(
+                "SELECT 1 FROM parameter_reservations LIMIT 1"
+            ).fetchone(),
+            "review_summary": {
+                aspect: dict(
+                    Counter(
+                        r["review_status"] for r in assessments if r["aspect"] == aspect
+                    )
+                )
+                for aspect in ("definition", "grib2", "cmadaas")
+            },
+            "assessments": assessments,
             "records": rows,
             "unresolved": pending,
             "resolutions": [
@@ -581,6 +609,8 @@ def apply_review(db_path, review):
     from cedarkit_query import Parameters
 
     seen = set()
+    resolutions = []
+    assessments = []
     with transaction(db_path) as conn:
         source = conn.execute(
             "SELECT 1 FROM migration_sources WHERE sha256=?", (review["source_sha256"],)
@@ -592,7 +622,18 @@ def apply_review(db_path, review):
             if (
                 not isinstance(decision, dict)
                 or not required <= decision.keys()
-                or decision.keys() - (required | {"definition", "mapping_ids"})
+                or decision.keys()
+                - (
+                    required
+                    | {
+                        "definition",
+                        "mapping_ids",
+                        "outcome",
+                        "missing_input",
+                        "owner_tasks",
+                        "applicability",
+                    }
+                )
             ):
                 raise ValueError("unknown or missing review decision fields")
             pid, aspect = decision["parameter_id"], decision["aspect"]
@@ -622,7 +663,37 @@ def apply_review(db_path, review):
                 raise ValueError(
                     "no matching unresolved issue for this source/identity/aspect"
                 )
-            if aspect == "definition":
+            outcome = decision.get("outcome", "resolved")
+            if outcome == "needs_evidence":
+                if set(decision) != required | {
+                    "outcome",
+                    "missing_input",
+                    "owner_tasks",
+                } or any(
+                    not isinstance(decision[k], str) or not decision[k].strip()
+                    for k in ("missing_input", "owner_tasks")
+                ):
+                    raise ValueError(
+                        "a missing-evidence assessment needs precise missing_input and owner_tasks, without a resolution"
+                    )
+                assessments.append(decision)
+                continue
+            if outcome == "not_applicable":
+                if set(decision) != required | {"outcome", "applicability"}:
+                    raise ValueError(
+                        "non-applicability cannot carry a definition, mapping, or missing-evidence flag"
+                    )
+                from .review import validate_non_applicability
+
+                current, _ = read_resources(conn)
+                validate_non_applicability(decision, current)
+            elif outcome != "resolved" or set(decision) - (
+                required | {"outcome", "definition", "mapping_ids"}
+            ):
+                raise ValueError(
+                    "unknown review outcome or incompatible resolution fields"
+                )
+            elif aspect == "definition":
                 if "definition" not in decision or "mapping_ids" in decision:
                     raise ValueError(
                         "definition review needs a complete local definition, without mapping_ids"
@@ -724,4 +795,52 @@ def apply_review(db_path, review):
                 "UPDATE migration_issues SET resolution_json=? WHERE parameter_id=? AND aspect=?",
                 (compact(decision), pid, aspect),
             )
+            resolutions.append((pid, aspect))
+        from .review import definition_digests, review_states
+
+        current, mappings = read_resources(conn)
+        fingerprints = definition_digests(current)
+        empty_fingerprint = hashlib.sha256(b"quarantined").hexdigest()
+        for pid, aspect in resolutions:
+            document = json.loads(
+                conn.execute(
+                    "SELECT resolution_json FROM migration_issues WHERE parameter_id=? AND aspect=?",
+                    (pid, aspect),
+                ).fetchone()[0]
+            )
+            document["_definition_sha256"] = fingerprints.get(pid, empty_fingerprint)
+            document["_source_sha256"] = review["source_sha256"]
+            conn.execute(
+                "UPDATE migration_issues SET resolution_json=? WHERE parameter_id=? AND aspect=?",
+                (compact(document), pid, aspect),
+            )
+        for decision in assessments:
+            conn.execute(
+                "INSERT INTO migration_assessments(parameter_id,aspect,source_sha256,review_json,definition_sha256) VALUES (?,?,?,?,?)",
+                (
+                    decision["parameter_id"],
+                    decision["aspect"],
+                    review["source_sha256"],
+                    compact(decision),
+                    fingerprints.get(decision["parameter_id"], empty_fingerprint),
+                ),
+            )
+        states = {
+            (r["parameter_id"], r["aspect"]): r
+            for r in review_states(conn, current, mappings)
+        }
+        for pid, aspect in resolutions:
+            document = json.loads(
+                conn.execute(
+                    "SELECT resolution_json FROM migration_issues WHERE parameter_id=? AND aspect=?",
+                    (pid, aspect),
+                ).fetchone()[0]
+            )
+            if (
+                document.get("outcome") == "not_applicable"
+                and states[(pid, aspect)]["review_status"] != "not_applicable"
+            ):
+                raise ValueError(
+                    "non-applicability requires reviewed, current parameter and dependency definitions"
+                )
     return migration_report(db_path)

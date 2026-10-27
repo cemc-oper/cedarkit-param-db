@@ -20,6 +20,14 @@ Migration preserves IDs, names, aliases and old parent associations. Explicit ol
 
 The review database reserves IDs for definitions rejected by shared validation, retaining the complete failed draft and diagnostic. It does not rewrite parent or units to make a conflict pass. Other draft definitions also require evidence-bearing review before export. **A successful migration command creates a review copy; it does not mean the full migration or product coverage is complete.**
 
+## Continue an existing review
+
+```bash
+uv run python -m cedarkit_param_db --db /tmp/cedarkit-review-next.db copy-review --source-db /path/to/previous-schema4-review.db
+```
+
+The new copy supports distinct unreviewed, evidence-gap, resolved and evidenced non-applicable outcomes. Unknowns remain unresolved; changed proof or definitions require reassessment. See [review outcomes and non-applicability](docs/migration-v4.md#evidence-bearing-non-applicability).
+
 ## Review and export
 
 See [review decisions](docs/migration-v4.md) for source-bound resolutions. There is no blanket ignore-errors or accept-all switch. Definition review preserves stable ID, name and aliases; an explicitly evidenced parent correction is recorded as a difference. Mapping review must reference actual mappings for that identity/backend.
@@ -29,7 +37,7 @@ uv run python -m cedarkit_param_db --db /tmp/cedarkit-review.db review --decisio
 uv run python -m cedarkit_param_db --db /tmp/cedarkit-review.db export --out-dir /tmp/cedarkit-reviewed-bundle
 ```
 
-Full export fails while any migration issue is unresolved. For a reviewed **definition-only** slice, specify its exact IDs and a distinct resource identity:
+Full export fails while any migration issue is unresolved. A fully evidenced, current backend non-applicability decision can close an obligation without inventing a mapping; unsupported or unknown scope cannot. For a reviewed **definition-only** slice, specify its exact IDs and a distinct resource identity:
 
 ```bash
 uv run python -m cedarkit_param_db --db /tmp/cedarkit-review.db export-definitions --parameter-id cedarkit.t2m --resource-id cedarkit.temperature-definitions --version 1 --out-dir /tmp/cedarkit-definition-slice
@@ -57,4 +65,4 @@ uv run pytest -q
 uv build
 ```
 
-Tests use self-contained fixtures and a frozen legacy schema; they do not skip because another workspace repository is absent. I03 additionally records actual legacy-copy migration and deterministic definition-slice outputs under `migrations/stage1.1-i03/`, with stage evidence indexed in `doc/2026-10-13-stage1.1-query-reki/evidence/I03/` at workspace level. These results do not exercise backend decoding, online services, frontend adaptation or I10 cross-package acceptance.
+Tests use self-contained fixtures and a frozen legacy schema; they do not skip because another workspace repository is absent. I03 records the first-round baseline under `migrations/stage1.1-i03/` and the continued parameter review under `migrations/stage1.1-i03-review-2/`, with stage evidence indexed in `doc/2026-10-13-stage1.1-query-reki/evidence/I03/` at workspace level. These results do not exercise backend decoding, online services, frontend adaptation or I10 cross-package acceptance.

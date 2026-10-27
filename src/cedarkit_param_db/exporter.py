@@ -147,11 +147,12 @@ def read_resources(conn):
 
 
 def pending_issues(conn, *, definitions=None):
+    from .review import review_states
+
     rows = [
-        dict(r)
-        for r in conn.execute(
-            "SELECT parameter_id,aspect,gap,missing_input,owner_tasks FROM migration_issues WHERE resolution_json IS NULL ORDER BY parameter_id,aspect"
-        )
+        r
+        for r in review_states(conn)
+        if r["review_status"] not in {"resolved", "not_applicable"}
     ]
     if definitions is not None:
         rows = [
@@ -310,10 +311,15 @@ def export_bundle(db_path, out_dir):
             raise ValueError(
                 f"unresolved migration facts prevent full export: {len(unresolved)}; inspect migration-report"
             )
+        from .review import disposition_summary
+
         scope = {
             "kind": "database_resources",
             "parameter_ids": [p["parameter_id"] for p in p["parameters"]],
         }
+        dispositions = disposition_summary(conn, p, ms)
+        if dispositions:
+            scope["non_applicable"] = dispositions
         return _publish(out_dir, p, ms, _browser(conn, p, ms, scope), scope)
     finally:
         conn.close()

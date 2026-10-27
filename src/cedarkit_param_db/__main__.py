@@ -7,6 +7,7 @@ import sys
 
 from cedarkit_query import load_value
 
+from .review import copy_review
 from .db import init_db
 from .exporter import export_bundle, export_definitions, json_text
 from .importer import import_resources
@@ -41,6 +42,11 @@ def main(argv=None):
     source.add_argument("--source-db", type=Path)
     source.add_argument("--source-snapshot", type=Path)
     migrate.add_argument("--report", type=Path)
+    copy = commands.add_parser(
+        "copy-review",
+        help="create a new schema-4 copy with additive assessment storage",
+    )
+    copy.add_argument("--source-db", type=Path, required=True)
     load = commands.add_parser(
         "import", help="initialize an empty v4 database from new-format resources"
     )
@@ -68,6 +74,8 @@ def main(argv=None):
     try:
         if args.command == "init":
             init_db(args.db)
+        elif args.command == "copy-review":
+            copy_review(args.source_db, args.db)
         elif args.command == "migrate-v3":
             if args.report and args.report.exists():
                 raise FileExistsError(args.report)

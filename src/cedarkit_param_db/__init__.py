@@ -11,6 +11,7 @@ from .db import (
 from .exporter import export_bundle, export_definitions, snapshot
 from .importer import import_resources
 from .migration import apply_review, migrate_v3, migration_report
+from .review import copy_review
 
 __version__ = "0.1.0"
 
@@ -28,4 +29,5 @@ __all__ = [
     "migrate_v3",
     "migration_report",
     "apply_review",
+    "copy_review",
 ]

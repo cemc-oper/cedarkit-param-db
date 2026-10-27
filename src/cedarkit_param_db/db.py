@@ -55,6 +55,11 @@ def init_db(db_path):
             .joinpath("schema.sql")
             .read_text(encoding="utf-8")
         )
+        conn.executescript(
+            files("cedarkit_param_db")
+            .joinpath("review.sql")
+            .read_text(encoding="utf-8")
+        )
         conn.commit()
     except BaseException:
         conn.close()

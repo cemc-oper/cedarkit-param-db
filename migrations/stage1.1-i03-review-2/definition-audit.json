@@ -1,0 +1,3023 @@
+{
+  "inspected": 221,
+  "not_applicable_decisions": 0,
+  "not_applicable_reason": "No inspected material proves identity-wide definition-only use, confirmed exclusive exclusion, or complete not-provided coverage across all required products. Unknown scope stays an evidence gap.",
+  "records": [
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.albedo",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.albedo",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.albedo.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.albedo.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.apd",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.apd"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.asi",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.asi"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ata",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "climatology",
+      "missing_input": "Need anomaly reference and averaging period/context, not just a K unit and average-temperature-anomaly label.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 reference/period definition",
+      "parameter_id": "cedarkit.ata"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.bli",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.bli",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.bti",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "channel_context",
+      "missing_input": "Exact simulated channel/instrument applicability and meaning are not supplied by the generic IR/water-vapor labels; the DOCX confirms labels/K but not the missing channel context.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product/channel context; I06 native interpretation",
+      "parameter_id": "cedarkit.bti"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.btv",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "channel_context",
+      "missing_input": "Exact simulated channel/instrument applicability and meaning are not supplied by the generic IR/water-vapor labels; the DOCX confirms labels/K but not the missing channel context.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product/channel context; I06 native interpretation",
+      "parameter_id": "cedarkit.btv"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.cape",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.cape",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.cape.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.cape.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.cc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.cc",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.cdbz",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.cdbz",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.cdbzmax",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "statistics": {
+          "operation": "maximum",
+          "over": "time"
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.cdbzmax",
+      "reason": "The explicit old stepType fixes this broad time operation, while the omitted time_range_hours is explicitly wildcard under the old spec. Q21 permits an intentionally broad operation without a period. Retain that restriction; do not invent a concrete product period or drop any fixed duration."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.cdbzmax-1",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "window_anchor",
+      "missing_input": "The old predicate fixes time_range_hours, and existing descriptions state output-interval duration, but these materials do not independently establish encoded interval anchoring. Preserve the duration; do not widen this ID or assume trailing/since_initialization.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 interval/reference-time facts",
+      "parameter_id": "cedarkit.cdbzmax-1"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.cdbzmax-3",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "window_anchor",
+      "missing_input": "The old predicate fixes time_range_hours, and existing descriptions state output-interval duration, but these materials do not independently establish encoded interval anchoring. Preserve the duration; do not widen this ID or assume trailing/since_initialization.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 interval/reference-time facts",
+      "parameter_id": "cedarkit.cdbzmax-3"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ceiling",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.ceiling",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.cin",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.cin",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.cin.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.cin.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.cldb",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.cldb",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.cldt",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.cldt",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.dbz",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.dbz",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.dbzmax",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "statistics": {
+          "operation": "maximum",
+          "over": "time"
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.dbzmax",
+      "reason": "The explicit old stepType fixes this broad time operation, while the omitted time_range_hours is explicitly wildcard under the old spec. Q21 permits an intentionally broad operation without a period. Retain that restriction; do not invent a concrete product period or drop any fixed duration."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.dbzmax-3",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "window_anchor",
+      "missing_input": "The old predicate fixes time_range_hours, and existing descriptions state output-interval duration, but these materials do not independently establish encoded interval anchoring. Preserve the duration; do not widen this ID or assume trailing/since_initialization.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 interval/reference-time facts",
+      "parameter_id": "cedarkit.dbzmax-3"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.dbzmaxh",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.dbzmaxh",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.dcape",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.dcape",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.div",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.div",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.echotop",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.echotop",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.fog",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.fog"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.fogh",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.fogh",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.fogh.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.fogh.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.fogod",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.fogod"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.fogod.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.fogod.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gdlwc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.gdlwc"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gdlwc.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.gdlwc.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.glw",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.glw"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.graupel",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.graupel",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gsw",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.gsw"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gswc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.gswc"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gswc.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.gswc.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gulw",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.gulw"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gulw.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.gulw.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gulwc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.gulwc"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gulwc.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.gulwc.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gust",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "gust_definition",
+      "missing_input": "The DOCX confirms a 10m gust field but not the complete gust diagnostic/window meaning or whether that level is an identity-wide constraint. Do not infer a generic maximum statistic.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 gust definition; I06 temporal facts",
+      "parameter_id": "cedarkit.gust"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gusw",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.gusw"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.gusw.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.gusw.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.guswc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.guswc"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.guswc.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.guswc.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.h",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.h",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.h.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.h.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.hail",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "precipitation_product",
+      "missing_input": "Need the actual event/process/estimate or accumulation definition and its time scope; mm and the short descriptive label do not establish the missing product semantics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product/event definition; I06 original temporal facts",
+      "parameter_id": "cedarkit.hail"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.haze",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.haze"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.hcc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.hcc",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.hfx",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.hfx"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.hfx.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.hfx.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.hi",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.hi"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.hi.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.hi.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.hib",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.hib",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ht0",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.ht0",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ht0.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.ht0.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ht2",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.ht2",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ht2.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.ht2.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.htdn",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.htdn"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ii",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.ii",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.kidx",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "index_carrier",
+      "missing_input": "The old variant binds native first-level type 101, while these materials do not establish why this diagnostic should acquire a business mean-sea-level constraint. Keep native carrier versus business level unresolved.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 diagnostic meaning; I06 vertical facts",
+      "parameter_id": "cedarkit.kidx"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.kidx.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.kidx.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.lcc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.lcc",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.light",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "probability",
+      "missing_input": "Need probability object/event, threshold and units, population or generation context and method; a probability name and percent unit are insufficient.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product/population; I06 original statistics",
+      "parameter_id": "cedarkit.light"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.mcc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.mcc",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.mn2t",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "extrema_definition",
+      "missing_input": "Establish the named extrema definition and required time/vertical facts. Descriptive max/min words and informational level fields alone do not justify adding or omitting fixed business statistics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 concrete definition; I06 native statistics",
+      "parameter_id": "cedarkit.mn2t"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.mn2t.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "extrema_definition",
+      "missing_input": "Establish the named extrema definition and required time/vertical facts. Descriptive max/min words and informational level fields alone do not justify adding or omitting fixed business statistics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 concrete definition; I06 native statistics",
+      "parameter_id": "cedarkit.mn2t.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.mpv1",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "scaled_unit",
+      "missing_input": "Clarify physical output unit versus native/storage scale. The alignment SQL explicitly leaves local scaled-unit conventions unresolved; do not infer a multiplier from the string.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 value-unit facts",
+      "parameter_id": "cedarkit.mpv1"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.mpv2",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "scaled_unit",
+      "missing_input": "Clarify physical output unit versus native/storage scale. The alignment SQL explicitly leaves local scaled-unit conventions unresolved; do not infer a multiplier from the string.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 value-unit facts",
+      "parameter_id": "cedarkit.mpv2"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.mx2t",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "extrema_definition",
+      "missing_input": "Establish the named extrema definition and required time/vertical facts. Descriptive max/min words and informational level fields alone do not justify adding or omitting fixed business statistics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 concrete definition; I06 native statistics",
+      "parameter_id": "cedarkit.mx2t"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.mx2t.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "extrema_definition",
+      "missing_input": "Establish the named extrema definition and required time/vertical facts. Descriptive max/min words and informational level fields alone do not justify adding or omitting fixed business statistics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 concrete definition; I06 native statistics",
+      "parameter_id": "cedarkit.mx2t.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.nsss",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.nsss",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.nsss.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.nsss.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.pblh",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.pblh",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.pblh.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.pblh.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.pc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.pc",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.pc.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.pc.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.pi",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.pi"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.pip",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.pip"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.pli",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.pli",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.pli.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.pli.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.precitype",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.precitype"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ps",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.ps",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ps.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.ps.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.psl",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "mean_sea_level"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.psl",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.psl.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.psl.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.pwat",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "entire_atmosphere"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.pwat",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.pwat.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.pwat.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.q",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.q",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.q2m",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level": 2,
+        "level_type": "height_above_ground",
+        "level_unit": "m"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.q2m",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.qc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.qc",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.qdiv",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "scaled_unit",
+      "missing_input": "Clarify physical output unit versus native/storage scale. The alignment SQL explicitly leaves local scaled-unit conventions unresolved; do not infer a multiplier from the string.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 value-unit facts",
+      "parameter_id": "cedarkit.qdiv"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.qflx",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "scaled_unit",
+      "missing_input": "Clarify physical output unit versus native/storage scale. The alignment SQL explicitly leaves local scaled-unit conventions unresolved; do not infer a multiplier from the string.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 value-unit facts",
+      "parameter_id": "cedarkit.qflx"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.qfxsfc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.qfxsfc",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.qfxsfc.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.qfxsfc.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.qi",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.qi",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.qpe",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "precipitation_product",
+      "missing_input": "Need the actual event/process/estimate or accumulation definition and its time scope; mm and the short descriptive label do not establish the missing product semantics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product/event definition; I06 original temporal facts",
+      "parameter_id": "cedarkit.qpe"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.qr",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.qr",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.qs",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.qs",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rain",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface",
+        "statistics": {
+          "operation": "accumulation",
+          "over": "time"
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.rain",
+      "reason": "The explicit old stepType fixes this broad time operation, while the omitted time_range_hours is explicitly wildcard under the old spec. Q21 permits an intentionally broad operation without a period. Retain that restriction; do not invent a concrete product period or drop any fixed duration."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rain.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.rain.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rain5max",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "compound_rain5",
+      "missing_input": "DOCX table 1 row 82 says output-interval maximum of five-minute precipitation (mm/5min), while the old entry/variant descriptions and mm unit are incomplete. Need original quantity and both temporal roles; if confirmed beyond the finite time-statistic contract, return Q21/Q22 with this exact example.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 interval descriptors; Q21/Q22 if needed",
+      "parameter_id": "cedarkit.rain5max"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rain5max.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "compound_rain5",
+      "missing_input": "DOCX table 1 row 82 says output-interval maximum of five-minute precipitation (mm/5min), while the old entry/variant descriptions and mm unit are incomplete. Need original quantity and both temporal roles; if confirmed beyond the finite time-statistic contract, return Q21/Q22 with this exact example.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 interval descriptors; Q21/Q22 if needed",
+      "parameter_id": "cedarkit.rain5max.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rainc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface",
+        "statistics": {
+          "operation": "accumulation",
+          "over": "time"
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.rainc",
+      "reason": "The explicit old stepType fixes this broad time operation, while the omitted time_range_hours is explicitly wildcard under the old spec. Q21 permits an intentionally broad operation without a period. Retain that restriction; do not invent a concrete product period or drop any fixed duration."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rainc.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.rainc.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rainh",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "precipitation_product",
+      "missing_input": "Need the actual event/process/estimate or accumulation definition and its time scope; mm and the short descriptive label do not establish the missing product semantics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product/event definition; I06 original temporal facts",
+      "parameter_id": "cedarkit.rainh"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rainnc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface",
+        "statistics": {
+          "operation": "accumulation",
+          "over": "time"
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.rainnc",
+      "reason": "The explicit old stepType fixes this broad time operation, while the omitted time_range_hours is explicitly wildcard under the old spec. Q21 permits an intentionally broad operation without a period. Retain that restriction; do not invent a concrete product period or drop any fixed duration."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rainnc.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.rainnc.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rainp",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "probability",
+      "missing_input": "Need probability object/event, threshold and units, population or generation context and method; a probability name and percent unit are insufficient.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product/population; I06 original statistics",
+      "parameter_id": "cedarkit.rainp"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rainpr",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "precipitation_product",
+      "missing_input": "Need the actual event/process/estimate or accumulation definition and its time scope; mm and the short descriptive label do not establish the missing product semantics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product/event definition; I06 original temporal facts",
+      "parameter_id": "cedarkit.rainpr"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.raint",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "precipitation_product",
+      "missing_input": "Need the actual event/process/estimate or accumulation definition and its time scope; mm and the short descriptive label do not establish the missing product semantics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product/event definition; I06 original temporal facts",
+      "parameter_id": "cedarkit.raint"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rh",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.rh",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rh2m",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level": 2,
+        "level_type": "height_above_ground",
+        "level_unit": "m"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.rh2m",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rhmax",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "extrema_definition",
+      "missing_input": "Establish the named extrema definition and required time/vertical facts. Descriptive max/min words and informational level fields alone do not justify adding or omitting fixed business statistics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 concrete definition; I06 native statistics",
+      "parameter_id": "cedarkit.rhmax"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rhmax2m",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "extrema_definition",
+      "missing_input": "Establish the named extrema definition and required time/vertical facts. Descriptive max/min words and informational level fields alone do not justify adding or omitting fixed business statistics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 concrete definition; I06 native statistics",
+      "parameter_id": "cedarkit.rhmax2m"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rhmin",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "extrema_definition",
+      "missing_input": "Establish the named extrema definition and required time/vertical facts. Descriptive max/min words and informational level fields alone do not justify adding or omitting fixed business statistics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 concrete definition; I06 native statistics",
+      "parameter_id": "cedarkit.rhmin"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.rhmin2m",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "extrema_definition",
+      "missing_input": "Establish the named extrema definition and required time/vertical facts. Descriptive max/min words and informational level fields alone do not justify adding or omitting fixed business statistics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 concrete definition; I06 native statistics",
+      "parameter_id": "cedarkit.rhmin2m"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ri",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.ri"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ripbl",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. The old native first_level_type=166 also needs an evidenced canonical interpretation; do not infer a boundary from the label.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.ripbl"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.risfc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.risfc"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ro",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "precipitation_product",
+      "missing_input": "Need the actual event/process/estimate or accumulation definition and its time scope; mm and the short descriptive label do not establish the missing product semantics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product/event definition; I06 original temporal facts",
+      "parameter_id": "cedarkit.ro"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.saunaidx",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.saunaidx"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sd",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.sd",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sd.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.sd.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.seawave",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "wave_quantity",
+      "missing_input": "Need the specific wave quantity represented by the generic Sea wave label; a meter unit alone does not distinguish wave-height definitions.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 wave definition",
+      "parameter_id": "cedarkit.seawave"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sf",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "snow_conflict",
+      "missing_input": "Old English Snow melt and Chinese snowfall disagree. Existing snow-product listings do not alone establish the exact quantity, equivalent-depth unit and period for this identity; do not silently rewrite it.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 snow definition; I06 code/unit/period facts",
+      "parameter_id": "cedarkit.sf"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sf.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "snow_conflict",
+      "missing_input": "Old English Snow melt and Chinese snowfall disagree. Existing snow-product listings do not alone establish the exact quantity, equivalent-depth unit and period for this identity; do not silently rewrite it.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 snow definition; I06 code/unit/period facts",
+      "parameter_id": "cedarkit.sf.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.shr",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.shr",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.shr-0-1000",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/doc/CMA天气模式数据 - 2026.06.docx#explicit-interval-or-terrain-rows"
+      ],
+      "expected_fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "height_above_ground",
+            "unit": "m",
+            "value": 0
+          },
+          "top": {
+            "type": "height_above_ground",
+            "unit": "m",
+            "value": 1000
+          }
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.shr-0-1000",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.shr-0-3000",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/doc/CMA天气模式数据 - 2026.06.docx#explicit-interval-or-terrain-rows"
+      ],
+      "expected_fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "height_above_ground",
+            "unit": "m",
+            "value": 0
+          },
+          "top": {
+            "type": "height_above_ground",
+            "unit": "m",
+            "value": 3000
+          }
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.shr-0-3000",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.shr-0-6000",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/doc/CMA天气模式数据 - 2026.06.docx#explicit-interval-or-terrain-rows"
+      ],
+      "expected_fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "height_above_ground",
+            "unit": "m",
+            "value": 0
+          },
+          "top": {
+            "type": "height_above_ground",
+            "unit": "m",
+            "value": 6000
+          }
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.shr-0-6000",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.shrmax",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "spatial_extreme",
+      "missing_input": "Need the vertical/spatial vector maximum, direction or helicity definition and its relation to time maxima. Do not infer over=time from max in a name, or flatten an unknown compound statistic.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 diagnostic definition; I06 encoding facts",
+      "parameter_id": "cedarkit.shrmax"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.shrmax-0-600",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "spatial_extreme",
+      "missing_input": "Need the vertical/spatial vector maximum, direction or helicity definition and its relation to time maxima. Do not infer over=time from max in a name, or flatten an unknown compound statistic.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 diagnostic definition; I06 encoding facts",
+      "parameter_id": "cedarkit.shrmax-0-600"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.shrmaxdir",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "spatial_extreme",
+      "missing_input": "Need the vertical/spatial vector maximum, direction or helicity definition and its relation to time maxima. Do not infer over=time from max in a name, or flatten an unknown compound statistic.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 diagnostic definition; I06 encoding facts",
+      "parameter_id": "cedarkit.shrmaxdir"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.shrmaxdir-0-600",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "spatial_extreme",
+      "missing_input": "Need the vertical/spatial vector maximum, direction or helicity definition and its relation to time maxima. Do not infer over=time from max in a name, or flatten an unknown compound statistic.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 diagnostic definition; I06 encoding facts",
+      "parameter_id": "cedarkit.shrmaxdir-0-600"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.si",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.si",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.si.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.si.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.skint",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.skint"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.slhf",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.slhf"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.soil-m",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.soil-m"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.src",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.src"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.srh",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.srh",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.srh-0-1000",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/doc/CMA天气模式数据 - 2026.06.docx#explicit-interval-or-terrain-rows"
+      ],
+      "expected_fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "height_above_ground",
+            "unit": "m",
+            "value": 0
+          },
+          "top": {
+            "type": "height_above_ground",
+            "unit": "m",
+            "value": 1000
+          }
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.srh-0-1000",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.srh-0-3000",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/doc/CMA天气模式数据 - 2026.06.docx#explicit-interval-or-terrain-rows"
+      ],
+      "expected_fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "height_above_ground",
+            "unit": "m",
+            "value": 0
+          },
+          "top": {
+            "type": "height_above_ground",
+            "unit": "m",
+            "value": 3000
+          }
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.srh-0-3000",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sshf",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.sshf"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ssi",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.ssi"
+    },
+    {
+      "outcome": "previously_resolved",
+      "parameter_id": "cedarkit.st",
+      "reason": "Retain the first-round source-bound reviewed definition."
+    },
+    {
+      "outcome": "previously_resolved",
+      "parameter_id": "cedarkit.st-0-10",
+      "reason": "Retain the first-round source-bound reviewed definition."
+    },
+    {
+      "outcome": "previously_resolved",
+      "parameter_id": "cedarkit.st-10-40",
+      "reason": "Retain the first-round source-bound reviewed definition."
+    },
+    {
+      "outcome": "previously_resolved",
+      "parameter_id": "cedarkit.st-100-200",
+      "reason": "Retain the first-round source-bound reviewed definition."
+    },
+    {
+      "outcome": "previously_resolved",
+      "parameter_id": "cedarkit.st-40-100",
+      "reason": "Retain the first-round source-bound reviewed definition."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sw",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "soil_moisture",
+      "missing_input": "Confirm soil water quantity and parent semantics. The old sw override is m3/m3 while its q parent and DOCX soil SPFH rows use kg/kg; related interval identities inherit q. Preserve both facts without choosing a conversion or parent correction.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 soil-product definition; I06 native facts",
+      "parameter_id": "cedarkit.sw"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sw-0-10",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "soil_moisture",
+      "missing_input": "Confirm soil water quantity and parent semantics. The old sw override is m3/m3 while its q parent and DOCX soil SPFH rows use kg/kg; related interval identities inherit q. Preserve both facts without choosing a conversion or parent correction.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 soil-product definition; I06 native facts",
+      "parameter_id": "cedarkit.sw-0-10"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sw-10-40",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "soil_moisture",
+      "missing_input": "Confirm soil water quantity and parent semantics. The old sw override is m3/m3 while its q parent and DOCX soil SPFH rows use kg/kg; related interval identities inherit q. Preserve both facts without choosing a conversion or parent correction.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 soil-product definition; I06 native facts",
+      "parameter_id": "cedarkit.sw-10-40"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sw-100-200",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "soil_moisture",
+      "missing_input": "Confirm soil water quantity and parent semantics. The old sw override is m3/m3 while its q parent and DOCX soil SPFH rows use kg/kg; related interval identities inherit q. Preserve both facts without choosing a conversion or parent correction.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 soil-product definition; I06 native facts",
+      "parameter_id": "cedarkit.sw-100-200"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sw-40-100",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "soil_moisture",
+      "missing_input": "Confirm soil water quantity and parent semantics. The old sw override is m3/m3 while its q parent and DOCX soil SPFH rows use kg/kg; related interval identities inherit q. Preserve both facts without choosing a conversion or parent correction.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 soil-product definition; I06 native facts",
+      "parameter_id": "cedarkit.sw-40-100"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sweatidx",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.sweatidx"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.sweatidx.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.sweatidx.any"
+    },
+    {
+      "outcome": "previously_resolved",
+      "parameter_id": "cedarkit.t",
+      "reason": "Retain the first-round source-bound reviewed definition."
+    },
+    {
+      "outcome": "previously_resolved",
+      "parameter_id": "cedarkit.t2m",
+      "reason": "Retain the first-round source-bound reviewed definition."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tadv",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "scaled_unit",
+      "missing_input": "Clarify physical output unit versus native/storage scale. The alignment SQL explicitly leaves local scaled-unit conventions unresolved; do not infer a multiplier from the string.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 value-unit facts",
+      "parameter_id": "cedarkit.tadv"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tcc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.tcc",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tcw",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "entire_atmosphere"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.tcw",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tcw.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.tcw.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.td",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.td",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.td2m",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level": 2,
+        "level_type": "height_above_ground",
+        "level_unit": "m"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.td2m",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.theta-se",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.theta-se",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.thp",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.thp"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.thunwind",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.thunwind"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tiw",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "entire_atmosphere"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.tiw",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tiw.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.tiw.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tn",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "extrema_definition",
+      "missing_input": "Establish the named extrema definition and required time/vertical facts. Descriptive max/min words and informational level fields alone do not justify adding or omitting fixed business statistics.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 concrete definition; I06 native statistics",
+      "parameter_id": "cedarkit.tn"
+    },
+    {
+      "outcome": "previously_resolved",
+      "parameter_id": "cedarkit.ts",
+      "reason": "Retain the first-round source-bound reviewed definition."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tsoil",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.tsoil"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tsrwe",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.tsrwe"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tsw",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.tsw"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tswc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.tswc"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.ttd",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.ttd",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tti",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.tti",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tti.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.tti.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tulw",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.tulw"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tulwc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.tulwc"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tusw",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.tusw"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tuswc",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "radiation_time_unit",
+      "missing_input": "Resolve flux versus time-integrated quantity, physical output unit and statistical interpretation: old W/m2, ws/m2 and the DOCX W m-2 s forms conflict or are explicitly left open by the alignment record.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 product definition; I06 original unit/time facts",
+      "parameter_id": "cedarkit.tuswc"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tvw",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "entire_atmosphere"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.tvw",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.tvw.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.tvw.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.u",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.u",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.u10m",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/doc/CMA天气模式数据 - 2026.06.docx#table-0-row-17;table-1-row-16;table-2-row-16;table-3-row-6;table-4-row-4"
+      ],
+      "expected_fixed_conditions": {
+        "level": 10,
+        "level_type": "height_above_ground",
+        "level_unit": "m",
+        "statistics": {
+          "operation": "instantaneous",
+          "over": "time"
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.u10m",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period. Correct the display-only V typo to U: the cited existing UGRD/10m U rows, U-component parent and old Chinese description agree. ID, aliases, units, parent and fixed predicates are unchanged."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.u10mmax",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level": 10,
+        "level_type": "height_above_ground",
+        "level_unit": "m",
+        "statistics": {
+          "operation": "maximum",
+          "over": "time"
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.u10mmax",
+      "reason": "The explicit old stepType fixes this broad time operation, while the omitted time_range_hours is explicitly wildcard under the old spec. Q21 permits an intentionally broad operation without a period. Retain that restriction; do not invent a concrete product period or drop any fixed duration."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.u10mmax-1",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "window_anchor",
+      "missing_input": "The old predicate fixes time_range_hours, and existing descriptions state output-interval duration, but these materials do not independently establish encoded interval anchoring. Preserve the duration; do not widen this ID or assume trailing/since_initialization.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 interval/reference-time facts",
+      "parameter_id": "cedarkit.u10mmax-1"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.u10mmax-3",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "window_anchor",
+      "missing_input": "The old predicate fixes time_range_hours, and existing descriptions state output-interval duration, but these materials do not independently establish encoded interval anchoring. Preserve the duration; do not widen this ID or assume trailing/since_initialization.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 interval/reference-time facts",
+      "parameter_id": "cedarkit.u10mmax-3"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.uhmax",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "spatial_extreme",
+      "missing_input": "Need the vertical/spatial vector maximum, direction or helicity definition and its relation to time maxima. Do not infer over=time from max in a name, or flatten an unknown compound statistic.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 diagnostic definition; I06 encoding facts",
+      "parameter_id": "cedarkit.uhmax"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.uhmax-2000-5000",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "spatial_extreme",
+      "missing_input": "Need the vertical/spatial vector maximum, direction or helicity definition and its relation to time maxima. Do not infer over=time from max in a name, or flatten an unknown compound statistic.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 diagnostic definition; I06 encoding facts",
+      "parameter_id": "cedarkit.uhmax-2000-5000"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.uhmax.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "spatial_extreme",
+      "missing_input": "Need the vertical/spatial vector maximum, direction or helicity definition and its relation to time maxima. Do not infer over=time from max in a name, or flatten an unknown compound statistic.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 diagnostic definition; I06 encoding facts",
+      "parameter_id": "cedarkit.uhmax.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.v",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.v",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.v10m",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level": 10,
+        "level_type": "height_above_ground",
+        "level_unit": "m",
+        "statistics": {
+          "operation": "instantaneous",
+          "over": "time"
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.v10m",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.v10mmax",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level": 10,
+        "level_type": "height_above_ground",
+        "level_unit": "m",
+        "statistics": {
+          "operation": "maximum",
+          "over": "time"
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.v10mmax",
+      "reason": "The explicit old stepType fixes this broad time operation, while the omitted time_range_hours is explicitly wildcard under the old spec. Q21 permits an intentionally broad operation without a period. Retain that restriction; do not invent a concrete product period or drop any fixed duration."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.v10mmax-1",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "window_anchor",
+      "missing_input": "The old predicate fixes time_range_hours, and existing descriptions state output-interval duration, but these materials do not independently establish encoded interval anchoring. Preserve the duration; do not widen this ID or assume trailing/since_initialization.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 interval/reference-time facts",
+      "parameter_id": "cedarkit.v10mmax-1"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.v10mmax-3",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "window_anchor",
+      "missing_input": "The old predicate fixes time_range_hours, and existing descriptions state output-interval duration, but these materials do not independently establish encoded interval anchoring. Preserve the duration; do not widen this ID or assume trailing/since_initialization.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 interval/reference-time facts",
+      "parameter_id": "cedarkit.v10mmax-3"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.vi",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.vi",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.vis",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.vis",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.vis.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.vis.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.vor",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.vor",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.voradv",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "scaled_unit",
+      "missing_input": "Clarify physical output unit versus native/storage scale. The alignment SQL explicitly leaves local scaled-unit conventions unresolved; do not infer a multiplier from the string.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 value-unit facts",
+      "parameter_id": "cedarkit.voradv"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.w",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.w",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.w.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.w.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.weph",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.weph"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.wess",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.wess",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.wess.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.wess.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.wi",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.wi"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.wi.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "missing_unit",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I04 business definition",
+      "parameter_id": "cedarkit.wi.any"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.wmax",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "statistics": {
+          "operation": "maximum",
+          "over": "time"
+        }
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.wmax",
+      "reason": "The explicit old stepType fixes this broad time operation, while the omitted time_range_hours is explicitly wildcard under the old spec. Q21 permits an intentionally broad operation without a period. Retain that restriction; do not invent a concrete product period or drop any fixed duration."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.wmax-1",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "window_anchor",
+      "missing_input": "The old predicate fixes time_range_hours, and existing descriptions state output-interval duration, but these materials do not independently establish encoded interval anchoring. Preserve the duration; do not widen this ID or assume trailing/since_initialization.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 interval/reference-time facts",
+      "parameter_id": "cedarkit.wmax-1"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.wmax-3",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/cedarkit-param-db/changes/2026-08-21-cma-doc-alignment.sql",
+        "data/doc/CMA天气模式数据 - 2026.06.docx",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I01/gaps-and-owners.md"
+      ],
+      "gap_kind": "window_anchor",
+      "missing_input": "The old predicate fixes time_range_hours, and existing descriptions state output-interval duration, but these materials do not independently establish encoded interval anchoring. Preserve the duration; do not widen this ID or assume trailing/since_initialization.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03; I06 interval/reference-time facts",
+      "parameter_id": "cedarkit.wmax-3"
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.znt",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.znt",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.znt.any",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance"
+      ],
+      "expected_fixed_conditions": {},
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.znt.any",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    },
+    {
+      "evidence": [
+        "legacy-db:sha256=7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae#cedarkit.zs",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md#sections-3-and-5",
+        "Q21:confirmed-broad-definitions-and-inheritance",
+        "data/doc/CMA天气模式数据 - 2026.06.docx#explicit-interval-or-terrain-rows"
+      ],
+      "expected_fixed_conditions": {
+        "level_type": "surface"
+      },
+      "outcome": "resolved",
+      "parameter_id": "cedarkit.zs",
+      "reason": "The old spec explicitly permits a broad base/fallback and wildcard omitted conditions. Preserve the declared physical identity, names/aliases, unit and parent; information-only levels stay information. This resolves the definition, not an actual product, source unit or statistical period."
+    }
+  ]
+}
