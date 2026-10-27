@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "api_version": "cedarkit.parameters/v1",
+      "id": "cedarkit.i03.temperature-definitions",
+      "path": "parameters.json",
+      "sha256": "67e0217023fa0c6e34fbce28a8ef9a0207fd00da38d862fbeed533c2dbd73d91",
+      "size": 3074,
+      "version": "1"
+    },
+    {
+      "api_version": "cedarkit.parameters/v1",
+      "id": "cedarkit.i03.temperature-definitions",
+      "path": "parameters.yaml",
+      "sha256": "07730ff0c7e35ff3ff67ecbc6c7ef1e1b5aed631af334aff1321ab372fffaa2c",
+      "size": 2003,
+      "version": "1"
+    },
+    {
+      "path": "params.json",
+      "schema_version": 4,
+      "sha256": "28a4bbd33c104b4b8340e5ce765341fa95dccc18aed0bd84daeac5280b7a86d3",
+      "size": 4032
+    }
+  ],
+  "schema_version": 1,
+  "scope": {
+    "kind": "parameter_definitions",
+    "parameter_ids": [
+      "cedarkit.st",
+      "cedarkit.st-0-10",
+      "cedarkit.st-10-40",
+      "cedarkit.st-100-200",
+      "cedarkit.st-40-100",
+      "cedarkit.t",
+      "cedarkit.t2m",
+      "cedarkit.ts"
+    ],
+    "requested_parameter_ids": [
+      "cedarkit.st",
+      "cedarkit.st-0-10",
+      "cedarkit.st-10-40",
+      "cedarkit.st-100-200",
+      "cedarkit.st-40-100",
+      "cedarkit.t",
+      "cedarkit.t2m",
+      "cedarkit.ts"
+    ],
+    "runtime_mappings": false
+  },
+  "validation": "internal shared validation only; external product context and backend evidence remain required"
+}

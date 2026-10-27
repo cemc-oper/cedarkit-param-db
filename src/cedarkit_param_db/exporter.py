@@ -1,285 +1,374 @@
-"""SQLite → param_registry.yaml 确定性导出。
+"""Consistent schema-4 snapshots and atomic, deterministic resource bundles."""
 
-导出结果逐字节确定：条目按 (discipline, category, number) 排序（F3），
-变体按 sort_order（spec §5 并列裁决依赖），字段顺序固定，浮点层次值
-为整数时写回整数形式（与历史快照格式一致）。
-"""
-
+import hashlib
 import json
+import os
 from pathlib import Path
+import shutil
+import tempfile
 
+from cedarkit_query import load_value, validate_resource_set
 import yaml
 
-#: YAML 快照头部注释（导出时写入）
-HEADER = (
-    "# GRIB2 要素注册表。约束规范见同目录 param_registry_spec.md，请勿违反编号规则。\n"
-    "# 本文件由 cedarkit-param-db 从要素数据库导出（python -m cedarkit_param_db export），请勿手工编辑。\n"
-)
+from .db import connect, require_schema
 
-#: when 键在 YAML 中的书写顺序（spec §3.4 白名单顺序；when_json 按键名排序存储，
-#: 导出时恢复为本语义顺序以保证 diff 可读）
-WHEN_KEY_ORDER = (
-    "first_level_type",
-    "first_level",
-    "second_level_type",
-    "second_level",
-    "stepType",
-    "time_range_hours",
-)
-
-_ENTRY_FIELDS = (
-    "parameter_id", "key", "name", "aliases", "external_names", "wgrib2_name", "unit", "description",
-    "description_cn", "typeOfLevel", "level", "params",
-)
-
-_VARIANT_FIELDS = (
-    "parameter_id", "name", "aliases", "when", "typeOfLevel", "level",
-    "unit", "description", "description_cn",
-)
-
-#: params.json 的 schema 版本（cedarkit-param-web 构建时校验兼容性）
-JSON_SCHEMA_VERSION = 3
-PARAMETER_REGISTRY_API_VERSION = "reki.parameter-registry/v3"
-
-#: params.json 的字段顺序（规范化契约的一部分，保证 diff 可读）
-_JSON_ENTRY_FIELDS = (
-    "parameter_id", "key", "name", "aliases", "external_names", "wgrib2_name", "unit", "description",
-    "description_cn", "typeOfLevel", "level", "remark", "updated_at", "variants",
-)
+JSON_SCHEMA_VERSION = 4
 
 
-def _norm_number(value):
-    """REAL 列读回的整数值写回 int（level: 2 而非 2.0）。"""
-    if isinstance(value, float) and value.is_integer():
-        return int(value)
-    return value
-
-
-def _order_fields(data: dict, order: tuple) -> dict:
-    return {field: data[field] for field in order if field in data}
-
-
-def export_entries(db_path: Path | str) -> list:
-    """从数据库读出条目列表（结构等同 param_registry.yaml 的 safe_load 结果）。"""
-    from cedarkit_param_db.db import connect
-
-    conn = connect(db_path)
-    try:
-        entries = []
-        entry_rows = conn.execute(
-            "SELECT * FROM entries ORDER BY discipline, category, number"
-        ).fetchall()
-        for row in entry_rows:
-            entry = {
-                "parameter_id": row["parameter_id"],
-                "key": {
-                    "discipline": row["discipline"],
-                    "category": row["category"],
-                    "number": row["number"],
-                },
-                "name": row["name"],
-            }
-            aliases = _aliases_of(conn, "entry", row["id"])
-            if aliases:
-                entry["aliases"] = aliases
-            external_names = _external_names_of(conn, row["id"])
-            if external_names:
-                entry["external_names"] = external_names
-            for col, field in (
-                ("wgrib2_name", "wgrib2_name"),
-                ("unit", "unit"),
-                ("description", "description"),
-                ("description_cn", "description_cn"),
-                ("type_of_level", "typeOfLevel"),
-            ):
-                if row[col] is not None:
-                    entry[field] = row[col]
-            if row["level"] is not None:
-                entry["level"] = _norm_number(row["level"])
-
-            variants = []
-            variant_rows = conn.execute(
-                "SELECT * FROM variants WHERE entry_id = ? ORDER BY sort_order",
-                (row["id"],),
-            ).fetchall()
-            for v in variant_rows:
-                variant = {"parameter_id": v["parameter_id"], "name": v["name"]}
-                v_aliases = _aliases_of(conn, "variant", v["id"])
-                if v_aliases:
-                    variant["aliases"] = v_aliases
-                variant["when"] = _decode_when(v["when_json"])
-                if v["type_of_level"] is not None:
-                    variant["typeOfLevel"] = v["type_of_level"]
-                if v["level"] is not None:
-                    variant["level"] = _norm_number(v["level"])
-                # 变体级元数据：NULL 表示继承条目级，导出时省略
-                for col in ("unit", "description", "description_cn"):
-                    if v[col] is not None:
-                        variant[col] = v[col]
-                variants.append(_order_fields(variant, _VARIANT_FIELDS))
-
-            if variants:
-                entry["params"] = variants
-            entries.append(_order_fields(entry, _ENTRY_FIELDS))
-        return entries
-    finally:
-        conn.close()
-
-
-def _aliases_of(conn, owner_type: str, owner_id: int) -> list:
-    rows = conn.execute(
-        "SELECT alias FROM aliases WHERE owner_type = ? AND owner_id = ? ORDER BY id",
-        (owner_type, owner_id),
-    ).fetchall()
-    return [r["alias"] for r in rows]
-
-
-def _external_names_of(conn, entry_id: int) -> dict[str, str]:
-    rows = conn.execute(
-        "SELECT namespace, code FROM entry_external_elements WHERE entry_id = ? ORDER BY namespace",
-        (entry_id,),
-    ).fetchall()
-    return {row["namespace"]: row["code"] for row in rows}
-
-
-def _decode_when(when_json: str) -> dict:
-    when = json.loads(when_json)
-    ordered = {k: when[k] for k in WHEN_KEY_ORDER if k in when}
-    for k in when:  # 白名单外的键（规范升级后）排在最后，不丢失
-        if k not in ordered:
-            ordered[k] = when[k]
-    return ordered
-
-
-def export_document(db_path: Path | str) -> dict:
-    """Export the versioned reki parameter-registry v3 document."""
-    return {"api_version": PARAMETER_REGISTRY_API_VERSION, "entries": export_entries(db_path)}
-
-
-def export_text(db_path: Path | str) -> str:
-    """导出完整的 YAML 文本（含头部注释）。"""
-    entries = export_document(db_path)
-    body = yaml.safe_dump(
-        entries,
-        allow_unicode=True,
-        sort_keys=False,
-        default_flow_style=False,
-        width=120,
+def json_text(value):
+    return (
+        json.dumps(value, ensure_ascii=False, sort_keys=True, indent=2, allow_nan=False)
+        + "\n"
     )
-    return HEADER + body
 
 
-def export_file(db_path: Path | str, out_path: Path | str) -> Path:
-    out_path = Path(out_path)
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(export_text(db_path))
-    return out_path
+def compact(value):
+    return json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+        allow_nan=False,
+    )
 
 
-def export_full_entries(db_path: Path | str) -> list:
-    """导出完整要素列表（params.json 契约的数据段）。
+def _refs(conn, table, columns, values):
+    where = " AND ".join(k + "=?" for k in columns)
+    return [
+        r[0]
+        for r in conn.execute(
+            f"SELECT ref FROM {table} WHERE {where} ORDER BY ref", values
+        )
+    ]
 
-    与 export_entries()（YAML 快照）的差异：包含数据库独有字段
-    remark/updated_at，变体列表键名为 variants（与数据库表名一致）。
-    只含规范化原始数据，不含任何展示层预加工字段。
-    """
-    from cedarkit_param_db.db import connect
 
-    conn = connect(db_path)
-    try:
-        entries = []
-        entry_rows = conn.execute(
-            "SELECT * FROM entries ORDER BY discipline, category, number"
-        ).fetchall()
-        for row in entry_rows:
-            entry = {
-                "parameter_id": row["parameter_id"],
-                "key": {
-                    "discipline": row["discipline"],
-                    "category": row["category"],
-                    "number": row["number"],
-                },
-                "name": row["name"],
+def read_resources(conn):
+    """Read and fully validate one existing transaction view, including derived FKs."""
+    require_schema(conn)
+    if conn.execute("PRAGMA foreign_key_check").fetchall():
+        raise ValueError("database contains broken foreign key references")
+    roots = conn.execute("SELECT * FROM parameter_resources ORDER BY id").fetchall()
+    if len(roots) != 1:
+        raise ValueError("exactly one effective parameter resource is required")
+    resource = {
+        "api_version": "cedarkit.parameters/v1",
+        "id": roots[0]["id"],
+        "version": roots[0]["version"],
+        "parameters": [],
+    }
+    for r in conn.execute("SELECT * FROM parameters ORDER BY parameter_id"):
+        p = {"parameter_id": r["parameter_id"], "name": r["name"]}
+        for key in ("parent", "unit", "description", "description_cn"):
+            if r[key] is not None:
+                p[key] = r[key]
+        aliases = [
+            a[0]
+            for a in conn.execute(
+                "SELECT alias FROM aliases WHERE parameter_id=? ORDER BY alias",
+                (r["parameter_id"],),
+            )
+        ]
+        if aliases:
+            p["aliases"] = aliases
+        fixed = json.loads(r["fixed_json"])
+        if fixed:
+            p["fixed_conditions"] = fixed
+        resource["parameters"].append(p)
+    mappings = []
+    for root in conn.execute("SELECT * FROM mapping_resources ORDER BY id"):
+        rid, backend = root["id"], root["backend"]
+        m = {
+            "api_version": "cedarkit.mappings/v1",
+            "id": rid,
+            "version": root["version"],
+            "backend": backend,
+            "mappings": [],
+            "tables": [],
+        }
+        for r in conn.execute(
+            "SELECT * FROM mappings WHERE resource_id=? ORDER BY id", (rid,)
+        ):
+            m["mappings"].append(
+                {
+                    "id": r["id"],
+                    "parameter_id": r["parameter_id"],
+                    "backend": r["backend"],
+                    "applies_to": json.loads(r["applies_json"]),
+                    "when": json.loads(r["when_json"]),
+                    "native": json.loads(r["native_json"]),
+                    "evidence": _refs(
+                        conn,
+                        "mapping_evidence",
+                        ("resource_id", "mapping_id"),
+                        (rid, r["id"]),
+                    ),
+                }
+            )
+        for t in conn.execute(
+            "SELECT * FROM translation_tables WHERE resource_id=? ORDER BY id", (rid,)
+        ):
+            table = {
+                "id": t["id"],
+                "key_kind": t["key_kind"],
+                "applies_to": json.loads(t["applies_json"]),
+                "evidence": _refs(
+                    conn, "table_evidence", ("resource_id", "table_id"), (rid, t["id"])
+                ),
+                "rows": [],
             }
-            aliases = _aliases_of(conn, "entry", row["id"])
-            if aliases:
-                entry["aliases"] = aliases
-            external_names = _external_names_of(conn, row["id"])
-            if external_names:
-                entry["external_names"] = external_names
-            for col, field in (
-                ("wgrib2_name", "wgrib2_name"),
-                ("unit", "unit"),
-                ("description", "description"),
-                ("description_cn", "description_cn"),
-                ("type_of_level", "typeOfLevel"),
+            for r in conn.execute(
+                "SELECT * FROM table_rows WHERE resource_id=? AND table_id=? ORDER BY id",
+                (rid, t["id"]),
             ):
-                if row[col] is not None:
-                    entry[field] = row[col]
-            if row["level"] is not None:
-                entry["level"] = _norm_number(row["level"])
-            # 数据库独有字段（不进 YAML 快照）
-            if row["remark"] is not None:
-                entry["remark"] = row["remark"]
-            entry["updated_at"] = row["updated_at"]
+                row = {
+                    "id": r["id"],
+                    "native": json.loads(r["native_json"]),
+                    "canonical": json.loads(r["canonical_json"]),
+                }
+                refs = _refs(
+                    conn,
+                    "row_evidence",
+                    ("resource_id", "table_id", "row_id"),
+                    (rid, t["id"], r["id"]),
+                )
+                if refs:
+                    row["evidence"] = refs
+                table["rows"].append(row)
+            m["tables"].append(table)
+        mappings.append(m)
+    retired = [
+        r[0]
+        for r in conn.execute(
+            "SELECT parameter_id FROM parameter_id_tombstones ORDER BY parameter_id"
+        )
+    ]
+    validate_resource_set(resource, mappings, retired_ids=retired)
+    return resource, mappings
 
-            variants = []
-            variant_rows = conn.execute(
-                "SELECT * FROM variants WHERE entry_id = ? ORDER BY sort_order",
-                (row["id"],),
-            ).fetchall()
-            for v in variant_rows:
-                variant = {"parameter_id": v["parameter_id"], "name": v["name"]}
-                v_aliases = _aliases_of(conn, "variant", v["id"])
-                if v_aliases:
-                    variant["aliases"] = v_aliases
-                variant["when"] = _decode_when(v["when_json"])
-                if v["type_of_level"] is not None:
-                    variant["typeOfLevel"] = v["type_of_level"]
-                if v["level"] is not None:
-                    variant["level"] = _norm_number(v["level"])
-                for col in ("unit", "description", "description_cn"):
-                    if v[col] is not None:
-                        variant[col] = v[col]
-                variants.append(_order_fields(variant, _VARIANT_FIELDS))
 
-            if variants:
-                entry["variants"] = variants
-            entries.append(_order_fields(entry, _JSON_ENTRY_FIELDS))
-        return entries
+def pending_issues(conn, *, definitions=None):
+    rows = [
+        dict(r)
+        for r in conn.execute(
+            "SELECT parameter_id,aspect,gap,missing_input,owner_tasks FROM migration_issues WHERE resolution_json IS NULL ORDER BY parameter_id,aspect"
+        )
+    ]
+    if definitions is not None:
+        rows = [
+            r
+            for r in rows
+            if r["aspect"] == "definition" and r["parameter_id"] in definitions
+        ]
+    return rows
+
+
+def snapshot(db_path):
+    conn = connect(db_path, readonly=True)
+    try:
+        conn.execute("BEGIN")
+        p, ms = read_resources(conn)
+        return p, ms, pending_issues(conn)
     finally:
         conn.close()
 
 
-def export_json(db_path: Path | str) -> str:
-    """导出 params.json 文本（确定性：字段顺序、缩进、末尾换行固定）。
-
-    这是 cedarkit-param-db 与 cedarkit-param-web 之间的契约文件：
-    结构变更必须递增 meta.schema_version。
-    """
-    entries = export_full_entries(db_path)
-    doc = {
+def _browser(conn, parameters, mappings, scope):
+    ids = {p["parameter_id"] for p in parameters["parameters"]}
+    notes = [
+        {k: r[k] for k in ("parameter_id", "remark", "updated_at") if r[k] is not None}
+        for r in conn.execute("SELECT * FROM parameter_notes ORDER BY parameter_id")
+        if r["parameter_id"] in ids
+    ]
+    return {
         "meta": {
             "schema_version": JSON_SCHEMA_VERSION,
             "generated_by": "cedarkit-param-db",
+            "scope": scope,
+            "parameter_resource": {
+                k: parameters[k] for k in ("api_version", "id", "version")
+            },
             "stats": {
-                "entries": len(entries),
-                "variants": sum(len(e.get("variants", [])) for e in entries),
+                "parameters": len(ids),
                 "aliases": sum(
-                    len(e.get("aliases", []))
-                    + sum(len(v.get("aliases", [])) for v in e.get("variants", []))
-                    for e in entries
+                    len(p.get("aliases", [])) for p in parameters["parameters"]
                 ),
-                "parameter_ids": len(entries) + sum(len(e.get("variants", [])) for e in entries),
+                "mappings": sum(len(m["mappings"]) for m in mappings),
             },
         },
-        "entries": entries,
+        "parameters": parameters["parameters"],
+        "mapping_resources": mappings,
+        "retired_ids": [
+            dict(r)
+            for r in conn.execute(
+                "SELECT * FROM parameter_id_tombstones ORDER BY parameter_id"
+            )
+        ],
+        "notes": notes,
     }
-    return json.dumps(doc, ensure_ascii=False, indent=2) + "\n"
 
 
-def export_json_file(db_path: Path | str, out_path: Path | str) -> Path:
-    out_path = Path(out_path)
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(export_json(db_path))
-    return out_path
+def _write_file(path, data):
+    path.write_bytes(data)
+
+
+def _publish(out_dir, parameters, mappings, browser, scope):
+    """Stage the whole group, then rename a new directory; never replace a live bundle."""
+    out_dir = Path(out_dir).absolute()
+    if out_dir.exists():
+        raise FileExistsError(out_dir)
+    out_dir.parent.mkdir(parents=True, exist_ok=True)
+    stage = Path(tempfile.mkdtemp(prefix=".cedarkit-export-", dir=out_dir.parent))
+    try:
+        outputs = {"parameters": parameters}
+        outputs.update(
+            {f"mappings-{i:02d}-{m['backend']}": m for i, m in enumerate(mappings)}
+        )
+        manifest = {
+            "schema_version": 1,
+            "scope": scope,
+            "validation": "internal shared validation only; external product context and backend evidence remain required",
+            "files": [],
+        }
+        for stem, document in outputs.items():
+            for suffix, text in (
+                ("json", json_text(document)),
+                (
+                    "yaml",
+                    yaml.safe_dump(
+                        document, allow_unicode=True, sort_keys=True, width=120
+                    ),
+                ),
+            ):
+                name = stem + "." + suffix
+                data = text.encode("utf-8")
+                _write_file(stage / name, data)
+                manifest["files"].append(
+                    {
+                        "path": name,
+                        "id": document["id"],
+                        "version": document["version"],
+                        "api_version": document["api_version"],
+                        "sha256": hashlib.sha256(data).hexdigest(),
+                        "size": len(data),
+                    }
+                )
+        data = json_text(browser).encode("utf-8")
+        _write_file(stage / "params.json", data)
+        manifest["files"].append(
+            {
+                "path": "params.json",
+                "schema_version": 4,
+                "sha256": hashlib.sha256(data).hexdigest(),
+                "size": len(data),
+            }
+        )
+        # Validate staged bytes, not merely the in-memory source. A failed group stays private.
+        for stem, expected in outputs.items():
+            kind = "parameters" if stem == "parameters" else "mappings"
+            for suffix in ("json", "yaml"):
+                path = stage / (stem + "." + suffix)
+                if (
+                    load_value(path.read_text(encoding="utf-8"), kind).to_dict()
+                    != expected
+                ):
+                    raise ValueError(
+                        "staged resource differs from the validated source"
+                    )
+        if json.loads((stage / "params.json").read_text(encoding="utf-8")) != browser:
+            raise ValueError(
+                "staged browser data differs from the consistent source view"
+            )
+        for item in manifest["files"]:
+            actual = (stage / item["path"]).read_bytes()
+            if item["sha256"] != hashlib.sha256(actual).hexdigest():
+                raise ValueError("staged bytes changed before publication")
+        _write_file(stage / "manifest.json", json_text(manifest).encode("utf-8"))
+        if out_dir.exists():
+            raise FileExistsError(out_dir)
+        os.rename(stage, out_dir)
+        return manifest
+    finally:
+        if stage.exists():
+            shutil.rmtree(stage)
+
+
+def export_bundle(db_path, out_dir):
+    conn = connect(db_path, readonly=True)
+    try:
+        conn.execute("BEGIN")
+        p, ms = read_resources(conn)
+        missing = conn.execute(
+            "SELECT r.parameter_id FROM migration_records r LEFT JOIN parameters p USING(parameter_id) LEFT JOIN parameter_id_tombstones t USING(parameter_id) WHERE p.parameter_id IS NULL AND t.parameter_id IS NULL ORDER BY r.parameter_id"
+        ).fetchall()
+        if (
+            missing
+            or conn.execute("SELECT 1 FROM parameter_reservations LIMIT 1").fetchone()
+        ):
+            raise ValueError("unresolved quarantined identities prevent full export")
+        unresolved = pending_issues(conn)
+        if unresolved:
+            raise ValueError(
+                f"unresolved migration facts prevent full export: {len(unresolved)}; inspect migration-report"
+            )
+        scope = {
+            "kind": "database_resources",
+            "parameter_ids": [p["parameter_id"] for p in p["parameters"]],
+        }
+        return _publish(out_dir, p, ms, _browser(conn, p, ms, scope), scope)
+    finally:
+        conn.close()
+
+
+def export_definitions(db_path, out_dir, parameter_ids, *, resource_id, version):
+    """Explicit definition-only slice with dependency closure; never export unresolved definitions."""
+    if (
+        not isinstance(parameter_ids, (list, tuple))
+        or not parameter_ids
+        or any(not isinstance(pid, str) or not pid.strip() for pid in parameter_ids)
+    ):
+        raise ValueError("a nonempty explicit parameter ID selection is required")
+    conn = connect(db_path, readonly=True)
+    try:
+        conn.execute("BEGIN")
+        p, _ = read_resources(conn)
+        index = {r["parameter_id"]: r for r in p["parameters"]}
+        selected = set(parameter_ids)
+        if selected - index.keys():
+            raise ValueError(f"unknown selected IDs: {sorted(selected - index.keys())}")
+        remaining = list(selected)
+        while remaining:
+            row = index[remaining.pop()]
+            for dep in (
+                row.get("parent"),
+                row.get("fixed_conditions", {})
+                .get("statistics", {})
+                .get("of", {})
+                .get("parameter_id"),
+            ):
+                if dep is not None and dep not in selected:
+                    selected.add(dep)
+                    remaining.append(dep)
+        unresolved = pending_issues(conn, definitions=selected)
+        if unresolved:
+            raise ValueError(
+                f"selected definitions have unresolved migration facts: {unresolved}"
+            )
+        if resource_id == p["id"]:
+            raise ValueError(
+                "a definition slice needs its own resource ID, distinct from the full resource"
+            )
+        p.update(
+            id=resource_id,
+            version=version,
+            parameters=[index[k] for k in sorted(selected)],
+        )
+        validate_resource_set(p)
+        scope = {
+            "kind": "parameter_definitions",
+            "requested_parameter_ids": sorted(set(parameter_ids)),
+            "parameter_ids": sorted(selected),
+            "runtime_mappings": False,
+        }
+        return _publish(out_dir, p, [], _browser(conn, p, [], scope), scope)
+    finally:
+        conn.close()

@@ -1,56 +1,103 @@
-"""数据库连接与初始化。"""
+"""Explicit schema-4 connections and validated transactions. No implicit migration."""
 
-import sqlite3
+from contextlib import contextmanager
 from importlib.resources import files
 from pathlib import Path
+import sqlite3
 
-#: 项目根目录（src/cedarkit_param_db/db.py → 上三级）
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_DB_PATH = (
+    PROJECT_ROOT / "cedarkit_param.db"
+)  # Archived v3 input; never auto-upgrade.
+SCHEMA_VERSION = 4
 
-#: 默认数据库文件位置（项目根目录下，可直接纳入版本管理）
-DEFAULT_DB_PATH = PROJECT_ROOT / "cedarkit_param.db"
-SCHEMA_VERSION = 3
 
-
-def connect(db_path: Path | str = DEFAULT_DB_PATH) -> sqlite3.Connection:
-    """打开数据库连接，启用外键约束，行返回 dict 风格。"""
-    conn = sqlite3.connect(str(db_path))
+def connect(db_path, *, readonly=False):
+    path = Path(db_path).resolve()
+    conn = sqlite3.connect(
+        path.as_uri() + ("?mode=ro" if readonly else "?mode=rw"), uri=True
+    )
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
+    if readonly:
+        conn.execute("PRAGMA query_only = ON")
     return conn
 
 
-def init_db(db_path: Path | str = DEFAULT_DB_PATH) -> Path:
-    """按 schema.sql 建库（幂等：已存在的表会报错，请先删除旧库或换路径）。"""
-    schema = files("cedarkit_param_db").joinpath("schema.sql").read_text(encoding="utf-8")
-    db_path = Path(db_path)
-    conn = connect(db_path)
+def require_schema(conn):
+    row = conn.execute(
+        "SELECT value FROM schema_meta WHERE key='schema_version'"
+    ).fetchone()
+    if row is None or row[0] != str(SCHEMA_VERSION):
+        raise ValueError(
+            "schema 4 required; explicitly migrate identified legacy inputs to a new copy"
+        )
+    return SCHEMA_VERSION
+
+
+def schema_version(db_path):
+    conn = connect(db_path, readonly=True)
     try:
-        conn.executescript(schema)
+        return require_schema(conn)
+    finally:
+        conn.close()
+
+
+def init_db(db_path):
+    """Create a new database exclusively; never overwrite an existing path."""
+    path = Path(db_path)
+    with path.open("xb"):
+        pass
+    conn = sqlite3.connect(path)
+    try:
+        conn.executescript(
+            files("cedarkit_param_db")
+            .joinpath("schema.sql")
+            .read_text(encoding="utf-8")
+        )
         conn.commit()
+    except BaseException:
+        conn.close()
+        path.unlink()
+        raise
     finally:
         conn.close()
-    return db_path
+    return path
 
 
-def schema_version(db_path: Path | str = DEFAULT_DB_PATH) -> int:
-    """Return the database schema version, rejecting incomplete migrations."""
+@contextmanager
+def transaction(db_path):
+    """Validate the entire final resource set before commit; failure rolls back all edits."""
+    from .exporter import read_resources
+
     conn = connect(db_path)
     try:
-        row = conn.execute("SELECT value FROM schema_meta WHERE key = 'schema_version'").fetchone()
-        if row is None:
-            raise ValueError("database has no schema version; run the stage-2 migration")
-        version = int(row["value"])
-        if version != SCHEMA_VERSION:
-            raise ValueError(f"unsupported database schema version: {version}")
-        for table in ("entries", "variants"):
-            missing = conn.execute(f"SELECT count(*) AS count FROM {table} WHERE parameter_id IS NULL OR parameter_id = ''").fetchone()["count"]
-            if missing:
-                raise ValueError(f"database migration incomplete: {table} has {missing} missing parameter_id values")
-        for table in ("external_elements", "entry_external_elements"):
-            row = conn.execute("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?", (table,)).fetchone()
-            if row is None:
-                raise ValueError(f"database migration incomplete: missing {table}")
-        return version
+        require_schema(conn)
+        conn.execute("BEGIN IMMEDIATE")
+        yield conn
+        read_resources(conn)
+        violations = conn.execute("PRAGMA foreign_key_check").fetchall()
+        if violations:
+            raise ValueError(f"foreign key violations: {list(map(tuple, violations))}")
+        conn.commit()
+    except BaseException:
+        conn.rollback()
+        raise
     finally:
         conn.close()
+
+
+def retire_parameter(db_path, parameter_id, reason):
+    with transaction(db_path) as conn:
+        if not conn.execute(
+            "SELECT 1 FROM parameters WHERE parameter_id=?", (parameter_id,)
+        ).fetchone():
+            raise ValueError("unknown active parameter ID")
+        conn.execute("DELETE FROM aliases WHERE parameter_id=?", (parameter_id,))
+        conn.execute(
+            "DELETE FROM parameter_notes WHERE parameter_id=?", (parameter_id,)
+        )
+        conn.execute("DELETE FROM parameters WHERE parameter_id=?", (parameter_id,))
+        conn.execute(
+            "INSERT INTO parameter_id_tombstones VALUES (?,?)", (parameter_id, reason)
+        )

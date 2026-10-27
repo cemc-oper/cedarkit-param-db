@@ -5,15 +5,16 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "cedarkit-param-db"
 version = "0.1.0"
-description = "CedarKit GRIB2 要素数据库：reki param_registry.yaml 的编辑真源（SQLite）"
+description = "CedarKit parameter and backend mapping authoring database (SQLite schema 4)"
 readme = "README.md"
 license = {file = "LICENSE"}
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 classifiers = [
     'License :: OSI Approved :: Apache Software License',
 ]
 dependencies = [
     "pyyaml",
+    "cedarkit-query>=0.1.0",
 ]
 
 [project.optional-dependencies]
@@ -24,3 +25,6 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 cedarkit_param_db = ["schema.sql"]
+
+[tool.uv.sources]
+cedarkit-query = { path = "../../repo/cedarkit-query", editable = true }

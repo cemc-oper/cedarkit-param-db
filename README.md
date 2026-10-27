@@ -1,129 +1,60 @@
 # cedarkit-param-db
 
-CedarKit GRIB2 要素注册表的**编辑真源**（SQLite 实现）。
+Schema-4 SQLite authoring for CedarKit parameter definitions, aliases, backend mappings, shared translation tables and evidence references. Python 3.11+ is required. Business validation is shared with `cedarkit-query`; this package does not depend on reki, ecCodes, xarray or a service client.
 
-定位：reki 包内的 `reki/readers/grib/config/param_registry.yaml` 是运行时消费的
-**发布快照**（随 reki 版本固化、离线可用、diff 可 review），本数据库是它的上游。
-数据流向严格单向：
+Stage 1.1 separates `cedarkit.parameters/v1` and `cedarkit.mappings/v1` resources. Product catalogs and populations remain independently maintained by I04. The root `cedarkit_param.db` is the preserved **schema-3 migration input**, not a schema-4 working database. Every CLI operation requires an explicit `--db`; nothing upgrades the root file automatically.
 
-```
-cedarkit_param.db ──export──────> param_registry.yaml ──打包──> reki wheel（只读）
-             └─export-json──> params.json ──────────────> cedarkit-param-web/public/（公开展示站点）
-```
+## Start from the preserved legacy input
 
-禁止手工编辑 YAML 快照；所有要素维护通过 SQL 修改数据库后重新导出。
-
-数据模型与约束规则见 reki 仓库的 `param_registry_spec.md`。参数快照使用
-`reki.parameter-registry/v3`；entry 和 variant 都有稳定的 `parameter_id`。v3 的
-基础 entry 还可发布 `external_names`，variant 由父 entry 继承。ID 是
-发布契约，重命名或增加 alias 时不得重算；删除的 ID 必须记录 tombstone，不能复用。
-schema 与其字段一一对应，约束分工：
-
-| 规则 | 落点 |
-|---|---|
-| U1 三元组唯一 / U2 条内变体名唯一 / C4 条内 when 唯一 | 数据库 UNIQUE 约束（硬保证） |
-| E1/E3 非空、禁空串 | 数据库 CHECK（硬保证） |
-| C1 when 键白名单 / C2 second_level 成对 / C3 instant 禁带时间窗 | YAML 校验层（reki `tests/readers/grib/test_param_registry.py`） |
-| U4 别名冲突 / N1-N2 命名 / L1-L3 展示 | YAML 校验层（数据库仅保证条内别名不重复） |
-
-`when` 条件存为规范化 JSON 文本列（键排序、紧凑分隔符），C4 唯一索引因此
-不受键序/空白影响；导出时恢复为 spec §3.4 白名单的书写顺序。
-
-CMADaaS 词表使用独立的 `external_elements` 与 `entry_external_elements` 表。前者是
-完整、可审计的服务名称词表，后者只能把基础 entry 映射到一个 namespace/code；variant
-继承 mapping。该模型不存 dataset、`data_code`、endpoint 或认证信息。通用词表可由下列
-命令导入；CEMC 产品表中通用词表缺少、但已核验的 code 必须随可评审 SQL change script
-补充，并在 `source_ref` 记录产品文档，不能绕过外键直接写 mapping：
+Run from this project directory. All example output paths must be new; the tools refuse replacement.
 
 ```bash
-python -m cedarkit_param_db import-cmadaas-vocabulary \
-  --source ../../source/nuwe-cmadaas-devel/cmadaas_param_names.md
-python -m cedarkit_param_db cmadaas-inventory -o cmadaas-mapping-inventory.json
+uv sync --extra test
+uv run python -m cedarkit_param_db --db /tmp/cedarkit-review.db migrate-v3 --source-db cedarkit_param.db --report /tmp/cedarkit-migration-report.json
+uv run python -m cedarkit_param_db --db /tmp/cedarkit-review.db migration-report
 ```
 
-## 项目结构
+`migrate-v3 --source-snapshot <file>` explicitly accepts identified `reki.parameter-registry/v3` JSON/YAML snapshots. Unknown versions, duplicate keys, unsafe YAML and nonfinite values fail. Snapshot migration cannot recover tombstones or editorial data absent from the snapshot; a full database source preserves all legacy tables, including vocabulary and retired identities. A database with a journal must first be supplied as a stable checkpointed copy.
 
-```
-cedarkit-param-db/
-├── pyproject.toml
-├── README.md
-├── cedarkit_param.db              # 数据库文件（init 生成，可纳入版本管理；.gitattributes 已标记为 binary）
-├── src/cedarkit_param_db/
-│   ├── schema.sql             -- 建库 DDL
-│   ├── db.py                  -- 连接与初始化
-│   ├── importer.py            -- YAML → DB（全量替换）
-│   ├── exporter.py            -- DB → YAML / params.json（确定性导出）
-│   └── __main__.py            -- CLI
-└── tests/
-    ├── test_roundtrip.py
-    └── test_export_json.py
-```
+Migration preserves IDs, names, aliases and old parent associations. Explicit old predicates produce draft canonical conditions. Informational type/level fields are retained in the audit and never promoted to fixed business conditions. Description boundary whitespace is trimmed with an exact before/after audit; identity and unit strings are not silently repaired. A statistical window length does not establish trailing versus since-initialization semantics. Native triples and service codes remain audit facts until their product applicability and interpretation have evidence; missing applicability never becomes `{}`.
 
-## 使用
+The review database reserves IDs for definitions rejected by shared validation, retaining the complete failed draft and diagnostic. It does not rewrite parent or units to make a conflict pass. Other draft definitions also require evidence-bearing review before export. **A successful migration command creates a review copy; it does not mean the full migration or product coverage is complete.**
+
+## Review and export
+
+See [review decisions](docs/migration-v4.md) for source-bound resolutions. There is no blanket ignore-errors or accept-all switch. Definition review preserves stable ID, name and aliases; an explicitly evidenced parent correction is recorded as a difference. Mapping review must reference actual mappings for that identity/backend.
 
 ```bash
-pip install -e .            # 或 uv pip install -e .
-
-# 建库（首次）
-python -m cedarkit_param_db init
-
-# 从现有注册表灌入（全量替换）
-python -m cedarkit_param_db import \
-  --yaml ../../repo/reki/reki/readers/grib/config/param_registry.yaml
-
-# 日常维护：用任意 SQLite 客户端/SQL 修改 cedarkit_param.db
-sqlite3 cedarkit_param.db
-sqlite> UPDATE variants SET name = '...' WHERE ...;
-
-# 导出 YAML 快照（覆盖 reki 包内文件）
-python -m cedarkit_param_db export \
-  -o ../../repo/reki/reki/readers/grib/config/param_registry.yaml
-
-# 导出 params.json（cedarkit-param-web 公开展示端的数据契约）
-python -m cedarkit_param_db export-json -o ../cedarkit-param-web/public/params.json
-
-# CI drift 检查：快照与数据库不一致时退出码为 1 并输出 diff（--yaml/--json 可单独或同时使用）
-python -m cedarkit_param_db check \
-  --yaml ../../repo/reki/reki/readers/grib/config/param_registry.yaml \
-  --json ../cedarkit-param-web/public/params.json
+uv run python -m cedarkit_param_db --db /tmp/cedarkit-review.db review --decisions /path/to/reviewed-decisions.json
+uv run python -m cedarkit_param_db --db /tmp/cedarkit-review.db export --out-dir /tmp/cedarkit-reviewed-bundle
 ```
 
-导出后别忘了跑 reki 侧的校验测试（JSON Schema + U/C/N/L 规则）：
+Full export fails while any migration issue is unresolved. For a reviewed **definition-only** slice, specify its exact IDs and a distinct resource identity:
 
 ```bash
-cd ../../repo/reki && pytest tests/readers/grib -v
+uv run python -m cedarkit_param_db --db /tmp/cedarkit-review.db export-definitions --parameter-id cedarkit.t2m --resource-id cedarkit.temperature-definitions --version 1 --out-dir /tmp/cedarkit-definition-slice
 ```
 
-## params.json 导出（公开展示端）
+The slice includes parent/statistical-object dependencies, checks their definition reviews, and explicitly declares `runtime_mappings: false`. It contains parameter JSON/YAML, browser `params.json` contract 4, and a byte-hash manifest. It never silently drops unresolved selected definitions or publishes unverified native bindings. This narrow export does not satisfy full migration or business acceptance.
 
-`params.json` 是与 YAML 快照平级的第二种导出物，供公开展示端
-[cedarkit-param-web](../cedarkit-param-web/) 构建要素清单静态站点。它是两个项目之间的
-**契约文件**：只含规范化原始数据（entries/variants/aliases/remark/updated_at，
-when 按 spec 语义顺序），不含展示层预加工字段；`meta.schema_version` 是两边
-升级的协调点，契约变更必须递增版本号。
+A fully resolved bundle contains parameter JSON/YAML, independent mapping JSON/YAML for each stored resource, browser contract 4, and the manifest. Exports use one consistent database view, validate the complete resource combination through `cedarkit-query`, validate staged bytes, and atomically rename the entire new output directory. Existing bundles are not overwritten. No export time, machine path or database row number enters runtime resources. Explicit content revisions are stored per resource; repeated export does not increment them. Publishing an already distributed identity/version with changed content remains forbidden.
 
-导出是确定性的（字段顺序、缩进、末尾换行固定），提交到 cedarkit-param-web 仓库后
-PR diff 即可读，充当发布前的内容审批。
-
-## 设计要点
-
-- **sort_order 列**：spec §5"并列靠后"裁决依赖 `params` 书写顺序，数据库表
-  本身无序，必须显式记录，导出按它排序。
-- **浮点层次值**：`level` 列是 REAL，导出时整数值写回整数形式（`2` 而非
-  `2.0`），与历史快照格式保持一致；`when` 内的数值经 JSON 保留原生类型，
-  不受影响。
-- **变体级元数据继承**：`unit`/`description`/`description_cn` 为 NULL 表示
-  继承条目级，导出时省略该字段。
-- **change_log 表**：预留的变更履历，当前需手工或自行加触发器写入。
-- **when_json 规范化**：写入必须经 `importer.canonicalize_when()`（或等价的
-  键排序紧凑 JSON），否则 C4 唯一索引可能被绕过。
-
-## 测试
+## Initialize and edit new resources
 
 ```bash
-pip install -e ".[test]"
-pytest
+uv run python -m cedarkit_param_db --db /tmp/new-authoring.db init
+uv run python -m cedarkit_param_db --db /tmp/new-authoring.db import --parameters /path/to/parameters.json --mappings /path/to/grib2.json --mappings /path/to/cmadaas.json
 ```
 
-roundtrip 测试以 reki 包内的注册表为基准：导入 → 导出 → 数据结构与原文
-逐字节（头部注释除外）双重对比。
+Import initializes an empty schema-4 database atomically and accepts only new resource formats. Edits use `transaction(db_path)` with ordinary SQL; it validates the final resource set and derived references before committing. Failures roll back the entire transaction. Direct SQL maintenance is still fully checked on export. `retire_parameter` refuses referenced identities and preserves permanent retired-ID occupancy.
+
+See [storage and export contract](docs/schema-v4.md) for tables, reference constraints, deterministic ordering, browser data and downstream responsibilities. Legacy YAML exports, vocabulary-to-entry inventory and automatic parent-code inheritance are removed; old formats are read only by the explicit offline migrator.
+
+## Verification
+
+```bash
+uv run pytest -q
+uv build
+```
+
+Tests use self-contained fixtures and a frozen legacy schema; they do not skip because another workspace repository is absent. I03 additionally records actual legacy-copy migration and deterministic definition-slice outputs under `migrations/stage1.1-i03/`, with stage evidence indexed in `doc/2026-10-13-stage1.1-query-reki/evidence/I03/` at workspace level. These results do not exercise backend decoding, online services, frontend adaptation or I10 cross-package acceptance.

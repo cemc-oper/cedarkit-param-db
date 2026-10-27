@@ -1,148 +1,135 @@
--- ============================================================
--- GRIB2 要素注册表数据库（SQLite）
--- 对应 reki/reki/readers/grib/config/param_registry_spec.md v1.1 的数据模型
---
--- 数据库是"编辑真源"，param_registry.yaml 是由本库导出的"发布快照"。
--- 约束分工：
---   本库硬约束（UNIQUE/CHECK）：U1、U2、C4、E1/E3 的非空部分
---   YAML 校验层软约束（JSON Schema + pytest）：C1 白名单、C2 成对、
---   C3 instant 禁带时间窗、U4 全局冲突、L1-L3
--- ============================================================
-
+-- Schema 4: business identities and scoped mappings; no product catalog.
+-- cedarkit-query validates business semantics before transaction commit/export.
 PRAGMA foreign_keys = ON;
-
-CREATE TABLE schema_meta (
-    key TEXT PRIMARY KEY,
-    value TEXT NOT NULL
+CREATE TABLE schema_meta (key TEXT PRIMARY KEY NOT NULL, value TEXT NOT NULL);
+INSERT INTO schema_meta VALUES ('schema_version', '4');
+CREATE TABLE parameter_resources (
+ id TEXT PRIMARY KEY NOT NULL CHECK (length(trim(id)) > 0),
+ version TEXT NOT NULL CHECK (version NOT GLOB '*[^0-9]*' AND version GLOB '[1-9]*')
 );
-INSERT INTO schema_meta (key, value) VALUES ('schema_version', '3');
-
--- ----------------------------------------------------------
--- 条目：一个 GRIB2 要素（编号三元组唯一确定）
--- ----------------------------------------------------------
-CREATE TABLE entries (
-    id             INTEGER PRIMARY KEY,
-    parameter_id   TEXT NOT NULL UNIQUE CHECK (parameter_id GLOB 'cedarkit.[a-z0-9-]*'),
-
-    -- key 三元组（spec §3.2, K1-K3）
-    discipline     INTEGER NOT NULL CHECK (discipline BETWEEN 0 AND 255),
-    category       INTEGER NOT NULL CHECK (category   BETWEEN 0 AND 255),
-    number         INTEGER NOT NULL CHECK (number     BETWEEN 0 AND 255),
-
-    -- 命名（spec §3.1）
-    name           TEXT NOT NULL CHECK (length(trim(name)) > 0),  -- 业务通用名优先
-    wgrib2_name    TEXT CHECK (wgrib2_name IS NULL OR length(trim(wgrib2_name)) > 0),
-
-    -- 元数据（E3：不需要时存 NULL，不存空串）
-    unit           TEXT CHECK (unit IS NULL OR length(unit) > 0),
-    description    TEXT,
-    description_cn TEXT,
-
-    -- 信息性字段（E5，不参与 when 匹配）
-    type_of_level  TEXT,
-    level          REAL,
-
-    -- 维护信息
-    remark         TEXT,
-    updated_at     TEXT NOT NULL DEFAULT (datetime('now')),
-
-    -- U1：三元组全局唯一
-    UNIQUE (discipline, category, number)
+CREATE TABLE mapping_resources (
+ id TEXT PRIMARY KEY NOT NULL CHECK (length(trim(id)) > 0),
+ version TEXT NOT NULL CHECK (version NOT GLOB '*[^0-9]*' AND version GLOB '[1-9]*'),
+ backend TEXT NOT NULL CHECK (backend IN ('grib2','cmadaas')), UNIQUE(id,backend)
 );
-
--- ----------------------------------------------------------
--- 条件变体：spec §3.3，when 用 JSON 列承载
--- ----------------------------------------------------------
-CREATE TABLE variants (
-    id           INTEGER PRIMARY KEY,
-    entry_id     INTEGER NOT NULL REFERENCES entries(id) ON DELETE CASCADE,
-    parameter_id TEXT NOT NULL UNIQUE CHECK (parameter_id GLOB 'cedarkit.[a-z0-9-]*'),
-
-    name         TEXT NOT NULL CHECK (length(trim(name)) > 0),
-
-    -- when 条件，规范化 JSON object（键排序、紧凑分隔符），
-    -- 键属于 spec §3.4 白名单，值保留原生 int/float/str 类型。
-    -- 例：{"first_level":10,"first_level_type":103,"stepType":"max"}
-    when_json    TEXT NOT NULL CHECK (
-                     json_valid(when_json)
-                     AND json_type(when_json) = 'object'
-                     AND length(when_json) > 2          -- 非空 map（V2）
-                 ),
-
-    -- 信息性字段（V4）
-    type_of_level TEXT,
-    level         REAL,
-
-    -- 变体级元数据（spec §3.3：缺省存 NULL，导出时省略即"继承条目级"）
-    unit           TEXT CHECK (unit IS NULL OR length(unit) > 0),
-    description    TEXT,
-    description_cn TEXT,
-
-    -- params 列表顺序：spec §5 第 3 条"并列靠后"依赖它，导出必须按此排序
-    sort_order   INTEGER NOT NULL,
-
-    -- U2：同条目内变体名不重复
-    UNIQUE (entry_id, name),
-    -- C4：同条目内 when 不允许完全相同（依赖 when_json 写入前规范化）
-    UNIQUE (entry_id, when_json)
+CREATE TABLE parameters (
+ parameter_id TEXT PRIMARY KEY NOT NULL CHECK (length(trim(parameter_id)) > 0),
+ resource_id TEXT NOT NULL REFERENCES parameter_resources(id) ON DELETE RESTRICT,
+ name TEXT NOT NULL CHECK (length(trim(name)) > 0),
+ parent TEXT REFERENCES parameters(parameter_id) ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED,
+ unit TEXT CHECK (unit IS NULL OR length(trim(unit)) > 0),
+ description TEXT, description_cn TEXT,
+ fixed_json TEXT NOT NULL DEFAULT '{}' CHECK (json_valid(fixed_json) AND json_type(fixed_json)='object'),
+ -- Derived from JSON, never separately maintained.
+ object_id TEXT GENERATED ALWAYS AS (json_extract(fixed_json,'$.statistics.of.parameter_id')) STORED
+   REFERENCES parameters(parameter_id) ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED,
+ CHECK (parent IS NULL OR parent <> parameter_id)
 );
-
-CREATE INDEX idx_variants_entry ON variants (entry_id, sort_order);
-
--- ----------------------------------------------------------
--- 外部服务要素词表及基础 entry 映射。词表与 dataset/catalog 标识无关；
--- variant 由其 entry 继承，因而不能直接出现在本表中。
--- ----------------------------------------------------------
-CREATE TABLE external_elements (
-    namespace      TEXT NOT NULL CHECK (namespace GLOB '[a-z][a-z0-9_-]*'),
-    code           TEXT NOT NULL CHECK (code GLOB '[A-Z][A-Z0-9_]*'),
-    description_cn TEXT NOT NULL CHECK (length(trim(description_cn)) > 0),
-    source_ref     TEXT NOT NULL CHECK (length(trim(source_ref)) > 0),
-    PRIMARY KEY (namespace, code)
-);
-
-CREATE TABLE entry_external_elements (
-    entry_id   INTEGER NOT NULL REFERENCES entries(id) ON DELETE CASCADE,
-    namespace  TEXT NOT NULL,
-    code       TEXT NOT NULL,
-    PRIMARY KEY (entry_id, namespace),
-    UNIQUE (namespace, code),
-    FOREIGN KEY (namespace, code)
-        REFERENCES external_elements(namespace, code)
-        ON DELETE RESTRICT
-);
-
-CREATE INDEX idx_entry_external_elements_code
-    ON entry_external_elements(namespace, code);
-
--- ----------------------------------------------------------
--- 别名：条目级与变体级统一存放（U4 的条内部分）
--- ----------------------------------------------------------
 CREATE TABLE aliases (
-    id         INTEGER PRIMARY KEY,
-    owner_type TEXT NOT NULL CHECK (owner_type IN ('entry', 'variant')),
-    owner_id   INTEGER NOT NULL,        -- entries.id 或 variants.id（owner_type 区分）
-    alias      TEXT NOT NULL CHECK (length(trim(alias)) > 0),
-
-    UNIQUE (owner_type, owner_id, alias)
+ parameter_id TEXT NOT NULL REFERENCES parameters(parameter_id) ON DELETE RESTRICT,
+ alias TEXT NOT NULL CHECK (length(trim(alias)) > 0), PRIMARY KEY(parameter_id,alias)
 );
-
-CREATE INDEX idx_aliases_alias ON aliases (alias);
-
+CREATE TABLE parameter_notes (
+ parameter_id TEXT PRIMARY KEY NOT NULL REFERENCES parameters(parameter_id) ON DELETE RESTRICT,
+ remark TEXT, updated_at TEXT
+);
 CREATE TABLE parameter_id_tombstones (
-    parameter_id TEXT PRIMARY KEY CHECK (parameter_id GLOB 'cedarkit.[a-z0-9-]*'),
-    retired_reason TEXT NOT NULL
+ parameter_id TEXT PRIMARY KEY NOT NULL CHECK (length(trim(parameter_id)) > 0),
+ retired_reason TEXT NOT NULL CHECK (length(trim(retired_reason)) > 0)
 );
-
--- ----------------------------------------------------------
--- 变更履历（预留）：记录谁在什么时候改了什么
--- ----------------------------------------------------------
-CREATE TABLE change_log (
-    id         INTEGER PRIMARY KEY,
-    table_name TEXT NOT NULL,
-    row_id     INTEGER NOT NULL,
-    action     TEXT NOT NULL CHECK (action IN ('insert', 'update', 'delete')),
-    detail     TEXT,                    -- JSON：变更前后内容
-    changed_by TEXT,
-    changed_at TEXT NOT NULL DEFAULT (datetime('now'))
+CREATE TRIGGER reject_retired_insert BEFORE INSERT ON parameters
+WHEN EXISTS(SELECT 1 FROM parameter_id_tombstones WHERE parameter_id=NEW.parameter_id)
+BEGIN SELECT RAISE(ABORT,'retired parameter ID cannot be reused'); END;
+CREATE TRIGGER reject_retired_update BEFORE UPDATE OF parameter_id ON parameters
+WHEN EXISTS(SELECT 1 FROM parameter_id_tombstones WHERE parameter_id=NEW.parameter_id)
+BEGIN SELECT RAISE(ABORT,'retired parameter ID cannot be reused'); END;
+CREATE TRIGGER reject_live_retirement BEFORE INSERT ON parameter_id_tombstones
+WHEN EXISTS(SELECT 1 FROM parameters WHERE parameter_id=NEW.parameter_id)
+BEGIN SELECT RAISE(ABORT,'remove active references before retirement'); END;
+CREATE TRIGGER reject_live_tombstone_update BEFORE UPDATE OF parameter_id ON parameter_id_tombstones
+WHEN EXISTS(SELECT 1 FROM parameters WHERE parameter_id=NEW.parameter_id)
+BEGIN SELECT RAISE(ABORT,'active parameter ID cannot be retired'); END;
+CREATE TABLE translation_tables (
+ resource_id TEXT NOT NULL REFERENCES mapping_resources(id) ON DELETE RESTRICT,
+ id TEXT NOT NULL CHECK (length(trim(id)) > 0),
+ key_kind TEXT NOT NULL CHECK (key_kind IN ('code','level_type_and_level')),
+ applies_json TEXT NOT NULL CHECK (json_valid(applies_json) AND json_type(applies_json)='object'),
+ PRIMARY KEY(resource_id,id)
 );
+CREATE TABLE table_rows (
+ resource_id TEXT NOT NULL, table_id TEXT NOT NULL,
+ id TEXT NOT NULL CHECK (length(trim(id)) > 0),
+ native_json TEXT NOT NULL CHECK (json_valid(native_json) AND json_type(native_json)='object'),
+ canonical_json TEXT NOT NULL CHECK (json_valid(canonical_json) AND json_type(canonical_json)='object'),
+ PRIMARY KEY(resource_id,table_id,id),
+ FOREIGN KEY(resource_id,table_id) REFERENCES translation_tables(resource_id,id) ON DELETE RESTRICT
+);
+CREATE TABLE mappings (
+ resource_id TEXT NOT NULL,
+ id TEXT NOT NULL CHECK (length(trim(id)) > 0),
+ parameter_id TEXT NOT NULL REFERENCES parameters(parameter_id) ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED,
+ backend TEXT NOT NULL,
+ applies_json TEXT NOT NULL CHECK (json_valid(applies_json) AND json_type(applies_json)='object'),
+ when_json TEXT NOT NULL CHECK (json_valid(when_json) AND json_type(when_json)='object'),
+ native_json TEXT NOT NULL CHECK (json_valid(native_json) AND json_type(native_json)='object'),
+ vertical_table TEXT GENERATED ALWAYS AS (json_extract(native_json,'$.translate.vertical.config.table')) STORED,
+ member_table TEXT GENERATED ALWAYS AS (json_extract(native_json,'$.translate.member.config.table')) STORED,
+ PRIMARY KEY(resource_id,id),
+ FOREIGN KEY(resource_id,backend) REFERENCES mapping_resources(id,backend) ON DELETE RESTRICT,
+ FOREIGN KEY(resource_id,vertical_table) REFERENCES translation_tables(resource_id,id) ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED,
+ FOREIGN KEY(resource_id,member_table) REFERENCES translation_tables(resource_id,id) ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED
+);
+CREATE TABLE mapping_evidence (
+ resource_id TEXT NOT NULL, mapping_id TEXT NOT NULL,
+ ref TEXT NOT NULL CHECK (length(trim(ref)) > 0), PRIMARY KEY(resource_id,mapping_id,ref),
+ FOREIGN KEY(resource_id,mapping_id) REFERENCES mappings(resource_id,id) ON DELETE RESTRICT
+);
+CREATE TABLE table_evidence (
+ resource_id TEXT NOT NULL, table_id TEXT NOT NULL,
+ ref TEXT NOT NULL CHECK (length(trim(ref)) > 0), PRIMARY KEY(resource_id,table_id,ref),
+ FOREIGN KEY(resource_id,table_id) REFERENCES translation_tables(resource_id,id) ON DELETE RESTRICT
+);
+CREATE TABLE row_evidence (
+ resource_id TEXT NOT NULL, table_id TEXT NOT NULL, row_id TEXT NOT NULL,
+ ref TEXT NOT NULL CHECK (length(trim(ref)) > 0), PRIMARY KEY(resource_id,table_id,row_id,ref),
+ FOREIGN KEY(resource_id,table_id,row_id) REFERENCES table_rows(resource_id,table_id,id) ON DELETE RESTRICT
+);
+-- Audit data is never interpreted as runtime mappings. Historical IDs survive retirement.
+CREATE TABLE migration_sources (
+ sha256 TEXT PRIMARY KEY NOT NULL CHECK(length(sha256)=64 AND sha256 NOT GLOB '*[^0-9a-f]*'),
+ format TEXT NOT NULL,
+ payload_json TEXT NOT NULL CHECK(json_valid(payload_json) AND json_type(payload_json)='object')
+);
+CREATE TABLE migration_records (
+ parameter_id TEXT PRIMARY KEY NOT NULL,
+ source_sha256 TEXT NOT NULL REFERENCES migration_sources(sha256) ON DELETE RESTRICT,
+ legacy_json TEXT NOT NULL CHECK(json_valid(legacy_json) AND json_type(legacy_json)='object')
+);
+CREATE TABLE migration_issues (
+ parameter_id TEXT NOT NULL REFERENCES migration_records(parameter_id) ON DELETE RESTRICT,
+ aspect TEXT NOT NULL CHECK(aspect IN ('definition','grib2','cmadaas')),
+ gap TEXT NOT NULL CHECK(gap IN ('G17-02','G17-03','G17-05','G17-06')),
+ missing_input TEXT NOT NULL CHECK(length(trim(missing_input))>0),
+ owner_tasks TEXT NOT NULL CHECK(length(trim(owner_tasks))>0),
+ resolution_json TEXT CHECK(resolution_json IS NULL OR (json_valid(resolution_json) AND json_type(resolution_json)='object')),
+ PRIMARY KEY(parameter_id,aspect)
+);
+-- IDs quarantined by shared validation remain occupied, with the complete draft in the audit.
+CREATE TABLE parameter_reservations (
+ parameter_id TEXT PRIMARY KEY NOT NULL REFERENCES migration_records(parameter_id) ON DELETE RESTRICT,
+ reason_json TEXT NOT NULL CHECK(json_valid(reason_json) AND json_type(reason_json)='object')
+);
+CREATE TRIGGER reject_reserved_insert BEFORE INSERT ON parameters
+WHEN EXISTS(SELECT 1 FROM parameter_reservations WHERE parameter_id=NEW.parameter_id)
+BEGIN SELECT RAISE(ABORT,'quarantined identity requires explicit definition review'); END;
+CREATE TRIGGER reject_reserved_update BEFORE UPDATE OF parameter_id ON parameters
+WHEN EXISTS(SELECT 1 FROM parameter_reservations WHERE parameter_id=NEW.parameter_id)
+BEGIN SELECT RAISE(ABORT,'quarantined identity requires explicit definition review'); END;
+CREATE TRIGGER immutable_parameter_id BEFORE UPDATE OF parameter_id ON parameters
+WHEN NEW.parameter_id <> OLD.parameter_id
+BEGIN SELECT RAISE(ABORT,'stable identity cannot be renamed; retire and create explicitly'); END;
+CREATE TRIGGER keep_retired_identity BEFORE DELETE ON parameter_id_tombstones
+BEGIN SELECT RAISE(ABORT,'retired identity occupancy is permanent'); END;
+CREATE TRIGGER keep_retired_identity_key BEFORE UPDATE OF parameter_id ON parameter_id_tombstones
+WHEN NEW.parameter_id <> OLD.parameter_id
+BEGIN SELECT RAISE(ABORT,'retired identity occupancy is permanent'); END;

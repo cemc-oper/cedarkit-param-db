@@ -1,0 +1,224 @@
+{
+  "decisions": [
+    {
+      "aspect": "definition",
+      "definition": {
+        "description": "Soil temperature",
+        "description_cn": "土壤温度",
+        "fixed_conditions": {
+          "level_type": "depth_below_land",
+          "level_unit": "m"
+        },
+        "name": "st",
+        "parameter_id": "cedarkit.st",
+        "parent": "cedarkit.t"
+      },
+      "evidence": [
+        "I01:coverage-draft.json/legacy_identity_index/cedarkit.st",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md:3.4",
+        "repo/reki/src/reki/readers/grib/_parameter_metadata.py:_scaled_surface_value",
+        "Q18:confirmed-business-identity-and-context-separation",
+        "Q21:confirmed-resource-split-and-soil-interval-definition"
+      ],
+      "explanation": "Preserve the registered temperature identity/name/aliases/parent and inherited K. The explicit old when predicates establish only the stated vertical restriction; Q18/Q21 confirm broad temperature/soil identities and full physical soil intervals. Omitted statistics adds no restriction. This decision establishes no product availability, source applicability or native translation.",
+      "parameter_id": "cedarkit.st"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description_cn": "0-10cm土壤温度",
+        "fixed_conditions": {
+          "layer": {
+            "bottom": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 0.1
+            },
+            "top": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 0
+            }
+          }
+        },
+        "name": "st(0-10)",
+        "parameter_id": "cedarkit.st-0-10",
+        "parent": "cedarkit.t"
+      },
+      "evidence": [
+        "I01:coverage-draft.json/legacy_identity_index/cedarkit.st-0-10",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md:3.4",
+        "repo/reki/src/reki/readers/grib/_parameter_metadata.py:_scaled_surface_value",
+        "Q18:confirmed-business-identity-and-context-separation",
+        "Q21:confirmed-resource-split-and-soil-interval-definition"
+      ],
+      "explanation": "Preserve the registered temperature identity/name/aliases/parent and inherited K. The explicit old when predicates establish only the stated vertical restriction; Q18/Q21 confirm broad temperature/soil identities and full physical soil intervals. Omitted statistics adds no restriction. This decision establishes no product availability, source applicability or native translation.",
+      "parameter_id": "cedarkit.st-0-10"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description_cn": "10-40cm土壤温度",
+        "fixed_conditions": {
+          "layer": {
+            "bottom": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 0.4
+            },
+            "top": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 0.1
+            }
+          }
+        },
+        "name": "st(10-40)",
+        "parameter_id": "cedarkit.st-10-40",
+        "parent": "cedarkit.t"
+      },
+      "evidence": [
+        "I01:coverage-draft.json/legacy_identity_index/cedarkit.st-10-40",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md:3.4",
+        "repo/reki/src/reki/readers/grib/_parameter_metadata.py:_scaled_surface_value",
+        "Q18:confirmed-business-identity-and-context-separation",
+        "Q21:confirmed-resource-split-and-soil-interval-definition"
+      ],
+      "explanation": "Preserve the registered temperature identity/name/aliases/parent and inherited K. The explicit old when predicates establish only the stated vertical restriction; Q18/Q21 confirm broad temperature/soil identities and full physical soil intervals. Omitted statistics adds no restriction. This decision establishes no product availability, source applicability or native translation.",
+      "parameter_id": "cedarkit.st-10-40"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description_cn": "100-200cm土壤温度",
+        "fixed_conditions": {
+          "layer": {
+            "bottom": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 2
+            },
+            "top": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 1
+            }
+          }
+        },
+        "name": "st(100-200)",
+        "parameter_id": "cedarkit.st-100-200",
+        "parent": "cedarkit.t"
+      },
+      "evidence": [
+        "I01:coverage-draft.json/legacy_identity_index/cedarkit.st-100-200",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md:3.4",
+        "repo/reki/src/reki/readers/grib/_parameter_metadata.py:_scaled_surface_value",
+        "Q18:confirmed-business-identity-and-context-separation",
+        "Q21:confirmed-resource-split-and-soil-interval-definition"
+      ],
+      "explanation": "Preserve the registered temperature identity/name/aliases/parent and inherited K. The explicit old when predicates establish only the stated vertical restriction; Q18/Q21 confirm broad temperature/soil identities and full physical soil intervals. Omitted statistics adds no restriction. This decision establishes no product availability, source applicability or native translation.",
+      "parameter_id": "cedarkit.st-100-200"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description_cn": "40-100cm土壤温度",
+        "fixed_conditions": {
+          "layer": {
+            "bottom": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 1
+            },
+            "top": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 0.4
+            }
+          }
+        },
+        "name": "st(40-100)",
+        "parameter_id": "cedarkit.st-40-100",
+        "parent": "cedarkit.t"
+      },
+      "evidence": [
+        "I01:coverage-draft.json/legacy_identity_index/cedarkit.st-40-100",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md:3.4",
+        "repo/reki/src/reki/readers/grib/_parameter_metadata.py:_scaled_surface_value",
+        "Q18:confirmed-business-identity-and-context-separation",
+        "Q21:confirmed-resource-split-and-soil-interval-definition"
+      ],
+      "explanation": "Preserve the registered temperature identity/name/aliases/parent and inherited K. The explicit old when predicates establish only the stated vertical restriction; Q18/Q21 confirm broad temperature/soil identities and full physical soil intervals. Omitted statistics adds no restriction. This decision establishes no product availability, source applicability or native translation.",
+      "parameter_id": "cedarkit.st-40-100"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description": "Temperature",
+        "description_cn": "温度",
+        "name": "t",
+        "parameter_id": "cedarkit.t",
+        "unit": "K"
+      },
+      "evidence": [
+        "I01:coverage-draft.json/legacy_identity_index/cedarkit.t",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md:3.4",
+        "repo/reki/src/reki/readers/grib/_parameter_metadata.py:_scaled_surface_value",
+        "Q18:confirmed-business-identity-and-context-separation",
+        "Q21:confirmed-resource-split-and-soil-interval-definition"
+      ],
+      "explanation": "Preserve the registered temperature identity/name/aliases/parent and inherited K. The explicit old when predicates establish only the stated vertical restriction; Q18/Q21 confirm broad temperature/soil identities and full physical soil intervals. Omitted statistics adds no restriction. This decision establishes no product availability, source applicability or native translation.",
+      "parameter_id": "cedarkit.t"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description": "Temperature at 2 meters height",
+        "description_cn": "2米温度",
+        "fixed_conditions": {
+          "level": 2,
+          "level_type": "height_above_ground",
+          "level_unit": "m"
+        },
+        "name": "t2m",
+        "parameter_id": "cedarkit.t2m",
+        "parent": "cedarkit.t"
+      },
+      "evidence": [
+        "I01:coverage-draft.json/legacy_identity_index/cedarkit.t2m",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md:3.4",
+        "repo/reki/src/reki/readers/grib/_parameter_metadata.py:_scaled_surface_value",
+        "Q18:confirmed-business-identity-and-context-separation",
+        "Q21:confirmed-resource-split-and-soil-interval-definition"
+      ],
+      "explanation": "Preserve the registered temperature identity/name/aliases/parent and inherited K. The explicit old when predicates establish only the stated vertical restriction; Q18/Q21 confirm broad temperature/soil identities and full physical soil intervals. Omitted statistics adds no restriction. This decision establishes no product availability, source applicability or native translation.",
+      "parameter_id": "cedarkit.t2m"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "aliases": [
+          "tsfc"
+        ],
+        "description": "Surface temperature",
+        "description_cn": "地面温度",
+        "fixed_conditions": {
+          "level_type": "surface"
+        },
+        "name": "ts",
+        "parameter_id": "cedarkit.ts",
+        "parent": "cedarkit.t"
+      },
+      "evidence": [
+        "I01:coverage-draft.json/legacy_identity_index/cedarkit.ts",
+        "repo/reki/src/reki/readers/grib/config/param_registry_spec.md:3.4",
+        "repo/reki/src/reki/readers/grib/_parameter_metadata.py:_scaled_surface_value",
+        "Q18:confirmed-business-identity-and-context-separation",
+        "Q21:confirmed-resource-split-and-soil-interval-definition"
+      ],
+      "explanation": "Preserve the registered temperature identity/name/aliases/parent and inherited K. The explicit old when predicates establish only the stated vertical restriction; Q18/Q21 confirm broad temperature/soil identities and full physical soil intervals. Omitted statistics adds no restriction. This decision establishes no product availability, source applicability or native translation.",
+      "parameter_id": "cedarkit.ts"
+    }
+  ],
+  "source_sha256": "7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae"
+}

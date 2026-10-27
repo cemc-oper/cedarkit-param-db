@@ -1,0 +1,3 @@
+recursive-include docs *.md
+recursive-include tests *.py *.sql *.json
+recursive-include src/cedarkit_param_db *.sql

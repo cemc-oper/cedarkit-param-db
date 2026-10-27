@@ -1,115 +1,97 @@
-"""param_registry.yaml → SQLite 全量导入。
+"""Validated schema-4 initialization. Legacy formats require the explicit offline migrator."""
 
-导入是**全量替换**：清空 entries/variants/aliases 三张表后按 YAML 内容重建。
-partial 编辑请直接操作数据库（SQL），再以 export 重新生成快照。
-"""
+from cedarkit_query import Mappings, Parameters, normalize_fixed, validate_resource_set
 
-import json
-from pathlib import Path
-
-import yaml
+from .db import transaction
+from .exporter import compact
 
 
-def canonicalize_when(when: dict) -> str:
-    """把 when 条件规范化为 JSON 文本：键排序 + 紧凑分隔符。
+def insert_parameters(conn, resource):
+    resource = Parameters(resource).to_dict()
+    conn.execute(
+        "INSERT INTO parameter_resources VALUES (?,?)",
+        (resource["id"], resource["version"]),
+    )
+    for p in resource["parameters"]:
+        conn.execute(
+            "INSERT INTO parameters(parameter_id,resource_id,name,parent,unit,description,description_cn,fixed_json) VALUES (?,?,?,?,?,?,?,?)",
+            (
+                p["parameter_id"],
+                resource["id"],
+                p["name"],
+                p.get("parent"),
+                p.get("unit"),
+                p.get("description"),
+                p.get("description_cn"),
+                compact(normalize_fixed(p.get("fixed_conditions", {}))),
+            ),
+        )
+        conn.executemany(
+            "INSERT INTO aliases VALUES (?,?)",
+            [(p["parameter_id"], a) for a in p.get("aliases", [])],
+        )
 
-    C4 的唯一索引 (entry_id, when_json) 依赖本函数消除键序与空白差异；
-    int/float/str 的原生类型由 JSON 保留，导出时经 json.loads 还原。
-    """
-    if not isinstance(when, dict) or not when:
-        raise ValueError(f"when 必须是非空 map（V2），得到: {when!r}")
-    return json.dumps(when, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+
+def insert_mappings(conn, resource):
+    resource = Mappings(resource).to_dict()
+    rid, backend = resource["id"], resource["backend"]
+    conn.execute(
+        "INSERT INTO mapping_resources VALUES (?,?,?)",
+        (rid, resource["version"], backend),
+    )
+    for t in resource["tables"]:
+        conn.execute(
+            "INSERT INTO translation_tables VALUES (?,?,?,?)",
+            (rid, t["id"], t["key_kind"], compact(t["applies_to"])),
+        )
+        conn.executemany(
+            "INSERT INTO table_evidence VALUES (?,?,?)",
+            [(rid, t["id"], e) for e in t["evidence"]],
+        )
+        for r in t["rows"]:
+            conn.execute(
+                "INSERT INTO table_rows VALUES (?,?,?,?,?)",
+                (rid, t["id"], r["id"], compact(r["native"]), compact(r["canonical"])),
+            )
+            conn.executemany(
+                "INSERT INTO row_evidence VALUES (?,?,?,?)",
+                [(rid, t["id"], r["id"], e) for e in r.get("evidence", [])],
+            )
+    for m in resource["mappings"]:
+        conn.execute(
+            "INSERT INTO mappings(resource_id,id,parameter_id,backend,applies_json,when_json,native_json) VALUES (?,?,?,?,?,?,?)",
+            (
+                rid,
+                m["id"],
+                m["parameter_id"],
+                m["backend"],
+                compact(m["applies_to"]),
+                compact(m["when"]),
+                compact(m["native"]),
+            ),
+        )
+        conn.executemany(
+            "INSERT INTO mapping_evidence VALUES (?,?,?)",
+            [(rid, m["id"], e) for e in m["evidence"]],
+        )
 
 
-def import_registry(yaml_path: Path | str, db_path: Path | str) -> dict:
-    """把注册表 YAML 全量灌入数据库，返回统计信息。"""
-    from cedarkit_param_db.db import connect
-
-    yaml_path = Path(yaml_path)
-    with open(yaml_path, encoding="utf-8") as f:
-        # 跳过文件头注释，safe_load 天然忽略注释行
-        document = yaml.safe_load(f)
-    if isinstance(document, dict) and document.get("api_version") in {"reki.parameter-registry/v2", "reki.parameter-registry/v3"}:
-        entries = document.get("entries")
-    else:
-        entries = document
-    if not isinstance(entries, list):
-        raise ValueError(f"{yaml_path}: 顶层结构必须是条目列表（F2）")
-
-    conn = connect(db_path)
-    stats = {"entries": 0, "variants": 0, "aliases": 0}
-    try:
-        with conn:
-            conn.execute("DELETE FROM aliases")
-            conn.execute("DELETE FROM variants")
-            conn.execute("DELETE FROM entries")
-
-            for entry in entries:
-                key = entry["key"]
-                cur = conn.execute(
-                    """
-                    INSERT INTO entries
-                        (parameter_id, discipline, category, number, name, wgrib2_name,
-                         unit, description, description_cn, type_of_level, level)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    """,
-                    (
-                        entry["parameter_id"], key["discipline"], key["category"], key["number"],
-                        entry["name"], entry.get("wgrib2_name"),
-                        entry.get("unit"), entry.get("description"),
-                        entry.get("description_cn"), entry.get("typeOfLevel"),
-                        entry.get("level"),
-                    ),
-                )
-                entry_id = cur.lastrowid
-                stats["entries"] += 1
-
-                for namespace, code in entry.get("external_names", {}).items():
-                    exists = conn.execute(
-                        "SELECT 1 FROM external_elements WHERE namespace = ? AND code = ?",
-                        (namespace, code),
-                    ).fetchone()
-                    if exists is None:
-                        raise ValueError(
-                            f"{yaml_path}: external name {namespace}:{code} is not in external_elements; "
-                            "import its vocabulary first"
-                        )
-                    conn.execute(
-                        "INSERT INTO entry_external_elements(entry_id, namespace, code) VALUES (?, ?, ?)",
-                        (entry_id, namespace, code),
-                    )
-
-                for alias in entry.get("aliases", []):
-                    conn.execute(
-                        "INSERT INTO aliases (owner_type, owner_id, alias) VALUES ('entry', ?, ?)",
-                        (entry_id, alias),
-                    )
-                    stats["aliases"] += 1
-
-                for sort_order, variant in enumerate(entry.get("params", [])):
-                    cur = conn.execute(
-                        """
-                        INSERT INTO variants
-                            (entry_id, parameter_id, name, when_json, type_of_level, level,
-                             unit, description, description_cn, sort_order)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                        """,
-                        (
-                            entry_id, variant["parameter_id"], variant["name"], canonicalize_when(variant["when"]),
-                            variant.get("typeOfLevel"), variant.get("level"),
-                            variant.get("unit"), variant.get("description"),
-                            variant.get("description_cn"), sort_order,
-                        ),
-                    )
-                    variant_id = cur.lastrowid
-                    stats["variants"] += 1
-
-                    for alias in variant.get("aliases", []):
-                        conn.execute(
-                            "INSERT INTO aliases (owner_type, owner_id, alias) VALUES ('variant', ?, ?)",
-                            (variant_id, alias),
-                        )
-                        stats["aliases"] += 1
-    finally:
-        conn.close()
-    return stats
+def import_resources(db_path, parameters, mappings=(), *, retired=()):
+    """Initialize an empty v4 authoring database in one validated transaction."""
+    p = Parameters(parameters).to_dict()
+    ms = [Mappings(m).to_dict() for m in mappings]
+    retired = list(retired)
+    validate_resource_set(p, ms, retired_ids=[r["parameter_id"] for r in retired])
+    with transaction(db_path) as conn:
+        if conn.execute("SELECT count(*) FROM parameter_resources").fetchone()[0]:
+            raise ValueError(
+                "import requires an empty schema-4 database; use validated transaction edits for existing resources"
+            )
+        conn.executemany(
+            "INSERT INTO parameter_id_tombstones VALUES (?,?)",
+            [(r["parameter_id"], r["retired_reason"]) for r in retired],
+        )
+        insert_parameters(conn, p)
+        for m in ms:
+            insert_mappings(conn, m)
+    return {"parameters": len(p["parameters"]), "mapping_resources": len(ms)}

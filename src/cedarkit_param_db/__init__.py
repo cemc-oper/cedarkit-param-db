@@ -1,29 +1,31 @@
-"""cedarkit-param-db：GRIB2 要素注册表的 SQLite 编辑真源。
+"""Schema-4 parameter authoring, explicit offline migration and validated exports."""
 
-数据库是唯一手工编辑入口；``param_registry.yaml``（reki 包内）是由本库
-导出的发布快照，禁止手工修改。
-
-典型流程::
-
-    python -m cedarkit_param_db init                     # 建库
-    python -m cedarkit_param_db import --yaml <注册表>    # 灌入（全量替换）
-    # ... 用 SQL 编辑数据库 ...
-    python -m cedarkit_param_db export -o <注册表>        # 导出快照
-    python -m cedarkit_param_db check --yaml <注册表>     # CI drift 检查
-"""
-
-from cedarkit_param_db.db import DEFAULT_DB_PATH, connect, init_db
-from cedarkit_param_db.exporter import export_entries, export_text
-from cedarkit_param_db.importer import import_registry
+from .db import (
+    SCHEMA_VERSION,
+    connect,
+    init_db,
+    retire_parameter,
+    schema_version,
+    transaction,
+)
+from .exporter import export_bundle, export_definitions, snapshot
+from .importer import import_resources
+from .migration import apply_review, migrate_v3, migration_report
 
 __version__ = "0.1.0"
 
 __all__ = [
-    "DEFAULT_DB_PATH",
+    "SCHEMA_VERSION",
     "connect",
     "init_db",
-    "export_entries",
-    "export_text",
-    "import_registry",
-    "__version__",
+    "schema_version",
+    "transaction",
+    "retire_parameter",
+    "import_resources",
+    "export_bundle",
+    "export_definitions",
+    "snapshot",
+    "migrate_v3",
+    "migration_report",
+    "apply_review",
 ]

@@ -1,102 +1,168 @@
-"""params.json 导出（export-json）与 JSON drift 检查测试。
+"""Export bytes, scope, consistency, and failure atomicity."""
 
-基准数据：reki 包内的 param_registry.yaml（与 test_roundtrip 同一夹具来源）。
-"""
-
+import hashlib
 import json
-from pathlib import Path
 
 import pytest
+from cedarkit_query import load_value
 
-from cedarkit_param_db.__main__ import main
-from cedarkit_param_db.db import init_db
-from cedarkit_param_db.exporter import JSON_SCHEMA_VERSION, export_json
-from cedarkit_param_db.importer import import_registry
-from cedarkit_param_db.cmadaas import import_vocabulary
-
-#: data/cedarkit-param-db/tests/ → 上三级为 devel 根目录
-REGISTRY_YAML = (
-    Path(__file__).resolve().parents[3]
-    / "repo/reki/reki/readers/grib/config/param_registry.yaml"
+from cedarkit_param_db import (
+    connect,
+    export_bundle,
+    import_resources,
+    init_db,
+    transaction,
 )
-CMADAAS_VOCABULARY = (
-    Path(__file__).resolve().parents[3]
-    / "source/nuwe-cmadaas-devel/cmadaas_param_names.md"
-)
-
-CEMC_M06_CODES = (
-    "ALBO", "CAPE", "CIN", "CLCO", "CMRA", "DCAPE", "GRSP", "HIDX", "HT0",
-    "IWMR", "PC", "PBLH", "RACR", "RAR", "RHMAX", "RHMIN", "RMRA", "SHID", "SMRA",
-    "SWID", "TCCI", "TCCW", "TIWV", "TOSN", "WIDX", "WSGU", "ZNT",
-)
-
-pytestmark = pytest.mark.skipif(
-    not REGISTRY_YAML.exists(), reason="reki param_registry.yaml 不在预期位置"
-)
+from cedarkit_param_db import exporter
 
 
-@pytest.fixture(scope="module")
-def db_path(tmp_path_factory):
-    path = tmp_path_factory.mktemp("db") / "json_test.db"
-    init_db(path)
-    import_vocabulary(CMADAAS_VOCABULARY, path)
-    from cedarkit_param_db.db import connect
-    conn = connect(path)
-    with conn:
-        conn.executemany(
-            "INSERT INTO external_elements(namespace, code, description_cn, source_ref) VALUES (?, ?, ?, ?)",
-            [("cmadaas", code, code, "doc/ref/cmadaas-cemc-data.md") for code in CEMC_M06_CODES],
+def contents(path):
+    return {p.name: p.read_bytes() for p in path.iterdir()}
+
+
+def test_bundle_determinism_hashes_new_browser_contract_and_no_machine_paths(
+    db, tmp_path
+):
+    one, two = tmp_path / "one", tmp_path / "two"
+    manifest = export_bundle(db, one)
+    export_bundle(db, two)
+    assert contents(one) == contents(two)
+    assert len(manifest["files"]) == 7
+    for f in manifest["files"]:
+        data = (one / f["path"]).read_bytes()
+        assert f["sha256"] == hashlib.sha256(data).hexdigest()
+        assert f["size"] == len(data)
+    for f in one.glob("*.yaml"):
+        same = load_value(
+            (one / (f.stem + ".json")).read_text(),
+            "parameters" if f.stem == "parameters" else "mappings",
         )
-    conn.close()
-    import_registry(REGISTRY_YAML, path)
-    return path
+        assert (
+            load_value(
+                f.read_text(), "parameters" if f.stem == "parameters" else "mappings"
+            )
+            == same
+        )
+    browser = json.loads((one / "params.json").read_text())
+    assert browser["meta"]["schema_version"] == 4
+    assert browser["meta"]["stats"] == {"parameters": 2, "aliases": 2, "mappings": 2}
+    assert all("key" not in p and "variants" not in p for p in browser["parameters"])
+    assert "entries" not in browser
+    for data in contents(one).values():
+        assert str(tmp_path).encode() not in data
+        assert b"exported_at" not in data
 
 
-class TestExportJson:
-    def test_structure(self, db_path):
-        doc = json.loads(export_json(db_path))
-        assert doc["meta"]["schema_version"] == JSON_SCHEMA_VERSION
-        stats = doc["meta"]["stats"]
-        assert stats["entries"] == len(doc["entries"]) > 0
-        assert stats["parameter_ids"] == 221
-
-        entry = next(e for e in doc["entries"] if e["name"] == "t")
-        assert entry["key"] == {"discipline": 0, "category": 0, "number": 0}
-        assert entry["parameter_id"] == "cedarkit.t"
-        assert entry["external_names"] == {"cmadaas": "TEM"}
-        assert entry["updated_at"]  # 数据库独有字段必须存在
-        variant = next(v for v in entry["variants"] if v["name"] == "t2m")
-        assert variant["parameter_id"] == "cedarkit.t2m"
-        # when 恢复为 spec 语义顺序
-        assert list(variant["when"]) == ["first_level_type", "first_level"]
-
-    def test_no_presentation_fields(self, db_path):
-        """契约只含原始数据：不得混入展示层预加工字段。"""
-        doc = json.loads(export_json(db_path))
-        for entry in doc["entries"]:
-            for field in ("triplet", "detail_url", "search_text", "discipline_label"):
-                assert field not in entry
-            for variant in entry.get("variants", []):
-                assert "when_text" not in variant
-
-    def test_deterministic(self, db_path):
-        assert export_json(db_path) == export_json(db_path)
+def test_order_of_unordered_records_aliases_and_evidence_does_not_change_export(
+    db, tmp_path, parameters, mappings
+):
+    other = tmp_path / "other.db"
+    init_db(other)
+    parameters["parameters"].reverse()
+    for m in mappings:
+        m["mappings"].reverse()
+        m["tables"].reverse()
+        for row in m["mappings"]:
+            row["evidence"].reverse()
+    mappings.reverse()
+    import_resources(other, parameters, mappings)
+    export_bundle(db, tmp_path / "one")
+    export_bundle(other, tmp_path / "two")
+    assert contents(tmp_path / "one") == contents(tmp_path / "two")
 
 
-class TestCheckJson:
-    def test_check_json_ok(self, db_path, tmp_path):
-        json_path = tmp_path / "params.json"
-        json_path.write_text(export_json(db_path), encoding="utf-8")
-        assert main(["--db", str(db_path), "check", "--json", str(json_path)]) == 0
+def test_unordered_evidence_dedup_is_rejected_before_writing(
+    db, tmp_path, parameters, mappings
+):
+    path = tmp_path / "bad.db"
+    init_db(path)
+    mappings[0]["mappings"][0]["evidence"] *= 2
+    # Duplicate input references are schema-invalid, never silently collapsed.
+    with pytest.raises(ValueError):
+        import_resources(path, parameters, mappings)
 
-    def test_check_json_drift(self, db_path, tmp_path, capsys):
-        json_path = tmp_path / "params.json"
-        doc = json.loads(export_json(db_path))
-        doc["entries"][0]["name"] = "tampered"
-        json_path.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n",
-                             encoding="utf-8")
-        assert main(["--db", str(db_path), "check", "--json", str(json_path)]) == 1
-        assert "DRIFT" in capsys.readouterr().out
 
-    def test_check_requires_target(self, db_path, capsys):
-        assert main(["--db", str(db_path), "check"]) == 2
+def test_stage_write_failure_never_publishes_partial_group(db, tmp_path, monkeypatch):
+    original = exporter._write_file
+    count = 0
+
+    def fail(path, data):
+        nonlocal count
+        count += 1
+        if count == 3:
+            raise OSError("injected staging failure")
+        original(path, data)
+
+    monkeypatch.setattr(exporter, "_write_file", fail)
+    with pytest.raises(OSError, match="injected"):
+        export_bundle(db, tmp_path / "output")
+    assert not (tmp_path / "output").exists()
+    assert not list(tmp_path.glob(".cedarkit-export-*"))
+
+
+def test_existing_bundle_is_not_replaced(db, tmp_path):
+    out = tmp_path / "bundle"
+    export_bundle(db, out)
+    before = contents(out)
+    with pytest.raises(FileExistsError):
+        export_bundle(db, out)
+    assert contents(out) == before
+
+
+def test_snapshot_remains_consistent_during_concurrent_writer(
+    db, tmp_path, monkeypatch
+):
+    c = connect(db)
+    c.execute("PRAGMA journal_mode=WAL")
+    c.close()
+    original = exporter._browser
+
+    def interleave(conn, p, ms, scope):
+        with transaction(db) as writer:
+            writer.execute("UPDATE parameter_resources SET version=?", ("2",))
+            writer.execute("UPDATE parameter_notes SET remark=?", ("changed",))
+        return original(conn, p, ms, scope)
+
+    monkeypatch.setattr(exporter, "_browser", interleave)
+    export_bundle(db, tmp_path / "old-view")
+    p = json.loads((tmp_path / "old-view/parameters.json").read_text())
+    browser = json.loads((tmp_path / "old-view/params.json").read_text())
+    assert p["version"] == "1"
+    assert browser["meta"]["parameter_resource"]["version"] == "1"
+    c = connect(db, readonly=True)
+    try:
+        assert c.execute("SELECT version FROM parameter_resources").fetchone()[0] == "2"
+    finally:
+        c.close()
+
+
+def test_edited_annotations_only_appear_in_browser(db, tmp_path):
+    with transaction(db) as c:
+        c.execute(
+            "INSERT INTO parameter_notes VALUES (?,?,?)",
+            ("example.t", "review note", "2026-10-27 00:00:00"),
+        )
+    export_bundle(db, tmp_path / "bundle")
+    p = json.loads((tmp_path / "bundle/parameters.json").read_text())
+    browser = json.loads((tmp_path / "bundle/params.json").read_text())
+    assert all("remark" not in r and "updated_at" not in r for r in p["parameters"])
+    assert browser["notes"] == [
+        {
+            "parameter_id": "example.t",
+            "remark": "review note",
+            "updated_at": "2026-10-27 00:00:00",
+        }
+    ]
+
+
+def test_staged_corruption_prevents_group_publication(db, tmp_path, monkeypatch):
+    original = exporter._write_file
+
+    def corrupt(path, data):
+        original(path, b"{}\n" if path.name == "parameters.json" else data)
+
+    monkeypatch.setattr(exporter, "_write_file", corrupt)
+    with pytest.raises(ValueError):
+        export_bundle(db, tmp_path / "corrupt")
+    assert not (tmp_path / "corrupt").exists()
+    assert not list(tmp_path.glob(".cedarkit-export-*"))

@@ -1,120 +1,115 @@
-"""命令行入口：python -m cedarkit_param_db <init|import|export|export-json|check>"""
+"""Explicit offline migration, schema-4 authoring and atomic bundle exports."""
 
 import argparse
-import difflib
-import sys
 from pathlib import Path
+import sqlite3
+import sys
 
-from cedarkit_param_db.db import DEFAULT_DB_PATH, init_db
-from cedarkit_param_db.exporter import export_file, export_json, export_json_file, export_text
-from cedarkit_param_db.importer import import_registry
-from cedarkit_param_db.cmadaas import import_vocabulary, inventory_json
+from cedarkit_query import load_value
+
+from .db import init_db
+from .exporter import export_bundle, export_definitions, json_text
+from .importer import import_resources
+from .migration import _LegacyLoader, _pairs, apply_review, migrate_v3, migration_report
+import json
+import yaml
 
 
-def main(argv=None) -> int:
-    parser = argparse.ArgumentParser(
-        prog="cedarkit_param_db",
-        description="GRIB2 要素数据库（param_registry.yaml 的编辑真源）",
-    )
+def _write_report(value, path):
+    if path is None:
+        sys.stdout.write(json_text(value))
+    else:
+        # Reports also refuse accidental replacement of previous evidence.
+        with path.open("x", encoding="utf-8") as stream:
+            stream.write(json_text(value))
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(prog="cedarkit_param_db", description=__doc__)
     parser.add_argument(
-        "--db", type=Path, default=DEFAULT_DB_PATH,
-        help=f"数据库文件路径（默认 {DEFAULT_DB_PATH}）",
+        "--db",
+        type=Path,
+        required=True,
+        help="explicit schema-4 destination or authoring copy; never auto-upgrades the old database",
     )
-    sub = parser.add_subparsers(dest="command", required=True)
-
-    sub.add_parser("init", help="按 schema.sql 建库")
-
-    p_import = sub.add_parser("import", help="从注册表 YAML 全量导入（替换现有内容）")
-    p_import.add_argument("--yaml", type=Path, required=True, help="param_registry.yaml 路径")
-
-    p_export = sub.add_parser("export", help="从数据库导出注册表 YAML")
-    p_export.add_argument("-o", "--out", type=Path, help="输出文件（缺省打印到 stdout）")
-
-    p_export_json = sub.add_parser(
-        "export-json", help="从数据库导出 params.json（cedarkit-param-web 的契约文件）"
+    commands = parser.add_subparsers(dest="command", required=True)
+    commands.add_parser("init", help="create an empty schema-4 database at a new path")
+    migrate = commands.add_parser(
+        "migrate-v3", help="migrate a fixed legacy source to a new review copy"
     )
-    p_export_json.add_argument("-o", "--out", type=Path, help="输出文件（缺省打印到 stdout）")
-
-    p_check = sub.add_parser("check", help="drift 检查：数据库导出结果与快照逐字节对比")
-    p_check.add_argument("--yaml", type=Path, help="待对比的 param_registry.yaml 路径")
-    p_check.add_argument("--json", type=Path, help="待对比的 params.json 路径")
-
-    p_vocab = sub.add_parser("import-cmadaas-vocabulary", help="只读导入 CMADaaS 外部要素词表（不创建 mapping）")
-    p_vocab.add_argument("--source", type=Path, required=True, help="cmadaas_param_names.md 路径")
-    p_inventory = sub.add_parser("cmadaas-inventory", help="输出稳定的 CMADaaS mapping inventory JSON")
-    p_inventory.add_argument("-o", "--out", type=Path, help="输出文件（缺省打印到 stdout）")
-
+    source = migrate.add_mutually_exclusive_group(required=True)
+    source.add_argument("--source-db", type=Path)
+    source.add_argument("--source-snapshot", type=Path)
+    migrate.add_argument("--report", type=Path)
+    load = commands.add_parser(
+        "import", help="initialize an empty v4 database from new-format resources"
+    )
+    load.add_argument("--parameters", type=Path, required=True)
+    load.add_argument("--mappings", type=Path, action="append", default=[])
+    report = commands.add_parser("migration-report")
+    report.add_argument("--out", type=Path)
+    review = commands.add_parser(
+        "review", help="apply explicit source-bound factual resolutions"
+    )
+    review.add_argument("--decisions", type=Path, required=True)
+    export = commands.add_parser(
+        "export", help="export a fully resolved resource group to a new directory"
+    )
+    export.add_argument("--out-dir", type=Path, required=True)
+    definitions = commands.add_parser(
+        "export-definitions",
+        help="export a reviewed definition-only slice; never runtime mappings",
+    )
+    definitions.add_argument("--out-dir", type=Path, required=True)
+    definitions.add_argument("--parameter-id", action="append", required=True)
+    definitions.add_argument("--resource-id", required=True)
+    definitions.add_argument("--version", required=True)
     args = parser.parse_args(argv)
-
-    if args.command == "init":
-        path = init_db(args.db)
-        print(f"initialized {path}")
-        return 0
-
-    if args.command == "import":
-        stats = import_registry(args.yaml, args.db)
-        print(f"imported from {args.yaml}: "
-              f"{stats['entries']} entries, {stats['variants']} variants, {stats['aliases']} aliases")
-        return 0
-
-    if args.command == "export":
-        if args.out:
-            export_file(args.db, args.out)
-            print(f"exported {args.db} -> {args.out}")
-        else:
-            sys.stdout.write(export_text(args.db))
-        return 0
-
-    if args.command == "export-json":
-        if args.out:
-            export_json_file(args.db, args.out)
-            print(f"exported {args.db} -> {args.out}")
-        else:
-            sys.stdout.write(export_json(args.db))
-        return 0
-
-    if args.command == "check":
-        if not args.yaml and not args.json:
-            print("check 需要 --yaml 和/或 --json 参数", file=sys.stderr)
-            return 2
-        failed = False
-        for label, expected, actual_path in (
-            ("YAML", export_text(args.db) if args.yaml else None, args.yaml),
-            ("JSON", export_json(args.db) if args.json else None, args.json),
-        ):
-            if actual_path is None:
-                continue
-            actual = Path(actual_path).read_text(encoding="utf-8")
-            if expected == actual:
-                print(f"OK: {actual_path} 与数据库导出结果一致")
-                continue
-            diff = difflib.unified_diff(
-                actual.splitlines(keepends=True),
-                expected.splitlines(keepends=True),
-                fromfile=str(actual_path),
-                tofile=f"{args.db} (export)",
+    try:
+        if args.command == "init":
+            init_db(args.db)
+        elif args.command == "migrate-v3":
+            if args.report and args.report.exists():
+                raise FileExistsError(args.report)
+            result = migrate_v3(
+                args.source_db or args.source_snapshot,
+                args.db,
+                source_kind="database" if args.source_db else "snapshot",
             )
-            sys.stdout.writelines(diff)
-            print(f"\nDRIFT: {actual_path} 与数据库不一致。"
-                  f"请从数据库重新导出，或将快照变更导入数据库（import）。")
-            failed = True
-        return 1 if failed else 0
-
-    if args.command == "import-cmadaas-vocabulary":
-        count = import_vocabulary(args.source, args.db)
-        print(f"imported {count} CMADaaS external elements from {args.source}")
+            _write_report(result, args.report)
+        elif args.command == "import":
+            import_resources(
+                args.db,
+                load_value(args.parameters.read_text(encoding="utf-8"), "parameters"),
+                [
+                    load_value(p.read_text(encoding="utf-8"), "mappings")
+                    for p in args.mappings
+                ],
+            )
+        elif args.command == "migration-report":
+            _write_report(migration_report(args.db), args.out)
+        elif args.command == "review":
+            text = args.decisions.read_text(encoding="utf-8")
+            document = (
+                json.loads(text, object_pairs_hook=_pairs)
+                if text.lstrip().startswith("{")
+                else yaml.load(text, Loader=_LegacyLoader)
+            )
+            apply_review(args.db, document)
+        elif args.command == "export":
+            export_bundle(args.db, args.out_dir)
+        elif args.command == "export-definitions":
+            export_definitions(
+                args.db,
+                args.out_dir,
+                args.parameter_id,
+                resource_id=args.resource_id,
+                version=args.version,
+            )
         return 0
-
-    if args.command == "cmadaas-inventory":
-        text = inventory_json(args.db)
-        if args.out:
-            args.out.write_text(text, encoding="utf-8")
-            print(f"exported CMADaaS inventory to {args.out}")
-        else:
-            sys.stdout.write(text)
-        return 0
-
-    return 2
+    except (ValueError, OSError, sqlite3.Error) as exc:
+        print(str(exc), file=sys.stderr)
+        return 2
 
 
 if __name__ == "__main__":
