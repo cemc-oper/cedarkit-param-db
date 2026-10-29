@@ -1,0 +1,137 @@
+{
+  "decisions": [
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.ps"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.psl"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.q"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.rh"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st-0-10"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.t"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.t2m"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.u"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.u10m"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.v"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-11/native-evidence.json#sha256=2c04220d0227b971fbc88db4906d1e8dc79a04d67f9599fd03ba60eade6f3668;current native phase and pair evidence"
+      ],
+      "explanation": "Current MESO1/TYM analysis/forecast scoped native facts and provision pairs added; identity-wide obligations remain.",
+      "missing_input": "Other mandatory products/native forms, full provision domains, and independent physical reference.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.v10m"
+    }
+  ],
+  "source_sha256": "7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae"
+}

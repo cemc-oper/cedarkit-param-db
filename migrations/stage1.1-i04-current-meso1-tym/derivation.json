@@ -1,0 +1,26 @@
+{
+  "complete_product_coverage": false,
+  "counts": {
+    "aliases": 27,
+    "mappings": 97,
+    "parameters": 220,
+    "preserved_identities": 221,
+    "quarantined": 1,
+    "retired_ids": 0,
+    "unresolved": 429
+  },
+  "definition_changes": 0,
+  "review_summary": {
+    "cmadaas": {
+      "needs_evidence": 112
+    },
+    "definition": {
+      "needs_evidence": 96,
+      "resolved": 125
+    },
+    "grib2": {
+      "needs_evidence": 221
+    }
+  },
+  "source_db_sha256": "36a6d1a56374d74969194d409496385b6f21b226a9b41ed7c43d6aa93e76dc62"
+}
