@@ -1,0 +1,268 @@
+{
+  "files": [
+    {
+      "api_version": "cedarkit.parameters/v1",
+      "id": "cedarkit.parameters.cma-gfs.current",
+      "path": "parameters.json",
+      "sha256": "764666395459b8768d8754b9802b9773dcd361c2ac52e198a759423d58719b87",
+      "size": 4840,
+      "version": "1"
+    },
+    {
+      "api_version": "cedarkit.parameters/v1",
+      "id": "cedarkit.parameters.cma-gfs.current",
+      "path": "parameters.yaml",
+      "sha256": "940779981e5d09ebcf4aab5fd8ddea00f33b97fdc93ea0b805639618cf31279e",
+      "size": 3183,
+      "version": "1"
+    },
+    {
+      "api_version": "cedarkit.mappings/v1",
+      "id": "cedarkit.grib2.cma-gfs.current",
+      "path": "mappings-00-grib2.json",
+      "sha256": "6534dbb50d8963b287bbaccc1d08ae8edabce0c18aca6a3d84a6198d366afd82",
+      "size": 44880,
+      "version": "1"
+    },
+    {
+      "api_version": "cedarkit.mappings/v1",
+      "id": "cedarkit.grib2.cma-gfs.current",
+      "path": "mappings-00-grib2.yaml",
+      "sha256": "a65dddc0475639b7f53fe4f3c0e9e5970da8471fda0392ab9aeb7af689ff9585",
+      "size": 38031,
+      "version": "1"
+    },
+    {
+      "path": "params.json",
+      "schema_version": 4,
+      "sha256": "12f6d1129cc46daeda5b360ceecf8f31460a7281639e55b1898c5e62b233a75b",
+      "size": 66181
+    }
+  ],
+  "schema_version": 1,
+  "scope": {
+    "complete_product_coverage": false,
+    "kind": "parameter_mappings",
+    "mapping_resource_ids": [
+      "cedarkit.grib2.cma-gfs.current"
+    ],
+    "parameter_ids": [
+      "cedarkit.ps",
+      "cedarkit.ps.any",
+      "cedarkit.psl",
+      "cedarkit.psl.any",
+      "cedarkit.q",
+      "cedarkit.rh",
+      "cedarkit.st-0-10",
+      "cedarkit.st-10-40",
+      "cedarkit.st-100-200",
+      "cedarkit.st-40-100",
+      "cedarkit.t",
+      "cedarkit.t2m",
+      "cedarkit.u",
+      "cedarkit.u10m",
+      "cedarkit.v",
+      "cedarkit.v10m"
+    ],
+    "remaining_migration_obligations": [
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.ps",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.ps.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.psl",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.psl",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+        "parameter_id": "cedarkit.psl.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.psl.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.q",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.q",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.rh",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.rh",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.st-0-10",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.st-0-10",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.st-10-40",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.st-10-40",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.st-100-200",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.st-100-200",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.st-40-100",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.st-40-100",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.t",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.t",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.t2m",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.t2m",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.u",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.u",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.u10m",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.u10m",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.v",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.v",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.v10m",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+        "parameter_id": "cedarkit.v10m",
+        "review_status": "needs_evidence"
+      }
+    ],
+    "requested_parameter_ids": [
+      "cedarkit.ps",
+      "cedarkit.psl",
+      "cedarkit.q",
+      "cedarkit.rh",
+      "cedarkit.st-0-10",
+      "cedarkit.st-10-40",
+      "cedarkit.st-100-200",
+      "cedarkit.st-40-100",
+      "cedarkit.t",
+      "cedarkit.t2m",
+      "cedarkit.u",
+      "cedarkit.u10m",
+      "cedarkit.v",
+      "cedarkit.v10m"
+    ],
+    "runtime_mappings": true
+  },
+  "validation": "internal shared validation only; external product context and backend evidence remain required"
+}

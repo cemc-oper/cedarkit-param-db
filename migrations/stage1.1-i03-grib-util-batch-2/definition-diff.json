@@ -1,0 +1,74 @@
+[
+  {
+    "conditions": "Existing broad standard-code identity; no producer/product/level/statistics inferred",
+    "evidence": [
+      "doc/2026-10-13-stage1.1-query-reki/evidence/I03/round-4/wmo-tables/4.2.0.0.table#sha256=4e58adc1e28e70d31abdf81b17aa35b5bcdf56ee8367b5b6bb5e58e8c4c566ac;code=17; explicit table-version-4 declaration",
+      "data/cedarkit-param-db/migrations/stage1.1-i03-grib-util-v12.6/migration-report.json#sha256=1edbded713b9c5ed000d0e05a609bd996d640caec51b9bab5bb233a4aa64b46a;cedarkit.skint;legacy.key and wgrib2_name"
+    ],
+    "new": {
+      "description": "Skin temperature",
+      "name": "SKINT",
+      "parameter_id": "cedarkit.skint",
+      "unit": "K"
+    },
+    "old": {
+      "name": "SKINT",
+      "parameter_id": "cedarkit.skint"
+    },
+    "parameter_id": "cedarkit.skint"
+  },
+  {
+    "conditions": "Existing broad standard-code identity; no producer/product/level/statistics inferred",
+    "evidence": [
+      "doc/2026-10-13-stage1.1-query-reki/evidence/I03/round-4/wmo-tables/4.2.2.0.table#sha256=f01122db7520da541e31e806e2f5154ef6b81069878e45bb103e43507583c437;code=2; explicit table-version-4 declaration",
+      "data/cedarkit-param-db/migrations/stage1.1-i03-grib-util-v12.6/migration-report.json#sha256=1edbded713b9c5ed000d0e05a609bd996d640caec51b9bab5bb233a4aa64b46a;cedarkit.tsoil;legacy.key and wgrib2_name"
+    ],
+    "new": {
+      "description": "Soil temperature",
+      "name": "TSOIL",
+      "parameter_id": "cedarkit.tsoil",
+      "unit": "K"
+    },
+    "old": {
+      "name": "TSOIL",
+      "parameter_id": "cedarkit.tsoil"
+    },
+    "parameter_id": "cedarkit.tsoil"
+  },
+  {
+    "conditions": "Existing broad standard-code identity; no producer/product/level/statistics inferred",
+    "evidence": [
+      "doc/2026-10-13-stage1.1-query-reki/evidence/I03/round-4/wmo-tables/4.2.2.0.table#sha256=f01122db7520da541e31e806e2f5154ef6b81069878e45bb103e43507583c437;code=22; explicit table-version-4 declaration",
+      "data/cedarkit-param-db/migrations/stage1.1-i03-grib-util-v12.6/migration-report.json#sha256=1edbded713b9c5ed000d0e05a609bd996d640caec51b9bab5bb233a4aa64b46a;cedarkit.soil-m;legacy.key and wgrib2_name"
+    ],
+    "new": {
+      "description": "Soil moisture",
+      "name": "SOIL_M",
+      "parameter_id": "cedarkit.soil-m",
+      "unit": "kg/m3"
+    },
+    "old": {
+      "name": "SOIL_M",
+      "parameter_id": "cedarkit.soil-m"
+    },
+    "parameter_id": "cedarkit.soil-m"
+  },
+  {
+    "conditions": "Existing broad standard-code identity; no producer/product/level/statistics inferred",
+    "evidence": [
+      "doc/2026-10-13-stage1.1-query-reki/evidence/I03/round-4/wmo-tables/4.2.0.1.table#sha256=dda6e7b61a966300e9880f391cc082a0b58ce521294df2bcbca6c399cc8ebf63;code=53; explicit table-version-4 declaration",
+      "data/cedarkit-param-db/migrations/stage1.1-i03-grib-util-v12.6/migration-report.json#sha256=1edbded713b9c5ed000d0e05a609bd996d640caec51b9bab5bb233a4aa64b46a;cedarkit.tsrwe;legacy.key and wgrib2_name"
+    ],
+    "new": {
+      "description": "Total snowfall rate water equivalent",
+      "name": "TSRWE",
+      "parameter_id": "cedarkit.tsrwe",
+      "unit": "kg/m2/s"
+    },
+    "old": {
+      "name": "TSRWE",
+      "parameter_id": "cedarkit.tsrwe"
+    },
+    "parameter_id": "cedarkit.tsrwe"
+  }
+]

@@ -1,0 +1,173 @@
+{
+  "decisions": [
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.ps"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.psl"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.q"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.rh"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st-0-10"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st-10-40"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st-100-200"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st-40-100"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.t"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.t2m"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.u"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.u10m"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.v"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-6/current-version-policy.md#sha256=ad9dcfdca70c99d4c2df56c38d18f0098611a77d1b98a22d45499d0b9ff70152",
+        "mapping-resource:cedarkit.grib2.cma-gfs.current@1"
+      ],
+      "explanation": "The current-only GFS orig binding establishes this supported f24 pair under the user-confirmed business policy. It does not close the parameter's mandatory product/template/source coverage.",
+      "missing_input": "Remaining mandatory current products and native forms, complete legal provision and independent numerical acceptance beyond the bounded GFS f24 binding; no historical-version acceptance is requested.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.v10m"
+    }
+  ],
+  "source_sha256": "7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae"
+}

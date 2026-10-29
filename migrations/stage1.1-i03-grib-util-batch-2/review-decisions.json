@@ -1,0 +1,318 @@
+{
+  "decisions": [
+    {
+      "aspect": "definition",
+      "definition": {
+        "description": "Skin temperature",
+        "name": "SKINT",
+        "parameter_id": "cedarkit.skint",
+        "unit": "K"
+      },
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I03/round-4/wmo-tables/4.2.0.0.table#sha256=4e58adc1e28e70d31abdf81b17aa35b5bcdf56ee8367b5b6bb5e58e8c4c566ac;code=17; explicit table-version-4 declaration",
+        "data/cedarkit-param-db/migrations/stage1.1-i03-grib-util-v12.6/migration-report.json#sha256=1edbded713b9c5ed000d0e05a609bd996d640caec51b9bab5bb233a4aa64b46a;cedarkit.skint;legacy.key and wgrib2_name"
+      ],
+      "explanation": "Existing legacy standard triple and explicit wgrib2 name identify this standard quantity. Table-version-4 declares the physical unit. Keep its broad stable identity, independent of the CEMC local soil-water code; add no level, statistic or product guarantee.",
+      "parameter_id": "cedarkit.skint"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description": "Soil temperature",
+        "name": "TSOIL",
+        "parameter_id": "cedarkit.tsoil",
+        "unit": "K"
+      },
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I03/round-4/wmo-tables/4.2.2.0.table#sha256=f01122db7520da541e31e806e2f5154ef6b81069878e45bb103e43507583c437;code=2; explicit table-version-4 declaration",
+        "data/cedarkit-param-db/migrations/stage1.1-i03-grib-util-v12.6/migration-report.json#sha256=1edbded713b9c5ed000d0e05a609bd996d640caec51b9bab5bb233a4aa64b46a;cedarkit.tsoil;legacy.key and wgrib2_name"
+      ],
+      "explanation": "Existing legacy standard triple and explicit wgrib2 name identify this standard quantity. Table-version-4 declares the physical unit. Keep its broad stable identity, independent of the CEMC local soil-water code; add no level, statistic or product guarantee.",
+      "parameter_id": "cedarkit.tsoil"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description": "Soil moisture",
+        "name": "SOIL_M",
+        "parameter_id": "cedarkit.soil-m",
+        "unit": "kg/m3"
+      },
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I03/round-4/wmo-tables/4.2.2.0.table#sha256=f01122db7520da541e31e806e2f5154ef6b81069878e45bb103e43507583c437;code=22; explicit table-version-4 declaration",
+        "data/cedarkit-param-db/migrations/stage1.1-i03-grib-util-v12.6/migration-report.json#sha256=1edbded713b9c5ed000d0e05a609bd996d640caec51b9bab5bb233a4aa64b46a;cedarkit.soil-m;legacy.key and wgrib2_name"
+      ],
+      "explanation": "Existing legacy standard triple and explicit wgrib2 name identify this standard quantity. Table-version-4 declares the physical unit. Keep its broad stable identity, independent of the CEMC local soil-water code; add no level, statistic or product guarantee.",
+      "parameter_id": "cedarkit.soil-m"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description": "Total snowfall rate water equivalent",
+        "name": "TSRWE",
+        "parameter_id": "cedarkit.tsrwe",
+        "unit": "kg/m2/s"
+      },
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I03/round-4/wmo-tables/4.2.0.1.table#sha256=dda6e7b61a966300e9880f391cc082a0b58ce521294df2bcbca6c399cc8ebf63;code=53; explicit table-version-4 declaration",
+        "data/cedarkit-param-db/migrations/stage1.1-i03-grib-util-v12.6/migration-report.json#sha256=1edbded713b9c5ed000d0e05a609bd996d640caec51b9bab5bb233a4aa64b46a;cedarkit.tsrwe;legacy.key and wgrib2_name"
+      ],
+      "explanation": "Existing legacy standard triple and explicit wgrib2 name identify this standard quantity. Table-version-4 declares the physical unit. Keep its broad stable identity, independent of the CEMC local soil-water code; add no level, statistic or product guarantee.",
+      "parameter_id": "cedarkit.tsrwe"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[272]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[272]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.apd"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[332]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[332]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.asi"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[273]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[273]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.fog"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[246]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[246]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.fogod"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[246]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[246]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.fogod.any"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[271]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[271]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.haze"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[326]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[326]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.hi"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[326]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[326]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.hi.any"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[4]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[4]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.pi"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[243]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[243]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.pip"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[180]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[180]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.precitype"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[254]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[254]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.ri"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[254]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. The old native first_level_type=166 also needs an evidenced canonical interpretation; do not infer a boundary from the label. Second-batch original-package check: candidate elementcodes=[254]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.ripbl"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[254]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[254]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.risfc"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[132, 288]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[132, 288]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.saunaidx"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[330]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[330]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.ssi"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[150]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[150]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sweatidx"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[150]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[150]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sweatidx.any"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[244]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[244]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.thp"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[268]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[268]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.thunwind"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[270]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[270]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.weph"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[325]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[325]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.wi"
+    },
+    {
+      "aspect": "definition",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;candidate elementcodes=[325]"
+      ],
+      "explanation": "Second batch directly rechecks paraNum.h and the existing explicit legacy identity link. A dash, code collision or absent exact link is not a physical unit or inheritance proof.",
+      "missing_input": "Authoritative business unit (or a supported inheritance source); the old NULL and document dashes do not establish dimensionless 1. Second-batch original-package check: candidate elementcodes=[325]; need an explicit physical unit/quantity definition or a documented categorical value contract; do not turn [-] into 1.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.wi.any"
+    }
+  ],
+  "source_sha256": "7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae"
+}

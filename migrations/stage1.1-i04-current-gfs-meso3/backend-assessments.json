@@ -1,0 +1,185 @@
+{
+  "decisions": [
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.ps"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.psl"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.q"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.rh"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st-0-10"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st-10-40"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st-100-200"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st-40-100"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.t"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.t2m"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.u"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.u10m"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.v"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/native-evidence.json#sha256=99cbabd0a619431346ce8b49f285748760bbffca5e830e4d7f3a0594f72fa2de;latest paired evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-10/meso-soil-evidence.json#sha256=26db33c19bb74171425f49b94b84a9f82b1ed499f125e2dd01aa8657d53f071b;MESO soil intervals"
+      ],
+      "explanation": "Current GFS broader level/step pairs and MESO-specific paired provision/soil intervals are now scoped in generated resources. This does not close the identity-wide obligations.",
+      "missing_input": "Other required current products/native forms, complete provision and independent numerical acceptance; no inference from observed absence to permanent non-provision.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.v10m"
+    }
+  ],
+  "source_sha256": "7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae"
+}

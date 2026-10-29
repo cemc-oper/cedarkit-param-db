@@ -1,0 +1,385 @@
+{
+  "api_version": "cedarkit.parameters/v1",
+  "id": "cedarkit.i03.grib-util-v12.6.second",
+  "parameters": [
+    {
+      "aliases": [
+        "c_dbz",
+        "cr"
+      ],
+      "description": "Composite radar reflectivity",
+      "description_cn": "雷达组合反射率",
+      "name": "cdbz",
+      "parameter_id": "cedarkit.cdbz",
+      "unit": "dbz"
+    },
+    {
+      "description": "Radar reflectivity",
+      "description_cn": "雷达反射率",
+      "name": "dbz",
+      "parameter_id": "cedarkit.dbz",
+      "unit": "dbz"
+    },
+    {
+      "description": "height of maximum of radar reflectivity",
+      "description_cn": "最大雷达回波的高度",
+      "name": "dbzmaxh",
+      "parameter_id": "cedarkit.dbzmaxh",
+      "unit": "m"
+    },
+    {
+      "description": "Down convective available potential energy",
+      "description_cn": "下沉对流有效位能",
+      "name": "dcape",
+      "parameter_id": "cedarkit.dcape",
+      "unit": "J/kg"
+    },
+    {
+      "fixed_conditions": {
+        "level_type": "surface"
+      },
+      "name": "fogh",
+      "parameter_id": "cedarkit.fogh",
+      "parent": "cedarkit.fogh.any"
+    },
+    {
+      "description": "height of fog top",
+      "description_cn": "雾顶高度",
+      "name": "fogh",
+      "parameter_id": "cedarkit.fogh.any",
+      "unit": "m"
+    },
+    {
+      "fixed_conditions": {
+        "level_type": "surface"
+      },
+      "name": "ht0",
+      "parameter_id": "cedarkit.ht0",
+      "parent": "cedarkit.ht0.any"
+    },
+    {
+      "description": "Height of 0 degree isothermal level",
+      "description_cn": "0度层高度",
+      "name": "ht0",
+      "parameter_id": "cedarkit.ht0.any",
+      "unit": "m"
+    },
+    {
+      "fixed_conditions": {
+        "level_type": "surface"
+      },
+      "name": "ht2",
+      "parameter_id": "cedarkit.ht2",
+      "parent": "cedarkit.ht2.any"
+    },
+    {
+      "description": "Height of -20 degree isothermal level",
+      "description_cn": "-20度层高度",
+      "name": "ht2",
+      "parameter_id": "cedarkit.ht2.any",
+      "unit": "m"
+    },
+    {
+      "aliases": [
+        "psfc"
+      ],
+      "fixed_conditions": {
+        "level_type": "surface"
+      },
+      "name": "ps",
+      "parameter_id": "cedarkit.ps",
+      "parent": "cedarkit.ps.any"
+    },
+    {
+      "description": "Surface pressure",
+      "description_cn": "地面气压",
+      "name": "ps",
+      "parameter_id": "cedarkit.ps.any",
+      "unit": "Pa"
+    },
+    {
+      "aliases": [
+        "mslp"
+      ],
+      "fixed_conditions": {
+        "level_type": "mean_sea_level"
+      },
+      "name": "psl",
+      "parameter_id": "cedarkit.psl",
+      "parent": "cedarkit.psl.any"
+    },
+    {
+      "description": "Sea level pressure",
+      "description_cn": "海平面气压",
+      "name": "psl",
+      "parameter_id": "cedarkit.psl.any",
+      "unit": "Pa"
+    },
+    {
+      "description": "Specific humidity",
+      "description_cn": "比湿",
+      "name": "q",
+      "parameter_id": "cedarkit.q",
+      "unit": "kg/kg"
+    },
+    {
+      "description": "Relative humidity",
+      "description_cn": "相对湿度",
+      "name": "rh",
+      "parameter_id": "cedarkit.rh",
+      "unit": "%"
+    },
+    {
+      "description_cn": "0-10cm土壤温度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.1
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0
+          }
+        }
+      },
+      "name": "st(0-10)",
+      "parameter_id": "cedarkit.st-0-10",
+      "parent": "cedarkit.t"
+    },
+    {
+      "description_cn": "10-40cm土壤温度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.4
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.1
+          }
+        }
+      },
+      "name": "st(10-40)",
+      "parameter_id": "cedarkit.st-10-40",
+      "parent": "cedarkit.t"
+    },
+    {
+      "description_cn": "100-200cm土壤温度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 2
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 1
+          }
+        }
+      },
+      "name": "st(100-200)",
+      "parameter_id": "cedarkit.st-100-200",
+      "parent": "cedarkit.t"
+    },
+    {
+      "description_cn": "40-100cm土壤温度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 1
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.4
+          }
+        }
+      },
+      "name": "st(40-100)",
+      "parameter_id": "cedarkit.st-40-100",
+      "parent": "cedarkit.t"
+    },
+    {
+      "description": "Soil moisture",
+      "description_cn": "土壤湿度",
+      "fixed_conditions": {
+        "level_type": "depth_below_land",
+        "level_unit": "m"
+      },
+      "name": "sw",
+      "parameter_id": "cedarkit.sw",
+      "unit": "m3/m3"
+    },
+    {
+      "description_cn": "0-10cm土壤湿度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.1
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0
+          }
+        }
+      },
+      "name": "sw(0-10)",
+      "parameter_id": "cedarkit.sw-0-10",
+      "parent": "cedarkit.sw"
+    },
+    {
+      "description_cn": "10-40cm土壤湿度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.4
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.1
+          }
+        }
+      },
+      "name": "sw(10-40)",
+      "parameter_id": "cedarkit.sw-10-40",
+      "parent": "cedarkit.sw"
+    },
+    {
+      "description_cn": "100-200cm土壤湿度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 2
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 1
+          }
+        }
+      },
+      "name": "sw(100-200)",
+      "parameter_id": "cedarkit.sw-100-200",
+      "parent": "cedarkit.sw"
+    },
+    {
+      "description_cn": "40-100cm土壤湿度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 1
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.4
+          }
+        }
+      },
+      "name": "sw(40-100)",
+      "parameter_id": "cedarkit.sw-40-100",
+      "parent": "cedarkit.sw"
+    },
+    {
+      "description": "Temperature",
+      "description_cn": "温度",
+      "name": "t",
+      "parameter_id": "cedarkit.t",
+      "unit": "K"
+    },
+    {
+      "description": "Temperature at 2 meters height",
+      "description_cn": "2米温度",
+      "fixed_conditions": {
+        "level": 2,
+        "level_type": "height_above_ground",
+        "level_unit": "m"
+      },
+      "name": "t2m",
+      "parameter_id": "cedarkit.t2m",
+      "parent": "cedarkit.t"
+    },
+    {
+      "description": "U-component of wind",
+      "description_cn": "东西风",
+      "name": "u",
+      "parameter_id": "cedarkit.u",
+      "unit": "m/s"
+    },
+    {
+      "description": "U-component of wind at 10 meters height",
+      "description_cn": "10米东西风",
+      "fixed_conditions": {
+        "level": 10,
+        "level_type": "height_above_ground",
+        "level_unit": "m",
+        "statistics": {
+          "operation": "instantaneous",
+          "over": "time"
+        }
+      },
+      "name": "u10m",
+      "parameter_id": "cedarkit.u10m",
+      "parent": "cedarkit.u"
+    },
+    {
+      "description": "V-component of wind",
+      "description_cn": "南北风",
+      "name": "v",
+      "parameter_id": "cedarkit.v",
+      "unit": "m/s"
+    },
+    {
+      "description": "V-component of wind at 10 meters height",
+      "description_cn": "10米南北风",
+      "fixed_conditions": {
+        "level": 10,
+        "level_type": "height_above_ground",
+        "level_unit": "m",
+        "statistics": {
+          "operation": "instantaneous",
+          "over": "time"
+        }
+      },
+      "name": "v10m",
+      "parameter_id": "cedarkit.v10m",
+      "parent": "cedarkit.v"
+    },
+    {
+      "fixed_conditions": {
+        "level_type": "surface"
+      },
+      "name": "znt",
+      "parameter_id": "cedarkit.znt",
+      "parent": "cedarkit.znt.any"
+    },
+    {
+      "description": "roughness length",
+      "description_cn": "粗糙度",
+      "name": "znt",
+      "parameter_id": "cedarkit.znt.any",
+      "unit": "m"
+    }
+  ],
+  "version": "1"
+}
