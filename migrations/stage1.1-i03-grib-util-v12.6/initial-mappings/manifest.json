@@ -1,0 +1,289 @@
+{
+  "files": [
+    {
+      "api_version": "cedarkit.parameters/v1",
+      "id": "cedarkit.i03.grib-util-v12.6.initial",
+      "path": "parameters.json",
+      "sha256": "21a90d0bc7a4aa13013f67c349a51d486a493ad7c9c85969d17658b19d30d1d1",
+      "size": 5238,
+      "version": "1"
+    },
+    {
+      "api_version": "cedarkit.parameters/v1",
+      "id": "cedarkit.i03.grib-util-v12.6.initial",
+      "path": "parameters.yaml",
+      "sha256": "9c84c5953d50552fd0c0e85637718dff722f23ae97ae1bc18e0c0da79f5af253",
+      "size": 3456,
+      "version": "1"
+    },
+    {
+      "api_version": "cedarkit.mappings/v1",
+      "id": "cedarkit.grib2.cemc-grib-util-v12.6.initial",
+      "path": "mappings-00-grib2.json",
+      "sha256": "513d471ba8569bf00b7a7e334be37e7ab10e205ff13bfe2284516fece3ad0622",
+      "size": 33185,
+      "version": "1"
+    },
+    {
+      "api_version": "cedarkit.mappings/v1",
+      "id": "cedarkit.grib2.cemc-grib-util-v12.6.initial",
+      "path": "mappings-00-grib2.yaml",
+      "sha256": "960ab5e069b2cd4219c936832eac10e7bd33c2bf47ae2f3ed56515e30b5c0a47",
+      "size": 27073,
+      "version": "1"
+    },
+    {
+      "path": "params.json",
+      "schema_version": 4,
+      "sha256": "9204b2551e18f47cf3790fa20f072fb985a4d4de86391867dc8dee179eb55a9f",
+      "size": 54517
+    }
+  ],
+  "schema_version": 1,
+  "scope": {
+    "complete_product_coverage": false,
+    "kind": "parameter_mappings",
+    "mapping_resource_ids": [
+      "cedarkit.grib2.cemc-grib-util-v12.6.initial"
+    ],
+    "parameter_ids": [
+      "cedarkit.cdbz",
+      "cedarkit.dbz",
+      "cedarkit.dbzmaxh",
+      "cedarkit.dcape",
+      "cedarkit.fogh",
+      "cedarkit.fogh.any",
+      "cedarkit.ht0",
+      "cedarkit.ht0.any",
+      "cedarkit.ht2",
+      "cedarkit.ht2.any",
+      "cedarkit.st-10-40",
+      "cedarkit.sw",
+      "cedarkit.sw-0-10",
+      "cedarkit.sw-10-40",
+      "cedarkit.sw-100-200",
+      "cedarkit.sw-40-100",
+      "cedarkit.t",
+      "cedarkit.znt",
+      "cedarkit.znt.any"
+    ],
+    "remaining_migration_obligations": [
+      {
+        "aspect": "cmadaas",
+        "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+        "parameter_id": "cedarkit.cdbz",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.cdbz",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+        "parameter_id": "cedarkit.dbz",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.dbz",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.dbzmaxh",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+        "parameter_id": "cedarkit.dcape",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.dcape",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.fogh",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.fogh.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+        "parameter_id": "cedarkit.ht0",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.ht0",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+        "parameter_id": "cedarkit.ht0.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.ht0.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.ht2",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.ht2.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+        "parameter_id": "cedarkit.st-10-40",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.st-10-40",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+        "parameter_id": "cedarkit.sw",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.sw",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+        "parameter_id": "cedarkit.sw-0-10",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.sw-0-10",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+        "parameter_id": "cedarkit.sw-10-40",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.sw-10-40",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+        "parameter_id": "cedarkit.sw-100-200",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.sw-100-200",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+        "parameter_id": "cedarkit.sw-40-100",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.sw-40-100",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+        "parameter_id": "cedarkit.t",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.t",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+        "parameter_id": "cedarkit.znt",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+        "parameter_id": "cedarkit.znt",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+        "parameter_id": "cedarkit.znt.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.znt.any",
+        "review_status": "needs_evidence"
+      }
+    ],
+    "requested_parameter_ids": [
+      "cedarkit.cdbz",
+      "cedarkit.dbz",
+      "cedarkit.dbzmaxh",
+      "cedarkit.dcape",
+      "cedarkit.fogh",
+      "cedarkit.ht0",
+      "cedarkit.ht2",
+      "cedarkit.st-10-40",
+      "cedarkit.sw",
+      "cedarkit.sw-0-10",
+      "cedarkit.sw-10-40",
+      "cedarkit.sw-100-200",
+      "cedarkit.sw-40-100",
+      "cedarkit.znt"
+    ],
+    "runtime_mappings": true
+  },
+  "validation": "internal shared validation only; external product context and backend evidence remain required"
+}

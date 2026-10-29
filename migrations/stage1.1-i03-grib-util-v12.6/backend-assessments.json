@@ -1,0 +1,329 @@
+{
+  "decisions": [
+    {
+      "aspect": "cmadaas",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.cdbz"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.cdbz"
+    },
+    {
+      "aspect": "cmadaas",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.dbz"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.dbz"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.dbzmaxh"
+    },
+    {
+      "aspect": "cmadaas",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.dcape"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.dcape"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.fogh"
+    },
+    {
+      "aspect": "cmadaas",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.ht0"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.ht0"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.ht2"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.htdn"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.src"
+    },
+    {
+      "aspect": "cmadaas",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st-10-40"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.st-10-40"
+    },
+    {
+      "aspect": "cmadaas",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sw"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sw"
+    },
+    {
+      "aspect": "cmadaas",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sw-0-10"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sw-0-10"
+    },
+    {
+      "aspect": "cmadaas",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sw-10-40"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sw-10-40"
+    },
+    {
+      "aspect": "cmadaas",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sw-100-200"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sw-100-200"
+    },
+    {
+      "aspect": "cmadaas",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sw-40-100"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.sw-40-100"
+    },
+    {
+      "aspect": "cmadaas",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.znt"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "mapping-resource:cedarkit.grib2.cemc-grib-util-v12.6.initial@1",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package"
+      ],
+      "explanation": "The v12.6 first batch provides evidenced definitions and a bounded instantaneous GRIB encoding slice. This does not prove the identity-wide mandatory product/source coverage.",
+      "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.znt"
+    }
+  ],
+  "source_sha256": "7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae"
+}

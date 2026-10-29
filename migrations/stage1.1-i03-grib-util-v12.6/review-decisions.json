@@ -1,0 +1,187 @@
+{
+  "decisions": [
+    {
+      "aspect": "definition",
+      "definition": {
+        "description": "Skin reservoir content",
+        "description_cn": "表面蓄水池含量",
+        "name": "src",
+        "parameter_id": "cedarkit.src",
+        "unit": "m"
+      },
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraFromGrib2ToGrib1.h#sha256=98f3ba0b37cfcba0163c00a5968507d3bf379f9cf839ab3653562a180cdfb8c8;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;binary-differential-verified",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof"
+      ],
+      "explanation": "Original paraNum.h element 207 explicitly declares skin reservoir content [m]. Replace the legacy undeclared unit while preserving the intentionally broad identity and all fixed semantics; no threshold, period or product scope is invented.",
+      "parameter_id": "cedarkit.src"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description": "Number of high temperature days",
+        "description_cn": "高温日数",
+        "name": "htdn",
+        "parameter_id": "cedarkit.htdn",
+        "unit": "day"
+      },
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraFromGrib2ToGrib1.h#sha256=98f3ba0b37cfcba0163c00a5968507d3bf379f9cf839ab3653562a180cdfb8c8;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;binary-differential-verified",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof"
+      ],
+      "explanation": "Original paraNum.h element 265 explicitly declares number of high-temperature days [day]. Replace the legacy undeclared unit while preserving the intentionally broad identity and all fixed semantics; no threshold, period or product scope is invented.",
+      "parameter_id": "cedarkit.htdn"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description": "Soil moisture",
+        "description_cn": "土壤湿度",
+        "fixed_conditions": {
+          "level_type": "depth_below_land",
+          "level_unit": "m"
+        },
+        "name": "sw",
+        "parameter_id": "cedarkit.sw",
+        "unit": "m3/m3"
+      },
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraFromGrib2ToGrib1.h#sha256=98f3ba0b37cfcba0163c00a5968507d3bf379f9cf839ab3653562a180cdfb8c8;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;binary-differential-verified",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof"
+      ],
+      "explanation": "Original element 144 declares volumetric soil moisture m3/m3; element 51 declares specific humidity kg/kg. The reverse reader discriminates the reused 0/1/0 code by fixed surface 106. Restore this stable soil-water identity as a separate physical definition, preserving its existing name and depth restriction. Code reuse is not quantity inheritance.",
+      "parameter_id": "cedarkit.sw"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description_cn": "0-10cm土壤湿度",
+        "fixed_conditions": {
+          "layer": {
+            "bottom": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 0.1
+            },
+            "top": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 0
+            }
+          }
+        },
+        "name": "sw(0-10)",
+        "parameter_id": "cedarkit.sw-0-10",
+        "parent": "cedarkit.sw"
+      },
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraFromGrib2ToGrib1.h#sha256=98f3ba0b37cfcba0163c00a5968507d3bf379f9cf839ab3653562a180cdfb8c8;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;binary-differential-verified",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof"
+      ],
+      "explanation": "The original element-144 definition and level-type-112 binary encoding establish volumetric soil moisture and the existing complete soil-depth interval. Reparent the preserved layer identity to cedarkit.sw; do not inherit specific-humidity units from the reused native code.",
+      "parameter_id": "cedarkit.sw-0-10"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description_cn": "10-40cm土壤湿度",
+        "fixed_conditions": {
+          "layer": {
+            "bottom": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 0.4
+            },
+            "top": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 0.1
+            }
+          }
+        },
+        "name": "sw(10-40)",
+        "parameter_id": "cedarkit.sw-10-40",
+        "parent": "cedarkit.sw"
+      },
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraFromGrib2ToGrib1.h#sha256=98f3ba0b37cfcba0163c00a5968507d3bf379f9cf839ab3653562a180cdfb8c8;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;binary-differential-verified",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof"
+      ],
+      "explanation": "The original element-144 definition and level-type-112 binary encoding establish volumetric soil moisture and the existing complete soil-depth interval. Reparent the preserved layer identity to cedarkit.sw; do not inherit specific-humidity units from the reused native code.",
+      "parameter_id": "cedarkit.sw-10-40"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description_cn": "40-100cm土壤湿度",
+        "fixed_conditions": {
+          "layer": {
+            "bottom": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 1
+            },
+            "top": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 0.4
+            }
+          }
+        },
+        "name": "sw(40-100)",
+        "parameter_id": "cedarkit.sw-40-100",
+        "parent": "cedarkit.sw"
+      },
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraFromGrib2ToGrib1.h#sha256=98f3ba0b37cfcba0163c00a5968507d3bf379f9cf839ab3653562a180cdfb8c8;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;binary-differential-verified",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof"
+      ],
+      "explanation": "The original element-144 definition and level-type-112 binary encoding establish volumetric soil moisture and the existing complete soil-depth interval. Reparent the preserved layer identity to cedarkit.sw; do not inherit specific-humidity units from the reused native code.",
+      "parameter_id": "cedarkit.sw-40-100"
+    },
+    {
+      "aspect": "definition",
+      "definition": {
+        "description_cn": "100-200cm土壤湿度",
+        "fixed_conditions": {
+          "layer": {
+            "bottom": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 2
+            },
+            "top": {
+              "type": "depth_below_land",
+              "unit": "m",
+              "value": 1
+            }
+          }
+        },
+        "name": "sw(100-200)",
+        "parameter_id": "cedarkit.sw-100-200",
+        "parent": "cedarkit.sw"
+      },
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraFromGrib2ToGrib1.h#sha256=98f3ba0b37cfcba0163c00a5968507d3bf379f9cf839ab3653562a180cdfb8c8;original-package",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;binary-differential-verified",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof"
+      ],
+      "explanation": "The original element-144 definition and level-type-112 binary encoding establish volumetric soil moisture and the existing complete soil-depth interval. Reparent the preserved layer identity to cedarkit.sw; do not inherit specific-humidity units from the reused native code.",
+      "parameter_id": "cedarkit.sw-100-200"
+    }
+  ],
+  "source_sha256": "7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae"
+}

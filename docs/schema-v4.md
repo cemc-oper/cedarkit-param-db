@@ -32,6 +32,14 @@ For a full database export, `scope.kind=database_resources` and `parameter_ids` 
 
 The separate manifest records scope, internal-validation limits, per-file actual size and SHA256, and runtime resource format/ID/version or browser schema version. A catalog is never generated here. Product-dependent references, populations/methods, interface capability and actual values remain I04/I06/I09 responsibilities.
 
+An explicit mapping slice has `scope.kind=parameter_mappings`, whole selected
+`mapping_resource_ids`, requested parameter IDs and dependency-closed IDs,
+`runtime_mappings=true`, `complete_product_coverage=false`, and
+`remaining_migration_obligations`. It preserves current reviewed definitions and
+all chosen mapping restrictions without closing full-scope backend obligations.
+This is an authoring/export scope, not a new runtime resource version or product
+coverage declaration. See [migration-v4.md](migration-v4.md).
+
 ## Additive schema-4 review audit
 
 `review.sql` adds `migration_assessments`, keyed to an existing issue and source digest. It retains non-final inspection decisions, exact missing-input/owner statements and effective-definition fingerprints. It is authoring metadata, separate from `resolution_json` and never exported as a second runtime definition. `init_db` includes this storage; `copy_review` explicitly extends a new copy of an earlier schema-4 review database. Read-only reports support earlier schema-4 databases without modifying them.

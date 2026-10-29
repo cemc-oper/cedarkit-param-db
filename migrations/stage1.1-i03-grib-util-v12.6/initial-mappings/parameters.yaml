@@ -1,0 +1,150 @@
+api_version: cedarkit.parameters/v1
+id: cedarkit.i03.grib-util-v12.6.initial
+parameters:
+- aliases:
+  - c_dbz
+  - cr
+  description: Composite radar reflectivity
+  description_cn: 雷达组合反射率
+  name: cdbz
+  parameter_id: cedarkit.cdbz
+  unit: dbz
+- description: Radar reflectivity
+  description_cn: 雷达反射率
+  name: dbz
+  parameter_id: cedarkit.dbz
+  unit: dbz
+- description: height of maximum of radar reflectivity
+  description_cn: 最大雷达回波的高度
+  name: dbzmaxh
+  parameter_id: cedarkit.dbzmaxh
+  unit: m
+- description: Down convective available potential energy
+  description_cn: 下沉对流有效位能
+  name: dcape
+  parameter_id: cedarkit.dcape
+  unit: J/kg
+- fixed_conditions:
+    level_type: surface
+  name: fogh
+  parameter_id: cedarkit.fogh
+  parent: cedarkit.fogh.any
+- description: height of fog top
+  description_cn: 雾顶高度
+  name: fogh
+  parameter_id: cedarkit.fogh.any
+  unit: m
+- fixed_conditions:
+    level_type: surface
+  name: ht0
+  parameter_id: cedarkit.ht0
+  parent: cedarkit.ht0.any
+- description: Height of 0 degree isothermal level
+  description_cn: 0度层高度
+  name: ht0
+  parameter_id: cedarkit.ht0.any
+  unit: m
+- fixed_conditions:
+    level_type: surface
+  name: ht2
+  parameter_id: cedarkit.ht2
+  parent: cedarkit.ht2.any
+- description: Height of -20 degree isothermal level
+  description_cn: -20度层高度
+  name: ht2
+  parameter_id: cedarkit.ht2.any
+  unit: m
+- description_cn: 10-40cm土壤温度
+  fixed_conditions:
+    layer:
+      bottom:
+        type: depth_below_land
+        unit: m
+        value: 0.4
+      top:
+        type: depth_below_land
+        unit: m
+        value: 0.1
+  name: st(10-40)
+  parameter_id: cedarkit.st-10-40
+  parent: cedarkit.t
+- description: Soil moisture
+  description_cn: 土壤湿度
+  fixed_conditions:
+    level_type: depth_below_land
+    level_unit: m
+  name: sw
+  parameter_id: cedarkit.sw
+  unit: m3/m3
+- description_cn: 0-10cm土壤湿度
+  fixed_conditions:
+    layer:
+      bottom:
+        type: depth_below_land
+        unit: m
+        value: 0.1
+      top:
+        type: depth_below_land
+        unit: m
+        value: 0
+  name: sw(0-10)
+  parameter_id: cedarkit.sw-0-10
+  parent: cedarkit.sw
+- description_cn: 10-40cm土壤湿度
+  fixed_conditions:
+    layer:
+      bottom:
+        type: depth_below_land
+        unit: m
+        value: 0.4
+      top:
+        type: depth_below_land
+        unit: m
+        value: 0.1
+  name: sw(10-40)
+  parameter_id: cedarkit.sw-10-40
+  parent: cedarkit.sw
+- description_cn: 100-200cm土壤湿度
+  fixed_conditions:
+    layer:
+      bottom:
+        type: depth_below_land
+        unit: m
+        value: 2
+      top:
+        type: depth_below_land
+        unit: m
+        value: 1
+  name: sw(100-200)
+  parameter_id: cedarkit.sw-100-200
+  parent: cedarkit.sw
+- description_cn: 40-100cm土壤湿度
+  fixed_conditions:
+    layer:
+      bottom:
+        type: depth_below_land
+        unit: m
+        value: 1
+      top:
+        type: depth_below_land
+        unit: m
+        value: 0.4
+  name: sw(40-100)
+  parameter_id: cedarkit.sw-40-100
+  parent: cedarkit.sw
+- description: Temperature
+  description_cn: 温度
+  name: t
+  parameter_id: cedarkit.t
+  unit: K
+- fixed_conditions:
+    level_type: surface
+  name: znt
+  parameter_id: cedarkit.znt
+  parent: cedarkit.znt.any
+- description: roughness length
+  description_cn: 粗糙度
+  name: znt
+  parameter_id: cedarkit.znt.any
+  unit: m
+version: '1'

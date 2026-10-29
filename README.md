@@ -45,6 +45,13 @@ uv run python -m cedarkit_param_db --db /tmp/cedarkit-review.db export-definitio
 
 The slice includes parent/statistical-object dependencies, checks their definition reviews, and explicitly declares `runtime_mappings: false`. It contains parameter JSON/YAML, browser `params.json` contract 4, and a byte-hash manifest. It never silently drops unresolved selected definitions or publishes unverified native bindings. This narrow export does not satisfy full migration or business acceptance.
 
+For an independently evidenced finite encoding slice, the Python
+`export_mapping_slice` API exports whole selected mapping resources and reviewed
+parameter dependency closure. Its manifest keeps remaining backend obligations
+and explicitly states `complete_product_coverage: false`; full export remains
+blocked. See [the scope contract](docs/migration-v4.md#explicit-finite-mapping-slices)
+and [the grib_util v12.6 first review](migrations/stage1.1-i03-grib-util-v12.6/README.md).
+
 A fully resolved bundle contains parameter JSON/YAML, independent mapping JSON/YAML for each stored resource, browser contract 4, and the manifest. Exports use one consistent database view, validate the complete resource combination through `cedarkit-query`, validate staged bytes, and atomically rename the entire new output directory. Existing bundles are not overwritten. No export time, machine path or database row number enters runtime resources. Explicit content revisions are stored per resource; repeated export does not increment them. Publishing an already distributed identity/version with changed content remains forbidden.
 
 ## Initialize and edit new resources

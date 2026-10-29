@@ -1,0 +1,1263 @@
+{
+  "mapping_resources": [
+    {
+      "api_version": "cedarkit.mappings/v1",
+      "backend": "grib2",
+      "id": "cedarkit.grib2.cemc-grib-util-v12.6.initial",
+      "mappings": [
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "cdbz.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 16,
+              "parameterNumber": 224,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 1,
+              "typeOfSecondFixedSurface": 255
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "dbz"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.cdbz",
+          "when": {}
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "dbz.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 16,
+              "parameterNumber": 225,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 100,
+              "typeOfSecondFixedSurface": 255
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "dbz"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.dbz",
+          "when": {}
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "dbzmaxh.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 16,
+              "parameterNumber": 226,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 1,
+              "typeOfSecondFixedSurface": 255
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "m"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.dbzmaxh",
+          "when": {}
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "dcape.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 7,
+              "parameterNumber": 224,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 1,
+              "typeOfSecondFixedSurface": 255
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "J/kg"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.dcape",
+          "when": {}
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "fogh.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 19,
+              "parameterNumber": 224,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 1,
+              "typeOfSecondFixedSurface": 255
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "m"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.fogh",
+          "when": {}
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "ht0.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 3,
+              "parameterNumber": 225,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 1,
+              "typeOfSecondFixedSurface": 255
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "m"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.ht0",
+          "when": {}
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "ht2.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 3,
+              "parameterNumber": 226,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 1,
+              "typeOfSecondFixedSurface": 255
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "m"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.ht2",
+          "when": {}
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "st-10-40.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": [
+                0,
+                1
+              ],
+              "parameterCategory": 0,
+              "parameterNumber": 0,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 106,
+              "typeOfSecondFixedSurface": 106
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "K"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.st-10-40",
+          "when": {
+            "layer": {
+              "bottom": {
+                "type": "depth_below_land",
+                "unit": "m",
+                "value": 0.4
+              },
+              "top": {
+                "type": "depth_below_land",
+                "unit": "m",
+                "value": 0.1
+              }
+            }
+          }
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "sw-0-10.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 1,
+              "parameterNumber": 0,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 106,
+              "typeOfSecondFixedSurface": 106
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "m3/m3"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.sw-0-10",
+          "when": {
+            "layer": {
+              "bottom": {
+                "type": "depth_below_land",
+                "unit": "m",
+                "value": 0.1
+              },
+              "top": {
+                "type": "depth_below_land",
+                "unit": "m",
+                "value": 0.0
+              }
+            }
+          }
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "sw-10-40.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 1,
+              "parameterNumber": 0,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 106,
+              "typeOfSecondFixedSurface": 106
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "m3/m3"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.sw-10-40",
+          "when": {
+            "layer": {
+              "bottom": {
+                "type": "depth_below_land",
+                "unit": "m",
+                "value": 0.4
+              },
+              "top": {
+                "type": "depth_below_land",
+                "unit": "m",
+                "value": 0.1
+              }
+            }
+          }
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "sw-100-200.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 1,
+              "parameterNumber": 0,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 106,
+              "typeOfSecondFixedSurface": 106
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "m3/m3"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.sw-100-200",
+          "when": {
+            "layer": {
+              "bottom": {
+                "type": "depth_below_land",
+                "unit": "m",
+                "value": 2.0
+              },
+              "top": {
+                "type": "depth_below_land",
+                "unit": "m",
+                "value": 1.0
+              }
+            }
+          }
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "sw-40-100.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 1,
+              "parameterNumber": 0,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 106,
+              "typeOfSecondFixedSurface": 106
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "m3/m3"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.sw-40-100",
+          "when": {
+            "layer": {
+              "bottom": {
+                "type": "depth_below_land",
+                "unit": "m",
+                "value": 1.0
+              },
+              "top": {
+                "type": "depth_below_land",
+                "unit": "m",
+                "value": 0.4
+              }
+            }
+          }
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "sw.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 1,
+              "parameterNumber": 0,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 106,
+              "typeOfSecondFixedSurface": 106
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "m3/m3"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.sw",
+          "when": {}
+        },
+        {
+          "applies_to": {},
+          "backend": "grib2",
+          "evidence": [
+            "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-4/header-observations.json#sha256=3fb95ecd4691fe4acc1285bed7a11c6f541625af0888cbf482b521c1cb8a640b;typed-native-sample-evidence-not-complete-product-domain",
+            "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;finite-original-object-proof",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;verified-original-section4-behavior",
+            "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;original-complete-writer-interception",
+            "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;original-definition",
+            "scope:explicit-file opt-in; exact native producer profile; instantaneous deterministic subset only; no dataset/product-version/provision guarantee"
+          ],
+          "id": "znt.operational.instantaneous",
+          "native": {
+            "match": {
+              "centre": 38,
+              "discipline": 0,
+              "edition": 2,
+              "localTablesVersion": 1,
+              "parameterCategory": 3,
+              "parameterNumber": 228,
+              "productDefinitionTemplateNumber": 0,
+              "productionStatusOfProcessedData": 0,
+              "subCentre": 0,
+              "tablesVersion": 4,
+              "typeOfFirstFixedSurface": 1,
+              "typeOfSecondFixedSurface": 255
+            },
+            "translate": {
+              "statistics": {
+                "rule": "grib.statistics"
+              },
+              "time": {
+                "rule": "grib.time"
+              },
+              "unit": {
+                "config": {
+                  "source_unit": "m"
+                },
+                "rule": "common.value_unit"
+              },
+              "vertical": {
+                "rule": "grib.fixed_surfaces"
+              }
+            }
+          },
+          "parameter_id": "cedarkit.znt",
+          "when": {}
+        }
+      ],
+      "tables": [],
+      "version": "1"
+    }
+  ],
+  "meta": {
+    "generated_by": "cedarkit-param-db",
+    "parameter_resource": {
+      "api_version": "cedarkit.parameters/v1",
+      "id": "cedarkit.i03.grib-util-v12.6.initial",
+      "version": "1"
+    },
+    "schema_version": 4,
+    "scope": {
+      "complete_product_coverage": false,
+      "kind": "parameter_mappings",
+      "mapping_resource_ids": [
+        "cedarkit.grib2.cemc-grib-util-v12.6.initial"
+      ],
+      "parameter_ids": [
+        "cedarkit.cdbz",
+        "cedarkit.dbz",
+        "cedarkit.dbzmaxh",
+        "cedarkit.dcape",
+        "cedarkit.fogh",
+        "cedarkit.fogh.any",
+        "cedarkit.ht0",
+        "cedarkit.ht0.any",
+        "cedarkit.ht2",
+        "cedarkit.ht2.any",
+        "cedarkit.st-10-40",
+        "cedarkit.sw",
+        "cedarkit.sw-0-10",
+        "cedarkit.sw-10-40",
+        "cedarkit.sw-100-200",
+        "cedarkit.sw-40-100",
+        "cedarkit.t",
+        "cedarkit.znt",
+        "cedarkit.znt.any"
+      ],
+      "remaining_migration_obligations": [
+        {
+          "aspect": "cmadaas",
+          "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+          "parameter_id": "cedarkit.cdbz",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.cdbz",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+          "parameter_id": "cedarkit.dbz",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.dbz",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.dbzmaxh",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+          "parameter_id": "cedarkit.dcape",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.dcape",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.fogh",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+          "parameter_id": "cedarkit.fogh.any",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+          "parameter_id": "cedarkit.ht0",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.ht0",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+          "parameter_id": "cedarkit.ht0.any",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+          "parameter_id": "cedarkit.ht0.any",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.ht2",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+          "parameter_id": "cedarkit.ht2.any",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+          "parameter_id": "cedarkit.st-10-40",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.st-10-40",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+          "parameter_id": "cedarkit.sw",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.sw",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+          "parameter_id": "cedarkit.sw-0-10",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.sw-0-10",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+          "parameter_id": "cedarkit.sw-10-40",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.sw-10-40",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+          "parameter_id": "cedarkit.sw-100-200",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.sw-100-200",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+          "parameter_id": "cedarkit.sw-40-100",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.sw-40-100",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+          "parameter_id": "cedarkit.t",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+          "parameter_id": "cedarkit.t",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "CMADaaS exact binding, joint level/member facts and source units; GRIB producer codes do not establish service identity (including SHU).",
+          "parameter_id": "cedarkit.znt",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version and complete required source applicability; remaining statistical/member/encoding variants and real numerical acceptance.",
+          "parameter_id": "cedarkit.znt",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "cmadaas",
+          "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+          "parameter_id": "cedarkit.znt.any",
+          "review_status": "needs_evidence"
+        },
+        {
+          "aspect": "grib2",
+          "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+          "parameter_id": "cedarkit.znt.any",
+          "review_status": "needs_evidence"
+        }
+      ],
+      "requested_parameter_ids": [
+        "cedarkit.cdbz",
+        "cedarkit.dbz",
+        "cedarkit.dbzmaxh",
+        "cedarkit.dcape",
+        "cedarkit.fogh",
+        "cedarkit.ht0",
+        "cedarkit.ht2",
+        "cedarkit.st-10-40",
+        "cedarkit.sw",
+        "cedarkit.sw-0-10",
+        "cedarkit.sw-10-40",
+        "cedarkit.sw-100-200",
+        "cedarkit.sw-40-100",
+        "cedarkit.znt"
+      ],
+      "runtime_mappings": true
+    },
+    "stats": {
+      "aliases": 2,
+      "mappings": 14,
+      "parameters": 19
+    }
+  },
+  "notes": [
+    {
+      "parameter_id": "cedarkit.cdbz",
+      "updated_at": "2026-07-28 01:48:09"
+    },
+    {
+      "parameter_id": "cedarkit.dbz",
+      "updated_at": "2026-07-28 01:48:09"
+    },
+    {
+      "parameter_id": "cedarkit.dbzmaxh",
+      "updated_at": "2026-07-28 01:48:09"
+    },
+    {
+      "parameter_id": "cedarkit.dcape",
+      "updated_at": "2026-07-28 01:48:09"
+    },
+    {
+      "parameter_id": "cedarkit.fogh.any",
+      "updated_at": "2026-07-28 01:48:09"
+    },
+    {
+      "parameter_id": "cedarkit.ht0.any",
+      "updated_at": "2026-07-28 01:48:09"
+    },
+    {
+      "parameter_id": "cedarkit.ht2.any",
+      "updated_at": "2026-07-28 01:48:09"
+    },
+    {
+      "parameter_id": "cedarkit.t",
+      "updated_at": "2026-07-28 01:48:09"
+    },
+    {
+      "parameter_id": "cedarkit.znt.any",
+      "updated_at": "2026-07-28 01:48:09"
+    }
+  ],
+  "parameters": [
+    {
+      "aliases": [
+        "c_dbz",
+        "cr"
+      ],
+      "description": "Composite radar reflectivity",
+      "description_cn": "雷达组合反射率",
+      "name": "cdbz",
+      "parameter_id": "cedarkit.cdbz",
+      "unit": "dbz"
+    },
+    {
+      "description": "Radar reflectivity",
+      "description_cn": "雷达反射率",
+      "name": "dbz",
+      "parameter_id": "cedarkit.dbz",
+      "unit": "dbz"
+    },
+    {
+      "description": "height of maximum of radar reflectivity",
+      "description_cn": "最大雷达回波的高度",
+      "name": "dbzmaxh",
+      "parameter_id": "cedarkit.dbzmaxh",
+      "unit": "m"
+    },
+    {
+      "description": "Down convective available potential energy",
+      "description_cn": "下沉对流有效位能",
+      "name": "dcape",
+      "parameter_id": "cedarkit.dcape",
+      "unit": "J/kg"
+    },
+    {
+      "fixed_conditions": {
+        "level_type": "surface"
+      },
+      "name": "fogh",
+      "parameter_id": "cedarkit.fogh",
+      "parent": "cedarkit.fogh.any"
+    },
+    {
+      "description": "height of fog top",
+      "description_cn": "雾顶高度",
+      "name": "fogh",
+      "parameter_id": "cedarkit.fogh.any",
+      "unit": "m"
+    },
+    {
+      "fixed_conditions": {
+        "level_type": "surface"
+      },
+      "name": "ht0",
+      "parameter_id": "cedarkit.ht0",
+      "parent": "cedarkit.ht0.any"
+    },
+    {
+      "description": "Height of 0 degree isothermal level",
+      "description_cn": "0度层高度",
+      "name": "ht0",
+      "parameter_id": "cedarkit.ht0.any",
+      "unit": "m"
+    },
+    {
+      "fixed_conditions": {
+        "level_type": "surface"
+      },
+      "name": "ht2",
+      "parameter_id": "cedarkit.ht2",
+      "parent": "cedarkit.ht2.any"
+    },
+    {
+      "description": "Height of -20 degree isothermal level",
+      "description_cn": "-20度层高度",
+      "name": "ht2",
+      "parameter_id": "cedarkit.ht2.any",
+      "unit": "m"
+    },
+    {
+      "description_cn": "10-40cm土壤温度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.4
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.1
+          }
+        }
+      },
+      "name": "st(10-40)",
+      "parameter_id": "cedarkit.st-10-40",
+      "parent": "cedarkit.t"
+    },
+    {
+      "description": "Soil moisture",
+      "description_cn": "土壤湿度",
+      "fixed_conditions": {
+        "level_type": "depth_below_land",
+        "level_unit": "m"
+      },
+      "name": "sw",
+      "parameter_id": "cedarkit.sw",
+      "unit": "m3/m3"
+    },
+    {
+      "description_cn": "0-10cm土壤湿度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.1
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0
+          }
+        }
+      },
+      "name": "sw(0-10)",
+      "parameter_id": "cedarkit.sw-0-10",
+      "parent": "cedarkit.sw"
+    },
+    {
+      "description_cn": "10-40cm土壤湿度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.4
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.1
+          }
+        }
+      },
+      "name": "sw(10-40)",
+      "parameter_id": "cedarkit.sw-10-40",
+      "parent": "cedarkit.sw"
+    },
+    {
+      "description_cn": "100-200cm土壤湿度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 2
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 1
+          }
+        }
+      },
+      "name": "sw(100-200)",
+      "parameter_id": "cedarkit.sw-100-200",
+      "parent": "cedarkit.sw"
+    },
+    {
+      "description_cn": "40-100cm土壤湿度",
+      "fixed_conditions": {
+        "layer": {
+          "bottom": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 1
+          },
+          "top": {
+            "type": "depth_below_land",
+            "unit": "m",
+            "value": 0.4
+          }
+        }
+      },
+      "name": "sw(40-100)",
+      "parameter_id": "cedarkit.sw-40-100",
+      "parent": "cedarkit.sw"
+    },
+    {
+      "description": "Temperature",
+      "description_cn": "温度",
+      "name": "t",
+      "parameter_id": "cedarkit.t",
+      "unit": "K"
+    },
+    {
+      "fixed_conditions": {
+        "level_type": "surface"
+      },
+      "name": "znt",
+      "parameter_id": "cedarkit.znt",
+      "parent": "cedarkit.znt.any"
+    },
+    {
+      "description": "roughness length",
+      "description_cn": "粗糙度",
+      "name": "znt",
+      "parameter_id": "cedarkit.znt.any",
+      "unit": "m"
+    }
+  ],
+  "retired_ids": []
+}

@@ -31,6 +31,14 @@ For a GRIB2 or CMADaaS decision, `aspect` is the backend name and `mapping_ids` 
 
 Full export is allowed only after all pending migration facts are resolved. A reviewed definition-only slice is a different, explicit contract: exact requested IDs plus parent/object closure, a distinct resource identity/revision, no runtime mappings, and a manifest stating that boundary. It cannot skip a pending selected definition, substitute a broader parent, or manufacture a valid native binding. Supplying its JSON to I04 gives usable parameter structure; it does not close mapping or coverage work.
 
+## Explicit finite mapping slices
+
+`export_mapping_slice(db_path, out_dir, mapping_resource_ids, *, parameter_resource_id, version)` exports explicitly selected **whole** mapping resources with reviewed parameter/parent/statistical-object closure. Selection must be nonempty, known and evidence-bearing; definitions must have current resolved reviews. The parameter resource identity must differ from the full database resource. Mapping resource IDs, revisions, native restrictions and tables are retained. This is a Python authoring API; the full-export CLI gate is unchanged.
+
+The manifest/browser scope uses `kind: parameter_mappings`, lists requested IDs and dependencies, and records `runtime_mappings: true`, `complete_product_coverage: false` and all remaining selected backend obligations. A finite, independently established encoding interpretation can therefore be handed to an explicit-file reader while whole-backend product coverage remains open. This does not resolve those obligations or turn missing product versions into universal product applicability. Do not attach the slice to an I04 product without its exact product/source evidence.
+
+The 2026-10-29 example is [the grib_util v12.6 review](../migrations/stage1.1-i03-grib-util-v12.6/README.md): 7 definition corrections, 14 native-profile mappings, 19 dependency-closed exported definitions, and continued full-export refusal. Original producer include/binary evidence supersedes conflicting legacy GRIB facts only where the quantity, unit and conditions are established; contradictory producer descriptions and service meanings stay under review.
+
 For recovery, keep the original database, old YAML/browser snapshots and old package combination intact. The review copy is disposable only after its reports/decisions are preserved. Reproduce it by creating a fresh path from the fixed source and replaying source-bound reviewed decisions, then compare reports and exported bytes. Do not overwrite the unique legacy input or mix a new parameter slice with old runtime mappings as a deployment. I04/I07/I10 own their later integration and release steps.
 
 ## Continued reviews and explicit assessment states

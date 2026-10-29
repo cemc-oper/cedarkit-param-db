@@ -378,3 +378,82 @@ def export_definitions(db_path, out_dir, parameter_ids, *, resource_id, version)
         return _publish(out_dir, p, [], _browser(conn, p, [], scope), scope)
     finally:
         conn.close()
+
+
+def export_mapping_slice(
+    db_path, out_dir, mapping_resource_ids, *, parameter_resource_id, version
+):
+    """Export explicitly selected complete mapping resources and reviewed definitions.
+
+    This bounded authoring handoff does not close identity-wide migration issues
+    or certify product coverage. Resource IDs/revisions and native conditions are
+    preserved; the dependency-closed parameter slice gets its own identity.
+    """
+    if (
+        not isinstance(mapping_resource_ids, (list, tuple))
+        or not mapping_resource_ids
+        or any(
+            not isinstance(rid, str) or not rid.strip() for rid in mapping_resource_ids
+        )
+    ):
+        raise ValueError("explicit mapping resource IDs are required")
+    conn = connect(db_path, readonly=True)
+    try:
+        conn.execute("BEGIN")
+        p, resources = read_resources(conn)
+        wanted = set(mapping_resource_ids)
+        mappings = [m for m in resources if m["id"] in wanted]
+        if wanted != {m["id"] for m in mappings}:
+            raise ValueError("unknown selected mapping resource")
+        if any(not m["mappings"] for m in mappings) or any(
+            not row["evidence"] for m in mappings for row in m["mappings"]
+        ):
+            raise ValueError("mapping slice needs nonempty mappings and evidence")
+        index = {row["parameter_id"]: row for row in p["parameters"]}
+        selected = {row["parameter_id"] for m in mappings for row in m["mappings"]}
+        requested = sorted(selected)
+        remaining = list(selected)
+        while remaining:
+            row = index[remaining.pop()]
+            for dep in (
+                row.get("parent"),
+                row.get("fixed_conditions", {})
+                .get("statistics", {})
+                .get("of", {})
+                .get("parameter_id"),
+            ):
+                if dep is not None and dep not in selected:
+                    selected.add(dep)
+                    remaining.append(dep)
+        if pending_issues(conn, definitions=selected):
+            raise ValueError("selected definitions have unresolved migration facts")
+        if parameter_resource_id == p["id"]:
+            raise ValueError("a mapping slice needs a distinct parameter resource ID")
+        p.update(
+            id=parameter_resource_id,
+            version=version,
+            parameters=[index[pid] for pid in sorted(selected)],
+        )
+        validate_resource_set(p, mappings)
+        # Retain pending source-wide obligations explicitly. A usable finite
+        # mapping is not evidence that every required product is covered.
+        obligations = [
+            {
+                k: row[k]
+                for k in ("parameter_id", "aspect", "review_status", "missing_input")
+            }
+            for row in pending_issues(conn)
+            if row["parameter_id"] in selected and row["aspect"] != "definition"
+        ]
+        scope = {
+            "kind": "parameter_mappings",
+            "mapping_resource_ids": sorted(wanted),
+            "requested_parameter_ids": requested,
+            "parameter_ids": sorted(selected),
+            "runtime_mappings": True,
+            "complete_product_coverage": False,
+            "remaining_migration_obligations": obligations,
+        }
+        return _publish(out_dir, p, mappings, _browser(conn, p, mappings, scope), scope)
+    finally:
+        conn.close()
