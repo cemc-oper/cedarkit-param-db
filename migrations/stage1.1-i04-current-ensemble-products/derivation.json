@@ -1,0 +1,67 @@
+{
+  "all_existing_table_rows_preserved": true,
+  "counts": {
+    "aliases": 33,
+    "mappings": 189,
+    "parameters": 223,
+    "preserved_identities": 221,
+    "quarantined": 1,
+    "retired_ids": 0,
+    "unresolved": 429
+  },
+  "date": "2026-10-30",
+  "formal_binding_status": "needs_evidence",
+  "note": "No formal mappings are authored until product/population/method and original-message evidence are available. Inherited new-definitions-review describes the three previously reviewed accumulation variants, not new work in this batch.",
+  "source_db": "data/cedarkit-param-db/migrations/stage1.1-i06-current-member-accumulation/review-schema4.db",
+  "source_db_sha256": "4b9be1010ce2d32aa169be31c4b9de10d7a95c72346da278160808f92b32cfb8",
+  "unchanged_export_files": [
+    {
+      "path": "geps/manifest.json",
+      "sha256": "e10a9e9349797f9c383af6827d09b66b6a60d879daa3fabb6f0c2d4b5ded827b"
+    },
+    {
+      "path": "geps/mappings-00-grib2.json",
+      "sha256": "2a895ea8949e067712db97f74674e152abc9603ba5b060b875a9074574eb9c3b"
+    },
+    {
+      "path": "geps/mappings-00-grib2.yaml",
+      "sha256": "b1aec85fe7ea65b282ca5db7508d6632bc8ec8b8377f75867b6f09deb9cd8ba4"
+    },
+    {
+      "path": "geps/parameters.json",
+      "sha256": "73c293e71ff9123054b8eaf0b458e3464451156c214367e717adb0bae6a859dc"
+    },
+    {
+      "path": "geps/parameters.yaml",
+      "sha256": "41d9c570474039cc892bc92ab4209c7b7d3da07935795f6671cede26fe3a5750"
+    },
+    {
+      "path": "geps/params.json",
+      "sha256": "869e233f090790226daf782e4ab5183821aadea3dea2efd56199539e56e2aed9"
+    },
+    {
+      "path": "reps/manifest.json",
+      "sha256": "f6863d05b9a39c61a54d72deda2e36394931cb90196c8c4b47f5cc24d9d8e19b"
+    },
+    {
+      "path": "reps/mappings-00-grib2.json",
+      "sha256": "0d5782d0fc87118f021970d94c4a06ba934d52b342d34b678c1c5c883357f943"
+    },
+    {
+      "path": "reps/mappings-00-grib2.yaml",
+      "sha256": "54ea74f119bd4a48dd3c4d117e23da1498ca56e079b121471369a708145060c9"
+    },
+    {
+      "path": "reps/parameters.json",
+      "sha256": "e48e03ddbf2d7e70d571c6562434db5faa662a02ac3b317728b6327297113623"
+    },
+    {
+      "path": "reps/parameters.yaml",
+      "sha256": "d9a6f88d3f54c8735585c4fe42f880ab7d8e6c5b01f056bc92677c406c97bf3d"
+    },
+    {
+      "path": "reps/params.json",
+      "sha256": "b9ed4c5b5106aac75fc8ec0089badc1eeeb02069b7b8864061c443a365eaa357"
+    }
+  ]
+}
