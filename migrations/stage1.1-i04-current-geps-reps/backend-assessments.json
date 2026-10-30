@@ -1,0 +1,125 @@
+{
+  "decisions": [
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-12/native-evidence.json#sha256=c8f19e8e749a3450190432d5b505020e3f7ac8e2b426d9af587dabe11cff5ce6;exact member/phase/pair evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-9/member-decisions.json#sha256=cc07809d6d5a5988a6b59fb4c1f64e166273c35e9461095d59580e04787623ee;numbering and role decisions"
+      ],
+      "explanation": "Current finite GEPS/REPS member paths added without closing identity-wide obligations.",
+      "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.ps"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-12/native-evidence.json#sha256=c8f19e8e749a3450190432d5b505020e3f7ac8e2b426d9af587dabe11cff5ce6;exact member/phase/pair evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-9/member-decisions.json#sha256=cc07809d6d5a5988a6b59fb4c1f64e166273c35e9461095d59580e04787623ee;numbering and role decisions"
+      ],
+      "explanation": "Current finite GEPS/REPS member paths added without closing identity-wide obligations.",
+      "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.psl"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-12/native-evidence.json#sha256=c8f19e8e749a3450190432d5b505020e3f7ac8e2b426d9af587dabe11cff5ce6;exact member/phase/pair evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-9/member-decisions.json#sha256=cc07809d6d5a5988a6b59fb4c1f64e166273c35e9461095d59580e04787623ee;numbering and role decisions"
+      ],
+      "explanation": "Current finite GEPS/REPS member paths added without closing identity-wide obligations.",
+      "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.q"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-12/native-evidence.json#sha256=c8f19e8e749a3450190432d5b505020e3f7ac8e2b426d9af587dabe11cff5ce6;exact member/phase/pair evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-9/member-decisions.json#sha256=cc07809d6d5a5988a6b59fb4c1f64e166273c35e9461095d59580e04787623ee;numbering and role decisions"
+      ],
+      "explanation": "Current finite GEPS/REPS member paths added without closing identity-wide obligations.",
+      "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.rh"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-12/native-evidence.json#sha256=c8f19e8e749a3450190432d5b505020e3f7ac8e2b426d9af587dabe11cff5ce6;exact member/phase/pair evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-9/member-decisions.json#sha256=cc07809d6d5a5988a6b59fb4c1f64e166273c35e9461095d59580e04787623ee;numbering and role decisions"
+      ],
+      "explanation": "Current finite GEPS/REPS member paths added without closing identity-wide obligations.",
+      "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.t"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-12/native-evidence.json#sha256=c8f19e8e749a3450190432d5b505020e3f7ac8e2b426d9af587dabe11cff5ce6;exact member/phase/pair evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-9/member-decisions.json#sha256=cc07809d6d5a5988a6b59fb4c1f64e166273c35e9461095d59580e04787623ee;numbering and role decisions"
+      ],
+      "explanation": "Current finite GEPS/REPS member paths added without closing identity-wide obligations.",
+      "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.t2m"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-12/native-evidence.json#sha256=c8f19e8e749a3450190432d5b505020e3f7ac8e2b426d9af587dabe11cff5ce6;exact member/phase/pair evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-9/member-decisions.json#sha256=cc07809d6d5a5988a6b59fb4c1f64e166273c35e9461095d59580e04787623ee;numbering and role decisions"
+      ],
+      "explanation": "Current finite GEPS/REPS member paths added without closing identity-wide obligations.",
+      "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.u"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-12/native-evidence.json#sha256=c8f19e8e749a3450190432d5b505020e3f7ac8e2b426d9af587dabe11cff5ce6;exact member/phase/pair evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-9/member-decisions.json#sha256=cc07809d6d5a5988a6b59fb4c1f64e166273c35e9461095d59580e04787623ee;numbering and role decisions"
+      ],
+      "explanation": "Current finite GEPS/REPS member paths added without closing identity-wide obligations.",
+      "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.u10m"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-12/native-evidence.json#sha256=c8f19e8e749a3450190432d5b505020e3f7ac8e2b426d9af587dabe11cff5ce6;exact member/phase/pair evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-9/member-decisions.json#sha256=cc07809d6d5a5988a6b59fb4c1f64e166273c35e9461095d59580e04787623ee;numbering and role decisions"
+      ],
+      "explanation": "Current finite GEPS/REPS member paths added without closing identity-wide obligations.",
+      "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.v"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-12/native-evidence.json#sha256=c8f19e8e749a3450190432d5b505020e3f7ac8e2b426d9af587dabe11cff5ce6;exact member/phase/pair evidence",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-9/member-decisions.json#sha256=cc07809d6d5a5988a6b59fb4c1f64e166273c35e9461095d59580e04787623ee;numbering and role decisions"
+      ],
+      "explanation": "Current finite GEPS/REPS member paths added without closing identity-wide obligations.",
+      "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03/I04/I06; I09 acceptance",
+      "parameter_id": "cedarkit.v10m"
+    }
+  ],
+  "source_sha256": "7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae"
+}
