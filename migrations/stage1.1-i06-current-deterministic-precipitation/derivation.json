@@ -1,0 +1,31 @@
+{
+  "combined_unresolved_obligations": 435,
+  "complete_product_coverage": false,
+  "counts": {
+    "aliases": 33,
+    "mappings": 197,
+    "parameters": 223,
+    "preserved_identities": 221,
+    "quarantined": 1,
+    "retired_ids": 0,
+    "unresolved": 429
+  },
+  "date": "2026-10-30",
+  "existing_definition_changes": 0,
+  "legacy_review_summary": {
+    "cmadaas": {
+      "needs_evidence": 112
+    },
+    "definition": {
+      "needs_evidence": 96,
+      "resolved": 125
+    },
+    "grib2": {
+      "needs_evidence": 221
+    }
+  },
+  "new_definitions": 0,
+  "new_mappings": 8,
+  "source_db": "data/cedarkit-param-db/migrations/stage1.1-i04-current-ensemble-products/review-schema4.db",
+  "source_db_sha256": "580d40e7d0262cb324d34fe8cef701582a26d7d748aa253ba7c72d7c120dfb14"
+}

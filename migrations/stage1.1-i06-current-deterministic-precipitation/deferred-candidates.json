@@ -1,0 +1,14 @@
+[
+  {
+    "candidate": "rainc",
+    "missing_input": "Actual current surface convective/large-scale accumulation messages and product provision or production-source evidence. All seven selected latest MESO3 files lack this triple and DOCX table1 lists only total precipitation. No subtraction or inference from total.",
+    "status": "needs_evidence",
+    "system": "meso3"
+  },
+  {
+    "candidate": "rainnc",
+    "missing_input": "Actual current surface convective/large-scale accumulation messages and product provision or production-source evidence. All seven selected latest MESO3 files lack this triple and DOCX table1 lists only total precipitation. No subtraction or inference from total.",
+    "status": "needs_evidence",
+    "system": "meso3"
+  }
+]

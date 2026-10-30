@@ -1,0 +1,22 @@
+{
+  "active_parameters": 223,
+  "combined_unresolved_evidence_obligations": 435,
+  "complete_product_coverage": false,
+  "legacy_review_summary": {
+    "cmadaas": {
+      "needs_evidence": 112
+    },
+    "definition": {
+      "needs_evidence": 96,
+      "resolved": 125
+    },
+    "grib2": {
+      "needs_evidence": 221
+    }
+  },
+  "legacy_unresolved_evidence_obligations": 429,
+  "mapping_rows": 197,
+  "new_authored_definitions_reviewed": 3,
+  "new_variant_backend_obligations": 6,
+  "scope": "Legacy migration and new authored variants are separately denominated; no fabricated legacy records"
+}

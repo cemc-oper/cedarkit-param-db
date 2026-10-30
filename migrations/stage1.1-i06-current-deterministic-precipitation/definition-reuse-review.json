@@ -1,0 +1,224 @@
+{
+  "backend_coverage_obligations_unchanged": 435,
+  "decisions": [
+    {
+      "action": "reuse_unchanged_reviewed_definition",
+      "applicable_hours": [
+        0,
+        6,
+        24
+      ],
+      "applicable_systems": [
+        "gfs",
+        "meso3"
+      ],
+      "new_value": {
+        "aliases": [
+          "APCP",
+          "rain-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "rain",
+        "parameter_id": "cedarkit.rain.since-initialization",
+        "parent": "cedarkit.rain"
+      },
+      "old_value": {
+        "aliases": [
+          "APCP",
+          "rain-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "rain",
+        "parameter_id": "cedarkit.rain.since-initialization",
+        "parent": "cedarkit.rain"
+      },
+      "period": "time accumulation since initialization; zero-length initial field at 0h",
+      "sources": [
+        {
+          "location": "cases61-63, lines181-195; names/meanings/mm",
+          "path": "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h",
+          "sha256": "4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3"
+        },
+        {
+          "location": "three previously reviewed since-initialization variants",
+          "path": "data/cedarkit-param-db/migrations/stage1.1-i06-current-member-accumulation/new-definitions-review.json",
+          "sha256": "69188f965ef1f516a05d6c4d69025ef3cf7b2539bf24d6d23323bc1aa03a1fb5"
+        },
+        {
+          "location": "rain: exact headers, offsets, native units, interval end and message SHA",
+          "path": "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-15/native-evidence.json",
+          "sha256": "fc283181c66d06fe56347f5e6d56d77251333f1bedd3cb7313d86aef7ce75a05"
+        },
+        {
+          "location": "DOCX table0 rows25-27 and table1 row24; native encoding/provision evidence remain separate",
+          "path": "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-12/business-material.json",
+          "sha256": "9359459ba2fc6348fff05463a3adaa45a802b70deac6b0dc1584691075295349"
+        }
+      ],
+      "stable_id": "cedarkit.rain.since-initialization",
+      "unit_decision": "Native kg/m2 and target mm retained separately; 1:1 water-equivalent convention only for exact reviewed builtin identities. No multiplication by interval length."
+    },
+    {
+      "action": "reuse_unchanged_reviewed_definition",
+      "applicable_hours": [
+        0,
+        6,
+        24
+      ],
+      "applicable_systems": [
+        "gfs"
+      ],
+      "new_value": {
+        "aliases": [
+          "ACPCP",
+          "rainc-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "rainc",
+        "parameter_id": "cedarkit.rainc.since-initialization",
+        "parent": "cedarkit.rainc"
+      },
+      "old_value": {
+        "aliases": [
+          "ACPCP",
+          "rainc-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "rainc",
+        "parameter_id": "cedarkit.rainc.since-initialization",
+        "parent": "cedarkit.rainc"
+      },
+      "period": "time accumulation since initialization; zero-length initial field at 0h",
+      "sources": [
+        {
+          "location": "cases61-63, lines181-195; names/meanings/mm",
+          "path": "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h",
+          "sha256": "4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3"
+        },
+        {
+          "location": "three previously reviewed since-initialization variants",
+          "path": "data/cedarkit-param-db/migrations/stage1.1-i06-current-member-accumulation/new-definitions-review.json",
+          "sha256": "69188f965ef1f516a05d6c4d69025ef3cf7b2539bf24d6d23323bc1aa03a1fb5"
+        },
+        {
+          "location": "rainc: exact headers, offsets, native units, interval end and message SHA",
+          "path": "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-15/native-evidence.json",
+          "sha256": "fc283181c66d06fe56347f5e6d56d77251333f1bedd3cb7313d86aef7ce75a05"
+        },
+        {
+          "location": "DOCX table0 rows25-27 and table1 row24; native encoding/provision evidence remain separate",
+          "path": "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-12/business-material.json",
+          "sha256": "9359459ba2fc6348fff05463a3adaa45a802b70deac6b0dc1584691075295349"
+        }
+      ],
+      "stable_id": "cedarkit.rainc.since-initialization",
+      "unit_decision": "Native kg/m2 and target mm retained separately; 1:1 water-equivalent convention only for exact reviewed builtin identities. No multiplication by interval length."
+    },
+    {
+      "action": "reuse_unchanged_reviewed_definition",
+      "applicable_hours": [
+        0,
+        6,
+        24
+      ],
+      "applicable_systems": [
+        "gfs"
+      ],
+      "new_value": {
+        "aliases": [
+          "NCPCP",
+          "rainnc-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "rainnc",
+        "parameter_id": "cedarkit.rainnc.since-initialization",
+        "parent": "cedarkit.rainnc"
+      },
+      "old_value": {
+        "aliases": [
+          "NCPCP",
+          "rainnc-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "rainnc",
+        "parameter_id": "cedarkit.rainnc.since-initialization",
+        "parent": "cedarkit.rainnc"
+      },
+      "period": "time accumulation since initialization; zero-length initial field at 0h",
+      "sources": [
+        {
+          "location": "cases61-63, lines181-195; names/meanings/mm",
+          "path": "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h",
+          "sha256": "4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3"
+        },
+        {
+          "location": "three previously reviewed since-initialization variants",
+          "path": "data/cedarkit-param-db/migrations/stage1.1-i06-current-member-accumulation/new-definitions-review.json",
+          "sha256": "69188f965ef1f516a05d6c4d69025ef3cf7b2539bf24d6d23323bc1aa03a1fb5"
+        },
+        {
+          "location": "rainnc: exact headers, offsets, native units, interval end and message SHA",
+          "path": "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-15/native-evidence.json",
+          "sha256": "fc283181c66d06fe56347f5e6d56d77251333f1bedd3cb7313d86aef7ce75a05"
+        },
+        {
+          "location": "DOCX table0 rows25-27 and table1 row24; native encoding/provision evidence remain separate",
+          "path": "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-12/business-material.json",
+          "sha256": "9359459ba2fc6348fff05463a3adaa45a802b70deac6b0dc1584691075295349"
+        }
+      ],
+      "stable_id": "cedarkit.rainnc.since-initialization",
+      "unit_decision": "Native kg/m2 and target mm retained separately; 1:1 water-equivalent convention only for exact reviewed builtin identities. No multiplication by interval length."
+    }
+  ],
+  "existing_definitions_changed": 0,
+  "new_definitions": 0
+}
