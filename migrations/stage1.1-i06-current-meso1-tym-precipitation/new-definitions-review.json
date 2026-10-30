@@ -1,0 +1,118 @@
+{
+  "definitions": [
+    {
+      "evidence": "Original paraNum.h cases 61/62/63 and DOCX GEPS/REPS precipitation rows; actual PDT11 start=reference, declared length=end-reference, zero length at 0h",
+      "new_value": {
+        "aliases": [
+          "APCP",
+          "rain-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "rain",
+        "parameter_id": "cedarkit.rain.since-initialization",
+        "parent": "cedarkit.rain"
+      },
+      "old_value": null,
+      "remaining_backend_obligations": "Complete source/product coverage and CMADaaS applicability remain unverified; not included in the legacy migration denominator",
+      "review_status": "resolved_definition",
+      "stable_id": "cedarkit.rain.since-initialization"
+    },
+    {
+      "evidence": "Original paraNum.h cases 61/62/63 and DOCX GEPS/REPS precipitation rows; actual PDT11 start=reference, declared length=end-reference, zero length at 0h",
+      "new_value": {
+        "aliases": [
+          "ACPCP",
+          "rainc-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "rainc",
+        "parameter_id": "cedarkit.rainc.since-initialization",
+        "parent": "cedarkit.rainc"
+      },
+      "old_value": null,
+      "remaining_backend_obligations": "Complete source/product coverage and CMADaaS applicability remain unverified; not included in the legacy migration denominator",
+      "review_status": "resolved_definition",
+      "stable_id": "cedarkit.rainc.since-initialization"
+    },
+    {
+      "evidence": "Original paraNum.h cases 61/62/63 and DOCX GEPS/REPS precipitation rows; actual PDT11 start=reference, declared length=end-reference, zero length at 0h",
+      "new_value": {
+        "aliases": [
+          "NCPCP",
+          "rainnc-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "rainnc",
+        "parameter_id": "cedarkit.rainnc.since-initialization",
+        "parent": "cedarkit.rainnc"
+      },
+      "old_value": null,
+      "remaining_backend_obligations": "Complete source/product coverage and CMADaaS applicability remain unverified; not included in the legacy migration denominator",
+      "review_status": "resolved_definition",
+      "stable_id": "cedarkit.rainnc.since-initialization"
+    }
+  ],
+  "legacy_denominator_unchanged": true,
+  "new_backend_obligations": [
+    {
+      "backend": "grib2",
+      "missing_input": "Complete mandatory product/source applicability, full native forms and provision domains; CMADaaS joint codes/units remain separately unverified.",
+      "parameter_id": "cedarkit.rain.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "cmadaas",
+      "missing_input": "Complete mandatory product/source applicability, full native forms and provision domains; CMADaaS joint codes/units remain separately unverified.",
+      "parameter_id": "cedarkit.rain.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "grib2",
+      "missing_input": "Complete mandatory product/source applicability, full native forms and provision domains; CMADaaS joint codes/units remain separately unverified.",
+      "parameter_id": "cedarkit.rainc.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "cmadaas",
+      "missing_input": "Complete mandatory product/source applicability, full native forms and provision domains; CMADaaS joint codes/units remain separately unverified.",
+      "parameter_id": "cedarkit.rainc.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "grib2",
+      "missing_input": "Complete mandatory product/source applicability, full native forms and provision domains; CMADaaS joint codes/units remain separately unverified.",
+      "parameter_id": "cedarkit.rainnc.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "cmadaas",
+      "missing_input": "Complete mandatory product/source applicability, full native forms and provision domains; CMADaaS joint codes/units remain separately unverified.",
+      "parameter_id": "cedarkit.rainnc.since-initialization",
+      "status": "needs_evidence"
+    }
+  ]
+}
