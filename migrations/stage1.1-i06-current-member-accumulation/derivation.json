@@ -1,0 +1,29 @@
+{
+  "complete_product_coverage": false,
+  "counts": {
+    "aliases": 33,
+    "mappings": 189,
+    "parameters": 223,
+    "preserved_identities": 221,
+    "quarantined": 1,
+    "retired_ids": 0,
+    "unresolved": 429
+  },
+  "existing_definition_changes": 0,
+  "legacy_review_summary": {
+    "cmadaas": {
+      "needs_evidence": 112
+    },
+    "definition": {
+      "needs_evidence": 96,
+      "resolved": 125
+    },
+    "grib2": {
+      "needs_evidence": 221
+    }
+  },
+  "new_backend_evidence_obligations": 6,
+  "new_definitions": 3,
+  "new_mappings": 20,
+  "source_db_sha256": "15840d4cf7257d04f0fb9746474fff43515b660222b9b779d5c5e238868c479b"
+}

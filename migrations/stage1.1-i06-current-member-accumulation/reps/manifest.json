@@ -1,0 +1,239 @@
+{
+  "files": [
+    {
+      "api_version": "cedarkit.parameters/v1",
+      "id": "cedarkit.parameters.cma-reps.current",
+      "path": "parameters.json",
+      "sha256": "e48e03ddbf2d7e70d571c6562434db5faa662a02ac3b317728b6327297113623",
+      "size": 4225,
+      "version": "2"
+    },
+    {
+      "api_version": "cedarkit.parameters/v1",
+      "id": "cedarkit.parameters.cma-reps.current",
+      "path": "parameters.yaml",
+      "sha256": "d9a6f88d3f54c8735585c4fe42f880ab7d8e6c5b01f056bc92677c406c97bf3d",
+      "size": 2820,
+      "version": "2"
+    },
+    {
+      "api_version": "cedarkit.mappings/v1",
+      "id": "cedarkit.grib2.cma-reps.current",
+      "path": "mappings-00-grib2.json",
+      "sha256": "0d5782d0fc87118f021970d94c4a06ba934d52b342d34b678c1c5c883357f943",
+      "size": 114967,
+      "version": "2"
+    },
+    {
+      "api_version": "cedarkit.mappings/v1",
+      "id": "cedarkit.grib2.cma-reps.current",
+      "path": "mappings-00-grib2.yaml",
+      "sha256": "54ea74f119bd4a48dd3c4d117e23da1498ca56e079b121471369a708145060c9",
+      "size": 91555,
+      "version": "2"
+    },
+    {
+      "path": "params.json",
+      "schema_version": 4,
+      "sha256": "b9ed4c5b5106aac75fc8ec0089badc1eeeb02069b7b8864061c443a365eaa357",
+      "size": 142427
+    }
+  ],
+  "schema_version": 1,
+  "scope": {
+    "complete_product_coverage": false,
+    "kind": "parameter_mappings",
+    "mapping_resource_ids": [
+      "cedarkit.grib2.cma-reps.current"
+    ],
+    "parameter_ids": [
+      "cedarkit.psl",
+      "cedarkit.psl.any",
+      "cedarkit.rain",
+      "cedarkit.rain.any",
+      "cedarkit.rain.since-initialization",
+      "cedarkit.rainc",
+      "cedarkit.rainc.any",
+      "cedarkit.rainc.since-initialization",
+      "cedarkit.rh",
+      "cedarkit.t",
+      "cedarkit.t2m",
+      "cedarkit.u",
+      "cedarkit.u10m",
+      "cedarkit.v",
+      "cedarkit.v10m"
+    ],
+    "remaining_migration_obligations": [
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.psl",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+        "parameter_id": "cedarkit.psl",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+        "parameter_id": "cedarkit.psl.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.psl.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+        "parameter_id": "cedarkit.rain",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.rain",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+        "parameter_id": "cedarkit.rain.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.rain.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+        "parameter_id": "cedarkit.rainc",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.rainc",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact product/version/service applicability, joint vertical/member keys and original units. An inherited old service code does not prove variant support; preserve PRE conflicts and unknown provision.",
+        "parameter_id": "cedarkit.rainc.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Exact product/version applicability, producer/table/template context and complete native translation facts. Existing triples and historical sample metadata do not establish a universal standard mapping.",
+        "parameter_id": "cedarkit.rainc.any",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.rh",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+        "parameter_id": "cedarkit.rh",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.t",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+        "parameter_id": "cedarkit.t",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.t2m",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+        "parameter_id": "cedarkit.t2m",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.u",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+        "parameter_id": "cedarkit.u",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.u10m",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+        "parameter_id": "cedarkit.u10m",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.v",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+        "parameter_id": "cedarkit.v",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "cmadaas",
+        "missing_input": "Exact business product/version, complete mandatory provision pairs and independent numerical acceptance. Bounded GRIB file mappings do not establish CMADaaS identity, units or joint keys.",
+        "parameter_id": "cedarkit.v10m",
+        "review_status": "needs_evidence"
+      },
+      {
+        "aspect": "grib2",
+        "missing_input": "Other mandatory products/native forms, complete independent provision domains and independent physical references.",
+        "parameter_id": "cedarkit.v10m",
+        "review_status": "needs_evidence"
+      }
+    ],
+    "requested_parameter_ids": [
+      "cedarkit.psl",
+      "cedarkit.rain.since-initialization",
+      "cedarkit.rainc.since-initialization",
+      "cedarkit.rh",
+      "cedarkit.t",
+      "cedarkit.t2m",
+      "cedarkit.u",
+      "cedarkit.u10m",
+      "cedarkit.v",
+      "cedarkit.v10m"
+    ],
+    "runtime_mappings": true
+  },
+  "validation": "internal shared validation only; external product context and backend evidence remain required"
+}
