@@ -1,0 +1,62 @@
+{
+  "format": "cedarkit.authoring/v1",
+  "database": "review-schema4.db",
+  "exports": {
+    "gfs": {
+      "mapping_resource_ids": [
+        "cedarkit.grib2.cma-gfs.current"
+      ],
+      "parameter_resource_id": "cedarkit.parameters.cma-gfs.current",
+      "parameter_version": "2"
+    },
+    "meso3": {
+      "mapping_resource_ids": [
+        "cedarkit.grib2.cma-meso-3km.current"
+      ],
+      "parameter_resource_id": "cedarkit.parameters.cma-meso-3km.current",
+      "parameter_version": "2"
+    },
+    "meso1": {
+      "mapping_resource_ids": [
+        "cedarkit.grib2.cma-meso-1km.current"
+      ],
+      "parameter_resource_id": "cedarkit.parameters.cma-meso-1km.current",
+      "parameter_version": "2"
+    },
+    "tym": {
+      "mapping_resource_ids": [
+        "cedarkit.grib2.cma-tym.current"
+      ],
+      "parameter_resource_id": "cedarkit.parameters.cma-tym.current",
+      "parameter_version": "2"
+    },
+    "geps": {
+      "mapping_resource_ids": [
+        "cedarkit.grib2.cma-geps.current"
+      ],
+      "parameter_resource_id": "cedarkit.parameters.cma-geps.current",
+      "parameter_version": "2"
+    },
+    "reps": {
+      "mapping_resource_ids": [
+        "cedarkit.grib2.cma-reps.current"
+      ],
+      "parameter_resource_id": "cedarkit.parameters.cma-reps.current",
+      "parameter_version": "2"
+    }
+  },
+  "archive": {
+    "index": "../../../doc/archives/cedarkit-param-db/stage1.1-migrations/index.json",
+    "sha256": "4540eed51be56a3d510cba8ff8f150a0e6f123248415807651a651fe063aa1b1"
+  },
+  "consolidation_baseline": {
+    "date": "2026-10-31",
+    "original_path": "data/cedarkit-param-db/migrations/stage1.1-i06-current-precipitation-leads/review-schema4.db",
+    "database_sha256": "9bd2f91d82365c0ee70c9b271553886d97036f703bc5f90415d063bd3a99b8e3",
+    "mapping_rows": 223,
+    "active_parameters": 223,
+    "combined_unresolved_obligations": 435,
+    "note": "Origin checkpoint, not a lock on future reviewed authoring edits."
+  },
+  "additional_definition_review": "definition-reviews.json"
+}

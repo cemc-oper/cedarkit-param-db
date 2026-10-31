@@ -138,4 +138,11 @@ desktop.ini
 *.sublime-workspace
 
 # ------------------------- 项目自定义 -------------------------
-# 注意：cedarkit_param.db 是编辑真源，应纳入版本管理，勿加入本文件
+# Preserve the schema-3 input and current schema-4 authoring DB in Git.
+# Full review snapshots and generated reports belong in workspace evidence.
+authoring/*.db-journal
+authoring/*.db-wal
+authoring/*.db-shm
+authoring/exports/
+migrations/**/*.db
+migrations/**/migration-report.json

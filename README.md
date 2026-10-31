@@ -4,7 +4,62 @@ Schema-4 SQLite authoring for CedarKit parameter definitions, aliases, backend m
 
 Stage 1.1 separates `cedarkit.parameters/v1` and `cedarkit.mappings/v1` resources. Product catalogs and populations remain independently maintained by I04. The root `cedarkit_param.db` is the preserved **schema-3 migration input**, not a schema-4 working database. Every CLI operation requires an explicit `--db`; nothing upgrades the root file automatically.
 
-## Start from the preserved legacy input
+## Current authoring entry
+
+Continue parameter and mapping development from
+[`authoring/review-schema4.db`](authoring/review-schema4.db), configured by
+[`authoring/current.json`](authoring/current.json). The consolidation checkpoint
+contains 223 active parameters and 223 mappings. It retains 125 resolved and 96
+evidence-gap legacy definitions, 429 legacy obligations, and six additional
+backend obligations for three authored accumulation variants. Those extra
+reviews are retained in [`definition-reviews.json`](authoring/definition-reviews.json).
+This is finite support, not full migration or product acceptance.
+
+```bash
+uv sync --extra test
+uv run python -m cedarkit_param_db --db authoring/review-schema4.db migration-report
+uv run python tools/authoring.py export --out-dir /tmp/cedarkit-current-export
+uv run python tools/authoring.py export --system geps --out-dir /tmp/cedarkit-geps-export
+```
+
+The export tool reads the current database and explicit resource selections;
+it does not replay a previous development batch, add mappings, change resource
+versions, or modify runtime projects. All selected slices must pass before the
+output group is published. Every slice reads the same temporary SQLite backup,
+including committed WAL data, so an authoring update between slices cannot mix
+database states. The snapshot is removed on success or failure. Existing output
+directories are refused. Full-export
+gates and finite-slice validation remain unchanged.
+
+Use `transaction(db_path)` and source-bound review decisions for further edits.
+For a disposable candidate, copy the current review to `/tmp`, edit and validate
+it there, then explicitly promote the reviewed state to this fixed database
+path. Record stable IDs, old/new values, applicability, evidence positions and
+source hashes in small change records. Update resource revisions deliberately.
+Do not create another complete `migrations/<development-session>/` tree.
+See the [authoring workflow](authoring/README.md).
+
+## Historical evidence and migration tools
+
+The former 13 complete migration directories have been relocated byte-for-byte
+to the workspace [archive and SHA index](../../doc/archives/cedarkit-param-db/stage1.1-migrations/README.md).
+The small relative links under `migrations/` retain historical evidence locators
+and replay inputs. They are compatibility paths, not current authoring inputs.
+Historical scripts remain unchanged evidence; new exports use `tools/authoring.py`.
+
+```bash
+uv run python tools/authoring.py check-archive
+uv run python tools/authoring.py resolve data/cedarkit-param-db/migrations/stage1.1-i03-grib-util-v12.6/review-schema4.db
+```
+
+Archive resolution verifies both the index and payload SHA256, including a
+`#sha256=<digest>` locator when supplied. The workspace archive is required only
+for historical lookup/replay; current exports require just the authoring
+database/configuration and package dependencies. Full reports and temporary
+exports belong in workspace evidence, not the repository. `migrations/` is
+reserved for actual upgrade sources and the existing compatibility links.
+
+## Start a migration from the preserved legacy input
 
 Run from this project directory. All example output paths must be new; the tools refuse replacement.
 
@@ -26,7 +81,7 @@ The review database reserves IDs for definitions rejected by shared validation, 
 uv run python -m cedarkit_param_db --db /tmp/cedarkit-review-next.db copy-review --source-db /path/to/previous-schema4-review.db
 ```
 
-The new copy supports distinct unreviewed, evidence-gap, resolved and evidenced non-applicable outcomes. Unknowns remain unresolved; changed proof or definitions require reassessment. See [review outcomes and non-applicability](docs/migration-v4.md#evidence-bearing-non-applicability).
+The new copy supports distinct unreviewed, evidence-gap, resolved and evidenced non-applicable outcomes. Unknowns remain unresolved; changed proof or definitions require reassessment. A new destination protects the source during the operation; it does not require retaining a new full snapshot in Git after every conversation. See [review outcomes and non-applicability](docs/migration-v4.md#evidence-bearing-non-applicability).
 
 ## Review and export
 
@@ -72,4 +127,4 @@ uv run pytest -q
 uv build
 ```
 
-Tests use self-contained fixtures and a frozen legacy schema; they do not skip because another workspace repository is absent. I03 records the first-round baseline under `migrations/stage1.1-i03/` and the continued parameter review under `migrations/stage1.1-i03-review-2/`, with stage evidence indexed in `doc/2026-10-13-stage1.1-query-reki/evidence/I03/` at workspace level. These results do not exercise backend decoding, online services, frontend adaptation or I10 cross-package acceptance.
+Tests use self-contained fixtures and a frozen legacy schema; they do not skip because another workspace repository is absent. Historical I03 baselines live in the workspace archive and remain reachable through compatibility links. Current-state export and archive-integrity tests use isolated fixtures. Stage evidence is indexed in `doc/2026-10-13-stage1.1-query-reki/evidence/I03/` at workspace level. These results do not exercise backend decoding, online services, frontend adaptation or I10 cross-package acceptance.
