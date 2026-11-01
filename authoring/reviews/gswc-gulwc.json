@@ -1,0 +1,486 @@
+{
+  "date": "2026-11-01",
+  "definition_diff": [
+    {
+      "applicability": "Declared clear-sky energy identity; runtime separately bounded to GFS surface0/6/12/24/48/72h",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "new_value": {
+        "description": "Time-integrated net short-wave radiation, clear sky",
+        "description_cn": "晴空净短波辐射时间积分量",
+        "name": "gswc",
+        "parameter_id": "cedarkit.gswc.any",
+        "unit": "J/m2"
+      },
+      "old_value": {
+        "description": "Net short wave radiation flux, clear sky",
+        "description_cn": "晴空地面净短波辐射通量",
+        "name": "gswc",
+        "parameter_id": "cedarkit.gswc.any",
+        "unit": "w/m2"
+      },
+      "stable_id": "cedarkit.gswc.any"
+    },
+    {
+      "applicability": "Declared clear-sky energy identity; runtime separately bounded to GFS surface0/6/12/24/48/72h",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "new_value": {
+        "fixed_conditions": {
+          "level_type": "surface"
+        },
+        "name": "gswc",
+        "parameter_id": "cedarkit.gswc",
+        "parent": "cedarkit.gswc.any"
+      },
+      "old_value": {
+        "fixed_conditions": {
+          "level_type": "surface"
+        },
+        "name": "gswc",
+        "parameter_id": "cedarkit.gswc",
+        "parent": "cedarkit.gswc.any"
+      },
+      "stable_id": "cedarkit.gswc"
+    },
+    {
+      "applicability": "Declared clear-sky energy identity; runtime separately bounded to GFS surface0/6/12/24/48/72h",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "new_value": {
+        "description": "Time-integrated net short-wave radiation at the top of atmosphere, clear sky",
+        "description_cn": "大气顶晴空净短波辐射时间积分量",
+        "fixed_conditions": {
+          "level_type": "atmosphere_top"
+        },
+        "name": "tswc",
+        "parameter_id": "cedarkit.tswc",
+        "parent": "cedarkit.gswc.any"
+      },
+      "old_value": {
+        "description": "TOE net short wave radiation flux, clear sky",
+        "description_cn": "晴空大气顶净短波辐射通量",
+        "fixed_conditions": {
+          "level_type": "atmosphere_top"
+        },
+        "name": "tswc",
+        "parameter_id": "cedarkit.tswc",
+        "parent": "cedarkit.gswc.any"
+      },
+      "stable_id": "cedarkit.tswc"
+    },
+    {
+      "applicability": "Declared clear-sky energy identity; runtime separately bounded to GFS surface0/6/12/24/48/72h",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "new_value": {
+        "description": "Time-integrated upward long-wave radiation, clear sky",
+        "description_cn": "晴空向上长波辐射时间积分量",
+        "name": "gulwc",
+        "parameter_id": "cedarkit.gulwc.any",
+        "unit": "J/m2"
+      },
+      "old_value": {
+        "description": "Surface upward long-wave radiation flux, clear sky",
+        "description_cn": "地面晴空向上长波辐射通量",
+        "name": "gulwc",
+        "parameter_id": "cedarkit.gulwc.any",
+        "unit": "w/m2"
+      },
+      "stable_id": "cedarkit.gulwc.any"
+    },
+    {
+      "applicability": "Declared clear-sky energy identity; runtime separately bounded to GFS surface0/6/12/24/48/72h",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "new_value": {
+        "fixed_conditions": {
+          "level_type": "surface"
+        },
+        "name": "gulwc",
+        "parameter_id": "cedarkit.gulwc",
+        "parent": "cedarkit.gulwc.any"
+      },
+      "old_value": {
+        "fixed_conditions": {
+          "level_type": "surface"
+        },
+        "name": "gulwc",
+        "parameter_id": "cedarkit.gulwc",
+        "parent": "cedarkit.gulwc.any"
+      },
+      "stable_id": "cedarkit.gulwc"
+    },
+    {
+      "applicability": "Declared clear-sky energy identity; runtime separately bounded to GFS surface0/6/12/24/48/72h",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "new_value": {
+        "description": "Time-integrated upward long-wave radiation at the top of atmosphere, clear sky",
+        "description_cn": "大气顶晴空向上长波辐射时间积分量",
+        "fixed_conditions": {
+          "level_type": "atmosphere_top"
+        },
+        "name": "tulwc",
+        "parameter_id": "cedarkit.tulwc",
+        "parent": "cedarkit.gulwc.any"
+      },
+      "old_value": {
+        "description": "TOE upward long-wave radiation flux, clear sky",
+        "description_cn": "大气顶晴空向上长波辐射通量",
+        "fixed_conditions": {
+          "level_type": "atmosphere_top"
+        },
+        "name": "tulwc",
+        "parameter_id": "cedarkit.tulwc",
+        "parent": "cedarkit.gulwc.any"
+      },
+      "stable_id": "cedarkit.tulwc"
+    }
+  ],
+  "dependency_states_after_definition_change": [
+    {
+      "aspect": "grib2",
+      "gap": "G17-03",
+      "missing_input": "exact applicable product/version, native table/producer context and complete translation evidence; legacy triple alone is insufficient",
+      "owner_tasks": "I03 mapping; I04 scope/version; I06 native facts",
+      "parameter_id": "cedarkit.gswc",
+      "review_error": "assessment predates a definition change",
+      "review_status": "needs_reassessment"
+    },
+    {
+      "aspect": "grib2",
+      "gap": "G17-03",
+      "missing_input": "exact applicable product/version, native table/producer context and complete translation evidence; legacy triple alone is insufficient",
+      "owner_tasks": "I03 mapping; I04 scope/version; I06 native facts",
+      "parameter_id": "cedarkit.gswc.any",
+      "review_error": "assessment predates a definition change",
+      "review_status": "needs_reassessment"
+    },
+    {
+      "aspect": "grib2",
+      "gap": "G17-03",
+      "missing_input": "exact applicable product/version, native table/producer context and complete translation evidence; legacy triple alone is insufficient",
+      "owner_tasks": "I03 mapping; I04 scope/version; I06 native facts",
+      "parameter_id": "cedarkit.gulwc",
+      "review_error": "assessment predates a definition change",
+      "review_status": "needs_reassessment"
+    },
+    {
+      "aspect": "grib2",
+      "gap": "G17-03",
+      "missing_input": "exact applicable product/version, native table/producer context and complete translation evidence; legacy triple alone is insufficient",
+      "owner_tasks": "I03 mapping; I04 scope/version; I06 native facts",
+      "parameter_id": "cedarkit.gulwc.any",
+      "review_error": "assessment predates a definition change",
+      "review_status": "needs_reassessment"
+    },
+    {
+      "aspect": "grib2",
+      "gap": "G17-03",
+      "missing_input": "exact applicable product/version, native table/producer context and complete translation evidence; legacy triple alone is insufficient",
+      "owner_tasks": "I03 mapping; I04 scope/version; I06 native facts",
+      "parameter_id": "cedarkit.tswc",
+      "review_error": "assessment predates a definition change",
+      "review_status": "needs_reassessment"
+    },
+    {
+      "aspect": "grib2",
+      "gap": "G17-03",
+      "missing_input": "exact applicable product/version, native table/producer context and complete translation evidence; legacy triple alone is insufficient",
+      "owner_tasks": "I03 mapping; I04 scope/version; I06 native facts",
+      "parameter_id": "cedarkit.tulwc",
+      "review_error": "assessment predates a definition change",
+      "review_status": "needs_reassessment"
+    }
+  ],
+  "dependent_reassessments": [
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "explanation": "Dependent applicability reassessed against corrected effective energy definition; finite new surface variants do not close whole backend, CMADaaS or top-of-atmosphere applicability.",
+      "missing_input": "Complete product/source applicability and provision domain; actual top field/unit/runtime pairing remains unvalidated; CMADaaS joint keys and units require independent service evidence.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03 backend review; I04 provider domain; I06 exact native forms",
+      "parameter_id": "cedarkit.gswc"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "explanation": "Dependent applicability reassessed against corrected effective energy definition; finite new surface variants do not close whole backend, CMADaaS or top-of-atmosphere applicability.",
+      "missing_input": "Complete product/source applicability and provision domain; actual top field/unit/runtime pairing remains unvalidated; CMADaaS joint keys and units require independent service evidence.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03 backend review; I04 provider domain; I06 exact native forms",
+      "parameter_id": "cedarkit.gswc.any"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "explanation": "Dependent applicability reassessed against corrected effective energy definition; finite new surface variants do not close whole backend, CMADaaS or top-of-atmosphere applicability.",
+      "missing_input": "Complete product/source applicability and provision domain; actual top field/unit/runtime pairing remains unvalidated; CMADaaS joint keys and units require independent service evidence.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03 backend review; I04 provider domain; I06 exact native forms",
+      "parameter_id": "cedarkit.gulwc"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "explanation": "Dependent applicability reassessed against corrected effective energy definition; finite new surface variants do not close whole backend, CMADaaS or top-of-atmosphere applicability.",
+      "missing_input": "Complete product/source applicability and provision domain; actual top field/unit/runtime pairing remains unvalidated; CMADaaS joint keys and units require independent service evidence.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03 backend review; I04 provider domain; I06 exact native forms",
+      "parameter_id": "cedarkit.gulwc.any"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "explanation": "Dependent applicability reassessed against corrected effective energy definition; finite new surface variants do not close whole backend, CMADaaS or top-of-atmosphere applicability.",
+      "missing_input": "Complete product/source applicability and provision domain; actual top field/unit/runtime pairing remains unvalidated; CMADaaS joint keys and units require independent service evidence.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03 backend review; I04 provider domain; I06 exact native forms",
+      "parameter_id": "cedarkit.tswc"
+    },
+    {
+      "aspect": "grib2",
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+      ],
+      "explanation": "Dependent applicability reassessed against corrected effective energy definition; finite new surface variants do not close whole backend, CMADaaS or top-of-atmosphere applicability.",
+      "missing_input": "Complete product/source applicability and provision domain; actual top field/unit/runtime pairing remains unvalidated; CMADaaS joint keys and units require independent service evidence.",
+      "outcome": "needs_evidence",
+      "owner_tasks": "I03 backend review; I04 provider domain; I06 exact native forms",
+      "parameter_id": "cedarkit.tulwc"
+    }
+  ],
+  "gswc_identity_decision": "case109 netSW=>0/4/11 differs from case105 downwardSW=>0/4/52; do not derive net from components or register GDSWC",
+  "gulwc_unit_decision": "Decoder units=unknown and parameterUnits=224 are retained derived views, not physical unit declarations. Original paraNum.h ws/m2 + GFS w/m2s + DOCX W m-2 s and object-verified0/5/224 identity establishJ/m2 for this exact finite mapping. Existing common.value_unit explicit declaration fills absence only; conflicting usableW/m2 must fail. No numeric scale or sign transform.",
+  "review": {
+    "decisions": [
+      {
+        "aspect": "definition",
+        "definition": {
+          "description": "Time-integrated net short-wave radiation, clear sky",
+          "description_cn": "晴空净短波辐射时间积分量",
+          "name": "gswc",
+          "parameter_id": "cedarkit.gswc.any",
+          "unit": "J/m2"
+        },
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+        ],
+        "explanation": "Original conditional declaration, model declaration and business material establish integrated energy per area. Preserve stable identity, name, aliases, parent and broad time scope; surface/top inherit the same physical unit. GSWC is netSW, distinct from downwardGDSWC. Direction labels do not impose a positive-value convention. Top definition reassessment adds no top runtime binding.",
+        "parameter_id": "cedarkit.gswc.any"
+      },
+      {
+        "aspect": "definition",
+        "definition": {
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "name": "gswc",
+          "parameter_id": "cedarkit.gswc",
+          "parent": "cedarkit.gswc.any"
+        },
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+        ],
+        "explanation": "Original conditional declaration, model declaration and business material establish integrated energy per area. Preserve stable identity, name, aliases, parent and broad time scope; surface/top inherit the same physical unit. GSWC is netSW, distinct from downwardGDSWC. Direction labels do not impose a positive-value convention. Top definition reassessment adds no top runtime binding.",
+        "parameter_id": "cedarkit.gswc"
+      },
+      {
+        "aspect": "definition",
+        "definition": {
+          "description": "Time-integrated net short-wave radiation at the top of atmosphere, clear sky",
+          "description_cn": "大气顶晴空净短波辐射时间积分量",
+          "fixed_conditions": {
+            "level_type": "atmosphere_top"
+          },
+          "name": "tswc",
+          "parameter_id": "cedarkit.tswc",
+          "parent": "cedarkit.gswc.any"
+        },
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+        ],
+        "explanation": "Original conditional declaration, model declaration and business material establish integrated energy per area. Preserve stable identity, name, aliases, parent and broad time scope; surface/top inherit the same physical unit. GSWC is netSW, distinct from downwardGDSWC. Direction labels do not impose a positive-value convention. Top definition reassessment adds no top runtime binding.",
+        "parameter_id": "cedarkit.tswc"
+      },
+      {
+        "aspect": "definition",
+        "definition": {
+          "description": "Time-integrated upward long-wave radiation, clear sky",
+          "description_cn": "晴空向上长波辐射时间积分量",
+          "name": "gulwc",
+          "parameter_id": "cedarkit.gulwc.any",
+          "unit": "J/m2"
+        },
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+        ],
+        "explanation": "Original conditional declaration, model declaration and business material establish integrated energy per area. Preserve stable identity, name, aliases, parent and broad time scope; surface/top inherit the same physical unit. GSWC is netSW, distinct from downwardGDSWC. Direction labels do not impose a positive-value convention. Top definition reassessment adds no top runtime binding.",
+        "parameter_id": "cedarkit.gulwc.any"
+      },
+      {
+        "aspect": "definition",
+        "definition": {
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "name": "gulwc",
+          "parameter_id": "cedarkit.gulwc",
+          "parent": "cedarkit.gulwc.any"
+        },
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+        ],
+        "explanation": "Original conditional declaration, model declaration and business material establish integrated energy per area. Preserve stable identity, name, aliases, parent and broad time scope; surface/top inherit the same physical unit. GSWC is netSW, distinct from downwardGDSWC. Direction labels do not impose a positive-value convention. Top definition reassessment adds no top runtime binding.",
+        "parameter_id": "cedarkit.gulwc"
+      },
+      {
+        "aspect": "definition",
+        "definition": {
+          "description": "Time-integrated upward long-wave radiation at the top of atmosphere, clear sky",
+          "description_cn": "大气顶晴空向上长波辐射时间积分量",
+          "fixed_conditions": {
+            "level_type": "atmosphere_top"
+          },
+          "name": "tulwc",
+          "parameter_id": "cedarkit.tulwc",
+          "parent": "cedarkit.gulwc.any"
+        },
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case108 lines356-370 and109 lines371-385; sharedws/m2 across surface/top; case105 lines311-325 GDSWC is downward, not GSWC",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines189/199 GULWC upwardLW andGSWC netSW; declaredw/m2s; no producer positive-sign convention inferred",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows75/76 netSW and83/84 upwardLW, W m-2 s; surface/top labels, not full provision domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines102-103 element108=>5/224 and109=>4/11; element105=>4/52 is downwardSW; level carrier separately constrained",
+          "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv#sha256=7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f;elements108/109 prodStatus0..10 discipline0; original-object-verified writer, not section4 alone",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original object and reconstructed writer comparison; declaration/unit and encoding duties remain separate",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-20/verification-input.json#sha256=f937312a75d98c98f88138b725a3cfd0b7f7da09a13fd48c12977330f7cc31f9;twelve new original messages; full native context, offsets, SHA and one reference-anchored accumulation"
+        ],
+        "explanation": "Original conditional declaration, model declaration and business material establish integrated energy per area. Preserve stable identity, name, aliases, parent and broad time scope; surface/top inherit the same physical unit. GSWC is netSW, distinct from downwardGDSWC. Direction labels do not impose a positive-value convention. Top definition reassessment adds no top runtime binding.",
+        "parameter_id": "cedarkit.tulwc"
+      }
+    ],
+    "source_sha256": "7bedee8c204bfe2b6b1c096dc55d2b7297298f9f70faa134def05a7b4456deae"
+  },
+  "source_commit": "d9ec83cf211e3a66f66a3aba1be1e219173f589b",
+  "top_bindings_added": false
+}

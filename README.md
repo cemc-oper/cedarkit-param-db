@@ -6,16 +6,19 @@ Stage 1.1 separates `cedarkit.parameters/v1` and `cedarkit.mappings/v1` resource
 
 ## Current authoring entry
 
-The maintained state now contains 229 mappings and 226 active parameters after
-the finite GFS clear-sky radiation energy lead extension. Legacy definitions are
-130 resolved / 91 needs_evidence; 424 legacy obligations and 10 additional
+The maintained state now contains 233 mappings and 228 active parameters after
+the finite GFS GSWC/GULWC energy review. Legacy definitions are
+136 resolved / 85 needs_evidence; 418 legacy obligations and 14 additional
 variant backend obligations remain open. GFS adds only surface energy integrals
 at leads 0/6/12/24/48/72h, retaining the original signed J/m2 values without
-duration scaling or accumulation differencing. Two new mappings preserve all
-previous227 rows and their evidence; definitions and unresolved states are
-unchanged. TUSWC is restored as an authoring definition without a runtime
-product binding. See the [definition review](authoring/reviews/surface-radiation.json)
-and [lead review](authoring/reviews/gfs-clear-sky-energy-leads.json).
+duration scaling or accumulation differencing. Four new mappings preserve all
+previous 229 rows and their evidence. Six legacy definitions and their dependent
+GRIB obligations have been reviewed; two explicit period variants add four
+mappings. TUSWC, TSWC and TULWC have authoring definitions without runtime
+product bindings. See the [definition review](authoring/reviews/surface-radiation.json)
+and [GSWC/GULWC review](authoring/reviews/gswc-gulwc.json). GSWC denotes net
+shortwave rather than downward GDSWC. GULWC's absent decoder unit is supplied
+only by the evidence-bound mapping declaration; its raw decoder keys are retained.
 
 The maintained authoring source is the complete, stable text checkpoint in
 [`authoring/state/`](authoring/state/manifest.json), configured by
