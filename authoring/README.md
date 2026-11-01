@@ -11,7 +11,7 @@ The current state is 235 mappings/229 active parameters. Legacy definitions are
 138 resolved/83 needs_evidence, with 416 unresolved legacy obligations. The
 separate `definition-reviews.json` retains eight authored variants and sixteen backend
 obligations, giving 432 combined obligations. The GFS parameter slice is v5 and
-mapping v9; the other five slices remain parameter v2/mapping v4. TUSWC has an
+mapping v10; the other five slices remain parameter v2/mapping v5. TUSWC has an
 active authoring definition without a runtime product binding. Review decisions
 and old/new values are in [`reviews/surface-radiation.json`](reviews/surface-radiation.json).
 The recorded radiation leads are verification samples, not runtime limits.
@@ -45,6 +45,17 @@ steps. Public Query step/valid_time and explicit caller bounds remain valid;
 actual message time/statistical intervals are still checked. Historical leads
 remain evidence of tests performed, without restricting other valid leads or
 claiming complete product availability. No GSW3h/9h tests were added.
+
+The latest [generic pressure review](reviews/cemc-pressure-sampling.json) removes
+sampled numeric level lists and their accompanying level_unit from66 pressure
+mappings for existing t/u/v/q/rh identities. Native first surface100/second255,
+pressure decoding/scaling and Pa/hPa coordinate interpretation remain in the
+translation rules. All parameter definitions and nonpressure conditions,
+including t2m/u10m/v10m heights and soil-layer boundaries, retain their bytes.
+Catalog/current profile pressure rows likewise omit sampled numeric levels;
+explicit caller level filters and scope bounds remain valid. Representative
+rule-group checks do not claim every layer/lead has been tested, and no GSW3h/9h
+tests are added. No new elements or complete product-domain claims are implied.
 
 From the repository root, always use fresh output paths:
 

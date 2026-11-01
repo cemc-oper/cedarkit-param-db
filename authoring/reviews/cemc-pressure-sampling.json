@@ -1,0 +1,1470 @@
+{
+  "definition_audit_sha256": "c8fe5bb42fea7ff95aedd8630c9cab7a144c7f02bc5b83618983ebf58859f9cf",
+  "mapping_changes": [
+    {
+      "id": "q.current.member.forecast.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.q",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "q.current.member.forecast.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.q",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "q.current.member.initial.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.q",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "q.current.member.initial.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.q",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "rh.current.member.forecast.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "rh.current.member.forecast.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "rh.current.member.initial.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "rh.current.member.initial.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "t.current.member.forecast.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "t.current.member.forecast.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "t.current.member.initial.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "t.current.member.initial.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "u.current.member.forecast.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "u.current.member.forecast.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "u.current.member.initial.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "u.current.member.initial.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "v.current.member.forecast.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "v.current.member.forecast.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "v.current.member.initial.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "v.current.member.initial.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 30,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-geps.current"
+    },
+    {
+      "id": "q.operational.instantaneous",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          700,
+          850,
+          925,
+          1000
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.q",
+      "resource_id": "cedarkit.grib2.cma-gfs.current"
+    },
+    {
+      "id": "rh.operational.instantaneous",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          700,
+          850,
+          925,
+          1000
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-gfs.current"
+    },
+    {
+      "id": "t.operational.instantaneous",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          700,
+          850,
+          925,
+          1000
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-gfs.current"
+    },
+    {
+      "id": "u.operational.instantaneous",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          700,
+          850,
+          925,
+          1000
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-gfs.current"
+    },
+    {
+      "id": "v.operational.instantaneous",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          700,
+          850,
+          925,
+          1000
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-gfs.current"
+    },
+    {
+      "id": "q.operational.instantaneous.analysis",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.q",
+      "resource_id": "cedarkit.grib2.cma-meso-1km.current"
+    },
+    {
+      "id": "q.operational.instantaneous.forecast",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.q",
+      "resource_id": "cedarkit.grib2.cma-meso-1km.current"
+    },
+    {
+      "id": "rh.operational.instantaneous.analysis",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-meso-1km.current"
+    },
+    {
+      "id": "rh.operational.instantaneous.forecast",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-meso-1km.current"
+    },
+    {
+      "id": "t.operational.instantaneous.analysis",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-meso-1km.current"
+    },
+    {
+      "id": "t.operational.instantaneous.forecast",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-meso-1km.current"
+    },
+    {
+      "id": "u.operational.instantaneous.analysis",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-meso-1km.current"
+    },
+    {
+      "id": "u.operational.instantaneous.forecast",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-meso-1km.current"
+    },
+    {
+      "id": "v.operational.instantaneous.analysis",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-meso-1km.current"
+    },
+    {
+      "id": "v.operational.instantaneous.forecast",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-meso-1km.current"
+    },
+    {
+      "id": "q.operational.instantaneous",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          700,
+          850,
+          925,
+          1000
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.q",
+      "resource_id": "cedarkit.grib2.cma-meso-3km.current"
+    },
+    {
+      "id": "rh.operational.instantaneous",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          700,
+          850,
+          925,
+          1000
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-meso-3km.current"
+    },
+    {
+      "id": "t.operational.instantaneous",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          700,
+          850,
+          925,
+          1000
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-meso-3km.current"
+    },
+    {
+      "id": "u.operational.instantaneous",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          700,
+          850,
+          925,
+          1000
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-meso-3km.current"
+    },
+    {
+      "id": "v.operational.instantaneous",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          700,
+          850,
+          925,
+          1000
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-meso-3km.current"
+    },
+    {
+      "id": "rh.current.member.forecast.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "rh.current.member.forecast.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "rh.current.member.initial.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "rh.current.member.initial.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "t.current.member.forecast.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "t.current.member.forecast.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "t.current.member.initial.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "t.current.member.initial.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "u.current.member.forecast.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "u.current.member.forecast.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "u.current.member.initial.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "u.current.member.initial.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "v.current.member.forecast.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "v.current.member.forecast.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "v.current.member.initial.control",
+      "new_when": {
+        "level_type": "pressure",
+        "member": 0,
+        "member_role": "control"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": 0,
+        "member_role": "control"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "v.current.member.initial.perturbation",
+      "new_when": {
+        "level_type": "pressure",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa",
+        "member": {
+          "range": {
+            "end": 14,
+            "every": 1,
+            "start": 1
+          }
+        },
+        "member_role": "perturbation"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-reps.current"
+    },
+    {
+      "id": "q.operational.instantaneous.analysis",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.q",
+      "resource_id": "cedarkit.grib2.cma-tym.current"
+    },
+    {
+      "id": "q.operational.instantaneous.forecast",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.q",
+      "resource_id": "cedarkit.grib2.cma-tym.current"
+    },
+    {
+      "id": "rh.operational.instantaneous.analysis",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-tym.current"
+    },
+    {
+      "id": "rh.operational.instantaneous.forecast",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.rh",
+      "resource_id": "cedarkit.grib2.cma-tym.current"
+    },
+    {
+      "id": "t.operational.instantaneous.analysis",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-tym.current"
+    },
+    {
+      "id": "t.operational.instantaneous.forecast",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.t",
+      "resource_id": "cedarkit.grib2.cma-tym.current"
+    },
+    {
+      "id": "u.operational.instantaneous.analysis",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-tym.current"
+    },
+    {
+      "id": "u.operational.instantaneous.forecast",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.u",
+      "resource_id": "cedarkit.grib2.cma-tym.current"
+    },
+    {
+      "id": "v.operational.instantaneous.analysis",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-tym.current"
+    },
+    {
+      "id": "v.operational.instantaneous.forecast",
+      "new_when": {
+        "level_type": "pressure"
+      },
+      "old_when": {
+        "level": [
+          500,
+          850
+        ],
+        "level_type": "pressure",
+        "level_unit": "hPa"
+      },
+      "parameter_id": "cedarkit.v",
+      "resource_id": "cedarkit.grib2.cma-tym.current"
+    }
+  ],
+  "mapping_ids_preserved": true,
+  "mapping_versions": {
+    "cedarkit.grib2.cma-geps.current": "5",
+    "cedarkit.grib2.cma-gfs.current": "10",
+    "cedarkit.grib2.cma-meso-1km.current": "5",
+    "cedarkit.grib2.cma-meso-3km.current": "5",
+    "cedarkit.grib2.cma-reps.current": "5",
+    "cedarkit.grib2.cma-tym.current": "5"
+  },
+  "native_and_parameter_definitions_unchanged": true,
+  "policy": {
+    "date": "2026-11-01",
+    "decision": "Remove sampled numeric level and accompanying level_unit from generic pressure when/provides/profile rows; preserve pressure level_type and native first surface100/second255. Actual pressure scaling and Pa/hPa interpretation stay in grib.fixed_surfaces. Explicit caller level filters and scope bounds remain valid.",
+    "preserved": "All parameter definitions, IDs, aliases, parents; t2m/u10m/v10m fixed heights; all soil-layer intervals; nonpressure mappings and native encoding/member/statistical/unit constraints.",
+    "scope": "Existing t/u/v/q/rh pressure registrations in six current CEMC GRIB2 orig products only; no new parameters or source families.",
+    "user_confirmation": "清理通用等压面参数中由抽样造成的层次白名单，保留t2m、土壤层等真实固定条件；无需逐层逐时效验证，不新增GSW3h/9h测试，不自动提交Git。",
+    "verification": "Representative rule groups only, not every layer/lead; no new GSW3h/9h tests; old real-sample coverage remains historical evidence."
+  },
+  "policy_sha256": "247ad992e8f0c3499c568573287b51a45413453f199215d34b0735e994dfdf5e"
+}

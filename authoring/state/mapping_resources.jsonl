@@ -2,9 +2,9 @@
 {"backend":"grib2","id":"cedarkit.grib2","version":"1"}
 {"backend":"grib2","id":"cedarkit.grib2.cemc-grib-util-v12.6.common","version":"1"}
 {"backend":"grib2","id":"cedarkit.grib2.cemc-grib-util-v12.6.initial","version":"2"}
-{"backend":"grib2","id":"cedarkit.grib2.cma-geps.current","version":"4"}
-{"backend":"grib2","id":"cedarkit.grib2.cma-gfs.current","version":"9"}
-{"backend":"grib2","id":"cedarkit.grib2.cma-meso-1km.current","version":"4"}
-{"backend":"grib2","id":"cedarkit.grib2.cma-meso-3km.current","version":"4"}
-{"backend":"grib2","id":"cedarkit.grib2.cma-reps.current","version":"4"}
-{"backend":"grib2","id":"cedarkit.grib2.cma-tym.current","version":"4"}
+{"backend":"grib2","id":"cedarkit.grib2.cma-geps.current","version":"5"}
+{"backend":"grib2","id":"cedarkit.grib2.cma-gfs.current","version":"10"}
+{"backend":"grib2","id":"cedarkit.grib2.cma-meso-1km.current","version":"5"}
+{"backend":"grib2","id":"cedarkit.grib2.cma-meso-3km.current","version":"5"}
+{"backend":"grib2","id":"cedarkit.grib2.cma-reps.current","version":"5"}
+{"backend":"grib2","id":"cedarkit.grib2.cma-tym.current","version":"5"}
