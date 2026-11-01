@@ -4,6 +4,7 @@
 {"alias":"gdlwc-since-initialization","parameter_id":"cedarkit.gdlwc.since-initialization"}
 {"alias":"str","parameter_id":"cedarkit.glw"}
 {"alias":"ssr","parameter_id":"cedarkit.gsw"}
+{"alias":"gsw-since-initialization","parameter_id":"cedarkit.gsw.since-initialization"}
 {"alias":"gswc-since-initialization","parameter_id":"cedarkit.gswc.since-initialization"}
 {"alias":"gslu","parameter_id":"cedarkit.gulw"}
 {"alias":"gulwc-since-initialization","parameter_id":"cedarkit.gulwc.since-initialization"}

@@ -7,18 +7,18 @@ payloads. The manifest records table layouts, row counts and SHA256; schema4
 DDL, generated columns, constraints and identity-protection triggers come from
 the packaged schema, whose fingerprint must match.
 
-The current state is 233 mappings/228 active parameters. Legacy definitions are
-136 resolved/85 needs_evidence, with 418 unresolved legacy obligations. The
-separate `definition-reviews.json` retains seven authored variants and fourteen backend
-obligations, giving 432 combined obligations. The GFS parameter slice is v4 and
-mapping v7; the other five slices remain parameter v2/mapping v3. TUSWC has an
+The current state is 235 mappings/229 active parameters. Legacy definitions are
+138 resolved/83 needs_evidence, with 416 unresolved legacy obligations. The
+separate `definition-reviews.json` retains eight authored variants and sixteen backend
+obligations, giving 432 combined obligations. The GFS parameter slice is v5 and
+mapping v8; the other five slices remain parameter v2/mapping v3. TUSWC has an
 active authoring definition without a runtime product binding. Review decisions
 and old/new values are in [`reviews/surface-radiation.json`](reviews/surface-radiation.json).
 Four GFS surface clear-sky energy integrals have finite 0/6/12/24/48/72h pairs.
-The previous 229 mappings and their evidence remain intact. The earlier
+The previous 233 mappings and their evidence remain intact. The earlier
 lead extension and its remaining conflicts are recorded in
 [`reviews/gfs-clear-sky-energy-leads.json`](reviews/gfs-clear-sky-energy-leads.json).
-The latest [`GSWC/GULWC review`](reviews/gswc-gulwc.json) corrects six legacy
+The earlier [`GSWC/GULWC review`](reviews/gswc-gulwc.json) corrects six legacy
 definitions and reassesses their dependent GRIB obligations. GSWC is net
 shortwave, distinct from downward GDSWC. The GULWC decoder's `unknown` unit and
 numeric `parameterUnits=224` are retained; the exact mapping declares J/m2 from
@@ -26,6 +26,15 @@ original package, model and business evidence. Four new mappings use two
 explicit since-initialization variants. Top definitions do not add top bindings.
 Output retains the original signed J/m2 values without duration scaling or
 accumulation differencing. This subset does not establish a complete domain.
+The latest [GSW/GLW review](reviews/gsw-glw.json) corrects the case111 GSW
+energy unit to J/m2 and reassesses TSW inheritance plus both GRIB dependencies.
+One explicit surface since-initialization variant adds initial0 and forecast
+6/12/24/48/72h mappings, without changing the broad GSW conditions. This is
+unqualified net shortwave, separate from clear-sky GSWC and case113 GNSW flux.
+GLW remains unbound: original case112 says net longwave, but business table0
+row38 Chinese says downward longwave while its element is NLWRF. Its stable
+old definition and unresolved obligations are preserved pending producer
+clarification; no derived-unit lookup or native code alone resolves that link.
 The `consolidation_baseline` in current.json remains the historical223 origin.
 
 From the repository root, always use fresh output paths:
