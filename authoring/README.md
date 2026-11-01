@@ -7,13 +7,21 @@ payloads. The manifest records table layouts, row counts and SHA256; schema4
 DDL, generated columns, constraints and identity-protection triggers come from
 the packaged schema, whose fingerprint must match.
 
-The current state is227 mappings/226 active parameters. Legacy definitions are
+The current state is229 mappings/226 active parameters. Legacy definitions are
 130 resolved/91 needs_evidence, with424 unresolved legacy obligations. The
 separate `definition-reviews.json` retains five authored variants and ten backend
 obligations, giving434 combined obligations. The GFS parameter slice isv3 and
-mappingv5; the other five slices remain parameterv2/mappingv3. TUSWC has an
+mappingv6; the other five slices remain parameterv2/mappingv3. TUSWC has an
 active authoring definition without a runtime product binding. Review decisions
 and old/new values are in [`reviews/surface-radiation.json`](reviews/surface-radiation.json).
+The two existing GFS surface clear-sky energy integrals now have finite
+0/6/12/24/48/72h pairs. Two disjoint forecast mappings add12/24/48/72h;
+the previous227 mapping rows and their evidence remain intact. The definitions,
+parent relations, aliases, unresolved assessments and parameter versions are
+unchanged. The source-bound recheck and precise remaining conflicts are in
+[`reviews/gfs-clear-sky-energy-leads.json`](reviews/gfs-clear-sky-energy-leads.json).
+Output retains the original signedJ/m2 values without duration scaling or
+accumulation differencing. This subset does not establish a complete domain.
 The `consolidation_baseline` in current.json remains the historical223 origin.
 
 From the repository root, always use fresh output paths:

@@ -6,12 +6,16 @@ Stage 1.1 separates `cedarkit.parameters/v1` and `cedarkit.mappings/v1` resource
 
 ## Current authoring entry
 
-The maintained state now contains 227 mappings and 226 active parameters after
-the first directional clear-sky radiation energy review. Legacy definitions are
+The maintained state now contains 229 mappings and 226 active parameters after
+the finite GFS clear-sky radiation energy lead extension. Legacy definitions are
 130 resolved / 91 needs_evidence; 424 legacy obligations and 10 additional
 variant backend obligations remain open. GFS adds only surface energy integrals
-at leads 0/6h. TUSWC is restored as an authoring definition without a runtime
-product binding. See the [current review](authoring/reviews/surface-radiation.json).
+at leads 0/6/12/24/48/72h, retaining the original signed J/m2 values without
+duration scaling or accumulation differencing. Two new mappings preserve all
+previous227 rows and their evidence; definitions and unresolved states are
+unchanged. TUSWC is restored as an authoring definition without a runtime
+product binding. See the [definition review](authoring/reviews/surface-radiation.json)
+and [lead review](authoring/reviews/gfs-clear-sky-energy-leads.json).
 
 The maintained authoring source is the complete, stable text checkpoint in
 [`authoring/state/`](authoring/state/manifest.json), configured by

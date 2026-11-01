@@ -1,0 +1,380 @@
+{
+  "date": "2026-11-01",
+  "definition_decisions": [
+    {
+      "conditions": "surface; two existing since_initialization children retain time accumulation andJ/m2 inherited units; no parent narrowing",
+      "new_value": {
+        "description": "Time-integrated upward short-wave radiation, clear sky",
+        "description_cn": "晴空向上短波辐射时间积分量",
+        "fixed_json": "{}",
+        "name": "guswc",
+        "parameter_id": "cedarkit.guswc.any",
+        "parent": null,
+        "resource_id": "cedarkit.parameters",
+        "unit": "J/m2"
+      },
+      "old_value": {
+        "description": "Time-integrated upward short-wave radiation, clear sky",
+        "description_cn": "晴空向上短波辐射时间积分量",
+        "fixed_json": "{}",
+        "name": "guswc",
+        "parameter_id": "cedarkit.guswc.any",
+        "parent": null,
+        "resource_id": "cedarkit.parameters",
+        "unit": "J/m2"
+      },
+      "original_location": "paraNum.h case106 lines326-340; case107 lines341-355; DOCX table0 rows81/85; actual eight message endpoints",
+      "source_sha256": [
+        "4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3",
+        "7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f",
+        "ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6",
+        "a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0",
+        "c13365d3d52876e2c449120fe0d7a7c2b8a4732ffe9e964e2c30db7c0f5a6e7f",
+        "9462e0d519fcf8e2fe44ca9cf3ce50bcb1883db8b29513b395ded6caeeca3170"
+      ],
+      "stable_id": "cedarkit.guswc.any",
+      "status": "confirmed_unchanged"
+    },
+    {
+      "conditions": "surface; two existing since_initialization children retain time accumulation andJ/m2 inherited units; no parent narrowing",
+      "new_value": {
+        "description": null,
+        "description_cn": null,
+        "fixed_json": "{\"level_type\":\"surface\"}",
+        "name": "guswc",
+        "parameter_id": "cedarkit.guswc",
+        "parent": "cedarkit.guswc.any",
+        "resource_id": "cedarkit.parameters",
+        "unit": null
+      },
+      "old_value": {
+        "description": null,
+        "description_cn": null,
+        "fixed_json": "{\"level_type\":\"surface\"}",
+        "name": "guswc",
+        "parameter_id": "cedarkit.guswc",
+        "parent": "cedarkit.guswc.any",
+        "resource_id": "cedarkit.parameters",
+        "unit": null
+      },
+      "original_location": "paraNum.h case106 lines326-340; case107 lines341-355; DOCX table0 rows81/85; actual eight message endpoints",
+      "source_sha256": [
+        "4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3",
+        "7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f",
+        "ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6",
+        "a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0",
+        "c13365d3d52876e2c449120fe0d7a7c2b8a4732ffe9e964e2c30db7c0f5a6e7f",
+        "9462e0d519fcf8e2fe44ca9cf3ce50bcb1883db8b29513b395ded6caeeca3170"
+      ],
+      "stable_id": "cedarkit.guswc",
+      "status": "confirmed_unchanged"
+    },
+    {
+      "conditions": "surface; two existing since_initialization children retain time accumulation andJ/m2 inherited units; no parent narrowing",
+      "new_value": {
+        "description": null,
+        "description_cn": null,
+        "fixed_json": "{\"statistics\":{\"operation\":\"accumulation\",\"over\":\"time\",\"period\":{\"kind\":\"since_initialization\"}}}",
+        "name": "guswc",
+        "parameter_id": "cedarkit.guswc.since-initialization",
+        "parent": "cedarkit.guswc",
+        "resource_id": "cedarkit.parameters",
+        "unit": null
+      },
+      "old_value": {
+        "description": null,
+        "description_cn": null,
+        "fixed_json": "{\"statistics\":{\"operation\":\"accumulation\",\"over\":\"time\",\"period\":{\"kind\":\"since_initialization\"}}}",
+        "name": "guswc",
+        "parameter_id": "cedarkit.guswc.since-initialization",
+        "parent": "cedarkit.guswc",
+        "resource_id": "cedarkit.parameters",
+        "unit": null
+      },
+      "original_location": "paraNum.h case106 lines326-340; case107 lines341-355; DOCX table0 rows81/85; actual eight message endpoints",
+      "source_sha256": [
+        "4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3",
+        "7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f",
+        "ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6",
+        "a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0",
+        "c13365d3d52876e2c449120fe0d7a7c2b8a4732ffe9e964e2c30db7c0f5a6e7f",
+        "9462e0d519fcf8e2fe44ca9cf3ce50bcb1883db8b29513b395ded6caeeca3170"
+      ],
+      "stable_id": "cedarkit.guswc.since-initialization",
+      "status": "confirmed_unchanged"
+    },
+    {
+      "conditions": "surface; two existing since_initialization children retain time accumulation andJ/m2 inherited units; no parent narrowing",
+      "new_value": {
+        "description": "Time-integrated downward long-wave radiation, clear sky",
+        "description_cn": "晴空向下长波辐射时间积分量",
+        "fixed_json": "{}",
+        "name": "gdlwc",
+        "parameter_id": "cedarkit.gdlwc.any",
+        "parent": null,
+        "resource_id": "cedarkit.parameters",
+        "unit": "J/m2"
+      },
+      "old_value": {
+        "description": "Time-integrated downward long-wave radiation, clear sky",
+        "description_cn": "晴空向下长波辐射时间积分量",
+        "fixed_json": "{}",
+        "name": "gdlwc",
+        "parameter_id": "cedarkit.gdlwc.any",
+        "parent": null,
+        "resource_id": "cedarkit.parameters",
+        "unit": "J/m2"
+      },
+      "original_location": "paraNum.h case106 lines326-340; case107 lines341-355; DOCX table0 rows81/85; actual eight message endpoints",
+      "source_sha256": [
+        "4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3",
+        "7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f",
+        "ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6",
+        "a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0",
+        "c13365d3d52876e2c449120fe0d7a7c2b8a4732ffe9e964e2c30db7c0f5a6e7f",
+        "9462e0d519fcf8e2fe44ca9cf3ce50bcb1883db8b29513b395ded6caeeca3170"
+      ],
+      "stable_id": "cedarkit.gdlwc.any",
+      "status": "confirmed_unchanged"
+    },
+    {
+      "conditions": "surface; two existing since_initialization children retain time accumulation andJ/m2 inherited units; no parent narrowing",
+      "new_value": {
+        "description": null,
+        "description_cn": null,
+        "fixed_json": "{\"level_type\":\"surface\"}",
+        "name": "gdlwc",
+        "parameter_id": "cedarkit.gdlwc",
+        "parent": "cedarkit.gdlwc.any",
+        "resource_id": "cedarkit.parameters",
+        "unit": null
+      },
+      "old_value": {
+        "description": null,
+        "description_cn": null,
+        "fixed_json": "{\"level_type\":\"surface\"}",
+        "name": "gdlwc",
+        "parameter_id": "cedarkit.gdlwc",
+        "parent": "cedarkit.gdlwc.any",
+        "resource_id": "cedarkit.parameters",
+        "unit": null
+      },
+      "original_location": "paraNum.h case106 lines326-340; case107 lines341-355; DOCX table0 rows81/85; actual eight message endpoints",
+      "source_sha256": [
+        "4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3",
+        "7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f",
+        "ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6",
+        "a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0",
+        "c13365d3d52876e2c449120fe0d7a7c2b8a4732ffe9e964e2c30db7c0f5a6e7f",
+        "9462e0d519fcf8e2fe44ca9cf3ce50bcb1883db8b29513b395ded6caeeca3170"
+      ],
+      "stable_id": "cedarkit.gdlwc",
+      "status": "confirmed_unchanged"
+    },
+    {
+      "conditions": "surface; two existing since_initialization children retain time accumulation andJ/m2 inherited units; no parent narrowing",
+      "new_value": {
+        "description": null,
+        "description_cn": null,
+        "fixed_json": "{\"statistics\":{\"operation\":\"accumulation\",\"over\":\"time\",\"period\":{\"kind\":\"since_initialization\"}}}",
+        "name": "gdlwc",
+        "parameter_id": "cedarkit.gdlwc.since-initialization",
+        "parent": "cedarkit.gdlwc",
+        "resource_id": "cedarkit.parameters",
+        "unit": null
+      },
+      "old_value": {
+        "description": null,
+        "description_cn": null,
+        "fixed_json": "{\"statistics\":{\"operation\":\"accumulation\",\"over\":\"time\",\"period\":{\"kind\":\"since_initialization\"}}}",
+        "name": "gdlwc",
+        "parameter_id": "cedarkit.gdlwc.since-initialization",
+        "parent": "cedarkit.gdlwc",
+        "resource_id": "cedarkit.parameters",
+        "unit": null
+      },
+      "original_location": "paraNum.h case106 lines326-340; case107 lines341-355; DOCX table0 rows81/85; actual eight message endpoints",
+      "source_sha256": [
+        "4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3",
+        "7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f",
+        "ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6",
+        "a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0",
+        "c13365d3d52876e2c449120fe0d7a7c2b8a4732ffe9e964e2c30db7c0f5a6e7f",
+        "9462e0d519fcf8e2fe44ca9cf3ce50bcb1883db8b29513b395ded6caeeca3170"
+      ],
+      "stable_id": "cedarkit.gdlwc.since-initialization",
+      "status": "confirmed_unchanged"
+    }
+  ],
+  "duration_scaling_or_differencing": false,
+  "raw_sign_preserved": true,
+  "scope": "Existing two GFS surface clear-sky energy definitions, finite12/24/48/72h extension only",
+  "source_commit": "b5ad50fb92c3593479a1fd4fb1f42e2068f0a31f",
+  "sources": [
+    {
+      "path": "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h",
+      "sha256": "4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3"
+    },
+    {
+      "path": "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/tables/writer_discipline.csv",
+      "sha256": "7c8cd517a370ed0577f5fd148ea1f919289b285ebb3c27619f23f9b40c0d3c8f"
+    },
+    {
+      "path": "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90",
+      "sha256": "ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6"
+    },
+    {
+      "path": "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json",
+      "sha256": "a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0"
+    },
+    {
+      "path": "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-15/time-unit-direction-decisions.json",
+      "sha256": "c13365d3d52876e2c449120fe0d7a7c2b8a4732ffe9e964e2c30db7c0f5a6e7f"
+    },
+    {
+      "path": "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-19/verification-input.json",
+      "sha256": "9462e0d519fcf8e2fe44ca9cf3ce50bcb1883db8b29513b395ded6caeeca3170"
+    }
+  ],
+  "unresolved_conclusion": "Eight new clear-sky messages establish their finite time pairs only. No new producer computation/sign/unit reconciliation for HFX, net heat flux or non-clear upward radiation; retain all91 definition gaps, no forced closure.",
+  "unresolved_review": [
+    {
+      "aspect": "definition",
+      "assessment": {
+        "aspect": "definition",
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case106 lines326-340 downward clear longwave and case107 lines341-355 upward clear shortwave; common ws/m2; same unit across surface/top",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows81/82/85: explicit upward/downward clear-sky direction, surface/top and W m-2 s; not a complete provider domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines201/205 and longwave clear-sky declarations corroborate time-integrated units; no sign reversal",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-18/verification-input.json#sha256=f3216092823406b6a404d14881321343dd81114b3a68058fe8ea3401272dfa8c;mature GFS original PDT8 surface messages; actual unit J m**-2, one accumulation interval anchored at reference; no time scaling",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original-object-verified section4 category/number; full writer discipline must be considered separately"
+        ],
+        "explanation": "Reviewed original name/unit declaration, model-specific declarations and current mature headers. Heat/net-flux sign and physical time processing are not established by the generic label or an accumulation code. Non-clear upward radiation has conflicting W/m2 versus integrated business units. No default conversion or blanket physical-quantity replacement is applied.",
+        "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+        "outcome": "needs_evidence",
+        "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+        "parameter_id": "cedarkit.gulw.any"
+      },
+      "gap": "G17-02",
+      "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+      "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+      "parameter_id": "cedarkit.gulw.any",
+      "review_status": "needs_evidence"
+    },
+    {
+      "aspect": "definition",
+      "assessment": {
+        "aspect": "definition",
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case106 lines326-340 downward clear longwave and case107 lines341-355 upward clear shortwave; common ws/m2; same unit across surface/top",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows81/82/85: explicit upward/downward clear-sky direction, surface/top and W m-2 s; not a complete provider domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines201/205 and longwave clear-sky declarations corroborate time-integrated units; no sign reversal",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-18/verification-input.json#sha256=f3216092823406b6a404d14881321343dd81114b3a68058fe8ea3401272dfa8c;mature GFS original PDT8 surface messages; actual unit J m**-2, one accumulation interval anchored at reference; no time scaling",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original-object-verified section4 category/number; full writer discipline must be considered separately"
+        ],
+        "explanation": "Reviewed original name/unit declaration, model-specific declarations and current mature headers. Heat/net-flux sign and physical time processing are not established by the generic label or an accumulation code. Non-clear upward radiation has conflicting W/m2 versus integrated business units. No default conversion or blanket physical-quantity replacement is applied.",
+        "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+        "outcome": "needs_evidence",
+        "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+        "parameter_id": "cedarkit.gusw.any"
+      },
+      "gap": "G17-02",
+      "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+      "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+      "parameter_id": "cedarkit.gusw.any",
+      "review_status": "needs_evidence"
+    },
+    {
+      "aspect": "definition",
+      "assessment": {
+        "aspect": "definition",
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case106 lines326-340 downward clear longwave and case107 lines341-355 upward clear shortwave; common ws/m2; same unit across surface/top",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows81/82/85: explicit upward/downward clear-sky direction, surface/top and W m-2 s; not a complete provider domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines201/205 and longwave clear-sky declarations corroborate time-integrated units; no sign reversal",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-18/verification-input.json#sha256=f3216092823406b6a404d14881321343dd81114b3a68058fe8ea3401272dfa8c;mature GFS original PDT8 surface messages; actual unit J m**-2, one accumulation interval anchored at reference; no time scaling",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original-object-verified section4 category/number; full writer discipline must be considered separately"
+        ],
+        "explanation": "Reviewed original name/unit declaration, model-specific declarations and current mature headers. Heat/net-flux sign and physical time processing are not established by the generic label or an accumulation code. Non-clear upward radiation has conflicting W/m2 versus integrated business units. No default conversion or blanket physical-quantity replacement is applied.",
+        "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+        "outcome": "needs_evidence",
+        "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+        "parameter_id": "cedarkit.hfx"
+      },
+      "gap": "G17-02",
+      "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+      "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+      "parameter_id": "cedarkit.hfx",
+      "review_status": "needs_evidence"
+    },
+    {
+      "aspect": "definition",
+      "assessment": {
+        "aspect": "definition",
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case106 lines326-340 downward clear longwave and case107 lines341-355 upward clear shortwave; common ws/m2; same unit across surface/top",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows81/82/85: explicit upward/downward clear-sky direction, surface/top and W m-2 s; not a complete provider domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines201/205 and longwave clear-sky declarations corroborate time-integrated units; no sign reversal",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-18/verification-input.json#sha256=f3216092823406b6a404d14881321343dd81114b3a68058fe8ea3401272dfa8c;mature GFS original PDT8 surface messages; actual unit J m**-2, one accumulation interval anchored at reference; no time scaling",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original-object-verified section4 category/number; full writer discipline must be considered separately"
+        ],
+        "explanation": "Reviewed original name/unit declaration, model-specific declarations and current mature headers. Heat/net-flux sign and physical time processing are not established by the generic label or an accumulation code. Non-clear upward radiation has conflicting W/m2 versus integrated business units. No default conversion or blanket physical-quantity replacement is applied.",
+        "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+        "outcome": "needs_evidence",
+        "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+        "parameter_id": "cedarkit.hfx.any"
+      },
+      "gap": "G17-02",
+      "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+      "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+      "parameter_id": "cedarkit.hfx.any",
+      "review_status": "needs_evidence"
+    },
+    {
+      "aspect": "definition",
+      "assessment": {
+        "aspect": "definition",
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case106 lines326-340 downward clear longwave and case107 lines341-355 upward clear shortwave; common ws/m2; same unit across surface/top",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows81/82/85: explicit upward/downward clear-sky direction, surface/top and W m-2 s; not a complete provider domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines201/205 and longwave clear-sky declarations corroborate time-integrated units; no sign reversal",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-18/verification-input.json#sha256=f3216092823406b6a404d14881321343dd81114b3a68058fe8ea3401272dfa8c;mature GFS original PDT8 surface messages; actual unit J m**-2, one accumulation interval anchored at reference; no time scaling",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original-object-verified section4 category/number; full writer discipline must be considered separately"
+        ],
+        "explanation": "Reviewed original name/unit declaration, model-specific declarations and current mature headers. Heat/net-flux sign and physical time processing are not established by the generic label or an accumulation code. Non-clear upward radiation has conflicting W/m2 versus integrated business units. No default conversion or blanket physical-quantity replacement is applied.",
+        "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+        "outcome": "needs_evidence",
+        "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+        "parameter_id": "cedarkit.slhf"
+      },
+      "gap": "G17-02",
+      "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+      "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+      "parameter_id": "cedarkit.slhf",
+      "review_status": "needs_evidence"
+    },
+    {
+      "aspect": "definition",
+      "assessment": {
+        "aspect": "definition",
+        "evidence": [
+          "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case106 lines326-340 downward clear longwave and case107 lines341-355 upward clear shortwave; common ws/m2; same unit across surface/top",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-7/business-material.json#sha256=a611efb07e9486352bd84f44bc6808d3fb7fd3314c5066cd4901fa55400cadc0;DOCX table0 rows81/82/85: explicit upward/downward clear-sky direction, surface/top and W m-2 s; not a complete provider domain",
+          "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines201/205 and longwave clear-sky declarations corroborate time-integrated units; no sign reversal",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-18/verification-input.json#sha256=f3216092823406b6a404d14881321343dd81114b3a68058fe8ea3401272dfa8c;mature GFS original PDT8 surface messages; actual unit J m**-2, one accumulation interval anchored at reference; no time scaling",
+          "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;original-object-verified section4 category/number; full writer discipline must be considered separately"
+        ],
+        "explanation": "Reviewed original name/unit declaration, model-specific declarations and current mature headers. Heat/net-flux sign and physical time processing are not established by the generic label or an accumulation code. Non-clear upward radiation has conflicting W/m2 versus integrated business units. No default conversion or blanket physical-quantity replacement is applied.",
+        "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+        "outcome": "needs_evidence",
+        "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+        "parameter_id": "cedarkit.sshf"
+      },
+      "gap": "G17-02",
+      "missing_input": "Producer computation/output definition establishing physical instantaneous/mean/integral meaning, signed direction and exact applicable product. HFX needs the complete writer discipline (actual2/0/24), not section4 category/number alone; its W/m2 plus accumulation descriptor cannot establish an energy integral. SLHF/SSHF require the signed net-flux convention. Non-clear upward fields need reconciliation of W/m2 versus W m-2 s.",
+      "owner_tasks": "I03 definition; I04 producer scope; I06 original code/value evidence",
+      "parameter_id": "cedarkit.sshf",
+      "review_status": "needs_evidence"
+    }
+  ]
+}
