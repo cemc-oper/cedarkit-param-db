@@ -10,7 +10,7 @@ import sqlite3
 
 import pytest
 
-from cedarkit_param_db import init_db, import_resources
+from cedarkit_param_db import init_db, import_resources, write_authoring_source
 
 SPEC = importlib.util.spec_from_file_location(
     "authoring_tool", Path(__file__).resolve().parents[1] / "tools/authoring.py"
@@ -135,6 +135,84 @@ def test_candidate_database_is_explicit_and_configuration_is_not_rewritten(
     assert path.read_bytes() == before
     with pytest.raises(sqlite3.OperationalError, match="unable to open"):
         TOOL.export_current(path, tmp_path / "missing-default")
+
+
+def text_configuration(authoring):
+    path, config = authoring
+    write_authoring_source(path.parent / config["database"], path.parent / "state")
+    config["source"] = "state"
+    path.write_text(json.dumps(config))
+    return path, config
+
+
+def test_text_export_ignores_stale_or_missing_local_database(tmp_path, authoring):
+    path, config = text_configuration(authoring)
+    database = path.parent / config["database"]
+    with closing(sqlite3.connect(database)) as conn:
+        conn.execute("UPDATE mapping_resources SET version='99'")
+        conn.commit()
+    TOOL.export_current(path, tmp_path / "stale-cache")
+    database.unlink()
+    TOOL.export_current(path, tmp_path / "missing-cache")
+    for folder in ["stale-cache", "missing-cache"]:
+        assert (
+            json.loads(
+                (tmp_path / folder / "sample/mappings-00-grib2.json").read_text()
+            )["version"]
+            == "1"
+        )
+    (path.parent / "state/parameters.jsonl").write_text("{}\n")
+    with pytest.raises(ValueError, match="SHA256"):
+        TOOL.export_current(path, tmp_path / "invalid-source")
+    assert not (tmp_path / "invalid-source").exists()
+
+
+def test_text_source_replacement_between_slices_cannot_mix_generations(
+    tmp_path, authoring, monkeypatch
+):
+    path, config = text_configuration(authoring)
+    config["exports"]["second"] = deepcopy(config["exports"]["sample"])
+    path.write_text(json.dumps(config))
+    original, calls = TOOL.export_mapping_slice, []
+
+    def replace_after_first_slice(*args, **kwargs):
+        result = original(*args, **kwargs)
+        calls.append(result)
+        if len(calls) == 1:
+            with closing(sqlite3.connect(path.parent / config["database"])) as conn:
+                conn.execute("UPDATE mapping_resources SET version='8'")
+                conn.commit()
+            write_authoring_source(
+                path.parent / config["database"], path.parent / "state", replace=True
+            )
+        return result
+
+    monkeypatch.setattr(TOOL, "export_mapping_slice", replace_after_first_slice)
+    TOOL.export_current(path, tmp_path / "out")
+    assert [
+        json.loads((tmp_path / "out" / system / "mappings-00-grib2.json").read_text())[
+            "version"
+        ]
+        for system in ["sample", "second"]
+    ] == ["1", "1"]
+
+
+def test_build_and_capture_commands_use_explicit_candidates(tmp_path, authoring):
+    path, config = text_configuration(authoring)
+    candidate = tmp_path / "candidate.db"
+    assert TOOL.main(["--config", str(path), "build", "--db", str(candidate)]) == 0
+    with closing(sqlite3.connect(candidate)) as conn:
+        conn.execute("UPDATE mapping_resources SET version='7'")
+        conn.commit()
+    assert TOOL.main(["--config", str(path), "capture", "--db", str(candidate)]) == 0
+    TOOL.export_current(path, tmp_path / "new")
+    assert (
+        json.loads((tmp_path / "new/sample/mappings-00-grib2.json").read_text())[
+            "version"
+        ]
+        == "7"
+    )
+    assert TOOL.main(["--config", str(path), "build", "--db", str(candidate)]) == 2
 
 
 @pytest.fixture

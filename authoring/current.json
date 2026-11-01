@@ -7,7 +7,7 @@
         "cedarkit.grib2.cma-gfs.current"
       ],
       "parameter_resource_id": "cedarkit.parameters.cma-gfs.current",
-      "parameter_version": "2"
+      "parameter_version": "3"
     },
     "meso3": {
       "mapping_resource_ids": [
@@ -58,5 +58,6 @@
     "combined_unresolved_obligations": 435,
     "note": "Origin checkpoint, not a lock on future reviewed authoring edits."
   },
-  "additional_definition_review": "definition-reviews.json"
+  "additional_definition_review": "definition-reviews.json",
+  "source": "state"
 }

@@ -1,47 +1,58 @@
 # Current parameter authoring
 
-`review-schema4.db` is the maintained schema-4 authoring entry. It was copied
-byte-for-byte from the final 223-mapping review on 2026-10-31. The root
-`cedarkit_param.db` remains the unchanged schema-3 input. Do not interchange them.
+`state/manifest.json` and the 18 stable, primary-key-ordered JSONL tables in
+`state/` are the maintained authoring source. Each line is one database row.
+SQL JSON columns stay strings, preserving their original bytes and legacy audit
+payloads. The manifest records table layouts, row counts and SHA256; schema4
+DDL, generated columns, constraints and identity-protection triggers come from
+the packaged schema, whose fingerprint must match.
 
-`current.json` selects six whole mapping resources and the explicit identities
-and versions of their parameter slices. Mapping versions remain GFS4 and the
-other five3; parameter versions remain2. Its consolidation baseline documents
-the origin checkpoint, not a lock on future reviewed edits.
+The current state is227 mappings/226 active parameters. Legacy definitions are
+130 resolved/91 needs_evidence, with424 unresolved legacy obligations. The
+separate `definition-reviews.json` retains five authored variants and ten backend
+obligations, giving434 combined obligations. The GFS parameter slice isv3 and
+mappingv5; the other five slices remain parameterv2/mappingv3. TUSWC has an
+active authoring definition without a runtime product binding. Review decisions
+and old/new values are in [`reviews/surface-radiation.json`](reviews/surface-radiation.json).
+The `consolidation_baseline` in current.json remains the historical223 origin.
 
-From the repository root:
+From the repository root, always use fresh output paths:
 
 ```bash
+uv run python tools/authoring.py build --db /tmp/cedarkit-review.db
+uv run python -m cedarkit_param_db --db /tmp/cedarkit-review.db migration-report
+# Apply checked transaction/review API changes to the explicit candidate.
+uv run python tools/authoring.py capture --db /tmp/cedarkit-review.db
 uv run python tools/authoring.py export --out-dir /tmp/cedarkit-current-export
-uv run python tools/authoring.py export --db /tmp/review-candidate.db --out-dir /tmp/cedarkit-candidate-export
-uv run python -m cedarkit_param_db --db authoring/review-schema4.db migration-report
 ```
 
-Use a fresh output directory. The utility checks the complete selected resource
-groups through the existing finite-slice exporter. It neither adds definitions
-or mappings nor installs exports into reki. Current exports do not need the
-historical archive, producer samples, or predecessor databases.
+`build` creates a new database exclusively. It verifies the entire source, all
+18 table values, schema, generated references, foreign keys and full resource
+semantics; failed builds leave no candidate database. `capture` validates one
+WAL-aware SQLite backup and publishes a complete text generation, restoring the
+old source on publication failure. `capture --out-dir <new-directory>` keeps the
+maintained source unchanged. Review the text diff together with resource version
+changes and small evidence-bearing decisions before committing.
 
-Each export group reads one temporary SQLite backup, including committed WAL
-pages. Authoring changes made after that snapshot do not affect later slices
-in the group. The source connection closes before slice export; the temporary
-snapshot and staging directory are cleaned on success or failure.
+Default `export` rebuilds once from text and reads every selected slice from that
+same temporary database. It does not read `review-schema4.db`, even if that file
+exists with different contents. The generated local database is ignored by Git;
+the original227-state bytes were preserved in workspace maintenance evidence.
+The root `cedarkit_param.db` remains the unchanged historical schema3 input.
+An explicit `export --db /tmp/candidate.db` still uses one WAL-aware backup for
+the group. Source/candidate failures never publish partial outputs, and all
+temporary state is cleaned. Runtime export contracts and closure gates are
+unchanged; no versions or resources are automatically installed into reki.
 
-Make source-bound edits in a checked `transaction`, optionally first in a
-temporary `copy-review` candidate. Promote the reviewed state to this fixed
-path and record the actual incremental decision; Git retains previous states.
-A change record should identify the stable ID, old/new values, applicability,
-evidence position and SHA256, dependent reassessment, and resource revisions.
-The existing `definition-reviews.json` retains the three reviewed variants and
-their six still-open backend obligations. Legacy migration-report has 429 open
-obligations; together these remain435. Do not drop the extra six from reporting.
+Do not hand-edit a JSONL table without its manifest or drop authoring/audit
+rows. Prefer the checked candidate workflow; capture updates hashes/counts and
+stable ordering together. Keep the source at this fixed path, and keep full
+reports, temporary candidates and execution logs under workspace doc or/tmp.
+A conversation boundary does not create a migration or a full database commit.
+New schema semantics require an explicit schema migration rather than silently
+accepting extra tables, columns, indexes or triggers.
 
-Keep small review decisions and authoring tools in this repository. Store full
-reports, candidate database checkpoints, temporary exports and execution logs
-under workspace `doc/`. A conversation boundary does not create a migration.
-Create real migration sources only when schema/data-upgrade semantics need one.
-
-For historical locators use `tools/authoring.py resolve <old-workspace-path>`.
-`current.json` pins the archive index SHA. The index maps original paths to
-archived bytes; the 13 relative compatibility links keep original evidence and
-historical replay scripts usable without modifying their recorded hashes.
+For historical locators, `tools/authoring.py resolve <old-workspace-path>` checks
+both the pinned archive index and payload SHA. The13 compatibility links and
+252 archived files retain their bytes. Neither the archive nor predecessor
+checkpoints are required by current text-based build/export.

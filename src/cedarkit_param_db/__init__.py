@@ -12,6 +12,7 @@ from .exporter import export_bundle, export_definitions, export_mapping_slice, s
 from .importer import import_resources
 from .migration import apply_review, migrate_v3, migration_report
 from .review import copy_review
+from .authoring import build_authoring_database, write_authoring_source
 
 __version__ = "0.1.0"
 
@@ -31,4 +32,6 @@ __all__ = [
     "migration_report",
     "apply_review",
     "copy_review",
+    "build_authoring_database",
+    "write_authoring_source",
 ]

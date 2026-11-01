@@ -1,0 +1,268 @@
+{
+  "format": "cedarkit.authoring-state/v1",
+  "schema_sha256": "c6039d9e64b870fb95804f1df050bcb0d2e829a858399135d6e2af324bb9a8ef",
+  "schema_version": 4,
+  "tables": [
+    {
+      "columns": [
+        "parameter_id",
+        "alias"
+      ],
+      "name": "aliases",
+      "primary_key": [
+        "parameter_id",
+        "alias"
+      ],
+      "rows": 35,
+      "sha256": "637d0ce8a5c5b818e1cbd25c4fba551f6296e8e5dbfe77027a7020fd161b23c6"
+    },
+    {
+      "columns": [
+        "resource_id",
+        "mapping_id",
+        "ref"
+      ],
+      "name": "mapping_evidence",
+      "primary_key": [
+        "resource_id",
+        "mapping_id",
+        "ref"
+      ],
+      "rows": 1789,
+      "sha256": "0c076138f47a29bab1f2d3ff792d68e6f57b1b9380a82fd6c230a85cd2a39d73"
+    },
+    {
+      "columns": [
+        "id",
+        "version",
+        "backend"
+      ],
+      "name": "mapping_resources",
+      "primary_key": [
+        "id"
+      ],
+      "rows": 10,
+      "sha256": "bb7f1b5c6799b361f2e1186a2788a6a029eba52f1a2d26cf37b491c8246bdf17"
+    },
+    {
+      "columns": [
+        "resource_id",
+        "id",
+        "parameter_id",
+        "backend",
+        "applies_json",
+        "when_json",
+        "native_json"
+      ],
+      "name": "mappings",
+      "primary_key": [
+        "resource_id",
+        "id"
+      ],
+      "rows": 227,
+      "sha256": "069f06e6df15ac3e3451ed86b530c0a581c022c083d6224ab0a73da295e79b56"
+    },
+    {
+      "columns": [
+        "id",
+        "parameter_id",
+        "aspect",
+        "source_sha256",
+        "review_json",
+        "definition_sha256"
+      ],
+      "name": "migration_assessments",
+      "primary_key": [
+        "id"
+      ],
+      "rows": 606,
+      "sha256": "a2a91fe3a28fa430bbf104a160ed97f776b0c4470fabe81589bb09187474bea3"
+    },
+    {
+      "columns": [
+        "parameter_id",
+        "aspect",
+        "gap",
+        "missing_input",
+        "owner_tasks",
+        "resolution_json"
+      ],
+      "name": "migration_issues",
+      "primary_key": [
+        "parameter_id",
+        "aspect"
+      ],
+      "rows": 554,
+      "sha256": "884d600b5aaf4d761e6ae987967e1555b3d2b2f6f2882b203aa26d7438fddfab"
+    },
+    {
+      "columns": [
+        "parameter_id",
+        "source_sha256",
+        "legacy_json"
+      ],
+      "name": "migration_records",
+      "primary_key": [
+        "parameter_id"
+      ],
+      "rows": 221,
+      "sha256": "7484458c6cdc208a4ca82212418021fceb479786c215cb57c939c5a327bf1fb8"
+    },
+    {
+      "columns": [
+        "sha256",
+        "format",
+        "payload_json"
+      ],
+      "name": "migration_sources",
+      "primary_key": [
+        "sha256"
+      ],
+      "rows": 1,
+      "sha256": "25946a58d6802bfc131e83d76e9338b1d2bb9a6147b7dff7b10c433960721fce"
+    },
+    {
+      "columns": [
+        "parameter_id",
+        "retired_reason"
+      ],
+      "name": "parameter_id_tombstones",
+      "primary_key": [
+        "parameter_id"
+      ],
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "columns": [
+        "parameter_id",
+        "remark",
+        "updated_at"
+      ],
+      "name": "parameter_notes",
+      "primary_key": [
+        "parameter_id"
+      ],
+      "rows": 129,
+      "sha256": "16d154cb110ca183df48a925fb902f7019f5d998b9410efff5f2eafa2fa2e157"
+    },
+    {
+      "columns": [
+        "parameter_id",
+        "reason_json"
+      ],
+      "name": "parameter_reservations",
+      "primary_key": [
+        "parameter_id"
+      ],
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "columns": [
+        "id",
+        "version"
+      ],
+      "name": "parameter_resources",
+      "primary_key": [
+        "id"
+      ],
+      "rows": 1,
+      "sha256": "8f7ad00d957221d16594dc61efc0596c786d936a5a6e0f4df6271d600a0256cf"
+    },
+    {
+      "columns": [
+        "parameter_id",
+        "resource_id",
+        "name",
+        "parent",
+        "unit",
+        "description",
+        "description_cn",
+        "fixed_json"
+      ],
+      "name": "parameters",
+      "primary_key": [
+        "parameter_id"
+      ],
+      "rows": 226,
+      "sha256": "cd485dcb8ba4637527c8161e9248552524140144123b16efaa41b4467ffb73b5"
+    },
+    {
+      "columns": [
+        "resource_id",
+        "table_id",
+        "row_id",
+        "ref"
+      ],
+      "name": "row_evidence",
+      "primary_key": [
+        "resource_id",
+        "table_id",
+        "row_id",
+        "ref"
+      ],
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "columns": [
+        "key",
+        "value"
+      ],
+      "name": "schema_meta",
+      "primary_key": [
+        "key"
+      ],
+      "rows": 1,
+      "sha256": "32c656410188a7fe97127b1041ddd63063cf051c653b1636eaa90a3f8291068b"
+    },
+    {
+      "columns": [
+        "resource_id",
+        "table_id",
+        "ref"
+      ],
+      "name": "table_evidence",
+      "primary_key": [
+        "resource_id",
+        "table_id",
+        "ref"
+      ],
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "columns": [
+        "resource_id",
+        "table_id",
+        "id",
+        "native_json",
+        "canonical_json"
+      ],
+      "name": "table_rows",
+      "primary_key": [
+        "resource_id",
+        "table_id",
+        "id"
+      ],
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "columns": [
+        "resource_id",
+        "id",
+        "key_kind",
+        "applies_json"
+      ],
+      "name": "translation_tables",
+      "primary_key": [
+        "resource_id",
+        "id"
+      ],
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

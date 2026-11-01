@@ -6,38 +6,56 @@ Stage 1.1 separates `cedarkit.parameters/v1` and `cedarkit.mappings/v1` resource
 
 ## Current authoring entry
 
-Continue parameter and mapping development from
-[`authoring/review-schema4.db`](authoring/review-schema4.db), configured by
-[`authoring/current.json`](authoring/current.json). The consolidation checkpoint
-contains 223 active parameters and 223 mappings. It retains 125 resolved and 96
-evidence-gap legacy definitions, 429 legacy obligations, and six additional
-backend obligations for three authored accumulation variants. Those extra
-reviews are retained in [`definition-reviews.json`](authoring/definition-reviews.json).
-This is finite support, not full migration or product acceptance.
+The maintained state now contains 227 mappings and 226 active parameters after
+the first directional clear-sky radiation energy review. Legacy definitions are
+130 resolved / 91 needs_evidence; 424 legacy obligations and 10 additional
+variant backend obligations remain open. GFS adds only surface energy integrals
+at leads 0/6h. TUSWC is restored as an authoring definition without a runtime
+product binding. See the [current review](authoring/reviews/surface-radiation.json).
+
+The maintained authoring source is the complete, stable text checkpoint in
+[`authoring/state/`](authoring/state/manifest.json), configured by
+[`authoring/current.json`](authoring/current.json). Its 18 JSONL tables retain
+all stored database values, including legacy payloads, review history, unresolved
+issues, reservations, tombstones and evidence. Generated columns and all schema
+constraints/triggers are rebuilt from the packaged schema. Additional variant
+reviews remain in [`definition-reviews.json`](authoring/definition-reviews.json).
+The local `authoring/review-schema4.db` is ignored generated state, not the source
+for default exports. The schema-3 root input remains unchanged.
 
 ```bash
 uv sync --extra test
-uv run python -m cedarkit_param_db --db authoring/review-schema4.db migration-report
+uv run python tools/authoring.py build --db /tmp/cedarkit-review.db
+uv run python -m cedarkit_param_db --db /tmp/cedarkit-review.db migration-report
 uv run python tools/authoring.py export --out-dir /tmp/cedarkit-current-export
 uv run python tools/authoring.py export --system geps --out-dir /tmp/cedarkit-geps-export
 ```
 
-The export tool reads the current database and explicit resource selections;
-it does not replay a previous development batch, add mappings, change resource
-versions, or modify runtime projects. All selected slices must pass before the
-output group is published. Every slice reads the same temporary SQLite backup,
-including committed WAL data, so an authoring update between slices cannot mix
-database states. The snapshot is removed on success or failure. Existing output
-directories are refused. Full-export
-gates and finite-slice validation remain unchanged.
+Default export validates the complete text checkpoint and builds one temporary
+SQLite database for the entire selected group. It ignores an absent or stale
+local database. Every table file must match its manifest SHA256 and row count;
+full resource validation, foreign keys, schema identity and exact cell roundtrip
+are checked. Bad text fails without falling back to an older database. All
+selected slices must pass before output publication; existing output directories
+are refused and temporary databases are removed on success or failure.
 
-Use `transaction(db_path)` and source-bound review decisions for further edits.
-For a disposable candidate, copy the current review to `/tmp`, edit and validate
-it there, then explicitly promote the reviewed state to this fixed database
-path. Record stable IDs, old/new values, applicability, evidence positions and
-source hashes in small change records. Update resource revisions deliberately.
-Do not create another complete `migrations/<development-session>/` tree.
-See the [authoring workflow](authoring/README.md).
+Make reviewed changes to a new temporary candidate through `transaction` and
+source-bound review APIs, then save the complete reviewed state back to text:
+
+```bash
+uv run python tools/authoring.py capture --db /tmp/cedarkit-review.db
+uv run python tools/authoring.py export --out-dir /tmp/cedarkit-reviewed-export
+```
+
+`capture` publishes a complete replacement text directory after validating the
+candidate; it restores the previous source if publication fails. Use
+`capture --db <candidate> --out-dir <new-directory>` for a separate text candidate.
+An explicit `export --db <candidate>` retains the single SQLite backup path,
+including committed WAL data. Record stable IDs, old/new values, applicability,
+evidence positions and hashes, and intentional resource revisions in the small
+review records. Commit text and review changes together. Do not commit generated
+SQLite files or create per-session migration trees. See the
+[authoring workflow](authoring/README.md).
 
 ## Historical evidence and migration tools
 
@@ -55,7 +73,7 @@ uv run python tools/authoring.py resolve data/cedarkit-param-db/migrations/stage
 Archive resolution verifies both the index and payload SHA256, including a
 `#sha256=<digest>` locator when supplied. The workspace archive is required only
 for historical lookup/replay; current exports require just the authoring
-database/configuration and package dependencies. Full reports and temporary
+text/configuration and package dependencies. Full reports and temporary
 exports belong in workspace evidence, not the repository. `migrations/` is
 reserved for actual upgrade sources and the existing compatibility links.
 

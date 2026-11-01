@@ -2,3 +2,5 @@ recursive-include docs *.md
 recursive-include tests *.py *.sql *.json
 recursive-include src/cedarkit_param_db *.sql
 recursive-include tools *.py
+recursive-include authoring *.json *.jsonl *.md
+global-exclude *.db *.db-journal *.db-wal *.db-shm

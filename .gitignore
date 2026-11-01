@@ -138,8 +138,9 @@ desktop.ini
 *.sublime-workspace
 
 # ------------------------- 项目自定义 -------------------------
-# Preserve the schema-3 input and current schema-4 authoring DB in Git.
-# Full review snapshots and generated reports belong in workspace evidence.
+# Keep the historical schema-3 input; schema-4 DBs are generated from text.
+# Complete checkpoints and generated reports belong in workspace evidence.
+authoring/*.db
 authoring/*.db-journal
 authoring/*.db-wal
 authoring/*.db-shm

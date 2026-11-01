@@ -1,4 +1,4 @@
-"""Export the current authoring database or resolve immutable archived evidence."""
+"""Build/capture complete text authoring state, export it, or locate archives."""
 
 import argparse
 from contextlib import closing
@@ -10,6 +10,7 @@ import sys
 import tempfile
 
 from cedarkit_param_db import connect, export_mapping_slice
+from cedarkit_param_db.authoring import build_authoring_database, write_authoring_source
 
 DEFAULT_CONFIG = Path(__file__).resolve().parents[1] / "authoring/current.json"
 
@@ -35,11 +36,6 @@ def export_current(config_path, destination, *, database=None, systems=None):
         raise ValueError("unknown export systems: " + ", ".join(sorted(unknown)))
     if destination.exists():
         raise FileExistsError(destination)
-    source = (
-        Path(database).resolve()
-        if database is not None
-        else config_path.parent / config["database"]
-    )
     destination.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(
         prefix=".cedarkit-export-", dir=destination.parent
@@ -47,9 +43,19 @@ def export_current(config_path, destination, *, database=None, systems=None):
         snapshot = Path(temporary) / "authoring.db"
         # SQLite backup includes committed WAL pages and gives every slice the
         # same state without holding the author's database open during export.
-        with closing(connect(source, readonly=True)) as reader:
-            with closing(sqlite3.connect(snapshot)) as writer:
-                reader.backup(writer)
+        if database is None and "source" in config:
+            build_authoring_database(config_path.parent / config["source"], snapshot)
+        else:
+            # Explicit candidate DBs and historical v1 configurations keep the
+            # existing consistent-snapshot path. Never fall back from bad text.
+            source = (
+                Path(database).resolve()
+                if database is not None
+                else config_path.parent / config["database"]
+            )
+            with closing(connect(source, readonly=True)) as reader:
+                with closing(sqlite3.connect(snapshot)) as writer:
+                    reader.backup(writer)
         group = Path(temporary) / "group"
         group.mkdir()
         for system in selected:
@@ -116,6 +122,13 @@ def main(argv=None):
     export.add_argument(
         "--system", action="append", help="default: all configured systems"
     )
+    build = commands.add_parser("build", help="rebuild a new candidate DB from text")
+    build.add_argument("--db", type=Path, required=True)
+    capture = commands.add_parser("capture", help="capture a reviewed DB as text")
+    capture.add_argument("--db", type=Path, required=True)
+    capture.add_argument(
+        "--out-dir", type=Path, help="default: replace configured text source"
+    )
     resolve = commands.add_parser(
         "resolve", help="verify and locate historical evidence"
     )
@@ -132,6 +145,19 @@ def main(argv=None):
                     args.out_dir,
                     database=args.db,
                     systems=args.system,
+                )
+            )
+        elif args.command == "build":
+            config = configuration(args.config)
+            print(
+                build_authoring_database(args.config.parent / config["source"], args.db)
+            )
+        elif args.command == "capture":
+            config = configuration(args.config)
+            destination = args.out_dir or args.config.parent / config["source"]
+            print(
+                write_authoring_source(
+                    args.db, destination, replace=args.out_dir is None
                 )
             )
         elif args.command == "resolve":
