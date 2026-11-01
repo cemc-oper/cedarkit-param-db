@@ -11,10 +11,10 @@ The current state is 235 mappings/229 active parameters. Legacy definitions are
 138 resolved/83 needs_evidence, with 416 unresolved legacy obligations. The
 separate `definition-reviews.json` retains eight authored variants and sixteen backend
 obligations, giving 432 combined obligations. The GFS parameter slice is v5 and
-mapping v8; the other five slices remain parameter v2/mapping v3. TUSWC has an
+mapping v9; the other five slices remain parameter v2/mapping v4. TUSWC has an
 active authoring definition without a runtime product binding. Review decisions
 and old/new values are in [`reviews/surface-radiation.json`](reviews/surface-radiation.json).
-Four GFS surface clear-sky energy integrals have finite 0/6/12/24/48/72h pairs.
+The recorded radiation leads are verification samples, not runtime limits.
 The previous 233 mappings and their evidence remain intact. The earlier
 lead extension and its remaining conflicts are recorded in
 [`reviews/gfs-clear-sky-energy-leads.json`](reviews/gfs-clear-sky-energy-leads.json).
@@ -28,14 +28,23 @@ Output retains the original signed J/m2 values without duration scaling or
 accumulation differencing. This subset does not establish a complete domain.
 The latest [GSW/GLW review](reviews/gsw-glw.json) corrects the case111 GSW
 energy unit to J/m2 and reassesses TSW inheritance plus both GRIB dependencies.
-One explicit surface since-initialization variant adds initial0 and forecast
-6/12/24/48/72h mappings, without changing the broad GSW conditions. This is
+The explicit surface since-initialization variant preserves the broad GSW
+conditions; its original six sampled leads do not define a support whitelist. This is
 unqualified net shortwave, separate from clear-sky GSWC and case113 GNSW flux.
 GLW remains unbound: original case112 says net longwave, but business table0
 row38 Chinese says downward longwave while its element is NLWRF. Its stable
 old definition and unresolved obligations are preserved pending producer
 clarification; no derived-unit lookup or native code alone resolves that link.
 The `consolidation_baseline` in current.json remains the historical223 origin.
+
+The latest [CEMC step correction](reviews/cemc-step-sampling.json) follows the
+user-confirmed lead invariance of CEMC GRIB2 fields. All208 mappings in the six
+current slices retain their IDs and native/physical constraints but omit
+`when.step`. Catalog product scopes and provision rows likewise omit sampled
+steps. Public Query step/valid_time and explicit caller bounds remain valid;
+actual message time/statistical intervals are still checked. Historical leads
+remain evidence of tests performed, without restricting other valid leads or
+claiming complete product availability. No GSW3h/9h tests were added.
 
 From the repository root, always use fresh output paths:
 
