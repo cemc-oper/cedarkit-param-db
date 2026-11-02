@@ -27,7 +27,7 @@
         "cedarkit.grib2.cma-gfs.current"
       ],
       "parameter_resource_id": "cedarkit.parameters.cma-gfs.current",
-      "parameter_version": "6"
+      "parameter_version": "7"
     },
     "meso1": {
       "mapping_resource_ids": [

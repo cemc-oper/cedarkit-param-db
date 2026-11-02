@@ -7,14 +7,14 @@ payloads. The manifest records table layouts, row counts and SHA256; schema4
 DDL, generated columns, constraints and identity-protection triggers come from
 the packaged schema, whose fingerprint must match.
 
-The current state is 243 mappings/233 active parameters. Legacy definitions are
+The current state is 283 mappings/233 active parameters. Legacy definitions are
 138 resolved/83 needs_evidence, with 416 unresolved legacy obligations. The
 separate `definition-reviews.json` retains twelve authored variants and twenty-four backend
-obligations, giving 440 combined obligations. The GFS parameter slice is v6 and
-mapping v11; the other five slices remain parameter v2/mapping v5. Review decisions
+obligations, giving 440 combined obligations. The GFS parameter slice is v7 and
+mapping v12; the other five slices remain parameter v2/mapping v5. Review decisions
 and old/new values are in [`reviews/surface-radiation.json`](reviews/surface-radiation.json).
 The recorded radiation leads are verification samples, not runtime limits.
-The previous 235 mappings and their evidence remain intact. The earlier
+The previous 243 mappings and their evidence remain intact. The earlier
 lead extension and its remaining conflicts are recorded in
 [`reviews/gfs-clear-sky-energy-leads.json`](reviews/gfs-clear-sky-energy-leads.json).
 The earlier [`GSWC/GULWC review`](reviews/gswc-gulwc.json) corrects six legacy
@@ -56,7 +56,7 @@ explicit caller level filters and scope bounds remain valid. Representative
 rule-group checks do not claim every layer/lead has been tested, and no GSW3h/9h
 tests are added. No new elements or complete product-domain claims are implied.
 
-The latest [GFS TOA review](reviews/gfs-toa-energy.json) confirms the existing
+The [GFS TOA review](reviews/gfs-toa-energy.json) confirms the existing
 TSW, TSWC, TUSWC and TULWC definitions and their inherited J/m2 units without
 changing their stable identities. Four explicit since-initialization variants
 and eight initial/forecast mappings bind the actual top-of-atmosphere fields.
@@ -68,6 +68,24 @@ business evidence establish the finite mapping's J/m2 declaration. Known unit
 conflicts still fail. Existing definitions, fixed height and soil layer variants,
 and other five system resources retain their bytes. Complete product/backend
 coverage and independent physical acceptance remain open; GLW is unchanged.
+
+The latest [GFS instantaneous review](reviews/gfs-instantaneous-20.json) binds
+twenty existing identities: H, W, DIV, VOR, TD, TTD, RH2M, TD2M, CAPE, CIN,
+DCAPE, PLI, BLI, TCC, LCC, MCC, HCC, CC, PWAT and VIS. Forty exact initial/forecast
+mappings retain generic pressure semantics, real 2m conditions and the original
+named-boundary cloud layers; sampled levels and leads are not reading limits.
+Existing parameter rows, aliases and twelve authored variants are unchanged.
+The four cloud diagnostics keep their original surface-to-atmosphere-top layer,
+distinct from the code10 entire-atmosphere carrier of PWAT. The business-table
+cloud-base label does not supply a numeric height or cloud band boundary.
+Current GFS PWAT uses kg/m2 from business table0 row92 and its verified field
+identity; original case54 kg/kg and GFS configuration mm remain documented source
+discrepancies, without a global unit alias or depth conversion. TTD retains the
+original/GFS K declaration for a temperature depression; the business degreeC
+label does not enable an absolute-temperature offset. Unknown decoder units for
+TTD/CAPE/CIN/DCAPE are filled only by their independently evidenced mappings.
+Twenty GRIB applicability reviews remain needs_evidence for full backend scope;
+the legacy 138/83 definition split and all440 combined obligations remain open.
 
 From the repository root, always use fresh output paths:
 
