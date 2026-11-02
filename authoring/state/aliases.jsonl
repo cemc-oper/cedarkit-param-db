@@ -35,4 +35,8 @@
 {"alias":"dpt","parameter_id":"cedarkit.td"}
 {"alias":"pte","parameter_id":"cedarkit.theta-se"}
 {"alias":"tsfc","parameter_id":"cedarkit.ts"}
+{"alias":"tsw-since-initialization","parameter_id":"cedarkit.tsw.since-initialization"}
+{"alias":"tswc-since-initialization","parameter_id":"cedarkit.tswc.since-initialization"}
+{"alias":"tulwc-since-initialization","parameter_id":"cedarkit.tulwc.since-initialization"}
+{"alias":"tuswc-since-initialization","parameter_id":"cedarkit.tuswc.since-initialization"}
 {"alias":"vor_adv","parameter_id":"cedarkit.voradv"}

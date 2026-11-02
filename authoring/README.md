@@ -7,15 +7,14 @@ payloads. The manifest records table layouts, row counts and SHA256; schema4
 DDL, generated columns, constraints and identity-protection triggers come from
 the packaged schema, whose fingerprint must match.
 
-The current state is 235 mappings/229 active parameters. Legacy definitions are
+The current state is 243 mappings/233 active parameters. Legacy definitions are
 138 resolved/83 needs_evidence, with 416 unresolved legacy obligations. The
-separate `definition-reviews.json` retains eight authored variants and sixteen backend
-obligations, giving 432 combined obligations. The GFS parameter slice is v5 and
-mapping v10; the other five slices remain parameter v2/mapping v5. TUSWC has an
-active authoring definition without a runtime product binding. Review decisions
+separate `definition-reviews.json` retains twelve authored variants and twenty-four backend
+obligations, giving 440 combined obligations. The GFS parameter slice is v6 and
+mapping v11; the other five slices remain parameter v2/mapping v5. Review decisions
 and old/new values are in [`reviews/surface-radiation.json`](reviews/surface-radiation.json).
 The recorded radiation leads are verification samples, not runtime limits.
-The previous 233 mappings and their evidence remain intact. The earlier
+The previous 235 mappings and their evidence remain intact. The earlier
 lead extension and its remaining conflicts are recorded in
 [`reviews/gfs-clear-sky-energy-leads.json`](reviews/gfs-clear-sky-energy-leads.json).
 The earlier [`GSWC/GULWC review`](reviews/gswc-gulwc.json) corrects six legacy
@@ -23,7 +22,7 @@ definitions and reassesses their dependent GRIB obligations. GSWC is net
 shortwave, distinct from downward GDSWC. The GULWC decoder's `unknown` unit and
 numeric `parameterUnits=224` are retained; the exact mapping declares J/m2 from
 original package, model and business evidence. Four new mappings use two
-explicit since-initialization variants. Top definitions do not add top bindings.
+explicit since-initialization variants. That review did not add top bindings.
 Output retains the original signed J/m2 values without duration scaling or
 accumulation differencing. This subset does not establish a complete domain.
 The latest [GSW/GLW review](reviews/gsw-glw.json) corrects the case111 GSW
@@ -56,6 +55,19 @@ Catalog/current profile pressure rows likewise omit sampled numeric levels;
 explicit caller level filters and scope bounds remain valid. Representative
 rule-group checks do not claim every layer/lead has been tested, and no GSW3h/9h
 tests are added. No new elements or complete product-domain claims are implied.
+
+The latest [GFS TOA review](reviews/gfs-toa-energy.json) confirms the existing
+TSW, TSWC, TUSWC and TULWC definitions and their inherited J/m2 units without
+changing their stable identities. Four explicit since-initialization variants
+and eight initial/forecast mappings bind the actual top-of-atmosphere fields.
+Mapping conditions retain the real atmosphere_top constraint and exact native
+contexts, with no sampled step or numeric level whitelist. TUSWC is 0/4/53;
+TULWC is the separately reviewed master4/local1/PDT8 0/5/224 top encoding.
+Decoder absence placeholders do not supply a unit: producer declarations and
+business evidence establish the finite mapping's J/m2 declaration. Known unit
+conflicts still fail. Existing definitions, fixed height and soil layer variants,
+and other five system resources retain their bytes. Complete product/backend
+coverage and independent physical acceptance remain open; GLW is unchanged.
 
 From the repository root, always use fresh output paths:
 

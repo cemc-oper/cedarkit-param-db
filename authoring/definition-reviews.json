@@ -234,6 +234,142 @@
       "remaining_backend_obligations": "Only finite current GFS surface pairs established; whole GRIB applicability and CMADaaS remain open",
       "review_status": "resolved_definition",
       "stable_id": "cedarkit.gsw.since-initialization"
+    },
+    {
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case107 lines341-355 TUSWC,108 lines356-370 TULWC,109 lines371-385 TSWC,111 lines401-415 TSW; levType8 top and ws/m2 declaration; no sign convention",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines191/195/203/205 tulwc/tsw/tswc/tuswc w/m2s with explicit TOA descriptions",
+        "data/doc/CMA天气模式数据 - 2026.06.docx#sha256=fee50842a93fa9a344a7839c56eaa386355799481c251ec1552bf1a43fd3116a;table0 rows74/76/82/84 TOA netSW/clear-netSW/clear-upSW/clear-upLW W m-2 s",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-19/business-extract.json#sha256=7b2676fe1474c676d35508e7de1727243eaba135c10a4741a4d5d43c11ae7318;Fresh original XML rows70..85; TUSWC0/4/53 and TULWC0/5/224 retained, unlike rejected exploratory code10",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-22/original-writer-probe.json#sha256=7c306839e244de1ba675a59957067a5eb56cfbbe64dbae39a0e08009f1776fb7;Fresh original object elements107/108/109/111 surface/top setters match4/53,5/224,4/11,4/9; internal second-surface sentinel is not emitted255",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines101..105 section4 cross-check with original object; fixed surface determined separately",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;Preserved full-writer discipline0 original-object comparison; encoding evidence, not independent physical acceptance",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-22/verification-input.json#sha256=a1da3465347b5b7a061ec454fff7f00ff1f2b8532a0185d99a38650fcc02f3f2;12 newly inspected original TOA messages; surface8/255, master4, local0 for shortwave and local1 for TULWC, PDT8 single reference-anchored accumulation",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-18/decoder-unit-role-proof.json#sha256=168aee34ceaef4fb15a4e3da9c049c78667a6a94449ad576cd3451a846cf380c;units and parameterUnits are decoder-derived views, not stored GRIB unit strings; producer declarations establish quantity"
+      ],
+      "new_value": {
+        "aliases": [
+          "tsw-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "tsw",
+        "parameter_id": "cedarkit.tsw.since-initialization",
+        "parent": "cedarkit.tsw"
+      },
+      "old_value": null,
+      "remaining_backend_obligations": "Exact current GFS TOA encoding bound without sampled lead whitelist; complete GRIB applicability and CMADaaS remain open",
+      "review_status": "resolved_definition",
+      "stable_id": "cedarkit.tsw.since-initialization"
+    },
+    {
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case107 lines341-355 TUSWC,108 lines356-370 TULWC,109 lines371-385 TSWC,111 lines401-415 TSW; levType8 top and ws/m2 declaration; no sign convention",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines191/195/203/205 tulwc/tsw/tswc/tuswc w/m2s with explicit TOA descriptions",
+        "data/doc/CMA天气模式数据 - 2026.06.docx#sha256=fee50842a93fa9a344a7839c56eaa386355799481c251ec1552bf1a43fd3116a;table0 rows74/76/82/84 TOA netSW/clear-netSW/clear-upSW/clear-upLW W m-2 s",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-19/business-extract.json#sha256=7b2676fe1474c676d35508e7de1727243eaba135c10a4741a4d5d43c11ae7318;Fresh original XML rows70..85; TUSWC0/4/53 and TULWC0/5/224 retained, unlike rejected exploratory code10",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-22/original-writer-probe.json#sha256=7c306839e244de1ba675a59957067a5eb56cfbbe64dbae39a0e08009f1776fb7;Fresh original object elements107/108/109/111 surface/top setters match4/53,5/224,4/11,4/9; internal second-surface sentinel is not emitted255",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines101..105 section4 cross-check with original object; fixed surface determined separately",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;Preserved full-writer discipline0 original-object comparison; encoding evidence, not independent physical acceptance",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-22/verification-input.json#sha256=a1da3465347b5b7a061ec454fff7f00ff1f2b8532a0185d99a38650fcc02f3f2;12 newly inspected original TOA messages; surface8/255, master4, local0 for shortwave and local1 for TULWC, PDT8 single reference-anchored accumulation",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-18/decoder-unit-role-proof.json#sha256=168aee34ceaef4fb15a4e3da9c049c78667a6a94449ad576cd3451a846cf380c;units and parameterUnits are decoder-derived views, not stored GRIB unit strings; producer declarations establish quantity"
+      ],
+      "new_value": {
+        "aliases": [
+          "tswc-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "tswc",
+        "parameter_id": "cedarkit.tswc.since-initialization",
+        "parent": "cedarkit.tswc"
+      },
+      "old_value": null,
+      "remaining_backend_obligations": "Exact current GFS TOA encoding bound without sampled lead whitelist; complete GRIB applicability and CMADaaS remain open",
+      "review_status": "resolved_definition",
+      "stable_id": "cedarkit.tswc.since-initialization"
+    },
+    {
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case107 lines341-355 TUSWC,108 lines356-370 TULWC,109 lines371-385 TSWC,111 lines401-415 TSW; levType8 top and ws/m2 declaration; no sign convention",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines191/195/203/205 tulwc/tsw/tswc/tuswc w/m2s with explicit TOA descriptions",
+        "data/doc/CMA天气模式数据 - 2026.06.docx#sha256=fee50842a93fa9a344a7839c56eaa386355799481c251ec1552bf1a43fd3116a;table0 rows74/76/82/84 TOA netSW/clear-netSW/clear-upSW/clear-upLW W m-2 s",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-19/business-extract.json#sha256=7b2676fe1474c676d35508e7de1727243eaba135c10a4741a4d5d43c11ae7318;Fresh original XML rows70..85; TUSWC0/4/53 and TULWC0/5/224 retained, unlike rejected exploratory code10",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-22/original-writer-probe.json#sha256=7c306839e244de1ba675a59957067a5eb56cfbbe64dbae39a0e08009f1776fb7;Fresh original object elements107/108/109/111 surface/top setters match4/53,5/224,4/11,4/9; internal second-surface sentinel is not emitted255",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines101..105 section4 cross-check with original object; fixed surface determined separately",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;Preserved full-writer discipline0 original-object comparison; encoding evidence, not independent physical acceptance",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-22/verification-input.json#sha256=a1da3465347b5b7a061ec454fff7f00ff1f2b8532a0185d99a38650fcc02f3f2;12 newly inspected original TOA messages; surface8/255, master4, local0 for shortwave and local1 for TULWC, PDT8 single reference-anchored accumulation",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-18/decoder-unit-role-proof.json#sha256=168aee34ceaef4fb15a4e3da9c049c78667a6a94449ad576cd3451a846cf380c;units and parameterUnits are decoder-derived views, not stored GRIB unit strings; producer declarations establish quantity"
+      ],
+      "new_value": {
+        "aliases": [
+          "tuswc-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "tuswc",
+        "parameter_id": "cedarkit.tuswc.since-initialization",
+        "parent": "cedarkit.tuswc"
+      },
+      "old_value": null,
+      "remaining_backend_obligations": "Exact current GFS TOA encoding bound without sampled lead whitelist; complete GRIB applicability and CMADaaS remain open",
+      "review_status": "resolved_definition",
+      "stable_id": "cedarkit.tuswc.since-initialization"
+    },
+    {
+      "evidence": [
+        "doc/2026-10-13-stage1.1-query-reki/ref/package/grib_util_v12.6/include/paraNum.h#sha256=4155dc170aa283dbefba976d15b4e684486aa8e788f68e3f38c6aa31e1ef7bb3;case107 lines341-355 TUSWC,108 lines356-370 TULWC,109 lines371-385 TSWC,111 lines401-415 TSW; levType8 top and ws/m2 declaration; no sign convention",
+        "doc/2026-10-13-stage1.1-query-reki/ref/models/gfs/varname.dat#sha256=3b74ee990de961e447c9fb05f9b92ed1507d0e2fce471279afdaca80317354e1;lines191/195/203/205 tulwc/tsw/tswc/tuswc w/m2s with explicit TOA descriptions",
+        "data/doc/CMA天气模式数据 - 2026.06.docx#sha256=fee50842a93fa9a344a7839c56eaa386355799481c251ec1552bf1a43fd3116a;table0 rows74/76/82/84 TOA netSW/clear-netSW/clear-upSW/clear-upLW W m-2 s",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-19/business-extract.json#sha256=7b2676fe1474c676d35508e7de1727243eaba135c10a4741a4d5d43c11ae7318;Fresh original XML rows70..85; TUSWC0/4/53 and TULWC0/5/224 retained, unlike rejected exploratory code10",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-22/original-writer-probe.json#sha256=7c306839e244de1ba675a59957067a5eb56cfbbe64dbae39a0e08009f1776fb7;Fresh original object elements107/108/109/111 surface/top setters match4/53,5/224,4/11,4/9; internal second-surface sentinel is not emitted255",
+        "doc/2026-10-13-stage1.1-query-reki/ref/decompiled/source/module_put_grib2_msg__setGrib2Section4Parameters.f90#sha256=ff2e5bd755ccb77f79d21b0a1dda0da85fad908d80d60a3bf6fb3865a1ebb3b6;lines101..105 section4 cross-check with original object; fixed surface determined separately",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/grib-util-v12.6/binary-verification.json#sha256=347ebb7850c5d2fcf55f8af3205ed7767af850356d5c9654e736ecc2f8e61bee;Preserved full-writer discipline0 original-object comparison; encoding evidence, not independent physical acceptance",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I06/round-22/verification-input.json#sha256=a1da3465347b5b7a061ec454fff7f00ff1f2b8532a0185d99a38650fcc02f3f2;12 newly inspected original TOA messages; surface8/255, master4, local0 for shortwave and local1 for TULWC, PDT8 single reference-anchored accumulation",
+        "doc/2026-10-13-stage1.1-query-reki/evidence/I04/round-18/decoder-unit-role-proof.json#sha256=168aee34ceaef4fb15a4e3da9c049c78667a6a94449ad576cd3451a846cf380c;units and parameterUnits are decoder-derived views, not stored GRIB unit strings; producer declarations establish quantity"
+      ],
+      "new_value": {
+        "aliases": [
+          "tulwc-since-initialization"
+        ],
+        "fixed_conditions": {
+          "statistics": {
+            "operation": "accumulation",
+            "over": "time",
+            "period": {
+              "kind": "since_initialization"
+            }
+          }
+        },
+        "name": "tulwc",
+        "parameter_id": "cedarkit.tulwc.since-initialization",
+        "parent": "cedarkit.tulwc"
+      },
+      "old_value": null,
+      "remaining_backend_obligations": "Exact current GFS TOA encoding bound without sampled lead whitelist; complete GRIB applicability and CMADaaS remain open",
+      "review_status": "resolved_definition",
+      "stable_id": "cedarkit.tulwc.since-initialization"
     }
   ],
   "legacy_denominator_unchanged": true,
@@ -332,6 +468,54 @@
       "backend": "cmadaas",
       "missing_input": "Complete required product/source applicability and provider domain; CMADaaS joint keys and source units need separate evidence",
       "parameter_id": "cedarkit.gsw.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "grib2",
+      "missing_input": "Complete required product/source applicability and provision domain; separate service joint-key/unit evidence",
+      "parameter_id": "cedarkit.tsw.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "cmadaas",
+      "missing_input": "Complete required product/source applicability and provision domain; separate service joint-key/unit evidence",
+      "parameter_id": "cedarkit.tsw.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "grib2",
+      "missing_input": "Complete required product/source applicability and provision domain; separate service joint-key/unit evidence",
+      "parameter_id": "cedarkit.tswc.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "cmadaas",
+      "missing_input": "Complete required product/source applicability and provision domain; separate service joint-key/unit evidence",
+      "parameter_id": "cedarkit.tswc.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "grib2",
+      "missing_input": "Complete required product/source applicability and provision domain; separate service joint-key/unit evidence",
+      "parameter_id": "cedarkit.tuswc.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "cmadaas",
+      "missing_input": "Complete required product/source applicability and provision domain; separate service joint-key/unit evidence",
+      "parameter_id": "cedarkit.tuswc.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "grib2",
+      "missing_input": "Complete required product/source applicability and provision domain; separate service joint-key/unit evidence",
+      "parameter_id": "cedarkit.tulwc.since-initialization",
+      "status": "needs_evidence"
+    },
+    {
+      "backend": "cmadaas",
+      "missing_input": "Complete required product/source applicability and provision domain; separate service joint-key/unit evidence",
+      "parameter_id": "cedarkit.tulwc.since-initialization",
       "status": "needs_evidence"
     }
   ]
