@@ -7,12 +7,35 @@ payloads. The manifest records table layouts, row counts and SHA256; schema4
 DDL, generated columns, constraints and identity-protection triggers come from
 the packaged schema, whose fingerprint must match.
 
-The current state is 283 mappings/233 active parameters. Legacy definitions are
-138 resolved/83 needs_evidence, with 416 unresolved legacy obligations. The
-separate `definition-reviews.json` retains twelve authored variants and twenty-four backend
-obligations, giving 440 combined obligations. The GFS parameter slice is v7 and
-mapping v12; the other five slices remain parameter v2/mapping v5. Review decisions
-and old/new values are in [`reviews/surface-radiation.json`](reviews/surface-radiation.json).
+The current state is 735 mappings/233 active parameters. Legacy definitions are
+140 resolved/81 needs_evidence, with 414 unresolved legacy obligations. The
+separate `definition-reviews.json` retains twelve authored variants and twenty-four
+backend obligations, giving 438 combined obligations. The global parameter
+resource is v9. Current slices are GFS parameters v9/mappings v14,
+MESO-1KM/MESO-3KM/TYM parameters v3/mappings v6, and GEPS/REPS parameters
+v3/mappings v6. The catalog combination maintained by reki is v20.
+
+The latest [member product review](reviews/member-140.json) audits 140 candidate
+product pairs and accepts 17 GEPS and 14 REPS instantaneous bindings, adding
+186 exact initial/forecast and control/positive/negative native mappings. All
+549 previous mappings and all parameter definitions, stable IDs, aliases and
+fixed conditions remain unchanged. No sampled lead, member number or generic
+pressure level becomes a reading whitelist. GEPS 0-30 and REPS 0-14 remain the
+existing product-defined member domains. Exact native ensemble counters are
+retained as encoding guards; REPS counter 0 does not establish a population.
+The remaining 109 product pairs retain specific source/identity/unit/message
+gaps. Own GEPS business gpm and kg/m2 declarations support ZS and PWAT;
+REPS PWAT lacks its own adequate source-unit evidence and remains unbound.
+No deterministic model declaration is substituted for a missing ensemble model
+configuration. Finite bindings do not close backend/provision-domain or
+independent physical obligations. MESO1 TIW retains its raw values, signs,
+zeroes and bitmap; producer prepacking/special-value/scaling facts and an
+independent physical reference remain unavailable.
+
+The preceding [deterministic product review](reviews/multimodel-64.json) records
+216 mappings and the SWEAT parent dimensionless-unit decision plus child and
+backend dependency reassessment. Historical surface-radiation decisions remain
+in [surface-radiation.json](reviews/surface-radiation.json).
 The recorded radiation leads are verification samples, not runtime limits.
 The previous 243 mappings and their evidence remain intact. The earlier
 lead extension and its remaining conflicts are recorded in

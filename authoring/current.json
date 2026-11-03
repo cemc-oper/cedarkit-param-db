@@ -20,7 +20,7 @@
         "cedarkit.grib2.cma-geps.current"
       ],
       "parameter_resource_id": "cedarkit.parameters.cma-geps.current",
-      "parameter_version": "2"
+      "parameter_version": "3"
     },
     "gfs": {
       "mapping_resource_ids": [
@@ -48,7 +48,7 @@
         "cedarkit.grib2.cma-reps.current"
       ],
       "parameter_resource_id": "cedarkit.parameters.cma-reps.current",
-      "parameter_version": "2"
+      "parameter_version": "3"
     },
     "tym": {
       "mapping_resource_ids": [
