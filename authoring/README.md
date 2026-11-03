@@ -7,13 +7,19 @@ payloads. The manifest records table layouts, row counts and SHA256; schema4
 DDL, generated columns, constraints and identity-protection triggers come from
 the packaged schema, whose fingerprint must match.
 
-The current state is 746 mappings/233 active parameters. Legacy definitions are
-144 resolved/77 needs_evidence, with 410 unresolved legacy obligations. The
+The current state is 748 mappings/233 active parameters. Legacy definitions are
+146 resolved/75 needs_evidence, with 408 unresolved legacy obligations. The
 separate `definition-reviews.json` retains twelve authored variants and twenty-four
-backend obligations, giving 434 combined obligations. The global parameter
-resource is v10. Current slices are GFS parameters v9/mappings v14,
-MESO-1KM/MESO-3KM/TYM parameters v4/mappings v7, and GEPS/REPS parameters
-v3/mappings v6. The catalog combination maintained by reki is v21.
+backend obligations, giving 432 combined obligations. The global parameter
+resource is v11. GFS uses parameters v9/mappings v14, MESO-1KM and MESO-3KM
+use v5/v8, TYM uses v4/v7, and GEPS and REPS use v3/v6. The catalog
+combination maintained by reki is v22.
+
+The [initialization extrema review](reviews/initialization-extrema.json) audits
+45 product pairs and adds the positive forecast UHMAX bindings for MESO-1KM
+and MESO-3KM. The existing 2–5 km identity fixes a maximum from reference time
+to valid time. Initial windows and all unbound product pairs retain their own
+evidence gaps. The candidate resources use the matching Query validator.
 
 The [time-extremum review](reviews/time-extrema.json) audits 66 product pairs
 and adds 11 forecast bindings for one-hour maxima. Four existing definitions
