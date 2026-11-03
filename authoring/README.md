@@ -7,12 +7,19 @@ payloads. The manifest records table layouts, row counts and SHA256; schema4
 DDL, generated columns, constraints and identity-protection triggers come from
 the packaged schema, whose fingerprint must match.
 
-The current state is 797 mappings/233 active parameters. Legacy definitions are
+The current state is 803 mappings/233 active parameters. Legacy definitions are
 148 resolved/73 needs_evidence, with 406 unresolved legacy obligations. The
 separate `definition-reviews.json` retains twelve authored variants and twenty-four
 backend obligations, giving 430 combined obligations. The global parameter
-resource is v12. Current parameter/mapping slices are gfs v10/v15, meso1 v6/v9, meso3 v6/v9, tym v5/v8, geps v4/v7, reps v3/v6.
-The reki catalog combination is v24.
+resource is v12. Current parameter/mapping slices are gfs v10/v15, meso1 v6/v9, meso3 v7/v10, tym v6/v9, geps v4/v7, reps v3/v6.
+The reki catalog combination is v25.
+
+The [surface moisture flux review](reviews/orig-surface-moisture-flux.json)
+binds the existing surface QFXSFC identity for MESO-3KM and TYM. Each product
+uses its own source declaration for kg/(m2.s) and exact local table 1 surface
+PDT 4.0 analysis and forecast forms. The same review adds the existing
+unitless SWEATIDX surface score for MESO-3KM, based on its own business row
+and model declaration. The full backend obligations stay open.
 
 The [original-grid review](reviews/orig-native-difference.json) records finite
 native wind, helicity, radar and isotherm height, stability index, and soil

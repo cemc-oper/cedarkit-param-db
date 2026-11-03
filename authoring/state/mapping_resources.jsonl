@@ -5,6 +5,6 @@
 {"backend":"grib2","id":"cedarkit.grib2.cma-geps.current","version":"7"}
 {"backend":"grib2","id":"cedarkit.grib2.cma-gfs.current","version":"15"}
 {"backend":"grib2","id":"cedarkit.grib2.cma-meso-1km.current","version":"9"}
-{"backend":"grib2","id":"cedarkit.grib2.cma-meso-3km.current","version":"9"}
+{"backend":"grib2","id":"cedarkit.grib2.cma-meso-3km.current","version":"10"}
 {"backend":"grib2","id":"cedarkit.grib2.cma-reps.current","version":"6"}
-{"backend":"grib2","id":"cedarkit.grib2.cma-tym.current","version":"8"}
+{"backend":"grib2","id":"cedarkit.grib2.cma-tym.current","version":"9"}
