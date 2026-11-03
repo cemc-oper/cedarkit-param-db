@@ -7,13 +7,19 @@ payloads. The manifest records table layouts, row counts and SHA256; schema4
 DDL, generated columns, constraints and identity-protection triggers come from
 the packaged schema, whose fingerprint must match.
 
-The current state is 748 mappings/233 active parameters. Legacy definitions are
-146 resolved/75 needs_evidence, with 408 unresolved legacy obligations. The
+The current state is 751 mappings/233 active parameters. Legacy definitions are
+148 resolved/73 needs_evidence, with 406 unresolved legacy obligations. The
 separate `definition-reviews.json` retains twelve authored variants and twenty-four
-backend obligations, giving 432 combined obligations. The global parameter
-resource is v11. GFS uses parameters v9/mappings v14, MESO-1KM and MESO-3KM
-use v5/v8, TYM uses v4/v7, and GEPS and REPS use v3/v6. The catalog
-combination maintained by reki is v22.
+backend obligations, giving 430 combined obligations. The global parameter
+resource is v12. GFS uses parameters v9/mappings v14, MESO-1KM and MESO-3KM
+use v5/v8, TYM and GEPS use v4/v7, and REPS uses v3/v6. The catalog
+combination maintained by reki is v23.
+
+The [precipitation review](reviews/precipitation-time-scales.json) audits 51
+product pairs and binds GEPS surface snowfall in metres over the interval
+from initialization to valid time in the reviewed forecast member contexts.
+RAIN5MAX retains the separate five-minute input and one-hour maximum questions,
+including the source unit and initial window.
 
 The [initialization extrema review](reviews/initialization-extrema.json) audits
 45 product pairs and adds the positive forecast UHMAX bindings for MESO-1KM
