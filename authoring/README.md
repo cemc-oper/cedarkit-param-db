@@ -7,13 +7,17 @@ payloads. The manifest records table layouts, row counts and SHA256; schema4
 DDL, generated columns, constraints and identity-protection triggers come from
 the packaged schema, whose fingerprint must match.
 
-The current state is 751 mappings/233 active parameters. Legacy definitions are
+The current state is 797 mappings/233 active parameters. Legacy definitions are
 148 resolved/73 needs_evidence, with 406 unresolved legacy obligations. The
 separate `definition-reviews.json` retains twelve authored variants and twenty-four
 backend obligations, giving 430 combined obligations. The global parameter
-resource is v12. GFS uses parameters v9/mappings v14, MESO-1KM and MESO-3KM
-use v5/v8, TYM and GEPS use v4/v7, and REPS uses v3/v6. The catalog
-combination maintained by reki is v23.
+resource is v12. Current parameter/mapping slices are gfs v10/v15, meso1 v6/v9, meso3 v6/v9, tym v5/v8, geps v4/v7, reps v3/v6.
+The reki catalog combination is v24.
+
+The [original-grid review](reviews/orig-native-difference.json) records finite
+native wind, helicity, radar and isotherm height, stability index, and soil
+moisture coverage from the current grib2-orig files. Producer-declared height
+and soil geometry keep the existing field identities distinct.
 
 The [precipitation review](reviews/precipitation-time-scales.json) audits 51
 product pairs and binds GEPS surface snowfall in metres over the interval
