@@ -34,14 +34,14 @@
         "cedarkit.grib2.cma-meso-1km.current"
       ],
       "parameter_resource_id": "cedarkit.parameters.cma-meso-1km.current",
-      "parameter_version": "3"
+      "parameter_version": "4"
     },
     "meso3": {
       "mapping_resource_ids": [
         "cedarkit.grib2.cma-meso-3km.current"
       ],
       "parameter_resource_id": "cedarkit.parameters.cma-meso-3km.current",
-      "parameter_version": "3"
+      "parameter_version": "4"
     },
     "reps": {
       "mapping_resource_ids": [
@@ -55,7 +55,7 @@
         "cedarkit.grib2.cma-tym.current"
       ],
       "parameter_resource_id": "cedarkit.parameters.cma-tym.current",
-      "parameter_version": "3"
+      "parameter_version": "4"
     }
   },
   "format": "cedarkit.authoring/v1",

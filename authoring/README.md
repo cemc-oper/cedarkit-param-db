@@ -7,15 +7,22 @@ payloads. The manifest records table layouts, row counts and SHA256; schema4
 DDL, generated columns, constraints and identity-protection triggers come from
 the packaged schema, whose fingerprint must match.
 
-The current state is 735 mappings/233 active parameters. Legacy definitions are
-140 resolved/81 needs_evidence, with 414 unresolved legacy obligations. The
+The current state is 746 mappings/233 active parameters. Legacy definitions are
+144 resolved/77 needs_evidence, with 410 unresolved legacy obligations. The
 separate `definition-reviews.json` retains twelve authored variants and twenty-four
-backend obligations, giving 438 combined obligations. The global parameter
-resource is v9. Current slices are GFS parameters v9/mappings v14,
-MESO-1KM/MESO-3KM/TYM parameters v3/mappings v6, and GEPS/REPS parameters
-v3/mappings v6. The catalog combination maintained by reki is v20.
+backend obligations, giving 434 combined obligations. The global parameter
+resource is v10. Current slices are GFS parameters v9/mappings v14,
+MESO-1KM/MESO-3KM/TYM parameters v4/mappings v7, and GEPS/REPS parameters
+v3/mappings v6. The catalog combination maintained by reki is v21.
 
-The latest [member product review](reviews/member-140.json) audits 140 candidate
+The [time-extremum review](reviews/time-extrema.json) audits 66 product pairs
+and adds 11 forecast bindings for one-hour maxima. Four existing definitions
+gain a fixed trailing period. MESO-1KM WMAX uses the generic pressure carrier.
+MESO-3KM and TYM WMAX retain the 1000 hPa condition in their own product
+declarations. Separate initial-window dispositions and all 55 deferred pairs
+are recorded with their evidence gaps.
+
+The preceding [member product review](reviews/member-140.json) audits 140 candidate
 product pairs and accepts 17 GEPS and 14 REPS instantaneous bindings, adding
 186 exact initial/forecast and control/positive/negative native mappings. All
 549 previous mappings and all parameter definitions, stable IDs, aliases and
