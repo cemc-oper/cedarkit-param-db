@@ -171,3 +171,19 @@ python tools/export_cmadaas_task07b.py \
 MESO-3KM's TPE/TOSN accumulation and 1/3/6/12/24-hour windows, PRE, RAR and PRTY retain product-specific values and units. The PBL Richardson parameter encodes its reviewed vertical meaning; a scoped singleton table maps it to native 166/0 without inventing a generic level type or height. Its executor rejects additional vertical selectors. Analysis RCSN and RCSN_166 aliases share one mapping to avoid ambiguity. The inspected Richardson originals are zero, so the evidence does not claim nonzero diagnostic-value validation.
 
 All 30 intake rows have a disposition. The unresolved level-type-0 RCSN row belongs to 07E11, the two five-minute dual-window/unit rows to 07E12, and the two PC stored-unit conflicts to 07E13. These follow-ups do not gate the published mappings. Query/Request v1 and query 0.2.1 remain unchanged. Restore v36 using the task 07E2 input and archived v36 catalog; content/catalog version checks, deterministic export and byte-identical recovery are verified independently.
+
+## TYM accumulation and precipitable-water review (task 07E4)
+
+[The task 07E4 input](authoring/cmadaas-task07e4.json) preserves all 99 existing definitions and 460 mappings, adds one-hour convective and large-scale precipitation variants, and publishes all 30 TYM historical rows. Catalog v38 pins parameter and mapping content v6 with 101 definitions and 490 mappings, covering 491 historical service records after the earlier MESO-3KM alias merge. Sixty finite sample cells have real-response and original-message evidence.
+
+```sh
+python tools/export_cmadaas_task07b.py \
+  --author authoring/cmadaas-task07e4.json \
+  --catalog ../../doc/2026-11-04-stage1.2-query-reki/evidence/task-07e4/inputs/catalog-v37.json \
+  --catalog-version 38 \
+  --output /tmp/cmadaas-task07e4
+```
+
+The snapshot distinguishes total, convective and large-scale precipitation and snowfall since initialization and over trailing 1/3/6/12/24-hour windows. Original cumulative endpoint differences include independent nonzero regions for all twenty trailing-window families. PRE is instantaneous entire-atmosphere precipitable water in kg/m2; precipitation uses the reviewed kg/m2-to-mm convention, while snowfall retains m. TYM analysis keeps its verified forecast-style interface with validTime=0, and reviewed processed forecast mappings use the existing v4 response contract.
+
+No historical mapping row remains unaccepted in this batch. The two LPE01/LPE12 cells at 2026-11-04 12 UTC +36h return service code -1 and are separately numbered 07E14, without duplicating historical-row counts or expanding verified expected domains. Alternative +24h samples pass, and all public input formats preserve the unavailable-cell error. Restore v37 using the task 07E3 snapshot and archived v37 catalog; deterministic export, content/catalog version refusals and recovery are independently verified. Query/Request v1 and query 0.2.1 remain unchanged.
