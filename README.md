@@ -52,3 +52,20 @@ python tools/export_cemc_orig.py \
   --additions authoring/cemc-orig-task06c.json \
   --output /tmp/cemc-orig-task06c
 ```
+
+## CEMC GFS accumulated latent heat task 06I
+
+[The SLHF additions](authoring/cemc-orig-task06i.json) define `cedarkit.slhf` as surface latent heat accumulated since initialization in `J/m2`. The initial and forecast mappings retain the reviewed GFS `0/0/10`, PDT 8 and producer phase fields. Evidence includes the product table, writer declaration and SHA256 of the zero-, six- and 48-hour original records.
+
+Apply the three increments to reproduce catalog v32:
+
+```sh
+python tools/export_cemc_orig.py \
+  --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json \
+  --additions authoring/cemc-orig-task06b.json \
+  --additions authoring/cemc-orig-task06c.json \
+  --additions authoring/cemc-orig-task06i.json \
+  --output /tmp/cemc-orig-task06i
+```
+
+The preceding 06B and 06C commands use the archived v30 and v31 catalogs respectively.
