@@ -38,3 +38,5 @@ python tools/export_cemc_orig.py \
 ```
 
 When changing pins with `--additions`, pass the updated product provisions in the input catalog and set `--catalog-version` to a newer revision.
+
+The catalog v30 additions use `g/(cm.hPa.s)` for pressure-level QFLX in GFS, MESO-3KM, and TYM. The stored unit was verified by reconstructing the diagnostic from the original humidity and wind fields on the same pressure levels and grids.
