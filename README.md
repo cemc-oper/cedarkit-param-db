@@ -85,3 +85,20 @@ python tools/export_cmadaas_task07a.py \
 To reproduce a published candidate, supply `cmadaas-task07a-catalog.json` as the input catalog. Changed parameter or mapping bytes require newer content versions. A changed candidate catalog requires a newer `--catalog-version`. The exporter uses the shared resource validators and writes only to a new or empty directory.
 
 The resulting catalog is explicitly selected with `context={"catalog": {"builtin": "reki.catalog.cmadaas.task07a"}}`. Its `candidate-07a` product version, UTC request clock, Beijing rectangle and member ranges are controlled offline contracts. Actual service versions, time zones, authorization, member availability and numeric values require task 07B evidence before promotion. The default v32 catalog retains its existing production bindings. The 997 remaining historical service rows, including PRE conflicts and accumulation suffixes, remain separately tracked in the workspace coverage ledger.
+
+## CMADaaS live bindings task 07B
+
+[The online authoring slice](authoring/cmadaas-task07b.json) promotes the sixteen verified cases into the default catalog v33. It retains five stable parameter identities and sixteen service mappings. The product version `service-20261105` records this reviewed binding revision. The authoring record preserves the user's decision to use actual response grids and matching original fields while leaving the official producer release unspecified.
+
+```sh
+python tools/export_cmadaas_task07b.py \
+  --catalog /path/to/task-07b/inputs/catalog-v32.json \
+  --catalog-version 33 \
+  --output /tmp/cmadaas-task07b
+```
+
+To reproduce v33, use the current `../../repo/reki/src/reki/catalog/builtin/catalog-v1.json` input and omit `--catalog-version`. The exporter writes the complete catalog and the `current-cmadaas-parameters.json` and `current-cmadaas-mappings.json` resources. Their content versions and byte digests are pinned in each service registration. The eighteen native resources, native dataset registrations and three task 07A snapshots retain their original bytes.
+
+GFS and TYM analysis bind the forecast-style interface at lead zero. REPS expected cells use the verified 2026-11-04 06 UTC cycle. Its explicit member contract retains missing response names and units and obtains K from the pinned mapping verified against original GRIB fields. The other services validate their actual nonempty unit and exact element/level-type names. GFS CPE and LPE retain distinct complete 24-hour accumulation windows. Member requests verify GEPS 1–30 and REPS 1–14, with control member zero and boundary failures recorded separately.
+
+Task 07A export remains reproducible from the current catalog. Content version checks apply to references to the same resource, so promoting a distinct resource identity cannot create a false same-version conflict when reconstructing the older offline candidate.

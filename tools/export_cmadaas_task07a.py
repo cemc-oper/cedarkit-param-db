@@ -51,6 +51,7 @@ def main():
             )
             if (
                 ref
+                and ref.get("builtin") == f"reki.{kind}.cmadaas.task07a"
                 and ref.get("sha256") != digest
                 and int(ref["version"]) >= int(resource["version"])
             ):
