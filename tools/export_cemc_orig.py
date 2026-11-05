@@ -21,11 +21,11 @@ def main():
     parser.add_argument("--catalog", type=Path, required=True)
     parser.add_argument("--catalog-version", type=int)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--additions", type=Path)
+    parser.add_argument("--additions", type=Path, action="append", default=[])
     args = parser.parse_args()
     author = json.loads(AUTHOR.read_bytes())
-    if args.additions:
-        additions = json.loads(args.additions.read_bytes())
+    for path in args.additions:
+        additions = json.loads(path.read_bytes())
         for system, product in additions["products"].items():
             baseline = author["products"][system]
             for kind in ("parameters", "mappings"):

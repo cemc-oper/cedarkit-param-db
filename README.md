@@ -40,3 +40,15 @@ python tools/export_cemc_orig.py \
 When changing pins with `--additions`, pass the updated product provisions in the input catalog and set `--catalog-version` to a newer revision.
 
 The catalog v30 additions use `g/(cm.hPa.s)` for pressure-level QFLX in GFS, MESO-3KM, and TYM. The stored unit was verified by reconstructing the diagnostic from the original humidity and wind fields on the same pressure levels and grids.
+
+## CEMC ensemble ORIG task 06C
+
+[The member additions](authoring/cemc-orig-task06c.json) cover reviewed GEPS and REPS member fields. They include the GEPS zero-hour snowfall branch verified against original records for all 31 members. Apply both authoring increments to reproduce catalog v31:
+
+```sh
+python tools/export_cemc_orig.py \
+  --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json \
+  --additions authoring/cemc-orig-task06b.json \
+  --additions authoring/cemc-orig-task06c.json \
+  --output /tmp/cemc-orig-task06c
+```
