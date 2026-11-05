@@ -120,3 +120,20 @@ python tools/export_cmadaas_task07b.py \
 The optional `--author` argument preserves the original task 07B default. Reproducing version 34 from its own catalog omits `--catalog-version`. Changed parameter or mapping content needs a newer content version, and changed catalog pins need a newer catalog version. Restore task 07B with its original authoring input and archived version 33 catalog; the older snapshot does not acquire task 07C coverage.
 
 Published level and forecast-hour domains use the reviewed historical product inventory. Finite expected domains retain only the independently verified sample cells. Empty units require an explicitly reviewed contract and preserve mapping provenance; they are not inferred from element spelling. The service and original-message receipts, complete 997-row reconciliation, and 623 deferred rows are archived in the workspace task 07C evidence. The unaccepted rows remain outside the published mapping set.
+
+
+## GFS accumulation and identity review (task 07E1)
+
+[The task 07E1 input](authoring/cmadaas-task07e1.json) adds 26 GFS mappings, bringing the shared service registry to 93 definitions and 416 mappings. It distinguishes since-initialization accumulation, trailing 3/6/12/24-hour fields, precipitable water PRE, and pressure-level radar reflectivity RAR. PC remains deferred pending Pa/hPa evidence. The legacy CPE/LPE generic IDs retain their 24-hour mapping behavior, with the operation and window declared in mapping configuration so their parameter families can host reviewed variants.
+
+Use cedarkit-query 0.2.1 or newer in the 0.2 series:
+
+```sh
+python tools/export_cmadaas_task07b.py \
+  --author authoring/cmadaas-task07e1.json \
+  --catalog ../../doc/2026-11-04-stage1.2-query-reki/evidence/task-07e1/inputs/catalog-v34.json \
+  --catalog-version 35 \
+  --output /tmp/cmadaas-task07e1
+```
+
+Catalog v35 pins content-v3 service resources. The explicit version 3 forecast contract is used only with reviewed derived-grid profiles for suffix fields; empty return headers remain visible and units are labelled as mapping evidence. Snowfall retains m without guessing a snow-depth or water-equivalent conversion. Original-message endpoint differences, nonzero convective-window checks, real responses and all 162 row dispositions are archived in the workspace task 07E1 evidence. Tasks 07E2–07E6 own the other 134 rows; 07E7 owns the two GFS PC unit conflicts. Restore the preceding resource set with the task 07C authoring input and archived catalog v34.
