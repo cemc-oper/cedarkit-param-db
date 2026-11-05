@@ -16,12 +16,25 @@ reki owns the catalog, including layout and the two finite expected-domain sampl
 
 [The reviewed batch](authoring/cemc-orig-batch1.json) preserves the stable definitions from the archived authoring state and the applicable mapping rows from the archived reki product projection. Each mapping cites the current original-header evidence used to select it. Coverage is recorded separately in the workspace task 06 ledger.
 
-Stage the six product resource pairs against the reki catalog from this repository:
+Stage the six product resource pairs against the task 06A version 28 reki catalog from this repository:
 
 ```sh
 python tools/export_cemc_orig.py \
-  --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json \
+  --catalog /path/to/task-06a/catalog-v1.json \
   --output /tmp/cemc-orig-batch1
 ```
 
 The output directory must be new or empty. The exporter validates each product combination and pins resource versions and byte digests in the staged catalog. Revise the resource and catalog content versions when publishing changed bytes.
+
+## CEMC deterministic ORIG task 06B
+
+[The reviewed additions](authoring/cemc-orig-task06b.json) extend the 06A definitions and mappings for GFS, MESO-1KM, MESO-3KM, and TYM. They retain the archive revision and the original-header references for each new mapping. Export the combined resource set against the current catalog:
+
+```sh
+python tools/export_cemc_orig.py \
+  --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json \
+  --additions authoring/cemc-orig-task06b.json \
+  --output /tmp/cemc-orig-task06b
+```
+
+When changing pins with `--additions`, pass the updated product provisions in the input catalog and set `--catalog-version` to a newer revision.
