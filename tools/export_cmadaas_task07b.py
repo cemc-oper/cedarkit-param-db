@@ -18,11 +18,12 @@ def encode(value):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--author", type=Path, default=AUTHOR)
     parser.add_argument("--catalog", type=Path, required=True)
     parser.add_argument("--catalog-version", type=int)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    author = json.loads(AUTHOR.read_bytes())
+    author = json.loads(args.author.read_bytes())
     parameters = Parameters(author["parameters"]).to_dict()
     mappings = Mappings(author["mappings"]).to_dict()
     original = Catalog(json.loads(args.catalog.read_bytes())).to_dict()
