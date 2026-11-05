@@ -155,3 +155,19 @@ TPE and TOSN use since-initialization identities, while the 01/03/06/12/24 suffi
 The explicit MESO-1KM forecast contract v4 permits the reviewed `derived_grid` mapping profile for instantaneous, since-initialization and trailing-accumulation fields, retaining empty processed-response headers and recording mapped units. The retained profile name describes reviewed response behavior rather than asserting that all such fields are differences. GFS contract v3 remains restricted to trailing accumulation. Query/Request v1 and the existing query 0.2.1 mapping schema are unchanged.
 
 The native PRE_5MIN candidate is a maximum over an outer one-hour window, described as maximum five-minute rainfall within that hour; no simple five-minute accumulation is published. Richardson carriers were absent from 18 scanned originals and the tested service aliases failed. PC values match the native condensation-level pressure carrier, but its Pa/hPa production evidence remains unresolved. All failed requests and per-row material requirements are archived in the workspace task 07E2 evidence. Reproduce v36 from its own catalog without `--catalog-version`; restore v35 using the task 07E1 authoring input and archived v35 catalog. Deterministic exports, content/catalog version refusals and byte-identical rollback have been verified.
+
+## MESO-3KM accumulation and Richardson review (task 07E3)
+
+[The task 07E3 input](authoring/cmadaas-task07e3.json) preserves the existing 96 definitions and 436 mappings, adds the dimensionless Richardson family with surface and PBL variants, and publishes 24 mappings covering 25 accepted MESO-3KM historical rows. One analysis RCSN/166 row is merged into the verified RCSN_166/166 mapping. Catalog v37 pins parameter and mapping content v5, with 99 definitions and 460 mappings covering 461 historical service rows. Forty-eight finite samples have original-message and real-response evidence.
+
+```sh
+python tools/export_cmadaas_task07b.py \
+  --author authoring/cmadaas-task07e3.json \
+  --catalog ../../doc/2026-11-04-stage1.2-query-reki/evidence/task-07e3/inputs/catalog-v36.json \
+  --catalog-version 37 \
+  --output /tmp/cmadaas-task07e3
+```
+
+MESO-3KM's TPE/TOSN accumulation and 1/3/6/12/24-hour windows, PRE, RAR and PRTY retain product-specific values and units. The PBL Richardson parameter encodes its reviewed vertical meaning; a scoped singleton table maps it to native 166/0 without inventing a generic level type or height. Its executor rejects additional vertical selectors. Analysis RCSN and RCSN_166 aliases share one mapping to avoid ambiguity. The inspected Richardson originals are zero, so the evidence does not claim nonzero diagnostic-value validation.
+
+All 30 intake rows have a disposition. The unresolved level-type-0 RCSN row belongs to 07E11, the two five-minute dual-window/unit rows to 07E12, and the two PC stored-unit conflicts to 07E13. These follow-ups do not gate the published mappings. Query/Request v1 and query 0.2.1 remain unchanged. Restore v36 using the task 07E2 input and archived v36 catalog; content/catalog version checks, deterministic export and byte-identical recovery are verified independently.
