@@ -137,3 +137,21 @@ python tools/export_cmadaas_task07b.py \
 ```
 
 Catalog v35 pins content-v3 service resources. The explicit version 3 forecast contract is used only with reviewed derived-grid profiles for suffix fields; empty return headers remain visible and units are labelled as mapping evidence. Snowfall retains m without guessing a snow-depth or water-equivalent conversion. Original-message endpoint differences, nonzero convective-window checks, real responses and all 162 row dispositions are archived in the workspace task 07E1 evidence. Tasks 07E2–07E6 own the other 134 rows; 07E7 owns the two GFS PC unit conflicts. Restore the preceding resource set with the task 07C authoring input and archived catalog v34.
+
+## MESO-1KM accumulation and identity review (task 07E2)
+
+[The task 07E2 input](authoring/cmadaas-task07e2.json) preserves all 93 existing definitions and 416 mappings, adds one-hour rain and snowfall variants plus precipitation-type codes, and publishes 20 MESO-1KM mappings. Catalog v36 pins content-v4 service resources with 96 definitions and 436 mappings. All 28 intake rows have a disposition: four Richardson rows move to 07E8, two five-minute dual-window rows to 07E9, and two PC unit conflicts to 07E10. The published mappings are independent of these follow-ups.
+
+```sh
+python tools/export_cmadaas_task07b.py \
+  --author authoring/cmadaas-task07e2.json \
+  --catalog ../../doc/2026-11-04-stage1.2-query-reki/evidence/task-07e2/inputs/catalog-v35.json \
+  --catalog-version 36 \
+  --output /tmp/cmadaas-task07e2
+```
+
+TPE and TOSN use since-initialization identities, while the 01/03/06/12/24 suffixes use trailing windows checked against both original cumulative endpoints. PRE is entire-atmosphere precipitable water, RAR is pressure-level reflectivity, and PRTY is `cedarkit.precitype` with unit `1` and WMO GRIB2 code table 4.201. Codes remain unchanged; snowfall retains its verified m values. Forty finite sample cells have real-response and original-message evidence, including nonzero precipitation-type codes.
+
+The explicit MESO-1KM forecast contract v4 permits the reviewed `derived_grid` mapping profile for instantaneous, since-initialization and trailing-accumulation fields, retaining empty processed-response headers and recording mapped units. The retained profile name describes reviewed response behavior rather than asserting that all such fields are differences. GFS contract v3 remains restricted to trailing accumulation. Query/Request v1 and the existing query 0.2.1 mapping schema are unchanged.
+
+The native PRE_5MIN candidate is a maximum over an outer one-hour window, described as maximum five-minute rainfall within that hour; no simple five-minute accumulation is published. Richardson carriers were absent from 18 scanned originals and the tested service aliases failed. PC values match the native condensation-level pressure carrier, but its Pa/hPa production evidence remains unresolved. All failed requests and per-row material requirements are archived in the workspace task 07E2 evidence. Reproduce v36 from its own catalog without `--catalog-version`; restore v35 using the task 07E1 authoring input and archived v35 catalog. Deterministic exports, content/catalog version refusals and byte-identical rollback have been verified.
