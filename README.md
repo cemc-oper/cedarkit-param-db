@@ -12,6 +12,55 @@ python tools/export_gfs_task03.py \
 
 reki owns the catalog, including layout and the two finite expected-domain sample cells. The exporter validates the combination and pins the parameter and mapping versions and byte digests in the staged catalog. Compare all three staged files with the deployment copy before replacing a complete snapshot. Changes to a published resource require a new content revision. The historical browser export and the remaining authoring records are available in the stage 1.1 archive.
 
+## Reviewed browser snapshot set (N03A)
+
+[authoring/browser-current.json](authoring/browser-current.json) selects the five
+reviewed inputs that reconstruct the current six ORIG resource pairs and the
+latest cumulative CMADaaS pair. With `cedarkit-query` 0.2.1 installed, generate a
+new schema-4 browser bundle from this repository:
+
+```sh
+python tools/export_browser_snapshot.py \
+  --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json \
+  --legacy-snapshot ../cedarkit-param-web/public/params.json \
+  --output /tmp/reviewed-browser-schema4
+```
+
+The bundle manifest indexes seven independent schema-4 browser documents and
+pins the unchanged runtime files and reki-owned input catalog. Each document
+retains one parameter resource, its flat definitions and parent IDs, complete
+mapping restrictions, and evidence references. A stable ID can have different
+local constraints in different resources; neither parameter IDs nor GRIB
+triplets are used to overwrite another resource's definitions. Mapping IDs are
+scoped by their mapping resource. The legacy index is navigation-only and does
+not import historical units, definitions or support claims.
+
+Exports validate authored bytes against runtime resources and catalog pins,
+stage privately, verify the staged group, and publish only to a new directory.
+The browser bundle has its own explicit content revision; parameter, mapping
+and catalog revisions remain unchanged. Supply `--previous /path/to/bundle`
+to check an earlier bundle before publication; changed bytes at the same
+browser revision and revision rollback are rejected.
+
+This export covers reviewed authoring resources, with incomplete product
+coverage and remaining obligations recorded explicitly. It does not mark all
+times or members available, retire old IDs outside the slice, or promote the
+archived authoring collection into current support. It does not replace
+`cedarkit-param-web/public/params.json`: the existing site consumes schema 3,
+and schema-4 loading, display and old-link behavior belong to N03B. See the
+[schema-4 bundle contract](docs/browser-schema4.md) for file layout, identity,
+scope and consumer checks.
+
+The remaining-obligation counters describe one global ledger. They repeat in
+each resource view for context and must not be added across the seven views.
+
+Run exporter regression tests with a Python 3.11+ environment containing
+`cedarkit-query` 0.2.1 and pytest:
+
+```sh
+python -m pytest tests/test_export_browser_snapshot.py -q
+```
+
 ## CEMC ORIG batch 1
 
 [The reviewed batch](authoring/cemc-orig-batch1.json) preserves the stable definitions from the archived authoring state and the applicable mapping rows from the archived reki product projection. Each mapping cites the current original-header evidence used to select it. Coverage is recorded separately in the workspace task 06 ledger.
