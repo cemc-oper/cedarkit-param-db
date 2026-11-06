@@ -200,3 +200,18 @@ python tools/export_cmadaas_task07b.py --author authoring/cmadaas-task07e5.json 
 ```
 
 Re-export against catalog v39 reproduces the installed snapshots deterministically. Content changes require their own newer parameter or mapping version; catalog changes require a newer catalog version. Task 07E4 remains independently recoverable from its frozen authoring input and v38 catalog.
+
+
+## REPS precipitation and snowfall review (task 07E6)
+
+[The task 07E6 input](authoring/cmadaas-task07e6.json) publishes all 36 control and perturbation TPE/CPE/TOSN rows, covering since-initialization accumulation and 1/3/6/12/24-hour windows. It preserves parameter v6 byte for byte, all 101 parameter definitions, all 492 existing mappings, and all five joint vertical tables. Catalog v40 pins mapping v8 and contains 528 mappings covering 529 historical service rows.
+
+The 163 finite expected cells are verified against real service responses and matching originals, including all 15 members for all three accumulation families at +48h. Rainfall retains native kg/m2 water-equivalent values as mm, and snowfall retains m. The four TPE/CPE mappings also include the explicitly verified zero-hour initialization cells omitted from the old metadata. Member bounds remain control 0 and perturbations 1–14, independent of the native ensemble-count value zero. The existing REPS member interface contract and surface table remain unchanged.
+
+All 36 rows have nonzero original-window evidence. Independent task 07E18 tracks 419 unavailable sample cells; those cells are excluded from verified expected domains and are not counted as unaccepted historical rows. Existing TYM and GEPS cell follow-ups remain separate. No new parameter identities or protocol schemas are introduced.
+
+```sh
+python tools/export_cmadaas_task07b.py --author authoring/cmadaas-task07e6.json --catalog ../../doc/2026-11-04-stage1.2-query-reki/evidence/task-07e6/inputs/catalog-v39.json --catalog-version 40 --output /tmp/cmadaas-task07e6-export
+```
+
+Re-export against catalog v40 reproduces the snapshots deterministically. Parameter, mapping and catalog revisions retain their independent version guards. The frozen task 07E5 input and v39 catalog remain independently recoverable.
