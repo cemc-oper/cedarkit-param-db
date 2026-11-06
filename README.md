@@ -187,3 +187,16 @@ python tools/export_cmadaas_task07b.py \
 The snapshot distinguishes total, convective and large-scale precipitation and snowfall since initialization and over trailing 1/3/6/12/24-hour windows. Original cumulative endpoint differences include independent nonzero regions for all twenty trailing-window families. PRE is instantaneous entire-atmosphere precipitable water in kg/m2; precipitation uses the reviewed kg/m2-to-mm convention, while snowfall retains m. TYM analysis keeps its verified forecast-style interface with validTime=0, and reviewed processed forecast mappings use the existing v4 response contract.
 
 No historical mapping row remains unaccepted in this batch. The two LPE01/LPE12 cells at 2026-11-04 12 UTC +36h return service code -1 and are separately numbered 07E14, without duplicating historical-row counts or expanding verified expected domains. Alternative +24h samples pass, and all public input formats preserve the unavailable-cell error. Restore v37 using the task 07E3 snapshot and archived v37 catalog; deterministic export, content/catalog version refusals and recovery are independently verified. Query/Request v1 and query 0.2.1 remain unchanged.
+
+
+## GEPS precipitable-water review (task 07E5)
+
+[The task 07E5 input](authoring/cmadaas-task07e5.json) preserves the entire parameter v6 resource byte for byte and all 490 existing mappings. Catalog v39 pins parameter v6 and mapping v7, with 101 definitions and 492 mappings covering 493 historical service rows. The two new PRE mappings publish instantaneous entire-atmosphere precipitable water in kg/m2, restricted to the verified 2026-11-02 12 UTC cycle. Forty-three finite cells cover the control and all 30 perturbation members, including four leads for members 0, 1, 2 and 30. Perturbation PRE uses a dataset-scoped joint vertical table for native service selector `10/1`; this alias does not introduce a physical level axis.
+
+Six cumulative-precipitation rows transfer to 07E15 for working service bindings and matching real-response evidence; two CSWE rows transfer to 07E16 for carrier, rate-unit and window evidence. Recent wrong-stride responses are rejected and tracked as 64 reference/lead/member cells in 07E17, separately from the historical-row ledger. Existing TYM 07E14 availability cells remain unchanged. Query/Request schemas, native resource registrations and member interface contracts are unchanged.
+
+```sh
+python tools/export_cmadaas_task07b.py --author authoring/cmadaas-task07e5.json --catalog ../../doc/2026-11-04-stage1.2-query-reki/evidence/task-07e5/inputs/catalog-v38.json --catalog-version 39 --output /tmp/cmadaas-task07e5-export
+```
+
+Re-export against catalog v39 reproduces the installed snapshots deterministically. Content changes require their own newer parameter or mapping version; catalog changes require a newer catalog version. Task 07E4 remains independently recoverable from its frozen authoring input and v38 catalog.
