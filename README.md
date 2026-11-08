@@ -12,9 +12,9 @@ python tools/export_gfs_task03.py \
 
 reki owns the catalog, including layout and the two finite expected-domain sample cells. The exporter validates the combination and pins the parameter and mapping versions and byte digests in the staged catalog. Compare all three staged files with the deployment copy before replacing a complete snapshot. Changes to a published resource require a new content revision. The historical browser export and the remaining authoring records are available in the stage 1.1 archive.
 
-## Reviewed browser snapshot set (N03A)
+## Reviewed browser snapshot set (N03A and subsequent candidates)
 
-[authoring/browser-current.json](authoring/browser-current.json) selects the five
+[authoring/browser-current.json](authoring/browser-current.json) selects the six
 reviewed inputs that reconstruct the current six ORIG resource pairs and the
 latest cumulative CMADaaS pair. With `cedarkit-query` 0.2.1 installed, generate a
 new schema-4 browser bundle from this repository:
@@ -59,6 +59,23 @@ Run exporter regression tests with a Python 3.11+ environment containing
 
 ```sh
 python -m pytest tests/test_export_browser_snapshot.py -q
+```
+
+The current author policy is revision 2 for the N04B-01 resource candidate
+(catalog v41, MESO-1KM parameters v9 and mappings v12). The published web consumer
+remains pinned to revision 1 until its separate combination acceptance. Revision
+1's policy is retained byte-for-byte in
+[authoring/browser-reviewed-v1.json](authoring/browser-reviewed-v1.json). To
+reconstruct that historical group, select this policy together with its original
+catalog v40 and runtime resource bytes, rather than the newer current files:
+
+```sh
+python tools/export_browser_snapshot.py \
+  --policy authoring/browser-reviewed-v1.json \
+  --catalog ../cedarkit-param-web/public/reviewed/catalog-v1.json \
+  --runtime-dir ../cedarkit-param-web/public/reviewed/resources \
+  --legacy-snapshot ../cedarkit-param-web/public/params.json \
+  --output /tmp/reviewed-browser-revision1
 ```
 
 ## CEMC ORIG batch 1
@@ -118,6 +135,39 @@ python tools/export_cemc_orig.py \
 ```
 
 The preceding 06B and 06C commands use the archived v30 and v31 catalogs respectively.
+
+## MESO-1KM native PWAT task N04B-01
+
+[The reviewed increment](authoring/cemc-orig-task-n04b-01.json) adds the existing
+stable `cedarkit.pwat`/`cedarkit.pwat.any` identities to the MESO-1KM parameter
+resource, with `kg/m2` and entire-atmosphere fixed conditions. Two GRIB2 mappings
+separate the original initialization from forecast phases. Applicability is
+explicitly limited to the frozen 2026-11-02 12 UTC reference and 0/6/48-hour
+leads, including minute time units, centre/table/surface and production keys.
+
+The native data retains its decoded values. The reviewed same-field service
+unit and native mass-per-area declarations resolve this batch's unit binding;
+no `kg/kg`, factor 1000 or unreviewed physical conversion is inferred. The 0h
+instantaneous original is an initialization zero, not independently verified
+physical zero atmospheric water. No expected-domain cells are added.
+
+To reconstruct current catalog v41 from the reviewed inputs:
+
+```sh
+python tools/export_cemc_orig.py \
+  --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json \
+  --additions authoring/cemc-orig-task06b.json \
+  --additions authoring/cemc-orig-task06c.json \
+  --additions authoring/cemc-orig-task06i.json \
+  --additions authoring/cemc-orig-task-n04b-01.json \
+  --output /tmp/cemc-orig-n04b-01
+```
+
+The parameter and mapping content revisions are 9 and 12. Changed pins require a
+newer catalog revision; unchanged current inputs reproduce v41 without an
+additional catalog bump. Other native and service resource files retain their
+previous bytes. Browser policy revision 2 selects this new candidate; revision 1
+and the published site's bytes remain recoverable and unchanged.
 
 ## CMADaaS offline candidates task 07A
 

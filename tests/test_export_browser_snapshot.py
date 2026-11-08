@@ -91,6 +91,7 @@ def inputs(tmp_path):
     catalog.update(version="1", datasets=[dataset])
     fixture.catalog.write_bytes(encode(catalog))
     policy = read(REPO / "authoring/browser-current.json")
+    policy["version"] = "1"  # Controlled revision tests are independent of the current release.
     policy["authoring"] = {"native_base": "native.json", "native_additions": [], "service": "not-selected.json"}
     policy["resources"] = [next(row for row in policy["resources"] if row["key"] == "gfs")]
     policy["remaining_migration_obligations"] = [{"id": "fixture-unreviewed", "note": "not current support"}]
@@ -331,11 +332,11 @@ def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(ex
     mappings = [(resource["id"], row)
                 for document in browsers.values() for resource in document["mapping_resources"]
                 for row in resource["mappings"]]
-    assert len(definitions) == 537
+    assert len(definitions) == 539
     assert len({row["parameter_id"] for row in definitions}) == 163
-    assert len(mappings) == 1295
+    assert len(mappings) == 1297
     assert len({row["id"] for _, row in mappings}) == 897
-    assert len({(resource_id, row["id"]) for resource_id, row in mappings}) == 1295
+    assert len({(resource_id, row["id"]) for resource_id, row in mappings}) == 1297
     assert len({row["parameter_id"] for _, row in mappings}) == 119
     native_sf = next(row for row in browsers["geps"]["parameters"] if row["parameter_id"] == "cedarkit.sf")
     service_sf = next(row for row in browsers["cmadaas"]["parameters"] if row["parameter_id"] == "cedarkit.sf")
@@ -373,3 +374,12 @@ def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(ex
     assert sum(len({json.dumps(row, sort_keys=True) for row in values}) > 1 for values in raw_scoped.values()) == 47
     assert not any("task07a" in item["path"] for item in manifest["files"])
     assert not any("modelvar" in item["dataset_id"] for item in manifest["dataset_bindings"])
+
+
+def test_frozen_revision_one_policy_is_retained():
+    raw = (REPO / "authoring/browser-reviewed-v1.json").read_bytes()
+    assert sha256(raw) == "3143397eecf0802db66c93074eda65bdc6a026931c384bdcef1e0450553aca96"
+    current = read(REPO / "authoring/browser-current.json")
+    assert current["version"] == "2"
+    assert current["catalog"]["version"] == "41"
+    assert "cemc-orig-task-n04b-01.json" in current["authoring"]["native_additions"]
