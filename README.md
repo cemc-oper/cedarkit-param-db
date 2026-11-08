@@ -62,9 +62,10 @@ python -m pytest tests/test_export_browser_snapshot.py -q
 ```
 
 The current author policy is revision 2 for the N04B-01 resource candidate
-(catalog v41, MESO-1KM parameters v9 and mappings v12). The published web consumer
-remains pinned to revision 1 until its separate combination acceptance. Revision
-1's policy is retained byte-for-byte in
+(catalog v41, MESO-1KM parameters v9 and mappings v12). The web consumer now
+selects the exact revision 2 group accepted by N10I-01 with the frozen runtime
+cohort. No remote publication is implied. Revision 1's policy is retained
+byte-for-byte in
 [authoring/browser-reviewed-v1.json](authoring/browser-reviewed-v1.json). To
 reconstruct that historical group, select this policy together with its original
 catalog v40 and runtime resource bytes, rather than the newer current files:
@@ -72,8 +73,8 @@ catalog v40 and runtime resource bytes, rather than the newer current files:
 ```sh
 python tools/export_browser_snapshot.py \
   --policy authoring/browser-reviewed-v1.json \
-  --catalog ../cedarkit-param-web/public/reviewed/catalog-v1.json \
-  --runtime-dir ../cedarkit-param-web/public/reviewed/resources \
+  --catalog ../../doc/2026-11-04-stage1.2-query-reki/evidence/task-n10i-01/previous-browser/catalog-v1.json \
+  --runtime-dir ../../doc/2026-11-04-stage1.2-query-reki/evidence/task-n10i-01/previous-browser/resources \
   --legacy-snapshot ../cedarkit-param-web/public/params.json \
   --output /tmp/reviewed-browser-revision1
 ```
@@ -166,8 +167,9 @@ python tools/export_cemc_orig.py \
 The parameter and mapping content revisions are 9 and 12. Changed pins require a
 newer catalog revision; unchanged current inputs reproduce v41 without an
 additional catalog bump. Other native and service resource files retain their
-previous bytes. Browser policy revision 2 selects this new candidate; revision 1
-and the published site's bytes remain recoverable and unchanged.
+previous bytes. Browser policy revision 2 selects this group, whose web and
+runtime combination was accepted by N10I-01. The original revision 1 policy and its complete prior
+browser/runtime group remain frozen and recoverable in that acceptance evidence.
 
 ## CMADaaS offline candidates task 07A
 
