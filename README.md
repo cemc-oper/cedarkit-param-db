@@ -326,3 +326,12 @@ python tools/export_cmadaas_task07b.py --author authoring/cmadaas-task-n06-01.js
 ```
 
 `browser-current.json` advances the author candidate to revision 3 with these exact resource pins and service-history counts 531 accepted / 482 remaining. Native 95 / ensemble 48 groups, 485 quality cells and deferred N27 remain unchanged. The published browser revision 2 stays intact until the independent N10I-02 combination acceptance; regenerate and hand off the revision-3 group through the existing exporter rather than editing `public/params.json`. N06 retains 114 separately tracked rows (32 extremes, 28 changes and 54 other fluxes); this batch does not close the parent task or certify other NLHF cycles/leads.
+
+
+## GFS NSRF energy batch N06-02
+
+`authoring/cmadaas-task-n06-02.json` extends the accepted N06-01 authoring with four GFS NSRF surface/top mappings and the existing `cedarkit.gsw`/`cedarkit.tsw` identities. Parameters v8 contain104 definitions, mappings v10 contain534 mappings, and catalog v43 pins the exact new group. Existing102 definitions,530 mappings and existing table rows are preserved; `cmadaas.levels` gains only the reviewed atmosphere-top8/0 row. The other21 runtime resources are unchanged.
+
+The finite cycle, rectangle and analysis0/forecast3,6,48h cells retain original `J/m2` net short-wave integrated energy and raw `W.m-2` evidence. No duration division, sign conversion or positivity rule is added. Actual MXT/MNT data falsify a proposed since-initialization extrema clock, so those four rows remain pending rather than being aliased to a guessed three-hour window. Native95 groups and the485 independent service quality cells are not reduced.
+
+`browser-current.json` advances the author candidate to revision4 with535 accepted historical rows and478 remaining. Browser revision3 remains the accepted page checkout until N10I-03 validates the full combination; use the existing exporter, preserve the frozen previous group and do not hand-edit generated public snapshots. N06 remains split with110 pending rows (32 extrema,28 changes,50 fluxes).

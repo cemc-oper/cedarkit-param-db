@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "cedarkit.browser.reviewed-current",
-  "version": "3",
+  "version": "4",
   "authoring": {
     "native_base": "cemc-orig-batch1.json",
     "native_additions": [
@@ -10,13 +10,13 @@
       "cemc-orig-task06i.json",
       "cemc-orig-task-n04b-01.json"
     ],
-    "service": "cmadaas-task-n06-01.json"
+    "service": "cmadaas-task-n06-02.json"
   },
   "catalog": {
     "api_version": "cedarkit.catalog/v1",
     "id": "reki.cemc-catalog",
-    "version": "42",
-    "sha256": "128395bec252def82221ca34bc52fac600097542a85908a8014cb98dcaf5bc11"
+    "version": "43",
+    "sha256": "5e306304e26ca58d190d37877fe4a545b5bb91f5279b0f9e95f72b2630e08b6d"
   },
   "resources": [
     {
@@ -151,15 +151,15 @@
       ],
       "parameters": {
         "id": "cedarkit.parameters.cmadaas",
-        "version": "7",
+        "version": "8",
         "file": "current-cmadaas-parameters.json",
-        "sha256": "5c8ee3b97ab91b16636d8be67e81f33788b0ffc638f693c10c6bd4c3ca81271b"
+        "sha256": "8e4f49624ac9822ca328264cca9e23a9f3cd4ab5c4dba482d95492a4d04b4a14"
       },
       "mappings": {
         "id": "cedarkit.mappings.cmadaas",
-        "version": "9",
+        "version": "10",
         "file": "current-cmadaas-mappings.json",
-        "sha256": "87aa357c3496933d9d7e72c0da16d8ae2e7af8a4a0352c37df72fe48e7a84eb1",
+        "sha256": "40a903198c0e01fc2b1b3df89a25000457b7856e7c709a9861661e0ebd41a758",
         "backend": "cmadaas"
       }
     }
@@ -173,13 +173,14 @@
     {
       "id": "service-history",
       "total": 1013,
-      "accepted": 531,
-      "remaining": 482,
+      "accepted": 535,
+      "remaining": 478,
       "note": "Historical service rows, not the number of mappings or expected-domain cells",
       "evidence": [
         "doc/2026-11-04-stage1.2-query-reki/task-01-coverage.md",
         "stage1.2/task-07e6/coverage.json",
-        "stage1.2/task-n06-01/coverage.json"
+        "stage1.2/task-n06-01/coverage.json",
+        "stage1.2/task-n06-02/coverage.json"
       ]
     },
     {
