@@ -316,3 +316,13 @@ python tools/export_cmadaas_task07b.py --author authoring/cmadaas-task07e6.json 
 ```
 
 Re-export against catalog v40 reproduces the snapshots deterministically. Parameter, mapping and catalog revisions retain their independent version guards. The frozen task 07E5 input and v39 catalog remain independently recoverable.
+
+## GFS NLHF service energy batch N06-01
+
+[The N06-01 authoring input](authoring/cmadaas-task-n06-01.json) adds the existing `cedarkit.slhf` identity to two GFS service mappings. Service parameters v7 contain 102 definitions; service mappings v9 contain 530 mappings. Catalog v42 retains the other 21 runtime resources unchanged. The reviewed NLHF cells are restricted to 2026-11-02 12 UTC, analysis 0h and forecast 3/6/48h. Raw response `W.m-2` is retained as evidence while original GRIB/producer and whole-grid comparisons establish accumulated `J/m2` values; no duration division, sign conversion or fitted scale is introduced.
+
+```bash
+python tools/export_cmadaas_task07b.py --author authoring/cmadaas-task-n06-01.json --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json --output /tmp/cmadaas-n06-01-export
+```
+
+`browser-current.json` advances the author candidate to revision 3 with these exact resource pins and service-history counts 531 accepted / 482 remaining. Native 95 / ensemble 48 groups, 485 quality cells and deferred N27 remain unchanged. The published browser revision 2 stays intact until the independent N10I-02 combination acceptance; regenerate and hand off the revision-3 group through the existing exporter rather than editing `public/params.json`. N06 retains 114 separately tracked rows (32 extremes, 28 changes and 54 other fluxes); this batch does not close the parent task or certify other NLHF cycles/leads.

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "cedarkit.browser.reviewed-current",
-  "version": "2",
+  "version": "3",
   "authoring": {
     "native_base": "cemc-orig-batch1.json",
     "native_additions": [
@@ -10,13 +10,13 @@
       "cemc-orig-task06i.json",
       "cemc-orig-task-n04b-01.json"
     ],
-    "service": "cmadaas-task07e6.json"
+    "service": "cmadaas-task-n06-01.json"
   },
   "catalog": {
     "api_version": "cedarkit.catalog/v1",
     "id": "reki.cemc-catalog",
-    "version": "41",
-    "sha256": "6746fc914a82187ca8aef0d7edbf3ba7e4a18a18c3a7d41f3a2fb57eb70fe290"
+    "version": "42",
+    "sha256": "128395bec252def82221ca34bc52fac600097542a85908a8014cb98dcaf5bc11"
   },
   "resources": [
     {
@@ -151,15 +151,15 @@
       ],
       "parameters": {
         "id": "cedarkit.parameters.cmadaas",
-        "version": "6",
+        "version": "7",
         "file": "current-cmadaas-parameters.json",
-        "sha256": "059083f3cd698eb71c17dbd877486758d75d2aa21b0bc6bac28fd0c2d757948e"
+        "sha256": "5c8ee3b97ab91b16636d8be67e81f33788b0ffc638f693c10c6bd4c3ca81271b"
       },
       "mappings": {
         "id": "cedarkit.mappings.cmadaas",
-        "version": "8",
+        "version": "9",
         "file": "current-cmadaas-mappings.json",
-        "sha256": "98fb58eebb658edb22a2c9ba977007079d4a34381ef255a5afd92fac51584cfd",
+        "sha256": "87aa357c3496933d9d7e72c0da16d8ae2e7af8a4a0352c37df72fe48e7a84eb1",
         "backend": "cmadaas"
       }
     }
@@ -173,12 +173,13 @@
     {
       "id": "service-history",
       "total": 1013,
-      "accepted": 529,
-      "remaining": 484,
+      "accepted": 531,
+      "remaining": 482,
       "note": "Historical service rows, not the number of mappings or expected-domain cells",
       "evidence": [
         "doc/2026-11-04-stage1.2-query-reki/task-01-coverage.md",
-        "stage1.2/task-07e6/coverage.json"
+        "stage1.2/task-07e6/coverage.json",
+        "stage1.2/task-n06-01/coverage.json"
       ]
     },
     {
