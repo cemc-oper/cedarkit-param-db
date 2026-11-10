@@ -332,12 +332,12 @@ def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(ex
     mappings = [(resource["id"], row)
                 for document in browsers.values() for resource in document["mapping_resources"]
                 for row in resource["mappings"]]
-    assert len(definitions) == 545
-    assert len({row["parameter_id"] for row in definitions}) == 163
-    assert len(mappings) == 1307
-    assert len({row["id"] for _, row in mappings}) == 907
-    assert len({(resource_id, row["id"]) for resource_id, row in mappings}) == 1307
-    assert len({row["parameter_id"] for _, row in mappings}) == 123
+    assert len(definitions) == 548
+    assert len({row["parameter_id"] for row in definitions}) == 166
+    assert len(mappings) == 1311
+    assert len({row["id"] for _, row in mappings}) == 911
+    assert len({(resource_id, row["id"]) for resource_id, row in mappings}) == 1311
+    assert len({row["parameter_id"] for _, row in mappings}) == 125
     native_sf = next(row for row in browsers["geps"]["parameters"] if row["parameter_id"] == "cedarkit.sf")
     service_sf = next(row for row in browsers["cmadaas"]["parameters"] if row["parameter_id"] == "cedarkit.sf")
     assert native_sf["fixed_conditions"]["statistics"]["period"] == {"kind": "since_initialization"}
@@ -380,6 +380,6 @@ def test_frozen_revision_one_policy_is_retained():
     raw = (REPO / "authoring/browser-reviewed-v1.json").read_bytes()
     assert sha256(raw) == "3143397eecf0802db66c93074eda65bdc6a026931c384bdcef1e0450553aca96"
     current = read(REPO / "authoring/browser-current.json")
-    assert current["version"] == "5"
-    assert current["catalog"]["version"] == "44"
+    assert current["version"] == "6"
+    assert current["catalog"]["version"] == "45"
     assert "cemc-orig-task-n04b-01.json" in current["authoring"]["native_additions"]

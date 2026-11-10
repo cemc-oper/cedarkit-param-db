@@ -347,3 +347,15 @@ python tools/export_cmadaas_task07b.py --author authoring/cmadaas-task-n06-03.js
 Producer GSWC/TSWC and case109 `[ws/m2]`, original0/4/11 PDT8 energy, and actual eight-cell responses independently establish clear-sky net short-wave energy at surface1/0 and top8/0. The reviewed scope remains2026110212, analysis0/forecast3,6,48h,39–41N/115–117E. Raw `W.m-2` and the original919 top negative6-to48h differences are retained; no division by seconds, sign adjustment or monotonicity rule is introduced. NSRF and NLHF remain separately reviewed profiles, and the four MXT/MNT clock counterexamples remain pending.
 
 The author candidate advances to browser revision5 with539 accepted historical rows and474 remaining. The published web checkout stays at the jointly accepted N10I-03 revision4; the exact seven-package/extra/browser5 candidate must pass N10I-04 before page adoption. N06 retains106 rows (32 extrema,28 changes,46 fluxes); quality485, native95, ensemble48 groups/96 messages and N27 deferral remain unchanged. Use the existing exporter for the complete candidate and retain the accepted revision4 recovery group.
+
+## GFS USRF signed upward energy batch N06-04
+
+`authoring/cmadaas-task-n06-04.json` adds four independently reviewed GFS USRF service mappings and the `cedarkit.gusw.any`/`cedarkit.gusw`/`cedarkit.tusw` hierarchy. Parameters v10 contain110 definitions, mappings v12 contain542 mappings, and catalog v45 pins this group. The prior107 definitions,538 mappings, five translation tables and other21 runtime resources are preserved. Existing historical stable IDs are reused for this reviewed service resource; archived `w/m2` claims and aliases are not promoted into current unit semantics.
+
+```sh
+python tools/export_cmadaas_task07b.py --author authoring/cmadaas-task-n06-04.json --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json --output /tmp/cmadaas-n06-04-export
+```
+
+The reviewed cells are2026110212, analysis0h and forecast3/6/48h,39–41N/115–117E, surface1/0 and top8/0. Producer GUSW/TUSW, element211 `[ws/m2]`, original0/4/8 PDT8 accumulation and paired actual responses support signed energy inJ/m2. Native decoder `W m**-2`/`unknown` and service `W.m-2` labels remain in the evidence. Large negative and small positive original values are preserved; no sign reversal, clipping, division by seconds, fitted scale or positive-up convention is imposed. Other products and flux families require their own review.
+
+The author candidate advances to browser revision6 with543 accepted historical rows and470 remaining. The published web checkout remains the jointly accepted N10I-04 revision5; N10I-05 receives the exact new seven-package/extra/browser6 candidate for full combination and page acceptance. N06 retains102 rows (32 extrema,28 changes,42 fluxes), including the four MXT/MNT clock counterexamples; quality485, native95, ensemble48 groups/96 messages and N27 deferral remain unchanged.

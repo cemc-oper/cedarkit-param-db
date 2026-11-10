@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "cedarkit.browser.reviewed-current",
-  "version": "5",
+  "version": "6",
   "authoring": {
     "native_base": "cemc-orig-batch1.json",
     "native_additions": [
@@ -10,13 +10,13 @@
       "cemc-orig-task06i.json",
       "cemc-orig-task-n04b-01.json"
     ],
-    "service": "cmadaas-task-n06-03.json"
+    "service": "cmadaas-task-n06-04.json"
   },
   "catalog": {
     "api_version": "cedarkit.catalog/v1",
     "id": "reki.cemc-catalog",
-    "version": "44",
-    "sha256": "66da3aafebc3d16430456b66d67d5fb29c4bfbaf05d076f130c5f86b6c7119ed"
+    "version": "45",
+    "sha256": "986592547b052c9e012f9dd17729faa4a3815bbc8ad58c05fdb97d4a666c3148"
   },
   "resources": [
     {
@@ -151,15 +151,15 @@
       ],
       "parameters": {
         "id": "cedarkit.parameters.cmadaas",
-        "version": "9",
+        "version": "10",
         "file": "current-cmadaas-parameters.json",
-        "sha256": "77dc6bcc332fa7fb73105743787d9ae2c5dfc792a4b285c0a27b3190c9710473"
+        "sha256": "32019ef06e805aa876df3c135476c09303208a726c83fe765a6e66c0077b011d"
       },
       "mappings": {
         "id": "cedarkit.mappings.cmadaas",
-        "version": "11",
+        "version": "12",
         "file": "current-cmadaas-mappings.json",
-        "sha256": "7a610471f77542104fdde000ef043ecf77ff5576ffcf7dc94b9dd1b04617d92e",
+        "sha256": "f5f411acdb6cfb99aa730ba07ff68a8757b8b0b7a6b409893dd2c628477e1d63",
         "backend": "cmadaas"
       }
     }
@@ -173,15 +173,16 @@
     {
       "id": "service-history",
       "total": 1013,
-      "accepted": 539,
-      "remaining": 474,
+      "accepted": 543,
+      "remaining": 470,
       "note": "Historical service rows, not the number of mappings or expected-domain cells",
       "evidence": [
         "doc/2026-11-04-stage1.2-query-reki/task-01-coverage.md",
         "stage1.2/task-07e6/coverage.json",
         "stage1.2/task-n06-01/coverage.json",
         "stage1.2/task-n06-02/coverage.json",
-        "stage1.2/task-n06-03/coverage.json"
+        "stage1.2/task-n06-03/coverage.json",
+        "stage1.2/task-n06-04/coverage.json"
       ]
     },
     {
