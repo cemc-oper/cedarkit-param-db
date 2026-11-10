@@ -332,12 +332,12 @@ def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(ex
     mappings = [(resource["id"], row)
                 for document in browsers.values() for resource in document["mapping_resources"]
                 for row in resource["mappings"]]
-    assert len(definitions) == 542
+    assert len(definitions) == 545
     assert len({row["parameter_id"] for row in definitions}) == 163
-    assert len(mappings) == 1303
-    assert len({row["id"] for _, row in mappings}) == 903
-    assert len({(resource_id, row["id"]) for resource_id, row in mappings}) == 1303
-    assert len({row["parameter_id"] for _, row in mappings}) == 121
+    assert len(mappings) == 1307
+    assert len({row["id"] for _, row in mappings}) == 907
+    assert len({(resource_id, row["id"]) for resource_id, row in mappings}) == 1307
+    assert len({row["parameter_id"] for _, row in mappings}) == 123
     native_sf = next(row for row in browsers["geps"]["parameters"] if row["parameter_id"] == "cedarkit.sf")
     service_sf = next(row for row in browsers["cmadaas"]["parameters"] if row["parameter_id"] == "cedarkit.sf")
     assert native_sf["fixed_conditions"]["statistics"]["period"] == {"kind": "since_initialization"}
@@ -371,7 +371,7 @@ def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(ex
             assert {row["id"] for row in resource["tables"]} == {row["id"] for row in expected["tables"]}
         parameter_pin = next(row for row in manifest["snapshots"] if row["key"] == key)["parameter_resource"]
         assert json.loads(files[parameter_pin["path"]]) == source
-    assert sum(len({json.dumps(row, sort_keys=True) for row in values}) > 1 for values in raw_scoped.values()) == 49
+    assert sum(len({json.dumps(row, sort_keys=True) for row in values}) > 1 for values in raw_scoped.values()) == 51
     assert not any("task07a" in item["path"] for item in manifest["files"])
     assert not any("modelvar" in item["dataset_id"] for item in manifest["dataset_bindings"])
 
@@ -380,6 +380,6 @@ def test_frozen_revision_one_policy_is_retained():
     raw = (REPO / "authoring/browser-reviewed-v1.json").read_bytes()
     assert sha256(raw) == "3143397eecf0802db66c93074eda65bdc6a026931c384bdcef1e0450553aca96"
     current = read(REPO / "authoring/browser-current.json")
-    assert current["version"] == "4"
-    assert current["catalog"]["version"] == "43"
+    assert current["version"] == "5"
+    assert current["catalog"]["version"] == "44"
     assert "cemc-orig-task-n04b-01.json" in current["authoring"]["native_additions"]

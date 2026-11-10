@@ -335,3 +335,15 @@ python tools/export_cmadaas_task07b.py --author authoring/cmadaas-task-n06-01.js
 The finite cycle, rectangle and analysis0/forecast3,6,48h cells retain original `J/m2` net short-wave integrated energy and raw `W.m-2` evidence. No duration division, sign conversion or positivity rule is added. Actual MXT/MNT data falsify a proposed since-initialization extrema clock, so those four rows remain pending rather than being aliased to a guessed three-hour window. Native95 groups and the485 independent service quality cells are not reduced.
 
 `browser-current.json` advances the author candidate to revision4 with535 accepted historical rows and478 remaining. Browser revision3 remains the accepted page checkout until N10I-03 validates the full combination; use the existing exporter, preserve the frozen previous group and do not hand-edit generated public snapshots. N06 remains split with110 pending rows (32 extrema,28 changes,50 fluxes).
+
+## GFS NWFS clear-sky energy batch N06-03
+
+`authoring/cmadaas-task-n06-03.json` extends the cumulative N06-02 input with the independently reviewed GFS NWFS surface/top mappings. Parameters v9 contain107 definitions, mappings v11 contain538 mappings, and catalog v44 pins this group. The new `cedarkit.gswc`/`cedarkit.tswc` identities inherit `J/m2` from `cedarkit.gswc.any` and fix accumulation since initialization. The prior104 definitions,534 mappings, all five translation tables and other21 runtime resources remain unchanged.
+
+```sh
+python tools/export_cmadaas_task07b.py --author authoring/cmadaas-task-n06-03.json --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json --output /tmp/cmadaas-n06-03-export
+```
+
+Producer GSWC/TSWC and case109 `[ws/m2]`, original0/4/11 PDT8 energy, and actual eight-cell responses independently establish clear-sky net short-wave energy at surface1/0 and top8/0. The reviewed scope remains2026110212, analysis0/forecast3,6,48h,39–41N/115–117E. Raw `W.m-2` and the original919 top negative6-to48h differences are retained; no division by seconds, sign adjustment or monotonicity rule is introduced. NSRF and NLHF remain separately reviewed profiles, and the four MXT/MNT clock counterexamples remain pending.
+
+The author candidate advances to browser revision5 with539 accepted historical rows and474 remaining. The published web checkout stays at the jointly accepted N10I-03 revision4; the exact seven-package/extra/browser5 candidate must pass N10I-04 before page adoption. N06 retains106 rows (32 extrema,28 changes,46 fluxes); quality485, native95, ensemble48 groups/96 messages and N27 deferral remain unchanged. Use the existing exporter for the complete candidate and retain the accepted revision4 recovery group.
