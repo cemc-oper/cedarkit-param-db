@@ -359,3 +359,9 @@ python tools/export_cmadaas_task07b.py --author authoring/cmadaas-task-n06-04.js
 The reviewed cells are2026110212, analysis0h and forecast3/6/48h,39–41N/115–117E, surface1/0 and top8/0. Producer GUSW/TUSW, element211 `[ws/m2]`, original0/4/8 PDT8 accumulation and paired actual responses support signed energy inJ/m2. Native decoder `W m**-2`/`unknown` and service `W.m-2` labels remain in the evidence. Large negative and small positive original values are preserved; no sign reversal, clipping, division by seconds, fitted scale or positive-up convention is imposed. Other products and flux families require their own review.
 
 The author candidate advances to browser revision6 with543 accepted historical rows and470 remaining. The published web checkout remains the jointly accepted N10I-04 revision5; N10I-05 receives the exact new seven-package/extra/browser6 candidate for full combination and page acceptance. N06 retains102 rows (32 extrema,28 changes,42 fluxes), including the four MXT/MNT clock counterexamples; quality485, native95, ensemble48 groups/96 messages and N27 deferral remain unchanged.
+
+### N06-05：GFS ULRF 有限范围交付
+
+`authoring/cmadaas-task-n06-05.json` 在 N06-04 的 110 定义／542 映射基础上独立审核 GFS ULRF 地表与大气顶的分析／预报四行，形成 113 定义／546 映射、参数资源 11／映射资源 13／catalog46。公开 `cedarkit.gulw.any`、`cedarkit.gulw`、`cedarkit.tulw` 使用 `J/m2` 与起报至有效时刻累计区间。生产 case212 `ws/m2` 与原始 0/5/4 累计载体、八个真实成对样本共同支持有限范围解释；原始地表 `W m**-2`、大气顶 `unknown` 及服务 `W.m-2` 标签原样留存。
+
+八场 33,177,600 原始点／2,176 服务点逐点核验；分析为零，六个预报全场为负，不取反、裁零、除时长或拟合，不作正值向上或物理成因推断。历史 GULW 的 `w/m2`、`gslu` 别名不导入当前语义。browser-current 作者策略为 revision7：551 作用域定义、169 稳定 ID、1315 作用域映射、127 直接映射 ID；当前已联合验收的前端仍为 browser6，完整新组合由 N10I-06 独立验收。历史行累计 547/1013，剩余 466；N06 剩余 98（32 极值、28 变差、38 通量），四条 MXT/MNT 时钟反证保持。质量 485、原生 95、集合 48 组／96 消息和 N27 暂缓状态不变。
