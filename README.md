@@ -61,10 +61,10 @@ Run exporter regression tests with a Python 3.11+ environment containing
 python -m pytest tests/test_export_browser_snapshot.py -q
 ```
 
-The current author policy is revision 2 for the N04B-01 resource candidate
-(catalog v41, MESO-1KM parameters v9 and mappings v12). The web consumer now
-selects the exact revision 2 group accepted by N10I-01 with the frozen runtime
-cohort. No remote publication is implied. Revision 1's policy is retained
+The historical revision 2 policy records the N04B-01 resource candidate
+(catalog v41, MESO-1KM parameters v9 and mappings v12). That revision 2 group
+was accepted by N10I-01 with its frozen runtime cohort. The current T02 group
+uses revision 8 and is described below. No remote publication is implied. Revision 1's policy is retained
 byte-for-byte in
 [authoring/browser-reviewed-v1.json](authoring/browser-reviewed-v1.json). To
 reconstruct that historical group, select this policy together with its original
@@ -364,4 +364,12 @@ The author candidate advances to browser revision6 with543 accepted historical r
 
 `authoring/cmadaas-task-n06-05.json` 在 N06-04 的 110 定义／542 映射基础上独立审核 GFS ULRF 地表与大气顶的分析／预报四行，形成 113 定义／546 映射、参数资源 11／映射资源 13／catalog46。公开 `cedarkit.gulw.any`、`cedarkit.gulw`、`cedarkit.tulw` 使用 `J/m2` 与起报至有效时刻累计区间。生产 case212 `ws/m2` 与原始 0/5/4 累计载体、八个真实成对样本共同支持有限范围解释；原始地表 `W m**-2`、大气顶 `unknown` 及服务 `W.m-2` 标签原样留存。
 
-八场 33,177,600 原始点／2,176 服务点逐点核验；分析为零，六个预报全场为负，不取反、裁零、除时长或拟合，不作正值向上或物理成因推断。历史 GULW 的 `w/m2`、`gslu` 别名不导入当前语义。browser-current 作者策略为 revision7：551 作用域定义、169 稳定 ID、1315 作用域映射、127 直接映射 ID；当前已联合验收的前端仍为 browser6，完整新组合由 N10I-06 独立验收。历史行累计 547/1013，剩余 466；N06 剩余 98（32 极值、28 变差、38 通量），四条 MXT/MNT 时钟反证保持。质量 485、原生 95、集合 48 组／96 消息和 N27 暂缓状态不变。
+八场 33,177,600 原始点／2,176 服务点逐点核验；分析为零，六个预报全场为负，不取反、裁零、除时长或拟合，不作正值向上或物理成因推断。历史 GULW 的 `w/m2`、`gslu` 别名不导入当前语义。该批作者策略为 revision7：551 作用域定义、169 稳定 ID、1315 作用域映射、127 直接映射 ID；该批交接时已联合验收的前端为 browser6，完整新组合由 N10I-06 独立验收。历史行累计 547/1013，剩余 466；N06 剩余 98（32 极值、28 变差、38 通量），四条 MXT/MNT 时钟反证保持。质量 485、原生 95、集合 48 组／96 消息和 N27 暂缓状态不变。
+
+### T02：瞬时水汽输送与地表质量通量
+
+当前 `authoring/cmadaas-task-t02.json` 延续原113定义／546映射，新增 `cedarkit.qflx`、`cedarkit.qfxsfc.any`、`cedarkit.qfxsfc` 三份服务定义和10条映射，形成参数12／116定义、映射14／556条及catalog47。`browser-current.json` 选择revision8，包含554作用域定义、169稳定ID和1325作用域映射。
+
+QFLX覆盖GFS／MESO‑3KM／TYM分析及预报六行，使用各自同文件Q／U／V独立复算和打包误差传播支持 `g/(cm.hPa.s)`。地表QFX覆盖MESO‑3KM／TYM四行，单位 `kg/(m2.s)`；两类都是瞬时量。实际空响应单位通过明确审核映射保留来源，原值不套用旧十倍字面、不乘服务metadata尺度、不转潜热、不当累计能量。
+
+范围仅为2026-11-02 12UTC、39–41N／115–117E，分析0h、预报6／48h及各产品审核层域；33组实际服务／原场边界样本独立登记为expected cells。历史服务557行已验、456行未验，另67条本次缺证／失败行逐行保留；质量485、本地95／集合48组及模式层用户暂缓均独立跟踪。使用原导出器生成运行和浏览器快照，不手改生成文件。[核查与组合验收](../../doc/2026-11-04-stage1.2-query-reki/evidence/task-t02/README.md)

@@ -1,140 +1,185 @@
 {
-  "schema_version": 1,
-  "id": "cedarkit.browser.reviewed-current",
-  "version": "7",
   "authoring": {
-    "native_base": "cemc-orig-batch1.json",
     "native_additions": [
       "cemc-orig-task06b.json",
       "cemc-orig-task06c.json",
       "cemc-orig-task06i.json",
       "cemc-orig-task-n04b-01.json"
     ],
-    "service": "cmadaas-task-n06-05.json"
+    "native_base": "cemc-orig-batch1.json",
+    "service": "cmadaas-task-t02.json"
   },
   "catalog": {
     "api_version": "cedarkit.catalog/v1",
     "id": "reki.cemc-catalog",
-    "version": "46",
-    "sha256": "27d666a4d0a192dbe9759cae8b23de3d6fa61b8bc844077e6ae2157684cf3bf9"
+    "sha256": "120fca944a52f750de33ba6302bca177da24f1085dde892f60a3767981bb3f68",
+    "version": "47"
   },
+  "id": "cedarkit.browser.reviewed-current",
+  "remaining_migration_obligations": [
+    {
+      "accepted": 557,
+      "evidence": [
+        "doc/2026-11-04-stage1.2-query-reki/task-01-coverage.md",
+        "stage1.2/task-07e6/coverage.json",
+        "stage1.2/task-n06-01/coverage.json",
+        "stage1.2/task-n06-02/coverage.json",
+        "stage1.2/task-n06-03/coverage.json",
+        "stage1.2/task-n06-04/coverage.json",
+        "stage1.2/task-n06-05/coverage.json",
+        "stage1.2/task-t02/coverage.json"
+      ],
+      "id": "service-history",
+      "note": "Historical service rows, not the number of mappings or expected-domain cells",
+      "remaining": 456,
+      "total": 1013
+    },
+    {
+      "id": "service-quality",
+      "note": "Independent quality cells, not additional historical rows",
+      "parts": {
+        "07E14": 2,
+        "07E17": 64,
+        "07E18": 419
+      },
+      "remaining": 485
+    },
+    {
+      "groups": {
+        "06J": 95,
+        "06K": 48
+      },
+      "id": "native-definition-gaps",
+      "note": "Original group obligations are not reduced by browser projection"
+    },
+    {
+      "id": "modelvar",
+      "note": "Explicit user deferral; not current browser support or an automatic reopen",
+      "status": "deferred",
+      "task": "N27"
+    },
+    {
+      "id": "legacy-authoring",
+      "note": "Archived 233 active parameters and 803 mappings are not automatically current support",
+      "status": "not_fully_reaudited"
+    }
+  ],
   "resources": [
     {
-      "key": "gfs",
       "dataset_ids": [
         "cma_gfs_gmf"
       ],
-      "parameters": {
-        "id": "cedarkit.parameters.cma-gfs.current",
-        "version": "15",
-        "file": "current-gfs-parameters.json",
-        "sha256": "a22af7aaacbbde834c007b2ab95343985c141bebd460734d5bcb02e8bd54b21d"
-      },
+      "key": "gfs",
       "mappings": {
-        "id": "cedarkit.grib2.cma-gfs.current",
-        "version": "20",
+        "backend": "grib2",
         "file": "current-gfs-mappings.json",
+        "id": "cedarkit.grib2.cma-gfs.current",
         "sha256": "734070cae6dcf55f9ad874ad4b22d6960c9056a92133e11bee8ed7b15b347bf8",
-        "backend": "grib2"
+        "version": "20"
+      },
+      "parameters": {
+        "file": "current-gfs-parameters.json",
+        "id": "cedarkit.parameters.cma-gfs.current",
+        "sha256": "a22af7aaacbbde834c007b2ab95343985c141bebd460734d5bcb02e8bd54b21d",
+        "version": "15"
       }
     },
     {
-      "key": "meso1",
       "dataset_ids": [
         "cma_meso_1km"
       ],
-      "parameters": {
-        "id": "cedarkit.parameters.cma-meso-1km.current",
-        "version": "9",
-        "file": "current-meso1-parameters.json",
-        "sha256": "0ac40324a25bbb37cee54a3ebda2dc0f6378a78a7eeb5693506385d446ed7c24"
-      },
+      "key": "meso1",
       "mappings": {
-        "id": "cedarkit.grib2.cma-meso-1km.current",
-        "version": "12",
+        "backend": "grib2",
         "file": "current-meso1-mappings.json",
+        "id": "cedarkit.grib2.cma-meso-1km.current",
         "sha256": "cadabd50cb74c3fe91457609a4974ff9f9f72cca582d0741fd2d01b4b027ad62",
-        "backend": "grib2"
+        "version": "12"
+      },
+      "parameters": {
+        "file": "current-meso1-parameters.json",
+        "id": "cedarkit.parameters.cma-meso-1km.current",
+        "sha256": "0ac40324a25bbb37cee54a3ebda2dc0f6378a78a7eeb5693506385d446ed7c24",
+        "version": "9"
       }
     },
     {
-      "key": "meso3",
       "dataset_ids": [
         "cma_meso_3km"
       ],
-      "parameters": {
-        "id": "cedarkit.parameters.cma-meso-3km.current",
-        "version": "10",
-        "file": "current-meso3-parameters.json",
-        "sha256": "5ca2afcd4c45217707d8531cf9c240476038fa771219e5d177769b9fa56ab03f"
-      },
+      "key": "meso3",
       "mappings": {
-        "id": "cedarkit.grib2.cma-meso-3km.current",
-        "version": "13",
+        "backend": "grib2",
         "file": "current-meso3-mappings.json",
+        "id": "cedarkit.grib2.cma-meso-3km.current",
         "sha256": "2364850959fd862c31b8afe9491c8bd9aaf3c0993372aed893c0dc48685f7ac8",
-        "backend": "grib2"
+        "version": "13"
+      },
+      "parameters": {
+        "file": "current-meso3-parameters.json",
+        "id": "cedarkit.parameters.cma-meso-3km.current",
+        "sha256": "5ca2afcd4c45217707d8531cf9c240476038fa771219e5d177769b9fa56ab03f",
+        "version": "10"
       }
     },
     {
-      "key": "tym",
       "dataset_ids": [
         "cma_tym"
       ],
-      "parameters": {
-        "id": "cedarkit.parameters.cma-tym.current",
-        "version": "9",
-        "file": "current-tym-parameters.json",
-        "sha256": "3360430a860fd89b0f10172ae8e6543566ce8025da6e3d3c8ae83e65f6964596"
-      },
+      "key": "tym",
       "mappings": {
-        "id": "cedarkit.grib2.cma-tym.current",
-        "version": "12",
+        "backend": "grib2",
         "file": "current-tym-mappings.json",
+        "id": "cedarkit.grib2.cma-tym.current",
         "sha256": "959ebac11abdb2a9ecd26b0bac1b026178bd6ffa1a7957b6fbfa70c57b73c627",
-        "backend": "grib2"
+        "version": "12"
+      },
+      "parameters": {
+        "file": "current-tym-parameters.json",
+        "id": "cedarkit.parameters.cma-tym.current",
+        "sha256": "3360430a860fd89b0f10172ae8e6543566ce8025da6e3d3c8ae83e65f6964596",
+        "version": "9"
       }
     },
     {
-      "key": "geps",
       "dataset_ids": [
         "cma_geps"
       ],
-      "parameters": {
-        "id": "cedarkit.parameters.cma-geps.current",
-        "version": "6",
-        "file": "current-geps-parameters.json",
-        "sha256": "767dba673ebae8dc8b51bbd82e7ba5d2a68c40a31388293dc2c20cbebbcaffa4"
-      },
+      "key": "geps",
       "mappings": {
-        "id": "cedarkit.grib2.cma-geps.current",
-        "version": "9",
+        "backend": "grib2",
         "file": "current-geps-mappings.json",
+        "id": "cedarkit.grib2.cma-geps.current",
         "sha256": "86f0c92308bfda9d589a7e377649728b8f764355b6e5f40ac5f0622bc7cb782e",
-        "backend": "grib2"
+        "version": "9"
+      },
+      "parameters": {
+        "file": "current-geps-parameters.json",
+        "id": "cedarkit.parameters.cma-geps.current",
+        "sha256": "767dba673ebae8dc8b51bbd82e7ba5d2a68c40a31388293dc2c20cbebbcaffa4",
+        "version": "6"
       }
     },
     {
-      "key": "reps",
       "dataset_ids": [
         "cma_reps"
       ],
-      "parameters": {
-        "id": "cedarkit.parameters.cma-reps.current",
-        "version": "5",
-        "file": "current-reps-parameters.json",
-        "sha256": "5dc8cf8b751d1982a506cd5b115d69ab9aec9ed3d6d8d8a00f60a75c02f51859"
-      },
+      "key": "reps",
       "mappings": {
-        "id": "cedarkit.grib2.cma-reps.current",
-        "version": "8",
+        "backend": "grib2",
         "file": "current-reps-mappings.json",
+        "id": "cedarkit.grib2.cma-reps.current",
         "sha256": "004d36b69a20a904b17247bbb63891f89e3ecdf051940a412832d018f2a68872",
-        "backend": "grib2"
+        "version": "8"
+      },
+      "parameters": {
+        "file": "current-reps-parameters.json",
+        "id": "cedarkit.parameters.cma-reps.current",
+        "sha256": "5dc8cf8b751d1982a506cd5b115d69ab9aec9ed3d6d8d8a00f60a75c02f51859",
+        "version": "5"
       }
     },
     {
-      "key": "cmadaas",
       "dataset_ids": [
         "cma_geps_control_cmadaas",
         "cma_geps_perturbation_cmadaas",
@@ -149,71 +194,27 @@
         "cma_tym_analysis_cmadaas",
         "cma_tym_forecast_cmadaas"
       ],
-      "parameters": {
-        "id": "cedarkit.parameters.cmadaas",
-        "version": "11",
-        "file": "current-cmadaas-parameters.json",
-        "sha256": "4ce99774e09fddf41372c57ee0273746fabd79c6d43f67e7f5a8a9608c0883e2"
-      },
+      "key": "cmadaas",
       "mappings": {
-        "id": "cedarkit.mappings.cmadaas",
-        "version": "13",
+        "backend": "cmadaas",
         "file": "current-cmadaas-mappings.json",
-        "sha256": "88a55903b203cb7e54fc3c43ed0aef2f9ff7961341b9bf725850a8a4a092abb2",
-        "backend": "cmadaas"
+        "id": "cedarkit.mappings.cmadaas",
+        "sha256": "62e81ad567986c3cce07a37aecce198a2fcfc8f4ffe18ac5b4dd729409705b9d",
+        "version": "14"
+      },
+      "parameters": {
+        "file": "current-cmadaas-parameters.json",
+        "id": "cedarkit.parameters.cmadaas",
+        "sha256": "270258b3fa619dc5b1d3a76c076cc3ac9c78653cb4bac45ddc5091304b495794",
+        "version": "12"
       }
     }
   ],
   "review_status": {
+    "availability": "not_guaranteed_for_all_cells",
     "definitions": "reviewed_authoring",
-    "mappings": "reviewed_mapping_with_references",
-    "availability": "not_guaranteed_for_all_cells"
+    "mappings": "reviewed_mapping_with_references"
   },
-  "remaining_migration_obligations": [
-    {
-      "id": "service-history",
-      "total": 1013,
-      "accepted": 547,
-      "remaining": 466,
-      "note": "Historical service rows, not the number of mappings or expected-domain cells",
-      "evidence": [
-        "doc/2026-11-04-stage1.2-query-reki/task-01-coverage.md",
-        "stage1.2/task-07e6/coverage.json",
-        "stage1.2/task-n06-01/coverage.json",
-        "stage1.2/task-n06-02/coverage.json",
-        "stage1.2/task-n06-03/coverage.json",
-        "stage1.2/task-n06-04/coverage.json",
-        "stage1.2/task-n06-05/coverage.json"
-      ]
-    },
-    {
-      "id": "service-quality",
-      "remaining": 485,
-      "parts": {
-        "07E14": 2,
-        "07E17": 64,
-        "07E18": 419
-      },
-      "note": "Independent quality cells, not additional historical rows"
-    },
-    {
-      "id": "native-definition-gaps",
-      "groups": {
-        "06J": 95,
-        "06K": 48
-      },
-      "note": "Original group obligations are not reduced by browser projection"
-    },
-    {
-      "id": "modelvar",
-      "task": "N27",
-      "status": "deferred",
-      "note": "Explicit user deferral; not current browser support or an automatic reopen"
-    },
-    {
-      "id": "legacy-authoring",
-      "status": "not_fully_reaudited",
-      "note": "Archived 233 active parameters and 803 mappings are not automatically current support"
-    }
-  ]
+  "schema_version": 1,
+  "version": "8"
 }
