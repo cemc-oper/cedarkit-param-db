@@ -7,18 +7,18 @@
       "cemc-orig-task-n04b-01.json"
     ],
     "native_base": "cemc-orig-batch1.json",
-    "service": "cmadaas-task-t02.json"
+    "service": "cmadaas-task-t03.json"
   },
   "catalog": {
     "api_version": "cedarkit.catalog/v1",
     "id": "reki.cemc-catalog",
-    "sha256": "120fca944a52f750de33ba6302bca177da24f1085dde892f60a3767981bb3f68",
-    "version": "47"
+    "sha256": "ac46ce6340dfcf5c659d858937b761b79372d0ba3f6cdc694233360d2444f79e",
+    "version": "48"
   },
   "id": "cedarkit.browser.reviewed-current",
   "remaining_migration_obligations": [
     {
-      "accepted": 557,
+      "accepted": 563,
       "evidence": [
         "doc/2026-11-04-stage1.2-query-reki/task-01-coverage.md",
         "stage1.2/task-07e6/coverage.json",
@@ -27,11 +27,12 @@
         "stage1.2/task-n06-03/coverage.json",
         "stage1.2/task-n06-04/coverage.json",
         "stage1.2/task-n06-05/coverage.json",
-        "stage1.2/task-t02/coverage.json"
+        "stage1.2/task-t02/coverage.json",
+        "stage1.2/task-t03/coverage.json"
       ],
       "id": "service-history",
       "note": "Historical service rows, not the number of mappings or expected-domain cells",
-      "remaining": 456,
+      "remaining": 450,
       "total": 1013
     },
     {
@@ -62,6 +63,14 @@
       "id": "legacy-authoring",
       "note": "Archived 233 active parameters and 803 mappings are not automatically current support",
       "status": "not_fully_reaudited"
+    },
+    {
+      "evidence": [
+        "stage1.2/task-t03/results/row-review.json#B28"
+      ],
+      "id": "soil-temperature-availability",
+      "note": "Four own-product30-60cmlayer45 cells rejected inT03;separate from485original quality cells and the2T02control observations",
+      "remaining": 4
     }
   ],
   "resources": [
@@ -199,14 +208,14 @@
         "backend": "cmadaas",
         "file": "current-cmadaas-mappings.json",
         "id": "cedarkit.mappings.cmadaas",
-        "sha256": "62e81ad567986c3cce07a37aecce198a2fcfc8f4ffe18ac5b4dd729409705b9d",
-        "version": "14"
+        "sha256": "9150b8c12ffc80085ead792bb9aa2bf6b0a7783f04593e718efa4dcb9cd42c9c",
+        "version": "15"
       },
       "parameters": {
         "file": "current-cmadaas-parameters.json",
         "id": "cedarkit.parameters.cmadaas",
-        "sha256": "270258b3fa619dc5b1d3a76c076cc3ac9c78653cb4bac45ddc5091304b495794",
-        "version": "12"
+        "sha256": "3e8fe50701bfcbd82f8d29828c5bf493505b5cb69e7553afd88acc4335a1e2dc",
+        "version": "13"
       }
     }
   ],
@@ -216,5 +225,5 @@
     "mappings": "reviewed_mapping_with_references"
   },
   "schema_version": 1,
-  "version": "8"
+  "version": "9"
 }
