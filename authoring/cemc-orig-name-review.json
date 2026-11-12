@@ -1,0 +1,873 @@
+{
+  "schema_version": 1,
+  "id": "cedarkit.cemc-orig-name-review",
+  "evidence": "doc/2026-11-11-stage1.3-query-reki/evidence/orig-06/review.json",
+  "published_parameter_policy": "browser-current.json",
+  "parameters": [
+    {
+      "parameter_id": "cedarkit.bti",
+      "name": "bti",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "bti",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:22",
+        "meso1:16",
+        "meso3:18",
+        "tym:10"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.btv",
+      "name": "btv",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "btv",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:21",
+        "meso1:15",
+        "meso3:17",
+        "tym:09"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.cdbzmax-1",
+      "name": "cdbzmax#1",
+      "name_basis": "current_authoring",
+      "historical_name": "cdbzmax#1",
+      "existing_scopes": {
+        "meso1": {
+          "name": "cdbzmax#1",
+          "aliases": []
+        },
+        "meso3": {
+          "name": "cdbzmax#1",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso1:22",
+        "meso3:27"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.dbzmaxh",
+      "name": "dbzmaxh",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "dbzmaxh",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso1:23",
+        "meso3:28"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.fogod",
+      "name": "fogod",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "fogod",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:29",
+        "tym:14"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.glw",
+      "name": "glw",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "glw",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso1:17",
+        "meso3:19",
+        "tym:11"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gsw",
+      "name": "gsw",
+      "name_basis": "current_authoring",
+      "historical_name": "gsw",
+      "existing_scopes": {
+        "cmadaas": {
+          "name": "gsw",
+          "aliases": [
+            "ssr"
+          ]
+        },
+        "gfs": {
+          "name": "gsw",
+          "aliases": [
+            "ssr"
+          ]
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso1:14",
+        "meso3:16",
+        "tym:08"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gulw",
+      "name": "gulw",
+      "name_basis": "current_authoring",
+      "historical_name": "gulw",
+      "existing_scopes": {
+        "cmadaas": {
+          "name": "gulw",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:23"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gust",
+      "name": "gust",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "gust",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:13",
+        "meso1:11",
+        "meso3:11",
+        "tym:07",
+        "geps:0-2-22:initial:control",
+        "geps:0-2-22:initial:positive",
+        "geps:0-2-22:initial:negative",
+        "geps:0-2-22:forecast:control",
+        "geps:0-2-22:forecast:positive",
+        "geps:0-2-22:forecast:negative",
+        "reps:0-2-22:initial:control",
+        "reps:0-2-22:initial:positive",
+        "reps:0-2-22:initial:negative",
+        "reps:0-2-22:forecast:control",
+        "reps:0-2-22:forecast:positive",
+        "reps:0-2-22:forecast:negative"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gusw",
+      "name": "gusw",
+      "name_basis": "current_authoring",
+      "historical_name": "gusw",
+      "existing_scopes": {
+        "cmadaas": {
+          "name": "gusw",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:19"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.hfx",
+      "name": "hfx",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "hfx",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:30",
+        "meso3:29",
+        "tym:15"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.hi",
+      "name": "hi",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "hi",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:12",
+        "meso1:06",
+        "meso3:06",
+        "geps:0-1-239:initial:control",
+        "geps:0-1-239:initial:positive",
+        "geps:0-1-239:initial:negative",
+        "geps:0-1-239:forecast:control",
+        "geps:0-1-239:forecast:positive",
+        "geps:0-1-239:forecast:negative",
+        "reps:0-1-239:initial:control",
+        "reps:0-1-239:initial:positive",
+        "reps:0-1-239:initial:negative",
+        "reps:0-1-239:forecast:control",
+        "reps:0-1-239:forecast:positive",
+        "reps:0-1-239:forecast:negative"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.kidx",
+      "name": "kidx",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "kidx",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:28",
+        "meso1:20",
+        "meso3:22",
+        "tym:12",
+        "geps:0-7-2:initial:control",
+        "geps:0-7-2:initial:positive",
+        "geps:0-7-2:initial:negative",
+        "geps:0-7-2:forecast:control",
+        "geps:0-7-2:forecast:positive",
+        "geps:0-7-2:forecast:negative",
+        "reps:0-7-2:initial:control",
+        "reps:0-7-2:initial:positive",
+        "reps:0-7-2:initial:negative",
+        "reps:0-7-2:forecast:control",
+        "reps:0-7-2:forecast:positive",
+        "reps:0-7-2:forecast:negative"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.light",
+      "name": "light",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "light",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:11"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.mn2t",
+      "name": "tmin2m",
+      "name_basis": "producer_qualified_2m_extreme",
+      "historical_name": "mn2t",
+      "existing_scopes": {},
+      "new_aliases_by_product": {
+        "gfs": [
+          "mn2t"
+        ]
+      },
+      "groups": [
+        "gfs:02"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.mpv1",
+      "name": "mpv1",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "mpv1",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:15"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.mx2t",
+      "name": "tmax2m",
+      "name_basis": "producer_qualified_2m_extreme",
+      "historical_name": "mx2t",
+      "existing_scopes": {},
+      "new_aliases_by_product": {
+        "gfs": [
+          "mx2t"
+        ]
+      },
+      "groups": [
+        "gfs:01"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.nsss",
+      "name": "nsss",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "nsss",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:17"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.pc",
+      "name": "pc",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "pc",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:08",
+        "meso1:05",
+        "meso3:05"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.precitype",
+      "name": "precitype",
+      "name_basis": "current_authoring",
+      "historical_name": "precitype",
+      "existing_scopes": {
+        "cmadaas": {
+          "name": "precitype",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:05",
+        "meso1:03",
+        "meso3:02"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.pwat",
+      "name": "pwat",
+      "name_basis": "current_authoring",
+      "historical_name": "pwat",
+      "existing_scopes": {
+        "cmadaas": {
+          "name": "pwat",
+          "aliases": []
+        },
+        "geps": {
+          "name": "pwat",
+          "aliases": []
+        },
+        "gfs": {
+          "name": "pwat",
+          "aliases": []
+        },
+        "meso1": {
+          "name": "pwat",
+          "aliases": []
+        },
+        "meso3": {
+          "name": "pwat",
+          "aliases": []
+        },
+        "tym": {
+          "name": "pwat",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "reps:0-1-3:initial:control",
+        "reps:0-1-3:initial:positive",
+        "reps:0-1-3:initial:negative",
+        "reps:0-1-3:forecast:control",
+        "reps:0-1-3:forecast:positive",
+        "reps:0-1-3:forecast:negative"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.qdiv",
+      "name": "qdiv",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "qdiv",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:07",
+        "meso3:04",
+        "tym:03"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rain5max",
+      "name": "rain5max",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "rain5max",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso1:07",
+        "meso3:07"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rhmax2m",
+      "name": "rhmax2m",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "rhmax2m",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:09"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rhmin2m",
+      "name": "rhmin2m",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "rhmin2m",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:10"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.ripbl",
+      "name": "ripbl",
+      "name_basis": "current_authoring",
+      "historical_name": "ripbl",
+      "existing_scopes": {
+        "cmadaas": {
+          "name": "ripbl",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso3:24"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.risfc",
+      "name": "risfc",
+      "name_basis": "current_authoring",
+      "historical_name": "risfc",
+      "existing_scopes": {
+        "cmadaas": {
+          "name": "risfc",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso3:23"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.sf",
+      "name": "sf",
+      "name_basis": "current_authoring",
+      "historical_name": "sf",
+      "existing_scopes": {
+        "cmadaas": {
+          "name": "sf",
+          "aliases": [
+            "asnow",
+            "snow"
+          ]
+        },
+        "geps": {
+          "name": "sf",
+          "aliases": [
+            "asnow",
+            "snow"
+          ]
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:06",
+        "meso1:04",
+        "meso3:03",
+        "tym:02"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.shrmax-0-600",
+      "name": "shrmax(0-600)",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "shrmax(0-600)",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso1:12",
+        "meso3:14"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.shrmaxdir-0-600",
+      "name": "shrmaxdir(0-600)",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "shrmaxdir(0-600)",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso1:13",
+        "meso3:15"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.ssi",
+      "name": "ssi",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "ssi",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso3:26"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.tadv",
+      "name": "tadv",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "tadv",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:04",
+        "meso1:01",
+        "meso3:01",
+        "tym:01"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.tulw",
+      "name": "tulw",
+      "name_basis": "current_authoring",
+      "historical_name": "tulw",
+      "existing_scopes": {
+        "cmadaas": {
+          "name": "tulw",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:24"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.tusw",
+      "name": "tusw",
+      "name_basis": "current_authoring",
+      "historical_name": "tusw",
+      "existing_scopes": {
+        "cmadaas": {
+          "name": "tusw",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:20"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.u10mmax-1",
+      "name": "u10mmax#1",
+      "name_basis": "current_authoring",
+      "historical_name": "u10mmax#1",
+      "existing_scopes": {
+        "meso1": {
+          "name": "u10mmax#1",
+          "aliases": []
+        },
+        "meso3": {
+          "name": "u10mmax#1",
+          "aliases": []
+        },
+        "tym": {
+          "name": "u10mmax#1",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso1:08",
+        "meso3:08",
+        "tym:04"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.uhmax",
+      "name": "uhmax",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "uhmax",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "tym:13"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.uhmax-2000-5000",
+      "name": "uhmax(2000-5000)",
+      "name_basis": "current_authoring",
+      "historical_name": "uhmax(2000-5000)",
+      "existing_scopes": {
+        "meso1": {
+          "name": "uhmax(2000-5000)",
+          "aliases": []
+        },
+        "meso3": {
+          "name": "uhmax(2000-5000)",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso1:21",
+        "meso3:25"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.v10mmax-1",
+      "name": "v10mmax#1",
+      "name_basis": "current_authoring",
+      "historical_name": "v10mmax#1",
+      "existing_scopes": {
+        "meso1": {
+          "name": "v10mmax#1",
+          "aliases": []
+        },
+        "meso3": {
+          "name": "v10mmax#1",
+          "aliases": []
+        },
+        "tym": {
+          "name": "v10mmax#1",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso1:09",
+        "meso3:09",
+        "tym:05"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.voradv",
+      "name": "voradv",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "voradv",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:14",
+        "meso3:12"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.wess",
+      "name": "wess",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "wess",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:16"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.wi",
+      "name": "wi",
+      "name_basis": "producer_and_historical_stable_id",
+      "historical_name": "wi",
+      "existing_scopes": {},
+      "new_aliases_by_product": {},
+      "groups": [
+        "gfs:18",
+        "meso3:13"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.wmax-1",
+      "name": "wmax#1",
+      "name_basis": "current_authoring",
+      "historical_name": "wmax#1",
+      "existing_scopes": {
+        "meso1": {
+          "name": "wmax#1",
+          "aliases": []
+        },
+        "meso3": {
+          "name": "wmax#1",
+          "aliases": []
+        },
+        "tym": {
+          "name": "wmax#1",
+          "aliases": []
+        }
+      },
+      "new_aliases_by_product": {},
+      "groups": [
+        "meso1:10",
+        "meso3:10",
+        "tym:06"
+      ]
+    }
+  ],
+  "support_definition_names_for_publication": [
+    {
+      "parameter_id": "cedarkit.fogod.any",
+      "name": "cedarkit.fogod.any",
+      "public_parameter_ids": [
+        "cedarkit.fogod"
+      ],
+      "currently_defined_in": []
+    },
+    {
+      "parameter_id": "cedarkit.gulw.any",
+      "name": "cedarkit.gulw.any",
+      "public_parameter_ids": [
+        "cedarkit.gulw"
+      ],
+      "currently_defined_in": [
+        "cmadaas"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gusw.any",
+      "name": "cedarkit.gusw.any",
+      "public_parameter_ids": [
+        "cedarkit.gusw"
+      ],
+      "currently_defined_in": [
+        "cmadaas"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.hfx.any",
+      "name": "cedarkit.hfx.any",
+      "public_parameter_ids": [
+        "cedarkit.hfx"
+      ],
+      "currently_defined_in": []
+    },
+    {
+      "parameter_id": "cedarkit.hi.any",
+      "name": "cedarkit.hi.any",
+      "public_parameter_ids": [
+        "cedarkit.hi"
+      ],
+      "currently_defined_in": []
+    },
+    {
+      "parameter_id": "cedarkit.kidx.any",
+      "name": "cedarkit.kidx.any",
+      "public_parameter_ids": [
+        "cedarkit.kidx"
+      ],
+      "currently_defined_in": []
+    },
+    {
+      "parameter_id": "cedarkit.mn2t.any",
+      "name": "cedarkit.mn2t.any",
+      "public_parameter_ids": [
+        "cedarkit.mn2t"
+      ],
+      "currently_defined_in": []
+    },
+    {
+      "parameter_id": "cedarkit.mx2t.any",
+      "name": "cedarkit.mx2t.any",
+      "public_parameter_ids": [
+        "cedarkit.mx2t"
+      ],
+      "currently_defined_in": []
+    },
+    {
+      "parameter_id": "cedarkit.nsss.any",
+      "name": "cedarkit.nsss.any",
+      "public_parameter_ids": [
+        "cedarkit.nsss"
+      ],
+      "currently_defined_in": []
+    },
+    {
+      "parameter_id": "cedarkit.pc.any",
+      "name": "cedarkit.pc.any",
+      "public_parameter_ids": [
+        "cedarkit.pc"
+      ],
+      "currently_defined_in": []
+    },
+    {
+      "parameter_id": "cedarkit.pwat.any",
+      "name": "cedarkit.pwat.any",
+      "public_parameter_ids": [
+        "cedarkit.pwat"
+      ],
+      "currently_defined_in": [
+        "cmadaas",
+        "geps",
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rain5max.any",
+      "name": "cedarkit.rain5max.any",
+      "public_parameter_ids": [
+        "cedarkit.rain5max"
+      ],
+      "currently_defined_in": []
+    },
+    {
+      "parameter_id": "cedarkit.sf.any",
+      "name": "cedarkit.sf.any",
+      "public_parameter_ids": [
+        "cedarkit.sf"
+      ],
+      "currently_defined_in": [
+        "cmadaas",
+        "geps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.uhmax.any",
+      "name": "cedarkit.uhmax.any",
+      "public_parameter_ids": [
+        "cedarkit.uhmax"
+      ],
+      "currently_defined_in": [
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.wess.any",
+      "name": "cedarkit.wess.any",
+      "public_parameter_ids": [
+        "cedarkit.wess"
+      ],
+      "currently_defined_in": []
+    },
+    {
+      "parameter_id": "cedarkit.wi.any",
+      "name": "cedarkit.wi.any",
+      "public_parameter_ids": [
+        "cedarkit.wi"
+      ],
+      "currently_defined_in": []
+    }
+  ],
+  "pending_identity": [
+    "gfs:25",
+    "gfs:26",
+    "gfs:27",
+    "meso1:18",
+    "meso1:19",
+    "meso3:20",
+    "meso3:21",
+    "reps:0-1-29:forecast:control",
+    "reps:0-1-29:forecast:negative",
+    "reps:0-1-29:forecast:positive",
+    "reps:0-1-29:initial:control",
+    "reps:0-1-29:initial:negative",
+    "reps:0-1-29:initial:positive"
+  ]
+}
