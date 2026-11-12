@@ -14,7 +14,7 @@ reki owns the catalog, including layout and the two finite expected-domain sampl
 
 ## Reviewed browser snapshot set (N03A and subsequent candidates)
 
-[authoring/browser-current.json](authoring/browser-current.json) selects the six
+[authoring/browser-current.json](authoring/browser-current.json) selects the
 reviewed inputs that reconstruct the current six ORIG resource pairs and the
 latest cumulative CMADaaS pair. With `cedarkit-query` 0.2.1 installed, generate a
 new schema-4 browser bundle from this repository:
@@ -63,8 +63,8 @@ python -m pytest tests/test_export_browser_snapshot.py -q
 
 The historical revision 2 policy records the N04B-01 resource candidate
 (catalog v41, MESO-1KM parameters v9 and mappings v12). That revision 2 group
-was accepted by N10I-01 with its frozen runtime cohort. The current T03 group
-uses revision 9 and is described below. No remote publication is implied. Revision 1's policy is retained
+was accepted by N10I-01 with its frozen runtime cohort. The T03 group used
+revision 9 and is described below. Revision 1's policy is retained
 byte-for-byte in
 [authoring/browser-reviewed-v1.json](authoring/browser-reviewed-v1.json). To
 reconstruct that historical group, select this policy together with its original
@@ -381,3 +381,22 @@ QFLX覆盖GFS／MESO‑3KM／TYM分析及预报六行，使用各自同文件Q�
 规范身份为明确上下边界：GFS的0–10／10–40／40–100／100–200cm，MESO‑3KM／TYM已核0–10／10–30／60–100cm。服务中点只作为本产品联合键，不进行通用106单位改写。实际范围限2026-11-02 12UTC、39–41N／115–117E、分析0h／预报6h。六行历史土温按明确有限层域交付，30–60cm层45四个失败单元独立保留；GFS分析与TYM预报旧错误层标保留原值并记录实测更正。
 
 土壤湿度kg/kg与产品m3/m3的冲突不靠相似数值换算，六行待证；1KM四条土壤行缺自身载体与可读服务。历史563已验／450未验，原485质量单元、T02两个控制观察及T03四个土温单元独立计数，本地95／集合48组不变。[逐项核查](../../doc/2026-11-04-stage1.2-query-reki/evidence/task-t03/README.md)
+
+## ORIG-09 native release
+
+[The ORIG-09 release](authoring/cemc-orig-task-orig09.json) applies the ORIG-06 naming decisions to the published native definitions and binds the ORIG-07 and ORIG-08 additions to their reviewed cycles, forecast hours, and ensemble members. Catalog v50 pins six ORIG resource pairs. Browser revision 11 reconstructs these same resource bytes from the authoring inputs.
+
+Run the native export from this repository with `cedarkit-query` 0.2.1. A catalog v49 input produces the release, and a catalog v50 input reproduces it byte for byte.
+
+```sh
+python tools/export_cemc_orig.py \
+  --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json \
+  --additions authoring/cemc-orig-task06b.json \
+  --additions authoring/cemc-orig-task06c.json \
+  --additions authoring/cemc-orig-task06i.json \
+  --additions authoring/cemc-orig-task-n04b-01.json \
+  --additions authoring/cemc-orig-task-orig07.json \
+  --additions authoring/cemc-orig-task-orig08.json \
+  --release authoring/cemc-orig-task-orig09.json \
+  --output /tmp/cemc-orig-v50
+```

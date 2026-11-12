@@ -4,16 +4,19 @@
       "cemc-orig-task06b.json",
       "cemc-orig-task06c.json",
       "cemc-orig-task06i.json",
-      "cemc-orig-task-n04b-01.json"
+      "cemc-orig-task-n04b-01.json",
+      "cemc-orig-task-orig07.json",
+      "cemc-orig-task-orig08.json"
     ],
     "native_base": "cemc-orig-batch1.json",
+    "native_release": "cemc-orig-task-orig09.json",
     "service": "cmadaas-task-t05.json"
   },
   "catalog": {
     "api_version": "cedarkit.catalog/v1",
     "id": "reki.cemc-catalog",
-    "sha256": "c856ee3dfd9080f2e3763529360a4d6c13ad82ae7dace876b32e64c5e6237040",
-    "version": "49"
+    "sha256": "1efc87a2cb7413b5aebfb821a5f03f33de1669af8bf9386349ccbb83da303bda",
+    "version": "50"
   },
   "id": "cedarkit.browser.reviewed-current",
   "remaining_migration_obligations": [
@@ -92,14 +95,14 @@
         "backend": "grib2",
         "file": "current-gfs-mappings.json",
         "id": "cedarkit.grib2.cma-gfs.current",
-        "sha256": "734070cae6dcf55f9ad874ad4b22d6960c9056a92133e11bee8ed7b15b347bf8",
-        "version": "20"
+        "sha256": "b19b4e3149b5b81e00575a3260b67170c2d51cdb9d5971c82b86ebaffc831149",
+        "version": "21"
       },
       "parameters": {
         "file": "current-gfs-parameters.json",
         "id": "cedarkit.parameters.cma-gfs.current",
-        "sha256": "a22af7aaacbbde834c007b2ab95343985c141bebd460734d5bcb02e8bd54b21d",
-        "version": "15"
+        "sha256": "e2d6c4dd63d49e71f4eae84da28af6ca00ff4e981a8bd633574f8ddaa10e7d48",
+        "version": "16"
       }
     },
     {
@@ -117,8 +120,8 @@
       "parameters": {
         "file": "current-meso1-parameters.json",
         "id": "cedarkit.parameters.cma-meso-1km.current",
-        "sha256": "0ac40324a25bbb37cee54a3ebda2dc0f6378a78a7eeb5693506385d446ed7c24",
-        "version": "9"
+        "sha256": "c11419fad29200164e64a606049cb57e0c1f41305b676d59d437beb56e20556a",
+        "version": "10"
       }
     },
     {
@@ -136,8 +139,8 @@
       "parameters": {
         "file": "current-meso3-parameters.json",
         "id": "cedarkit.parameters.cma-meso-3km.current",
-        "sha256": "5ca2afcd4c45217707d8531cf9c240476038fa771219e5d177769b9fa56ab03f",
-        "version": "10"
+        "sha256": "449a7b416bdbc354a568330e3494ffde498301f1e24b9c365046421ea84b3bcf",
+        "version": "11"
       }
     },
     {
@@ -155,8 +158,8 @@
       "parameters": {
         "file": "current-tym-parameters.json",
         "id": "cedarkit.parameters.cma-tym.current",
-        "sha256": "3360430a860fd89b0f10172ae8e6543566ce8025da6e3d3c8ae83e65f6964596",
-        "version": "9"
+        "sha256": "2248f106f2c53a5d9032744b42d62d8a462ba7d8b6171bea37335c8aa933c319",
+        "version": "10"
       }
     },
     {
@@ -168,14 +171,14 @@
         "backend": "grib2",
         "file": "current-geps-mappings.json",
         "id": "cedarkit.grib2.cma-geps.current",
-        "sha256": "86f0c92308bfda9d589a7e377649728b8f764355b6e5f40ac5f0622bc7cb782e",
-        "version": "9"
+        "sha256": "e60de3767eba2c9385feab8a34c9bc0cb1f6d2d232859cf583d39bb87f7de825",
+        "version": "10"
       },
       "parameters": {
         "file": "current-geps-parameters.json",
         "id": "cedarkit.parameters.cma-geps.current",
-        "sha256": "767dba673ebae8dc8b51bbd82e7ba5d2a68c40a31388293dc2c20cbebbcaffa4",
-        "version": "6"
+        "sha256": "4f7f84aed4cbf5a321d8b3fd97e7ee93501b877e42e14d68ceb4e6f1895436d1",
+        "version": "7"
       }
     },
     {
@@ -187,14 +190,14 @@
         "backend": "grib2",
         "file": "current-reps-mappings.json",
         "id": "cedarkit.grib2.cma-reps.current",
-        "sha256": "004d36b69a20a904b17247bbb63891f89e3ecdf051940a412832d018f2a68872",
-        "version": "8"
+        "sha256": "fbe8f552b85bd0070080e1ad817a851da8e37150f8eabbff95aa471fdf928e69",
+        "version": "9"
       },
       "parameters": {
         "file": "current-reps-parameters.json",
         "id": "cedarkit.parameters.cma-reps.current",
-        "sha256": "5dc8cf8b751d1982a506cd5b115d69ab9aec9ed3d6d8d8a00f60a75c02f51859",
-        "version": "5"
+        "sha256": "41e8bb6c1c4ece7e2ba12be82247f3c2c29f470fff1c23b3c62fc4b74bc25157",
+        "version": "6"
       }
     },
     {
@@ -234,5 +237,5 @@
     "mappings": "reviewed_mapping_with_references"
   },
   "schema_version": 1,
-  "version": "10"
+  "version": "11"
 }

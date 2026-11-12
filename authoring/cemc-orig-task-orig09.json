@@ -1,0 +1,219 @@
+{
+  "catalog_version": "50",
+  "id": "stage1.3-orig09",
+  "name_review": "cemc-orig-name-review.json",
+  "parameter_versions": {
+    "geps": "7",
+    "gfs": "16",
+    "meso1": "10",
+    "meso3": "11",
+    "tym": "10"
+  },
+  "products": [
+    {
+      "dataset": "cma_gfs_gmf",
+      "product": "orig",
+      "product_version": "current",
+      "provides": [
+        {
+          "level_type": "surface",
+          "parameter": "cedarkit.gusw",
+          "step": [
+            "PT0H",
+            "PT3H",
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "level_type": "atmosphere_top",
+          "parameter": "cedarkit.tusw",
+          "step": [
+            "PT0H",
+            "PT3H",
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "level_type": "surface",
+          "parameter": "cedarkit.gulw",
+          "step": [
+            "PT0H",
+            "PT3H",
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "level_type": "atmosphere_top",
+          "parameter": "cedarkit.tulw",
+          "step": [
+            "PT0H",
+            "PT3H",
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "dataset": "cma_geps",
+      "product": "orig",
+      "product_version": "current",
+      "provides": [
+        {
+          "level_type": "mean_sea_level",
+          "member": 0,
+          "member_role": "control",
+          "parameter": "cedarkit.kidx",
+          "step": "PT0H",
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "level_type": "mean_sea_level",
+          "member": 0,
+          "member_role": "control",
+          "parameter": "cedarkit.kidx",
+          "step": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "level_type": "mean_sea_level",
+          "member": 1,
+          "member_role": "perturbation",
+          "parameter": "cedarkit.kidx",
+          "step": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "level_type": "mean_sea_level",
+          "member": [
+            2,
+            30
+          ],
+          "member_role": "perturbation",
+          "parameter": "cedarkit.kidx",
+          "step": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "dataset": "cma_reps",
+      "product": "orig",
+      "product_version": "current",
+      "provides": [
+        {
+          "level_type": "entire_atmosphere",
+          "member": 0,
+          "member_role": "control",
+          "parameter": "cedarkit.pwat",
+          "step": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "level_type": "entire_atmosphere",
+          "member": 1,
+          "member_role": "perturbation",
+          "parameter": "cedarkit.pwat",
+          "step": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "level_type": "entire_atmosphere",
+          "member": [
+            2,
+            14
+          ],
+          "member_role": "perturbation",
+          "parameter": "cedarkit.pwat",
+          "step": "PT6H",
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "level_type": "mean_sea_level",
+          "member": 0,
+          "member_role": "control",
+          "parameter": "cedarkit.kidx",
+          "step": "PT0H",
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "level_type": "mean_sea_level",
+          "member": 1,
+          "member_role": "perturbation",
+          "parameter": "cedarkit.kidx",
+          "step": "PT0H",
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "level_type": "mean_sea_level",
+          "member": [
+            2,
+            14
+          ],
+          "member_role": "perturbation",
+          "parameter": "cedarkit.kidx",
+          "step": "PT0H",
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "level_type": "mean_sea_level",
+          "member": 0,
+          "member_role": "control",
+          "parameter": "cedarkit.kidx",
+          "step": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "level_type": "mean_sea_level",
+          "member": 1,
+          "member_role": "perturbation",
+          "parameter": "cedarkit.kidx",
+          "step": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "level_type": "mean_sea_level",
+          "member": [
+            2,
+            14
+          ],
+          "member_role": "perturbation",
+          "parameter": "cedarkit.kidx",
+          "step": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T06:00:00Z"
+        }
+      ]
+    }
+  ]
+}

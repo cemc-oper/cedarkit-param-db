@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 import re
+from runpy import run_path
 import shutil
 import tempfile
 
@@ -197,6 +198,11 @@ def build_bundle(*, author, policy, catalog, runtime_dir=None, legacy_snapshot=N
                         raise ValueError("authoring increments require newer resource revisions")
                     resource["version"] = extra["version"]
                     resource[kind].extend(extra[kind])
+        if release_name := policy_doc["authoring"].get("native_release"):
+            release = read_author(release_name)
+            review = read_author(release["name_review"])
+            helpers = run_path(str(Path(__file__).with_name("cemc_orig_release.py")))
+            helpers["apply_name_review"](native, release, review)
     service = read_author(policy_doc["authoring"]["service"]) if any(
         row["mappings"]["backend"] == "cmadaas" for row in selected) else None
     datasets = {row["id"]: row for row in catalog_doc["datasets"]}
