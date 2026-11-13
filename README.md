@@ -400,3 +400,9 @@ python tools/export_cemc_orig.py \
   --release authoring/cemc-orig-task-orig09.json \
   --output /tmp/cemc-orig-v50
 ```
+
+## Stage 1.4 ORIG naming decisions
+
+The [stage 1.4 naming review](authoring/cemc-orig-stage1.4-name-review.json) records the canonical names, stable IDs, and scoped alias decisions for 455 of the 463 frozen ORIG carrier groups. `groups_by_product` links each decision to the carrier IDs in the stage evidence. `definition_source_by_product` identifies the v50 ORIG definition or archived definition that supplies the stable ID for each product. The review also lists inherited definitions that need a scoped name change, existing aliases that move to the mapped definition, and the eight groups awaiting evidence.
+
+Task 1.4-05 uses the approved decisions to build product mappings. Task 1.4-07 exports the completed definitions and mappings in a new resource revision. The [per-carrier decisions and validation](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-03/README.md) include the evidence and follow-up for each group.

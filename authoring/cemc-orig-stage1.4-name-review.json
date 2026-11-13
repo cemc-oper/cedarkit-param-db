@@ -1,0 +1,3822 @@
+{
+  "schema_version": 1,
+  "id": "cedarkit.cemc-orig-stage1.4-name-review",
+  "task": "1.4-03",
+  "date": "2026-11-13",
+  "scope": {
+    "product": "orig",
+    "product_version": "current",
+    "datasets": {
+      "gfs": "cma_gfs_gmf",
+      "meso1": "cma_meso_1km",
+      "meso3": "cma_meso_3km",
+      "tym": "cma_tym",
+      "geps": "cma_geps",
+      "reps": "cma_reps"
+    }
+  },
+  "inputs": {
+    "frozen_carriers": {
+      "path": "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-01/carriers.json",
+      "sha256": "cee9377aa865e6d06428aadbeb013cd0d77984bcf843121fc8468824a217408e"
+    },
+    "runtime_catalog_baseline": {
+      "path": "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-01/baseline.json",
+      "sha256": "2104b774feed23a574b68a6714d667cdf724bc70a2ee02e67afde9cd0bed2db2"
+    },
+    "producer_review": {
+      "path": "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-02/carrier-review.jsonl.gz",
+      "sha256": "24a53e03335b2b7485b79f9ff8b913c595f104e8b8f305b6ce27a58906130c8e"
+    },
+    "producer_conflicts": {
+      "path": "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-02/conflicts.json",
+      "sha256": "16c64dc38cbe9c84ac196303eccd9c403d83f1276dd64f3d7a96cbc73cfb3203"
+    },
+    "current_parameter_policy": {
+      "path": "data/cedarkit-param-db/authoring/browser-current.json",
+      "sha256": "c512841ee038a4f026165396d8b7ce916eb35e9223d3c880f267cdff7289bf22"
+    },
+    "prior_orig_name_review": {
+      "path": "data/cedarkit-param-db/authoring/cemc-orig-name-review.json",
+      "sha256": "e5f7a0969472a177b1bc08fa46b22b3db7ed7f716c01af414126ec71b4ce286a"
+    },
+    "archived_parameter_db": {
+      "path": "doc/2026-10-13-stage1.1-query-reki/archive/pre-native-2026-11-04/review-schema4.db",
+      "sha256": "5a0bcda353fc09996a765342ac3afe5cb31de098d2fdb7ebd0a12f6af49fc8d7"
+    },
+    "notebook_name_checks": {
+      "path": "doc/2026-11-11-stage1.3-query-reki/evidence/orig-04/historical-assertions.jsonl.gz",
+      "sha256": "72de17fb76c9e937a898417874654d6ce6dbce1db4ebe6a92e41660f9e847be2"
+    }
+  },
+  "parameters": [
+    {
+      "parameter_id": "cedarkit.albedo",
+      "name": "albedo",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-039"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.bli",
+      "name": "bli",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-106"
+        ],
+        "meso1": [
+          "meso1-078"
+        ],
+        "meso3": [
+          "meso3-096"
+        ],
+        "tym": [
+          "tym-061"
+        ],
+        "geps": [
+          "geps-028"
+        ],
+        "reps": [
+          "reps-025"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.bti",
+      "name": "bti",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db",
+        "tym": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-124"
+        ],
+        "meso1": [
+          "meso1-091"
+        ],
+        "meso3": [
+          "meso3-114"
+        ],
+        "tym": [
+          "tym-067"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.btv",
+      "name": "btv",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db",
+        "tym": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-125"
+        ],
+        "meso1": [
+          "meso1-092"
+        ],
+        "meso3": [
+          "meso3-115"
+        ],
+        "tym": [
+          "tym-068"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.cape",
+      "name": "cape",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-098"
+        ],
+        "meso1": [
+          "meso1-070"
+        ],
+        "meso3": [
+          "meso3-088"
+        ],
+        "tym": [
+          "tym-056"
+        ],
+        "geps": [
+          "geps-022"
+        ],
+        "reps": [
+          "reps-019"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.cc",
+      "name": "cc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-075"
+        ],
+        "meso1": [
+          "meso1-060"
+        ],
+        "meso3": [
+          "meso3-065"
+        ],
+        "tym": [
+          "tym-035"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.cdbz",
+      "name": "cdbz",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-108"
+        ],
+        "meso1": [
+          "meso1-018"
+        ],
+        "meso3": [
+          "meso3-021"
+        ],
+        "tym": [
+          "tym-017"
+        ],
+        "geps": [
+          "geps-029"
+        ],
+        "reps": [
+          "reps-008"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.cdbzmax-1",
+      "name": "cdbzmax#1",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-022"
+        ],
+        "meso3": [
+          "meso3-025"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.ceiling",
+      "name": "ceiling",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-123"
+        ],
+        "meso3": [
+          "meso3-113"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.cin",
+      "name": "cin",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-099"
+        ],
+        "meso1": [
+          "meso1-071"
+        ],
+        "meso3": [
+          "meso3-089"
+        ],
+        "tym": [
+          "tym-057"
+        ],
+        "geps": [
+          "geps-023"
+        ],
+        "reps": [
+          "reps-020"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.dbz",
+      "name": "dbz",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-107"
+        ],
+        "meso1": [
+          "meso1-079"
+        ],
+        "meso3": [
+          "meso3-097"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.dbzmaxh",
+      "name": "dbzmaxh",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-028"
+        ],
+        "meso3": [
+          "meso3-033"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.dcape",
+      "name": "dcape",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-102"
+        ],
+        "meso1": [
+          "meso1-074"
+        ],
+        "meso3": [
+          "meso3-092"
+        ],
+        "geps": [
+          "geps-024"
+        ],
+        "reps": [
+          "reps-021"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.div",
+      "name": "div",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-087"
+        ],
+        "meso1": [
+          "meso1-064"
+        ],
+        "meso3": [
+          "meso3-077"
+        ],
+        "tym": [
+          "tym-047"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.echotop",
+      "name": "echotop",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-023"
+        ],
+        "meso3": [
+          "meso3-026"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.fogh",
+      "name": "fogh",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-117"
+        ],
+        "tym": [
+          "tym-064"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.fogod",
+      "name": "fogod",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "tym": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-118"
+        ],
+        "tym": [
+          "tym-065"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.gdlwc.since-initialization",
+      "name": "gdlwc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-012"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.glw",
+      "name": "glw",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db",
+        "tym": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-004"
+        ],
+        "meso3": [
+          "meso3-004"
+        ],
+        "tym": [
+          "tym-006"
+        ]
+      },
+      "new_aliases_by_product": {
+        "meso1": [
+          "str"
+        ],
+        "meso3": [
+          "str"
+        ],
+        "tym": [
+          "str"
+        ]
+      }
+    },
+    {
+      "parameter_id": "cedarkit.graupel",
+      "name": "graupel",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-074"
+        ],
+        "meso1": [
+          "meso1-059"
+        ],
+        "meso3": [
+          "meso3-064"
+        ],
+        "tym": [
+          "tym-034"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.gsw",
+      "name": "gsw",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db",
+        "tym": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-005"
+        ],
+        "meso3": [
+          "meso3-005"
+        ],
+        "tym": [
+          "tym-007"
+        ]
+      },
+      "new_aliases_by_product": {
+        "meso1": [
+          "ssr"
+        ],
+        "meso3": [
+          "ssr"
+        ],
+        "tym": [
+          "ssr"
+        ]
+      }
+    },
+    {
+      "parameter_id": "cedarkit.gsw.since-initialization",
+      "name": "gsw",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-007"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.gswc.since-initialization",
+      "name": "gswc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-018"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.gulw",
+      "name": "gulw",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-010"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.gulwc.since-initialization",
+      "name": "gulwc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-013"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.gust",
+      "name": "gust",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db",
+        "tym": "archived_parameter_db",
+        "geps": "archived_parameter_db",
+        "reps": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-119"
+        ],
+        "meso1": [
+          "meso1-087"
+        ],
+        "meso3": [
+          "meso3-109"
+        ],
+        "tym": [
+          "tym-066"
+        ],
+        "geps": [
+          "geps-033"
+        ],
+        "reps": [
+          "reps-029"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.gusw",
+      "name": "gusw",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-015"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.guswc.since-initialization",
+      "name": "guswc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-019"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.h",
+      "name": "h",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-064"
+        ],
+        "meso1": [
+          "meso1-049"
+        ],
+        "meso3": [
+          "meso3-054"
+        ],
+        "tym": [
+          "tym-024"
+        ],
+        "geps": [
+          "geps-001"
+        ],
+        "reps": [
+          "reps-011"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.hcc",
+      "name": "hcc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-031"
+        ],
+        "meso1": [
+          "meso1-014"
+        ],
+        "meso3": [
+          "meso3-016"
+        ],
+        "geps": [
+          "geps-020"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.hfx",
+      "name": "hfx",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso3": "archived_parameter_db",
+        "tym": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-008"
+        ],
+        "meso3": [
+          "meso3-006"
+        ],
+        "tym": [
+          "tym-008"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.hi",
+      "name": "hi",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db",
+        "geps": "archived_parameter_db",
+        "reps": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-110"
+        ],
+        "meso1": [
+          "meso1-082"
+        ],
+        "meso3": [
+          "meso3-101"
+        ],
+        "geps": [
+          "geps-030"
+        ],
+        "reps": [
+          "reps-026"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.ht0",
+      "name": "ht0",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-112"
+        ],
+        "meso1": [
+          "meso1-083"
+        ],
+        "meso3": [
+          "meso3-104"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.ht2",
+      "name": "ht2",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-084"
+        ],
+        "meso3": [
+          "meso3-105"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.kidx",
+      "name": "kidx",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db",
+        "tym": "archived_parameter_db",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-096"
+        ],
+        "meso1": [
+          "meso1-069"
+        ],
+        "meso3": [
+          "meso3-086"
+        ],
+        "tym": [
+          "tym-055"
+        ],
+        "geps": [
+          "geps-021"
+        ],
+        "reps": [
+          "reps-018"
+        ]
+      },
+      "new_aliases_by_product": {
+        "gfs": [
+          "ki"
+        ],
+        "meso1": [
+          "ki"
+        ],
+        "meso3": [
+          "ki"
+        ],
+        "tym": [
+          "ki"
+        ]
+      }
+    },
+    {
+      "parameter_id": "cedarkit.lcc",
+      "name": "lcc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-029"
+        ],
+        "meso1": [
+          "meso1-012"
+        ],
+        "meso3": [
+          "meso3-014"
+        ],
+        "tym": [
+          "tym-016"
+        ],
+        "geps": [
+          "geps-018"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.light",
+      "name": "light",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-115"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.mcc",
+      "name": "mcc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-030"
+        ],
+        "meso1": [
+          "meso1-013"
+        ],
+        "meso3": [
+          "meso3-015"
+        ],
+        "geps": [
+          "geps-019"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.mn2t",
+      "name": "tmin2m",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-041"
+        ]
+      },
+      "new_aliases_by_product": {
+        "gfs": [
+          "mn2t"
+        ]
+      }
+    },
+    {
+      "parameter_id": "cedarkit.mpv1",
+      "name": "mpv1",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-114"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.mx2t",
+      "name": "tmax2m",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-040"
+        ]
+      },
+      "new_aliases_by_product": {
+        "gfs": [
+          "mx2t"
+        ]
+      }
+    },
+    {
+      "parameter_id": "cedarkit.nsss",
+      "name": "nsss",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-037"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.pblh",
+      "name": "pblh",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-035"
+        ],
+        "meso1": [
+          "meso1-017"
+        ],
+        "meso3": [
+          "meso3-020"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.pc",
+      "name": "pc",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-101"
+        ],
+        "meso1": [
+          "meso1-073"
+        ],
+        "meso3": [
+          "meso3-091"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.pli",
+      "name": "pli",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-100"
+        ],
+        "meso1": [
+          "meso1-072"
+        ],
+        "meso3": [
+          "meso3-090"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.precitype",
+      "name": "precitype",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-120"
+        ],
+        "meso1": [
+          "meso1-088"
+        ],
+        "meso3": [
+          "meso3-110"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.ps",
+      "name": "ps",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-044"
+        ],
+        "meso1": [
+          "meso1-029"
+        ],
+        "meso3": [
+          "meso3-034"
+        ],
+        "tym": [
+          "tym-022"
+        ],
+        "geps": [
+          "geps-010"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.psl",
+      "name": "psl",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-045"
+        ],
+        "meso1": [
+          "meso1-030"
+        ],
+        "meso3": [
+          "meso3-035"
+        ],
+        "tym": [
+          "tym-023"
+        ],
+        "geps": [
+          "geps-009"
+        ],
+        "reps": [
+          "reps-010"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.pwat",
+      "name": "pwat",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-113"
+        ],
+        "meso1": [
+          "meso1-085"
+        ],
+        "meso3": [
+          "meso3-107"
+        ],
+        "tym": [
+          "tym-062"
+        ],
+        "geps": [
+          "geps-031"
+        ],
+        "reps": [
+          "reps-027"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.q",
+      "name": "q",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-069"
+        ],
+        "meso1": [
+          "meso1-054"
+        ],
+        "meso3": [
+          "meso3-059"
+        ],
+        "tym": [
+          "tym-029"
+        ],
+        "geps": [
+          "geps-005"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.q2m",
+      "name": "q2m",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-024"
+        ],
+        "meso1": [
+          "meso1-007"
+        ],
+        "meso3": [
+          "meso3-009"
+        ],
+        "tym": [
+          "tym-011"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.qc",
+      "name": "qc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-070"
+        ],
+        "meso1": [
+          "meso1-055"
+        ],
+        "meso3": [
+          "meso3-060"
+        ],
+        "tym": [
+          "tym-030"
+        ],
+        "reps": [
+          "reps-015"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.qdiv",
+      "name": "qdiv",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso3": "archived_parameter_db",
+        "tym": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-092"
+        ],
+        "meso3": [
+          "meso3-082"
+        ],
+        "tym": [
+          "tym-051"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.qflx",
+      "name": "qflx",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-091"
+        ],
+        "meso3": [
+          "meso3-081"
+        ],
+        "tym": [
+          "tym-050"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.qfxsfc",
+      "name": "qfxsfc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso3": [
+          "meso3-007"
+        ],
+        "tym": [
+          "tym-009"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.qi",
+      "name": "qi",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-072"
+        ],
+        "meso1": [
+          "meso1-057"
+        ],
+        "meso3": [
+          "meso3-062"
+        ],
+        "tym": [
+          "tym-032"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.qr",
+      "name": "qr",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-071"
+        ],
+        "meso1": [
+          "meso1-056"
+        ],
+        "meso3": [
+          "meso3-061"
+        ],
+        "tym": [
+          "tym-031"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.qs",
+      "name": "qs",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-073"
+        ],
+        "meso1": [
+          "meso1-058"
+        ],
+        "meso3": [
+          "meso3-063"
+        ],
+        "tym": [
+          "tym-033"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.rain.since-initialization",
+      "name": "rain",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-003"
+        ],
+        "meso1": [
+          "meso1-001"
+        ],
+        "meso3": [
+          "meso3-001"
+        ],
+        "tym": [
+          "tym-003"
+        ],
+        "geps": [
+          "geps-015"
+        ],
+        "reps": [
+          "reps-002"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.rain5max",
+      "name": "rain5max",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-025"
+        ],
+        "meso3": [
+          "meso3-030"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.rainc.since-initialization",
+      "name": "rainc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-001"
+        ],
+        "tym": [
+          "tym-001"
+        ],
+        "geps": [
+          "geps-013"
+        ],
+        "reps": [
+          "reps-001"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.rainnc.since-initialization",
+      "name": "rainnc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-002"
+        ],
+        "tym": [
+          "tym-002"
+        ],
+        "geps": [
+          "geps-014"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.rh",
+      "name": "rh",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-084"
+        ],
+        "meso1": [
+          "meso1-061"
+        ],
+        "meso3": [
+          "meso3-074"
+        ],
+        "tym": [
+          "tym-044"
+        ],
+        "geps": [
+          "geps-032"
+        ],
+        "reps": [
+          "reps-016"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.rh2m",
+      "name": "rh2m",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-085"
+        ],
+        "meso1": [
+          "meso1-062"
+        ],
+        "meso3": [
+          "meso3-075"
+        ],
+        "tym": [
+          "tym-045"
+        ],
+        "geps": [
+          "geps-011"
+        ],
+        "reps": [
+          "reps-017"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.rhmax2m",
+      "name": "rhmax2m",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-042"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.rhmin2m",
+      "name": "rhmin2m",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-043"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.ripbl",
+      "name": "ripbl",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "meso3": [
+          "meso3-029"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.risfc",
+      "name": "risfc",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "meso3": [
+          "meso3-028"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.sd",
+      "name": "sd",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-038"
+        ],
+        "reps": [
+          "reps-009"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.sf",
+      "name": "sf",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db",
+        "tym": "archived_parameter_db",
+        "geps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-004"
+        ],
+        "meso1": [
+          "meso1-002"
+        ],
+        "meso3": [
+          "meso3-002"
+        ],
+        "tym": [
+          "tym-004"
+        ],
+        "geps": [
+          "geps-016"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.shr-0-1000",
+      "name": "shr(0-1000)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-103"
+        ],
+        "meso1": [
+          "meso1-075"
+        ],
+        "meso3": [
+          "meso3-093"
+        ],
+        "tym": [
+          "tym-058"
+        ],
+        "geps": [
+          "geps-025"
+        ],
+        "reps": [
+          "reps-022"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.shr-0-3000",
+      "name": "shr(0-3000)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-104"
+        ],
+        "meso1": [
+          "meso1-076"
+        ],
+        "meso3": [
+          "meso3-094"
+        ],
+        "tym": [
+          "tym-059"
+        ],
+        "geps": [
+          "geps-026"
+        ],
+        "reps": [
+          "reps-023"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.shr-0-6000",
+      "name": "shr(0-6000)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-105"
+        ],
+        "meso1": [
+          "meso1-077"
+        ],
+        "meso3": [
+          "meso3-095"
+        ],
+        "tym": [
+          "tym-060"
+        ],
+        "geps": [
+          "geps-027"
+        ],
+        "reps": [
+          "reps-024"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.shrmax-0-600",
+      "name": "shrmax(0-600)",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-026"
+        ],
+        "meso3": [
+          "meso3-031"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.shrmaxdir-0-600",
+      "name": "shrmaxdir(0-600)",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-027"
+        ],
+        "meso3": [
+          "meso3-032"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.si",
+      "name": "si",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-109"
+        ],
+        "meso3": [
+          "meso3-100"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.slhf",
+      "name": "slhf",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-009"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.srh-0-1000",
+      "name": "srh(0-1000)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-080"
+        ],
+        "meso3": [
+          "meso3-098"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.srh-0-3000",
+      "name": "srh(0-3000)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-081"
+        ],
+        "meso3": [
+          "meso3-099"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.ssi",
+      "name": "ssi",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "meso3": [
+          "meso3-106"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.st",
+      "name": "st",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso3": [
+          "meso3-067",
+          "meso3-068",
+          "meso3-069"
+        ],
+        "tym": [
+          "tym-037",
+          "tym-038",
+          "tym-039"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.st-0-10",
+      "name": "st(0-10)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-076"
+        ],
+        "meso3": [
+          "meso3-066"
+        ],
+        "tym": [
+          "tym-036"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.st-10-40",
+      "name": "st(10-40)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-077"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.st-100-200",
+      "name": "st(100-200)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-079"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.st-40-100",
+      "name": "st(40-100)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-078"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.sw",
+      "name": "sw",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso3": [
+          "meso3-071",
+          "meso3-072",
+          "meso3-073"
+        ],
+        "tym": [
+          "tym-041",
+          "tym-042",
+          "tym-043"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.sw-0-10",
+      "name": "sw(0-10)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-080"
+        ],
+        "meso3": [
+          "meso3-070"
+        ],
+        "tym": [
+          "tym-040"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.sw-10-40",
+      "name": "sw(10-40)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-081"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.sw-100-200",
+      "name": "sw(100-200)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-083"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.sw-40-100",
+      "name": "sw(40-100)",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-082"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.sweatidx",
+      "name": "sweatidx",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-097"
+        ],
+        "meso3": [
+          "meso3-087"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.t",
+      "name": "t",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-065"
+        ],
+        "meso1": [
+          "meso1-050"
+        ],
+        "meso3": [
+          "meso3-055"
+        ],
+        "tym": [
+          "tym-025"
+        ],
+        "geps": [
+          "geps-002"
+        ],
+        "reps": [
+          "reps-012"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.t2m",
+      "name": "t2m",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-025"
+        ],
+        "meso1": [
+          "meso1-008"
+        ],
+        "meso3": [
+          "meso3-010"
+        ],
+        "tym": [
+          "tym-012"
+        ],
+        "geps": [
+          "geps-008"
+        ],
+        "reps": [
+          "reps-005"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tadv",
+      "name": "tadv",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db",
+        "tym": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-089"
+        ],
+        "meso1": [
+          "meso1-065"
+        ],
+        "meso3": [
+          "meso3-079"
+        ],
+        "tym": [
+          "tym-049"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tcc",
+      "name": "tcc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-028"
+        ],
+        "meso1": [
+          "meso1-011"
+        ],
+        "meso3": [
+          "meso3-013"
+        ],
+        "tym": [
+          "tym-015"
+        ],
+        "geps": [
+          "geps-017"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tcw",
+      "name": "tcw",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-033"
+        ],
+        "meso3": [
+          "meso3-018"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.td",
+      "name": "td",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-093"
+        ],
+        "meso1": [
+          "meso1-066"
+        ],
+        "meso3": [
+          "meso3-083"
+        ],
+        "tym": [
+          "tym-052"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.td2m",
+      "name": "td2m",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-086"
+        ],
+        "meso1": [
+          "meso1-063"
+        ],
+        "meso3": [
+          "meso3-076"
+        ],
+        "tym": [
+          "tym-046"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.theta-se",
+      "name": "thetaSe",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-095"
+        ],
+        "meso1": [
+          "meso1-068"
+        ],
+        "meso3": [
+          "meso3-085"
+        ],
+        "tym": [
+          "tym-054"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tiw",
+      "name": "tiw",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-034"
+        ],
+        "meso1": [
+          "meso1-016"
+        ],
+        "meso3": [
+          "meso3-019"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.ts",
+      "name": "ts",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-005"
+        ],
+        "meso1": [
+          "meso1-003"
+        ],
+        "meso3": [
+          "meso3-003"
+        ],
+        "tym": [
+          "tym-005"
+        ],
+        "reps": [
+          "reps-004"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tsw.since-initialization",
+      "name": "tsw",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-016"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tswc.since-initialization",
+      "name": "tswc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-020"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.ttd",
+      "name": "ttd",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-094"
+        ],
+        "meso1": [
+          "meso1-067"
+        ],
+        "meso3": [
+          "meso3-084"
+        ],
+        "tym": [
+          "tym-053"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tti",
+      "name": "tti",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso3": [
+          "meso3-103"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tulw",
+      "name": "tulw",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-011"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tulwc.since-initialization",
+      "name": "tulwc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-014"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tusw",
+      "name": "tusw",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-017"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tuswc.since-initialization",
+      "name": "tuswc",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-021"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.tvw",
+      "name": "tvw",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-032"
+        ],
+        "meso1": [
+          "meso1-015"
+        ],
+        "meso3": [
+          "meso3-017"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.u",
+      "name": "u",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-046",
+          "gfs-047",
+          "gfs-048",
+          "gfs-049",
+          "gfs-050",
+          "gfs-051",
+          "gfs-052",
+          "gfs-053",
+          "gfs-054",
+          "gfs-066"
+        ],
+        "meso1": [
+          "meso1-031",
+          "meso1-032",
+          "meso1-033",
+          "meso1-034",
+          "meso1-035",
+          "meso1-036",
+          "meso1-037",
+          "meso1-038",
+          "meso1-039",
+          "meso1-051"
+        ],
+        "meso3": [
+          "meso3-036",
+          "meso3-037",
+          "meso3-038",
+          "meso3-039",
+          "meso3-040",
+          "meso3-041",
+          "meso3-042",
+          "meso3-043",
+          "meso3-044",
+          "meso3-056"
+        ],
+        "tym": [
+          "tym-026"
+        ],
+        "geps": [
+          "geps-003"
+        ],
+        "reps": [
+          "reps-013"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.u10m",
+      "name": "u10m",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-026"
+        ],
+        "meso1": [
+          "meso1-009"
+        ],
+        "meso3": [
+          "meso3-011"
+        ],
+        "tym": [
+          "tym-013"
+        ],
+        "geps": [
+          "geps-006"
+        ],
+        "reps": [
+          "reps-006"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.u10mmax-1",
+      "name": "u10mmax#1",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-020"
+        ],
+        "meso3": [
+          "meso3-023"
+        ],
+        "tym": [
+          "tym-019"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.uhmax",
+      "name": "uhmax",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "tym": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "tym": [
+          "tym-021"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.uhmax-2000-5000",
+      "name": "uhmax(2000-5000)",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-024"
+        ],
+        "meso3": [
+          "meso3-027"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.v",
+      "name": "v",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-055",
+          "gfs-056",
+          "gfs-057",
+          "gfs-058",
+          "gfs-059",
+          "gfs-060",
+          "gfs-061",
+          "gfs-062",
+          "gfs-063",
+          "gfs-067"
+        ],
+        "meso1": [
+          "meso1-040",
+          "meso1-041",
+          "meso1-042",
+          "meso1-043",
+          "meso1-044",
+          "meso1-045",
+          "meso1-046",
+          "meso1-047",
+          "meso1-048",
+          "meso1-052"
+        ],
+        "meso3": [
+          "meso3-045",
+          "meso3-046",
+          "meso3-047",
+          "meso3-048",
+          "meso3-049",
+          "meso3-050",
+          "meso3-051",
+          "meso3-052",
+          "meso3-053",
+          "meso3-057"
+        ],
+        "tym": [
+          "tym-027"
+        ],
+        "geps": [
+          "geps-004"
+        ],
+        "reps": [
+          "reps-014"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.v10m",
+      "name": "v10m",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-027"
+        ],
+        "meso1": [
+          "meso1-010"
+        ],
+        "meso3": [
+          "meso3-012"
+        ],
+        "tym": [
+          "tym-014"
+        ],
+        "geps": [
+          "geps-007"
+        ],
+        "reps": [
+          "reps-007"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.v10mmax-1",
+      "name": "v10mmax#1",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-021"
+        ],
+        "meso3": [
+          "meso3-024"
+        ],
+        "tym": [
+          "tym-020"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.vis",
+      "name": "vis",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product",
+        "reps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-116"
+        ],
+        "meso1": [
+          "meso1-086"
+        ],
+        "meso3": [
+          "meso3-108"
+        ],
+        "tym": [
+          "tym-063"
+        ],
+        "geps": [
+          "geps-034"
+        ],
+        "reps": [
+          "reps-028"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.vor",
+      "name": "vor",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-088"
+        ],
+        "meso3": [
+          "meso3-078"
+        ],
+        "tym": [
+          "tym-048"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.voradv",
+      "name": "voradv",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-090"
+        ],
+        "meso3": [
+          "meso3-080"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.w",
+      "name": "w",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-068"
+        ],
+        "meso1": [
+          "meso1-053"
+        ],
+        "meso3": [
+          "meso3-058"
+        ],
+        "tym": [
+          "tym-028"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.wess",
+      "name": "wess",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-036"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.wi",
+      "name": "wi",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-111"
+        ],
+        "meso3": [
+          "meso3-102"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.wmax-1",
+      "name": "wmax#1",
+      "name_basis": "orig06_name_review",
+      "definition_source_by_product": {
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "meso1": [
+          "meso1-019"
+        ],
+        "meso3": [
+          "meso3-022"
+        ],
+        "tym": [
+          "tym-018"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.znt",
+      "name": "znt",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-022"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.zs",
+      "name": "zs",
+      "name_basis": "catalog_v50_orig_product",
+      "definition_source_by_product": {
+        "gfs": "catalog_v50_orig_product",
+        "meso1": "catalog_v50_orig_product",
+        "meso3": "catalog_v50_orig_product",
+        "tym": "catalog_v50_orig_product",
+        "geps": "catalog_v50_orig_product"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-023"
+        ],
+        "meso1": [
+          "meso1-006"
+        ],
+        "meso3": [
+          "meso3-008"
+        ],
+        "tym": [
+          "tym-010"
+        ],
+        "geps": [
+          "geps-012"
+        ]
+      },
+      "new_aliases_by_product": {}
+    }
+  ],
+  "new_alias_evidence": [
+    {
+      "parameter_id": "cedarkit.mn2t",
+      "alias": "mn2t",
+      "products": [
+        "gfs"
+      ],
+      "basis": "prior_orig06_name_decision"
+    },
+    {
+      "parameter_id": "cedarkit.mx2t",
+      "alias": "mx2t",
+      "products": [
+        "gfs"
+      ],
+      "basis": "prior_orig06_name_decision"
+    },
+    {
+      "parameter_id": "cedarkit.gsw",
+      "products": [
+        "meso1",
+        "meso3",
+        "tym"
+      ],
+      "alias": "ssr",
+      "basis": "product_config_and_exact_notebook_field"
+    },
+    {
+      "parameter_id": "cedarkit.glw",
+      "products": [
+        "meso1",
+        "meso3",
+        "tym"
+      ],
+      "alias": "str",
+      "basis": "product_config_and_exact_notebook_field"
+    },
+    {
+      "parameter_id": "cedarkit.kidx",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym"
+      ],
+      "alias": "ki",
+      "basis": "same_case_product_configuration_primary_name"
+    }
+  ],
+  "existing_alias_transfers": [
+    {
+      "alias": "apcp",
+      "from_parameter_id": "cedarkit.rain",
+      "to_parameter_id": "cedarkit.rain.since-initialization",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym",
+        "geps",
+        "reps"
+      ],
+      "basis": "existing_alias_of_the_orig_accumulation_family"
+    },
+    {
+      "alias": "ssr",
+      "from_parameter_id": "cedarkit.gsw",
+      "to_parameter_id": "cedarkit.gsw.since-initialization",
+      "products": [
+        "gfs"
+      ],
+      "basis": "existing_alias_and_exact_notebook_field"
+    },
+    {
+      "alias": "SWEATX",
+      "from_parameter_id": "cedarkit.sweatidx.any",
+      "to_parameter_id": "cedarkit.sweatidx",
+      "products": [
+        "gfs",
+        "meso3"
+      ],
+      "basis": "existing_alias_of_the_orig_surface_index"
+    }
+  ],
+  "support_definition_names_for_publication": [
+    {
+      "parameter_id": "cedarkit.albedo.any",
+      "name": "cedarkit.albedo.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.cape.any",
+      "name": "cedarkit.cape.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym",
+        "geps",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.cin.any",
+      "name": "cedarkit.cin.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym",
+        "geps",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.fogh.any",
+      "name": "cedarkit.fogh.any",
+      "products": [
+        "gfs",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.fogod.any",
+      "name": "cedarkit.fogod.any",
+      "products": [
+        "gfs",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gdlwc",
+      "name": "cedarkit.gdlwc",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gdlwc.any",
+      "name": "cedarkit.gdlwc.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gsw",
+      "name": "cedarkit.gsw",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gswc",
+      "name": "cedarkit.gswc",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gswc.any",
+      "name": "cedarkit.gswc.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gulwc",
+      "name": "cedarkit.gulwc",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.gulwc.any",
+      "name": "cedarkit.gulwc.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.guswc",
+      "name": "cedarkit.guswc",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.guswc.any",
+      "name": "cedarkit.guswc.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.h.any",
+      "name": "cedarkit.h.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym",
+        "geps",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.hfx.any",
+      "name": "cedarkit.hfx.any",
+      "products": [
+        "gfs",
+        "meso3",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.hi.any",
+      "name": "cedarkit.hi.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "geps",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.ht0.any",
+      "name": "cedarkit.ht0.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.ht2.any",
+      "name": "cedarkit.ht2.any",
+      "products": [
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.kidx.any",
+      "name": "cedarkit.kidx.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.mn2t.any",
+      "name": "cedarkit.mn2t.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.mx2t.any",
+      "name": "cedarkit.mx2t.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.nsss.any",
+      "name": "cedarkit.nsss.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.pblh.any",
+      "name": "cedarkit.pblh.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.pc.any",
+      "name": "cedarkit.pc.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.pli.any",
+      "name": "cedarkit.pli.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.ps.any",
+      "name": "cedarkit.ps.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym",
+        "geps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.psl.any",
+      "name": "cedarkit.psl.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym",
+        "geps",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.qfxsfc.any",
+      "name": "cedarkit.qfxsfc.any",
+      "products": [
+        "meso3",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rain",
+      "name": "cedarkit.rain",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym",
+        "geps",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rain.any",
+      "name": "cedarkit.rain.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym",
+        "geps",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rain5max.any",
+      "name": "cedarkit.rain5max.any",
+      "products": [
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rainc",
+      "name": "cedarkit.rainc",
+      "products": [
+        "gfs",
+        "tym",
+        "geps",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rainc.any",
+      "name": "cedarkit.rainc.any",
+      "products": [
+        "gfs",
+        "tym",
+        "geps",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rainnc",
+      "name": "cedarkit.rainnc",
+      "products": [
+        "gfs",
+        "tym",
+        "geps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rainnc.any",
+      "name": "cedarkit.rainnc.any",
+      "products": [
+        "gfs",
+        "tym",
+        "geps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.sd.any",
+      "name": "cedarkit.sd.any",
+      "products": [
+        "gfs",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.sf.any",
+      "name": "cedarkit.sf.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.si.any",
+      "name": "cedarkit.si.any",
+      "products": [
+        "gfs",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.sweatidx.any",
+      "name": "cedarkit.sweatidx.any",
+      "products": [
+        "gfs",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.tcw.any",
+      "name": "cedarkit.tcw.any",
+      "products": [
+        "gfs",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.tiw.any",
+      "name": "cedarkit.tiw.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.tsw",
+      "name": "cedarkit.tsw",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.tswc",
+      "name": "cedarkit.tswc",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.tti.any",
+      "name": "cedarkit.tti.any",
+      "products": [
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.tulwc",
+      "name": "cedarkit.tulwc",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.tuswc",
+      "name": "cedarkit.tuswc",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.tvw.any",
+      "name": "cedarkit.tvw.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.uhmax.any",
+      "name": "cedarkit.uhmax.any",
+      "products": [
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.vis.any",
+      "name": "cedarkit.vis.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym",
+        "geps",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.w.any",
+      "name": "cedarkit.w.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.wess.any",
+      "name": "cedarkit.wess.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.wi.any",
+      "name": "cedarkit.wi.any",
+      "products": [
+        "gfs",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.znt.any",
+      "name": "cedarkit.znt.any",
+      "products": [
+        "gfs"
+      ]
+    }
+  ],
+  "archived_support_definitions": [
+    {
+      "parameter_id": "cedarkit.fogod.any",
+      "products": [
+        "gfs",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.hfx.any",
+      "products": [
+        "gfs",
+        "meso3",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.hi.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "geps",
+        "reps"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.kidx.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.mn2t.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.mx2t.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.nsss.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.pc.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rain5max.any",
+      "products": [
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rhmax",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.rhmin",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.ri",
+      "products": [
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.sf.any",
+      "products": [
+        "gfs",
+        "meso1",
+        "meso3",
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.shrmax",
+      "products": [
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.shrmaxdir",
+      "products": [
+        "meso1",
+        "meso3"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.uhmax.any",
+      "products": [
+        "tym"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.wess.any",
+      "products": [
+        "gfs"
+      ]
+    },
+    {
+      "parameter_id": "cedarkit.wi.any",
+      "products": [
+        "gfs",
+        "meso3"
+      ]
+    }
+  ],
+  "pending_groups": [
+    {
+      "carrier_id": "gfs-006",
+      "candidate_names": [
+        "glw"
+      ],
+      "product": "gfs",
+      "message_count": 64,
+      "review_issue_ids": [
+        "gfs_longwave_direction"
+      ],
+      "historical_groups": [
+        "gfs:25"
+      ]
+    },
+    {
+      "carrier_id": "gfs-121",
+      "candidate_names": [
+        "cldt",
+        "cldb"
+      ],
+      "product": "gfs",
+      "message_count": 64,
+      "review_issue_ids": [
+        "cloud_base_top"
+      ],
+      "historical_groups": [
+        "gfs:27"
+      ]
+    },
+    {
+      "carrier_id": "gfs-122",
+      "candidate_names": [
+        "cldb",
+        "cldt"
+      ],
+      "product": "gfs",
+      "message_count": 64,
+      "review_issue_ids": [
+        "cloud_base_top"
+      ],
+      "historical_groups": [
+        "gfs:26"
+      ]
+    },
+    {
+      "carrier_id": "meso1-089",
+      "candidate_names": [
+        "cldt",
+        "cldb"
+      ],
+      "product": "meso1",
+      "message_count": 43,
+      "review_issue_ids": [
+        "cloud_base_top"
+      ],
+      "historical_groups": [
+        "meso1:19"
+      ]
+    },
+    {
+      "carrier_id": "meso1-090",
+      "candidate_names": [
+        "cldb",
+        "cldt"
+      ],
+      "product": "meso1",
+      "message_count": 43,
+      "review_issue_ids": [
+        "cloud_base_top"
+      ],
+      "historical_groups": [
+        "meso1:18"
+      ]
+    },
+    {
+      "carrier_id": "meso3-111",
+      "candidate_names": [
+        "cldt",
+        "cldb"
+      ],
+      "product": "meso3",
+      "message_count": 53,
+      "review_issue_ids": [
+        "cloud_base_top"
+      ],
+      "historical_groups": [
+        "meso3:21"
+      ]
+    },
+    {
+      "carrier_id": "meso3-112",
+      "candidate_names": [
+        "cldb",
+        "cldt"
+      ],
+      "product": "meso3",
+      "message_count": 53,
+      "review_issue_ids": [
+        "cloud_base_top"
+      ],
+      "historical_groups": [
+        "meso3:20"
+      ]
+    },
+    {
+      "carrier_id": "reps-003",
+      "candidate_names": [
+        "sf"
+      ],
+      "product": "reps",
+      "message_count": 227,
+      "review_issue_ids": [
+        "reps_snowfall_quantity",
+        "snowfall_description_and_unit"
+      ],
+      "historical_groups": [
+        "reps:0-1-29:initial:control",
+        "reps:0-1-29:initial:positive",
+        "reps:0-1-29:initial:negative",
+        "reps:0-1-29:forecast:control",
+        "reps:0-1-29:forecast:positive",
+        "reps:0-1-29:forecast:negative"
+      ]
+    }
+  ],
+  "writer_path_follow_up": [
+    {
+      "carrier_id": "meso1-024",
+      "parameter_id": "cedarkit.uhmax-2000-5000",
+      "issue": "uhmax_second_surface"
+    },
+    {
+      "carrier_id": "meso3-027",
+      "parameter_id": "cedarkit.uhmax-2000-5000",
+      "issue": "uhmax_second_surface"
+    },
+    {
+      "carrier_id": "tym-021",
+      "parameter_id": "cedarkit.uhmax",
+      "issue": "uhmax_second_surface",
+      "layer_qualification": "pending"
+    }
+  ]
+}
