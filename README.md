@@ -403,6 +403,8 @@ python tools/export_cemc_orig.py \
 
 ## Stage 1.4 ORIG naming decisions
 
-The [stage 1.4 naming review](authoring/cemc-orig-stage1.4-name-review.json) records the canonical names, stable IDs, and scoped alias decisions for 455 of the 463 frozen ORIG carrier groups. `groups_by_product` links each decision to the carrier IDs in the stage evidence. `definition_source_by_product` identifies the v50 ORIG definition or archived definition that supplies the stable ID for each product. The review also lists inherited definitions that need a scoped name change, existing aliases that move to the mapped definition, and the eight groups awaiting evidence.
+The [stage 1.4 naming review](authoring/cemc-orig-stage1.4-name-review.json) records the 1.4-03 decisions for 455 of the 463 frozen ORIG carrier groups. `groups_by_product` links each decision to the carrier IDs in the stage evidence. `definition_source_by_product` identifies the v50 ORIG definition or archived definition that supplies the stable ID for each product. The review also lists inherited definitions that need a scoped name change and existing aliases that move to the mapped definition.
+
+The [stage 1.4 conflict review](authoring/cemc-orig-stage1.4-conflict-review.json) adds `cldb` and `cldt` for six cloud-height carrier groups in GFS, MESO‑1KM, and MESO‑3KM. It records the reproduced `UHMAX` encoding for three products and carries two unresolved identities and the TYM physical layer into follow-up. Apply its approved decisions alongside the 1.4-03 review. [Evidence and handoff](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-04/README.md)
 
 Task 1.4-05 uses the approved decisions to build product mappings. Task 1.4-07 exports the completed definitions and mappings in a new resource revision. The [per-carrier decisions and validation](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-03/README.md) include the evidence and follow-up for each group.

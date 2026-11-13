@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "id": "cedarkit.cemc-orig-stage1.4-conflict-review",
+  "task": "1.4-04",
+  "date": "2026-11-13",
+  "scope": {
+    "product": "orig",
+    "product_version": "current",
+    "datasets": {
+      "gfs": "cma_gfs_gmf",
+      "meso1": "cma_meso_1km",
+      "meso3": "cma_meso_3km",
+      "tym": "cma_tym",
+      "geps": "cma_geps",
+      "reps": "cma_reps"
+    }
+  },
+  "inputs": {
+    "prior_name_review": {
+      "path": "data/cedarkit-param-db/authoring/cemc-orig-stage1.4-name-review.json",
+      "sha256": "6bff065d25efe71a2f493c1c68f0cdb585fa0c0a06c906400351c907f870f5a9"
+    },
+    "producer_review": {
+      "path": "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-02/carrier-review.jsonl.gz",
+      "sha256": "24a53e03335b2b7485b79f9ff8b913c595f104e8b8f305b6ce27a58906130c8e"
+    },
+    "frozen_carriers": {
+      "path": "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-01/carriers.json",
+      "sha256": "cee9377aa865e6d06428aadbeb013cd0d77984bcf843121fc8468824a217408e"
+    },
+    "archived_parameter_db": {
+      "path": "doc/2026-10-13-stage1.1-query-reki/archive/pre-native-2026-11-04/review-schema4.db",
+      "sha256": "5a0bcda353fc09996a765342ac3afe5cb31de098d2fdb7ebd0a12f6af49fc8d7"
+    },
+    "product_business_table": {
+      "path": "data/doc/CMA天气模式数据 - 2026.06.docx",
+      "sha256": "fee50842a93fa9a344a7839c56eaa386355799481c251ec1552bf1a43fd3116a"
+    }
+  },
+  "evidence": "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-04/review.json",
+  "parameters": [
+    {
+      "parameter_id": "cedarkit.cldb",
+      "name": "cldb",
+      "name_basis": "grib_util_writer_product_notebook_and_same_file_cloud_order",
+      "definition": {
+        "parameter_id": "cedarkit.cldb",
+        "name": "cldb",
+        "unit": "m",
+        "description": "cloud base",
+        "description_cn": "云底高度",
+        "fixed_conditions": {
+          "level_type": "surface"
+        }
+      },
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-122"
+        ],
+        "meso1": [
+          "meso1-090"
+        ],
+        "meso3": [
+          "meso3-112"
+        ]
+      },
+      "new_aliases_by_product": {}
+    },
+    {
+      "parameter_id": "cedarkit.cldt",
+      "name": "cldt",
+      "name_basis": "grib_util_writer_product_notebook_and_same_file_cloud_order",
+      "definition": {
+        "parameter_id": "cedarkit.cldt",
+        "name": "cldt",
+        "unit": "m",
+        "description": "cloud top",
+        "description_cn": "云顶高度",
+        "fixed_conditions": {
+          "level_type": "surface"
+        }
+      },
+      "definition_source_by_product": {
+        "gfs": "archived_parameter_db",
+        "meso1": "archived_parameter_db",
+        "meso3": "archived_parameter_db"
+      },
+      "groups_by_product": {
+        "gfs": [
+          "gfs-121"
+        ],
+        "meso1": [
+          "meso1-089"
+        ],
+        "meso3": [
+          "meso3-111"
+        ]
+      },
+      "new_aliases_by_product": {}
+    }
+  ],
+  "resolved_groups": [
+    {
+      "carrier_id": "gfs-121",
+      "product": "gfs",
+      "message_count": 64,
+      "parameter_id": "cedarkit.cldt",
+      "historical_groups": [
+        "gfs:27"
+      ]
+    },
+    {
+      "carrier_id": "gfs-122",
+      "product": "gfs",
+      "message_count": 64,
+      "parameter_id": "cedarkit.cldb",
+      "historical_groups": [
+        "gfs:26"
+      ]
+    },
+    {
+      "carrier_id": "meso1-089",
+      "product": "meso1",
+      "message_count": 43,
+      "parameter_id": "cedarkit.cldt",
+      "historical_groups": [
+        "meso1:19"
+      ]
+    },
+    {
+      "carrier_id": "meso1-090",
+      "product": "meso1",
+      "message_count": 43,
+      "parameter_id": "cedarkit.cldb",
+      "historical_groups": [
+        "meso1:18"
+      ]
+    },
+    {
+      "carrier_id": "meso3-111",
+      "product": "meso3",
+      "message_count": 53,
+      "parameter_id": "cedarkit.cldt",
+      "historical_groups": [
+        "meso3:21"
+      ]
+    },
+    {
+      "carrier_id": "meso3-112",
+      "product": "meso3",
+      "message_count": 53,
+      "parameter_id": "cedarkit.cldb",
+      "historical_groups": [
+        "meso3:20"
+      ]
+    }
+  ],
+  "pending_groups": [
+    {
+      "carrier_id": "gfs-006",
+      "candidate_names": [
+        "glw"
+      ],
+      "product": "gfs",
+      "message_count": 64,
+      "review_issue_ids": [
+        "gfs_longwave_direction"
+      ],
+      "historical_groups": [
+        "gfs:25"
+      ]
+    },
+    {
+      "carrier_id": "reps-003",
+      "candidate_names": [
+        "sf"
+      ],
+      "product": "reps",
+      "message_count": 227,
+      "review_issue_ids": [
+        "reps_snowfall_quantity",
+        "snowfall_description_and_unit"
+      ],
+      "historical_groups": [
+        "reps:0-1-29:initial:control",
+        "reps:0-1-29:initial:positive",
+        "reps:0-1-29:initial:negative",
+        "reps:0-1-29:forecast:control",
+        "reps:0-1-29:forecast:positive",
+        "reps:0-1-29:forecast:negative"
+      ]
+    }
+  ],
+  "writer_path_resolutions": [
+    {
+      "carrier_id": "meso1-024",
+      "product": "meso1",
+      "parameter_id": "cedarkit.uhmax-2000-5000",
+      "writer_status": "reproduced_with_product_configuration",
+      "writer_input_level": -517,
+      "section4_fixed_surface_tuple": [
+        103,
+        -3,
+        5,
+        103,
+        -3,
+        2
+      ],
+      "layer_status": "confirmed_2000_to_5000_m"
+    },
+    {
+      "carrier_id": "meso3-027",
+      "product": "meso3",
+      "parameter_id": "cedarkit.uhmax-2000-5000",
+      "writer_status": "reproduced_with_product_configuration",
+      "writer_input_level": -517,
+      "section4_fixed_surface_tuple": [
+        103,
+        -3,
+        5,
+        103,
+        -3,
+        2
+      ],
+      "layer_status": "confirmed_2000_to_5000_m"
+    },
+    {
+      "carrier_id": "tym-021",
+      "product": "tym",
+      "parameter_id": "cedarkit.uhmax",
+      "writer_status": "reproduced_with_product_configuration",
+      "writer_input_level": 100000,
+      "section4_fixed_surface_tuple": [
+        103,
+        0,
+        34464,
+        103,
+        0,
+        1
+      ],
+      "layer_status": "pending_physical_layer"
+    }
+  ]
+}
