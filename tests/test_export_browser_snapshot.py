@@ -10,13 +10,19 @@ import json
 from pathlib import Path
 import shutil
 import sys
+from zipfile import ZipFile
 
 import pytest
 
 
 REPO = Path(__file__).resolve().parents[1]
 WORKSPACE = REPO.parents[1]
-RUNTIME = WORKSPACE / "repo/reki/src/reki/catalog/builtin"
+REKI = WORKSPACE / "repo/reki"
+RUNTIME = REKI / "src/reki/catalog/builtin"
+V50_WHEEL = (
+    WORKSPACE / "doc/2026-11-11-stage1.3-query-reki/evidence/orig-09/artifacts/"
+    "reki-2026.9.1.dev115+g03b0f4f.orig09-py3-none-any.whl"
+)
 
 
 def encode(value):
@@ -322,9 +328,16 @@ def test_legacy_attachment_cannot_claim_current_support(exporter, inputs, tmp_pa
     assert not (tmp_path / "promoted-history").exists()
 
 
-def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(exporter):
+def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(exporter, tmp_path):
+    # Revision 11 is pinned to v50 even when the reki checkout ships newer ORIG resources.
+    runtime = tmp_path / "browser-v50"
+    runtime.mkdir()
+    with ZipFile(V50_WHEEL) as wheel:
+        for name in wheel.namelist():
+            if name.startswith("reki/catalog/builtin/") and name.endswith(".json"):
+                (runtime / Path(name).name).write_bytes(wheel.read(name))
     files = exporter.build_bundle(author=REPO / "authoring", policy=REPO / "authoring/browser-current.json",
-                                  catalog=RUNTIME / "catalog-v1.json", runtime_dir=RUNTIME)
+                                  catalog=runtime / "catalog-v1.json", runtime_dir=runtime)
     manifest, browsers = browser_documents(files)
     assert len(manifest["dataset_bindings"]) == 18
     assert set(browsers) == {"gfs", "meso1", "meso3", "tym", "geps", "reps", "cmadaas"}
@@ -347,7 +360,7 @@ def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(ex
     assert "period" not in service_sf["fixed_conditions"]["statistics"]
     raw_scoped = defaultdict(list)
     for key, browser in browsers.items():
-        source = read(RUNTIME / f"current-{key}-parameters.json")
+        source = read(runtime / f"current-{key}-parameters.json")
         assert browser["meta"]["schema_version"] == 4
         assert browser["retired_ids"] == []
         assert browser["notes"] == []
@@ -360,7 +373,7 @@ def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(ex
                 else:
                     assert actual[raw["parameter_id"]][field] == value
         for resource in browser["mapping_resources"]:
-            expected = read(RUNTIME / f"current-{key}-mappings.json")
+            expected = read(runtime / f"current-{key}-mappings.json")
             assert {field: resource[field] for field in ["api_version", "id", "version", "backend"]} == {
                 field: expected[field] for field in ["api_version", "id", "version", "backend"]}
             actual_mappings = {row["id"]: row for row in resource["mappings"]}

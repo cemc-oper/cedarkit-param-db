@@ -14,14 +14,16 @@ reki owns the catalog, including layout and the two finite expected-domain sampl
 
 ## Reviewed browser snapshot set (N03A and subsequent candidates)
 
-[authoring/browser-current.json](authoring/browser-current.json) selects the
-reviewed inputs that reconstruct the current six ORIG resource pairs and the
-latest cumulative CMADaaS pair. With `cedarkit-query` 0.2.1 installed, generate a
-new schema-4 browser bundle from this repository:
+[authoring/browser-current.json](authoring/browser-current.json) selects browser
+revision 11. It uses the catalog v50 ORIG resources and the cumulative CMADaaS
+pair from the ORIG-09 wheel. From this repository, extract that wheel's resources
+to a staging directory and generate the schema-4 bundle with
+`cedarkit-query` 0.2.1:
 
 ```sh
+python -m zipfile -e ../../doc/2026-11-11-stage1.3-query-reki/evidence/orig-09/artifacts/reki-2026.9.1.dev115+g03b0f4f.orig09-py3-none-any.whl /tmp/reki-orig09
 python tools/export_browser_snapshot.py \
-  --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json \
+  --catalog /tmp/reki-orig09/reki/catalog/builtin/catalog-v1.json \
   --legacy-snapshot ../cedarkit-param-web/public/params.json \
   --output /tmp/reviewed-browser-schema4
 ```
@@ -386,11 +388,11 @@ QFLX覆盖GFS／MESO‑3KM／TYM分析及预报六行，使用各自同文件Q�
 
 [The ORIG-09 release](authoring/cemc-orig-task-orig09.json) applies the ORIG-06 naming decisions to the published native definitions and binds the ORIG-07 and ORIG-08 additions to their reviewed cycles, forecast hours, and ensemble members. Catalog v50 pins six ORIG resource pairs. Browser revision 11 reconstructs these same resource bytes from the authoring inputs.
 
-Run the native export from this repository with `cedarkit-query` 0.2.1. A catalog v49 input produces the release, and a catalog v50 input reproduces it byte for byte.
+Run the native export from this repository with `cedarkit-query` 0.2.1. A catalog v49 input produces the release, and the v50 catalog extracted above reproduces it byte for byte.
 
 ```sh
 python tools/export_cemc_orig.py \
-  --catalog ../../repo/reki/src/reki/catalog/builtin/catalog-v1.json \
+  --catalog /tmp/reki-orig09/reki/catalog/builtin/catalog-v1.json \
   --additions authoring/cemc-orig-task06b.json \
   --additions authoring/cemc-orig-task06c.json \
   --additions authoring/cemc-orig-task06i.json \
@@ -407,6 +409,6 @@ The [stage 1.4 naming review](authoring/cemc-orig-stage1.4-name-review.json) rec
 
 The [stage 1.4 conflict review](authoring/cemc-orig-stage1.4-conflict-review.json) adds `cldb` and `cldt` for six cloud-height carrier groups in GFS, MESO‑1KM, and MESO‑3KM. It records the reproduced `UHMAX` encoding for three products and carries two unresolved identities and the TYM physical layer into follow-up. Apply its approved decisions alongside the 1.4-03 review. [Evidence and handoff](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-04/README.md)
 
-The [stage 1.4 binding candidate](authoring/cemc-orig-stage1.4-bindings.json) adds product-scoped parameter definitions and GRIB2 mappings for the 463 frozen carrier groups. Catalog v52 adds GFS `glw` and REPS `sf` under their existing stable IDs. These two bindings expose the original decoded values and retain the encoded metadata. Their physical meanings and stored units are pending product evidence. [Original-value bindings](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-06-original-values/README.md)
+The [stage 1.4 bindings](authoring/cemc-orig-stage1.4-bindings.json) add product-scoped parameter definitions and GRIB2 mappings for the 463 frozen carrier groups. Catalog v52 adds GFS `glw` and REPS `sf` under their existing stable IDs. These two bindings expose the original decoded values and retain the encoded metadata. Their physical meanings and stored units are pending product evidence. [Original-value bindings](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-06-original-values/README.md)
 
-Append `--binding-candidate authoring/cemc-orig-stage1.4-bindings.json` to the ORIG-09 export command and use a new output directory. The candidate catalog refers to the exported resource files by relative path. Mappings with a unit rule retain reviewed value semantics. The v51 candidate for the first 461 carrier groups can be reproduced from commit `f40d0e7`. [v51 validation and replay](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-05/README.md)
+Append `--binding-candidate authoring/cemc-orig-stage1.4-bindings.json` to the ORIG-09 export command and use a new output directory. The formal v52 catalog refers to the exported resource files by relative path. Mappings with a unit rule retain reviewed value semantics. The v51 candidate for the first 461 carrier groups can be reproduced from commit `f40d0e7`. [v52 formal export and installation](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-07/README.md) · [v51 validation and replay](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-05/README.md)
