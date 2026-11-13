@@ -24,8 +24,15 @@ def main():
     parser.add_argument("--catalog-version", type=int)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--additions", type=Path, action="append", default=[])
-    parser.add_argument("--release", type=Path, help="apply a reviewed ORIG naming and catalog release")
+    parser.add_argument(
+        "--release", type=Path, help="apply a reviewed ORIG naming and catalog release"
+    )
+    parser.add_argument(
+        "--binding-candidate", type=Path, help="stage a reviewed ORIG binding candidate"
+    )
     args = parser.parse_args()
+    if args.binding_candidate and not args.release:
+        parser.error("--binding-candidate needs the reviewed base --release")
     author = json.loads(AUTHOR.read_bytes())
     for path in args.additions:
         additions = json.loads(path.read_bytes())
@@ -40,13 +47,23 @@ def main():
                 resource[kind].extend(extra[kind])
     baseline_catalog = Catalog(json.loads(args.catalog.read_bytes())).to_dict()
     catalog = deepcopy(baseline_catalog) if args.release else baseline_catalog
+    target = None
     if args.release:
         release = json.loads(args.release.read_bytes())
         review = json.loads((args.release.parent / release["name_review"]).read_bytes())
         helpers = run_path(str(Path(__file__).with_name("cemc_orig_release.py")))
         helpers["apply_name_review"](author["products"], release, review)
         helpers["apply_catalog_provisions"](catalog, release)
-        if args.catalog_version is not None and str(args.catalog_version) != release["catalog_version"]:
+        target = release["catalog_version"]
+        if args.binding_candidate:
+            candidate = json.loads(args.binding_candidate.read_bytes())
+            if candidate["base_release"] != release["id"] or int(
+                candidate["catalog_version"]
+            ) <= int(target):
+                parser.error("binding candidate needs its base release and a newer catalog version")
+            helpers["apply_binding_candidate"](author["products"], catalog, candidate)
+            target = candidate["catalog_version"]
+        if args.catalog_version is not None and str(args.catalog_version) != target:
             parser.error("--catalog-version conflicts with the reviewed release")
     datasets = {row["id"]: row for row in catalog["datasets"]}
     files = {}
@@ -69,8 +86,7 @@ def main():
                 parser.error(f"{filename} needs a newer content version")
             pins_changed |= ref.get("sha256") != digest
             ref.update(version=resource["version"], sha256=digest)
-    if args.release:
-        target = release["catalog_version"]
+    if target is not None:
         previous = baseline_catalog["version"]
         if int(target) < int(previous) or (target == previous and catalog != baseline_catalog):
             parser.error("changed release catalog bytes require a newer catalog version")

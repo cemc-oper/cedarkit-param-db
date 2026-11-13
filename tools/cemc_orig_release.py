@@ -45,3 +45,49 @@ def apply_catalog_provisions(catalog, release):
         for provision in row["provides"]:
             if provision not in product["provides"]:
                 product["provides"].append(deepcopy(provision))
+
+
+def apply_binding_candidate(products, catalog, candidate):
+    """Overlay reviewed ORIG definitions and bindings on a staged release."""
+    datasets = {row["id"]: row for row in catalog["datasets"]}
+    if products.keys() != candidate["products"].keys():
+        raise ValueError("binding candidate must cover the released ORIG products")
+    for system, additions in candidate["products"].items():
+        product = products[system]
+        parameters, mappings = product["parameters"], product["mappings"]
+        for kind, resource in (("parameters", parameters), ("mappings", mappings)):
+            version = additions[kind]["version"]
+            if int(version) <= int(resource["version"]):
+                raise ValueError(f"{system} {kind} candidate needs a newer version")
+            resource["version"] = version
+        definitions = {row["parameter_id"]: row for row in parameters["parameters"]}
+        changed = {
+            row["parameter_id"]: deepcopy(row) for row in additions["parameters"]["parameters"]
+        }
+        if len(changed) != len(additions["parameters"]["parameters"]):
+            raise ValueError(f"{system} candidate repeats a parameter definition")
+        definitions.update(changed)
+        parameters["parameters"] = list(definitions.values())
+
+        dataset = datasets[product["dataset"]]
+        (orig,) = [
+            row for row in dataset["products"] if (row["id"], row["version"]) == ("orig", "current")
+        ]
+        scope = {"dataset": dataset["id"], "product": orig["id"], "product_version": orig["version"]}
+        rows = additions["mappings"]["mappings"]
+        bound = set(additions["provides"])
+        if bound != {row["parameter_id"] for row in rows} or any(
+            row["applies_to"] != scope for row in rows
+        ):
+            raise ValueError(f"{system} candidate mappings must match its ORIG product and provides")
+        mappings["mappings"].extend(deepcopy(rows))
+        orig["provides"] = [
+            row for row in orig["provides"] if row["parameter"] not in bound
+        ]
+        orig["provides"].extend({"parameter": pid} for pid in sorted(bound))
+        for kind, ref in (
+            ("parameters", dataset["parameter_registry"]),
+            ("mappings", dataset["mappings"]["grib2"]),
+        ):
+            ref.pop("builtin", None)
+            ref["path"] = f"current-{system}-{kind}.json"
