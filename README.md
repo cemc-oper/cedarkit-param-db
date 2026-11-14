@@ -15,15 +15,15 @@ reki owns the catalog, including layout and the two finite expected-domain sampl
 ## Reviewed browser snapshot set (N03A and subsequent candidates)
 
 [authoring/browser-current.json](authoring/browser-current.json) selects browser
-revision 12. The exporter applies the stage 1.4 ORIG bindings and verifies the
-catalog v52 resources against the sealed wheel. It also includes the reviewed
-CMADaaS resources from T05. Extract the wheel and export the schema-4 bundle with
-`cedarkit-query` 0.2.1 from this repository.
+revision 13. The exporter applies the stage 1.4 ORIG bindings and the reviewed
+K-index unit rules, then verifies the catalog v53 resources against the sealed
+wheel. It also includes the reviewed CMADaaS resources from T05. Extract the
+wheel and export the schema-4 bundle with `cedarkit-query` 0.2.1 from this repository.
 
 ```sh
-python -m zipfile -e ../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-07/artifacts/reki-2026.9.1.dev117+g8d80735.orig52-py3-none-any.whl /tmp/reki-orig52
+python -m zipfile -e ../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04/artifacts/reki-2026.9.1.dev118+gb8b2796.orig53-py3-none-any.whl /tmp/reki-orig53
 python tools/export_browser_snapshot.py \
-  --catalog /tmp/reki-orig52/reki/catalog/builtin/catalog-v1.json \
+  --catalog /tmp/reki-orig53/reki/catalog/builtin/catalog-v1.json \
   --legacy-snapshot ../cedarkit-param-web/public/params.json \
   --output /tmp/reviewed-browser-schema4
 ```
@@ -412,3 +412,7 @@ The [stage 1.4 conflict review](authoring/cemc-orig-stage1.4-conflict-review.jso
 The [stage 1.4 bindings](authoring/cemc-orig-stage1.4-bindings.json) add product-scoped parameter definitions and GRIB2 mappings for the 463 frozen carrier groups. Catalog v52 adds GFS `glw` and REPS `sf` under their existing stable IDs. These two bindings expose the original decoded values and retain the encoded metadata. Their physical meanings and stored units are pending product evidence. [Original-value bindings](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-06-original-values/README.md)
 
 Append `--binding-candidate authoring/cemc-orig-stage1.4-bindings.json` to the ORIG-09 export command and use a new output directory. The formal v52 catalog refers to the exported resource files by relative path. Mappings with a unit rule retain reviewed value semantics. The v51 candidate for the first 461 carrier groups can be reproduced from commit `f40d0e7`. [v52 formal export and installation](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-07/README.md) · [v51 validation and replay](../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-05/README.md)
+
+## Stage 1.5 ORIG K-index units
+
+Add `--mapping-refinement authoring/cemc-orig-stage1.5-kindex-units.json` to the native export command that selects the v52 binding. The eight derived mapping branches publish the stored K-index values in K for GFS, MESO-1KM, MESO-3KM, and TYM at 2026-11-02 12 UTC and leads 0, 6, and 48 hours. The scale is the numeric temperature-index scale with zero offset. Browser revision 12 can be rebuilt with `--policy authoring/browser-reviewed-v12.json` and the v52 wheel. [Stage 1.5-04 evidence](../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04/README.md)

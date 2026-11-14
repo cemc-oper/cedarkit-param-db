@@ -334,15 +334,18 @@ def test_legacy_attachment_cannot_claim_current_support(exporter, inputs, tmp_pa
 
 @pytest.mark.parametrize(("wheel_path", "policy_name", "counts"), [
     (V50_WHEEL, "browser-reviewed-v11.json", (582, 173, 1398, 998, 130, 53)),
-    (V52_WHEEL, "browser-current.json", (702, 215, 2581, 2181, 158, 72)),
-], ids=["v50-recovery", "v52-current"])
+    (V52_WHEEL, "browser-reviewed-v12.json", (702, 215, 2581, 2181, 158, 72)),
+    (None, "browser-current.json", (702, 215, 2589, 2183, 158, 72)),
+], ids=["v50-recovery", "v52-recovery", "v53-current"])
 def test_snapshot_preserves_scoped_definitions_and_mapping_identities(exporter, tmp_path, wheel_path, policy_name, counts):
-    runtime = tmp_path / "runtime"
-    runtime.mkdir()
-    with ZipFile(wheel_path) as wheel:
-        for name in wheel.namelist():
-            if name.startswith("reki/catalog/builtin/") and name.endswith(".json"):
-                (runtime / Path(name).name).write_bytes(wheel.read(name))
+    runtime = RUNTIME
+    if wheel_path:
+        runtime = tmp_path / "runtime"
+        runtime.mkdir()
+        with ZipFile(wheel_path) as wheel:
+            for name in wheel.namelist():
+                if name.startswith("reki/catalog/builtin/") and name.endswith(".json"):
+                    (runtime / Path(name).name).write_bytes(wheel.read(name))
     files = exporter.build_bundle(author=REPO / "authoring", policy=REPO / "authoring" / policy_name,
                                   catalog=runtime / "catalog-v1.json", runtime_dir=runtime)
     manifest, browsers = browser_documents(files)
@@ -399,26 +402,39 @@ def test_snapshot_preserves_scoped_definitions_and_mapping_identities(exporter, 
                for values in raw_scoped.values()) == differing_definitions
     assert not any("task07a" in item["path"] for item in manifest["files"])
     assert not any("modelvar" in item["dataset_id"] for item in manifest["dataset_bindings"])
-    if wheel_path == V52_WHEEL:
+    if wheel_path != V50_WHEEL:
         binding_path = "authoring/cemc-orig-stage1.4-bindings.json"
         binding_source = next(row for row in manifest["sources"] if row["path"] == binding_path)
         assert binding_source["sha256"] == sha256((REPO / binding_path).read_bytes())
         orig = [row for _, row in mappings if row["applies_to"]["product"] == "orig"]
-        assert len(orig) == 1973
+        assert len(orig) == (1981 if wheel_path is None else 1973)
         assert sum("unit" not in row["native"].get("translate", {}) for row in orig) == 1171
+    if wheel_path is None:
+        author_path = "authoring/cemc-orig-stage1.5-kindex-units.json"
+        source = next(row for row in manifest["sources"] if row["path"] == author_path)
+        assert source["sha256"] == sha256((REPO / author_path).read_bytes())
+        for system in ("gfs", "meso1", "meso3", "tym"):
+            rows = [r for r in browsers[system]["mapping_resources"][0]["mappings"] if r["parameter_id"] == "cedarkit.kidx"]
+            assert len(rows) == 4
+            reviewed = [r for r in rows if "unit" in r["native"]["translate"]]
+            assert len(reviewed) == 2
+            assert all(r["applies_to"]["time"] == "2026-11-02T12:00:00Z" for r in reviewed)
+            assert {step for r in reviewed for step in r["when"]["step"]} == {"PT0H", "PT6H", "PT48H"}
 
 
 def test_frozen_browser_policies_are_retained():
     for version, digest in {
         "1": "3143397eecf0802db66c93074eda65bdc6a026931c384bdcef1e0450553aca96",
         "11": "c512841ee038a4f026165396d8b7ce916eb35e9223d3c880f267cdff7289bf22",
+        "12": "aae8f0f67c40b312812e6be0b7f9126791577e51825d3f54ca6697fa9fa97fb0",
     }.items():
         assert sha256((REPO / f"authoring/browser-reviewed-v{version}.json").read_bytes()) == digest
     current = read(REPO / "authoring/browser-current.json")
-    assert current["version"] == "12"
-    assert current["catalog"]["version"] == "52"
+    assert current["version"] == "13"
+    assert current["catalog"]["version"] == "53"
     assert current["authoring"]["native_release"] == "cemc-orig-task-orig09.json"
     assert current["authoring"]["native_binding"] == "cemc-orig-stage1.4-bindings.json"
+    assert current["authoring"]["native_mapping_refinement"] == "cemc-orig-stage1.5-kindex-units.json"
     assert "cemc-orig-task-n04b-01.json" in current["authoring"]["native_additions"]
 
 
@@ -430,7 +446,8 @@ def test_frozen_browser_policies_are_retained():
 ])
 def test_rejects_binding_that_disagrees_with_release_or_catalog(exporter, tmp_path, issue, message):
     author = REPO / "authoring"
-    policy = read(author / "browser-current.json")
+    policy_path = author / "browser-reviewed-v12.json"
+    policy = read(policy_path)
     for filename in [
         policy["authoring"]["native_base"],
         *policy["authoring"]["native_additions"],
@@ -458,4 +475,4 @@ def test_rejects_binding_that_disagrees_with_release_or_catalog(exporter, tmp_pa
         catalog = tmp_path / "catalog-v1.json"
         catalog.write_bytes(wheel.read("reki/catalog/builtin/catalog-v1.json"))
     with pytest.raises(ValueError, match=message):
-        exporter.build_bundle(author=tmp_path, policy=author / "browser-current.json", catalog=catalog)
+        exporter.build_bundle(author=tmp_path, policy=policy_path, catalog=catalog)

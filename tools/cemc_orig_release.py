@@ -91,3 +91,32 @@ def apply_binding_candidate(products, catalog, candidate):
         ):
             ref.pop("builtin", None)
             ref["path"] = f"current-{system}-{kind}.json"
+
+
+def apply_mapping_refinement(products, binding, refinement):
+    """Add reviewed unit rules for finite cells of an existing ORIG branch."""
+    version = refinement["catalog_version"]
+    if refinement["base_binding"] != binding["id"] or int(version) <= int(binding["catalog_version"]):
+        raise ValueError("mapping refinement needs its base binding and a newer catalog version")
+    for system, additions in refinement["products"].items():
+        resource = products[system]["mappings"]
+        if int(additions["version"]) <= int(resource["version"]):
+            raise ValueError(f"{system} mapping refinement needs a newer resource version")
+        existing = {row["id"]: row for row in resource["mappings"]}
+        for row in additions["mappings"]:
+            mapping = deepcopy(existing[row["base_mapping"]])
+            scope, native = mapping["applies_to"], mapping["native"]
+            if ("time" in scope or mapping["when"] or "unit" in native["translate"]
+                    or "forecastTime" in native["match"]):
+                raise ValueError("mapping refinement needs an unbounded original-value branch")
+            if not row["steps"] or not row["forecast_times"] or not row["evidence"]:
+                raise ValueError("mapping refinement needs reviewed time, steps, native leads and evidence")
+            scope["time"] = row["time"]
+            mapping["when"]["step"] = row["steps"]
+            native["match"]["forecastTime"] = row["forecast_times"]
+            native["translate"]["unit"] = {"rule": "common.value_unit", "config": {"source_unit": row["source_unit"]}}
+            mapping["id"] = row["id"]
+            mapping["evidence"].extend(row["evidence"])
+            resource["mappings"].append(mapping)
+        resource["version"] = additions["version"]
+    return version

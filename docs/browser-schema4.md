@@ -8,9 +8,11 @@ The reviewed selection and the independent browser content revision are in
 from the reviewed base, ordered authoring increments, and the selected naming
 release. When the policy selects `native_binding`, the exporter applies the
 binding with the same helper as the native resource exporter and checks its
-base release, catalog version, provisions, and resource bytes. The service
-group comes from the selected CMADaaS authoring slice. Runtime files provide
-the exact bytes for verification.
+base release, catalog version, provisions, and resource bytes. A policy can
+also select a `native_mapping_refinement` to add reviewed unit rules within
+specified cycles and native forecast leads. The service group comes from the
+selected CMADaaS authoring slice. Runtime files provide the exact bytes for
+verification.
 
 ## Export a new group
 

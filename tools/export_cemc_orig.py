@@ -30,9 +30,14 @@ def main():
     parser.add_argument(
         "--binding-candidate", type=Path, help="stage a reviewed ORIG binding candidate"
     )
+    parser.add_argument(
+        "--mapping-refinement", type=Path, help="apply reviewed unit rules to finite cells of that binding"
+    )
     args = parser.parse_args()
     if args.binding_candidate and not args.release:
         parser.error("--binding-candidate needs the reviewed base --release")
+    if args.mapping_refinement and not args.binding_candidate:
+        parser.error("--mapping-refinement needs the reviewed --binding-candidate")
     author = json.loads(AUTHOR.read_bytes())
     for path in args.additions:
         additions = json.loads(path.read_bytes())
@@ -63,6 +68,9 @@ def main():
                 parser.error("binding candidate needs its base release and a newer catalog version")
             helpers["apply_binding_candidate"](author["products"], catalog, candidate)
             target = candidate["catalog_version"]
+            if args.mapping_refinement:
+                refinement = json.loads(args.mapping_refinement.read_bytes())
+                target = helpers["apply_mapping_refinement"](author["products"], candidate, refinement)
         if args.catalog_version is not None and str(args.catalog_version) != target:
             parser.error("--catalog-version conflicts with the reviewed release")
     datasets = {row["id"]: row for row in catalog["datasets"]}
