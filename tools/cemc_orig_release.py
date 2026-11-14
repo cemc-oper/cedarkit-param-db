@@ -93,12 +93,27 @@ def apply_binding_candidate(products, catalog, candidate):
             ref["path"] = f"current-{system}-{kind}.json"
 
 
-def apply_mapping_refinement(products, binding, refinement):
-    """Add reviewed unit rules for finite cells of an existing ORIG branch."""
+def apply_mapping_refinement(products, binding, refinement, current_version):
+    """Apply reviewed parameter metadata and unit rules for finite ORIG cells."""
     version = refinement["catalog_version"]
-    if refinement["base_binding"] != binding["id"] or int(version) <= int(binding["catalog_version"]):
+    lead_fields = {"forecast_times": "forecastTime", "accumulation_lengths": "lengthOfTimeRange"}
+    if (refinement["base_binding"] != binding["id"]
+            or refinement.get("base_catalog_version", binding["catalog_version"]) != current_version
+            or int(version) <= int(current_version)):
         raise ValueError("mapping refinement needs its base binding and a newer catalog version")
     for system, additions in refinement["products"].items():
+        if metadata := additions.get("parameter_metadata"):
+            parameters = products[system]["parameters"]
+            if int(metadata["version"]) <= int(parameters["version"]):
+                raise ValueError(f"{system} parameter refinement needs a newer parameter version")
+            definitions = {row["parameter_id"]: row for row in parameters["parameters"]}
+            for row in metadata["parameters"]:
+                definition = definitions[row["parameter_id"]]
+                for key in ("description", "description_cn"):
+                    definition[key] = row[key]
+                if "statistics" in row:
+                    definition["fixed_conditions"]["statistics"] = deepcopy(row["statistics"])
+            parameters["version"] = metadata["version"]
         resource = products[system]["mappings"]
         if int(additions["version"]) <= int(resource["version"]):
             raise ValueError(f"{system} mapping refinement needs a newer resource version")
@@ -107,13 +122,17 @@ def apply_mapping_refinement(products, binding, refinement):
             mapping = deepcopy(existing[row["base_mapping"]])
             scope, native = mapping["applies_to"], mapping["native"]
             if ("time" in scope or mapping["when"] or "unit" in native["translate"]
-                    or "forecastTime" in native["match"]):
+                    or any(field in native["match"] for field in lead_fields.values())):
                 raise ValueError("mapping refinement needs an unbounded original-value branch")
-            if not row["steps"] or not row["forecast_times"] or not row["evidence"]:
+            lead_keys = lead_fields.keys() & row.keys()
+            if len(lead_keys) != 1 or not row["steps"] or not row["evidence"]:
                 raise ValueError("mapping refinement needs reviewed time, steps, native leads and evidence")
+            (lead_key,) = lead_keys
+            if not row[lead_key]:
+                raise ValueError("mapping refinement needs at least one native lead")
             scope["time"] = row["time"]
             mapping["when"]["step"] = row["steps"]
-            native["match"]["forecastTime"] = row["forecast_times"]
+            native["match"][lead_fields[lead_key]] = row[lead_key]
             native["translate"]["unit"] = {"rule": "common.value_unit", "config": {"source_unit": row["source_unit"]}}
             mapping["id"] = row["id"]
             mapping["evidence"].extend(row["evidence"])

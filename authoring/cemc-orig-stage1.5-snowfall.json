@@ -1,0 +1,192 @@
+{
+  "base_binding": "stage1.4-orig06-original-values",
+  "base_catalog_version": "53",
+  "catalog_version": "54",
+  "id": "stage1.5-orig-snowfall",
+  "products": {
+    "gfs": {
+      "mappings": [
+        {
+          "accumulation_lengths": [
+            0
+          ],
+          "base_mapping": "stage14.gfs-004.1",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/historical-status.tsv#gfs:06",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/producer-receipts.json#gfs"
+          ],
+          "id": "sf.since-initialization.initial.2026110212",
+          "source_unit": "m",
+          "steps": [
+            "PT0H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "accumulation_lengths": [
+            6,
+            48
+          ],
+          "base_mapping": "stage14.gfs-004.2",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/historical-status.tsv#gfs:06",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/producer-receipts.json#gfs"
+          ],
+          "id": "sf.since-initialization.forecast.2026110212",
+          "source_unit": "m",
+          "steps": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        }
+      ],
+      "parameter_metadata": {
+        "parameters": [
+          {
+            "description": "ORIG snowfall (SF). The reviewed 0, 6 and 48 h fields from 2026-11-02 12 UTC represent accumulated large-scale solid precipitation as liquid-water-equivalent depth.",
+            "description_cn": "ORIG 降雪（SF）。2026-11-02 12 UTC 起报的 0／6／48h 已确认为累计大尺度固态降水的液态水当量深度。",
+            "parameter_id": "cedarkit.sf",
+            "statistics": {
+              "operation": "accumulation",
+              "over": "time",
+              "period": {
+                "kind": "since_initialization"
+              }
+            }
+          },
+          {
+            "description": "ORIG snowfall (SF)",
+            "description_cn": "ORIG 降雪（SF）",
+            "parameter_id": "cedarkit.sf.any"
+          }
+        ],
+        "version": "19"
+      },
+      "version": "25"
+    },
+    "meso3": {
+      "mappings": [
+        {
+          "accumulation_lengths": [
+            0
+          ],
+          "base_mapping": "stage14.meso3-002.1",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/historical-status.tsv#meso3:03",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/producer-receipts.json#meso3"
+          ],
+          "id": "sf.since-initialization.initial.2026110212",
+          "source_unit": "m",
+          "steps": [
+            "PT0H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "accumulation_lengths": [
+            6,
+            48
+          ],
+          "base_mapping": "stage14.meso3-002.2",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/historical-status.tsv#meso3:03",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/producer-receipts.json#meso3"
+          ],
+          "id": "sf.since-initialization.forecast.2026110212",
+          "source_unit": "m",
+          "steps": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        }
+      ],
+      "parameter_metadata": {
+        "parameters": [
+          {
+            "description": "ORIG snowfall (SF). The reviewed 0, 6 and 48 h fields from 2026-11-02 12 UTC represent accumulated large-scale solid precipitation as liquid-water-equivalent depth.",
+            "description_cn": "ORIG 降雪（SF）。2026-11-02 12 UTC 起报的 0／6／48h 已确认为累计大尺度固态降水的液态水当量深度。",
+            "parameter_id": "cedarkit.sf",
+            "statistics": {
+              "operation": "accumulation",
+              "over": "time",
+              "period": {
+                "kind": "since_initialization"
+              }
+            }
+          },
+          {
+            "description": "ORIG snowfall (SF)",
+            "description_cn": "ORIG 降雪（SF）",
+            "parameter_id": "cedarkit.sf.any"
+          }
+        ],
+        "version": "13"
+      },
+      "version": "16"
+    },
+    "tym": {
+      "mappings": [
+        {
+          "accumulation_lengths": [
+            0
+          ],
+          "base_mapping": "stage14.tym-004.1",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/historical-status.tsv#tym:02",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/producer-receipts.json#tym"
+          ],
+          "id": "sf.since-initialization.initial.2026110212",
+          "source_unit": "m",
+          "steps": [
+            "PT0H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "accumulation_lengths": [
+            6,
+            48
+          ],
+          "base_mapping": "stage14.tym-004.2",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/historical-status.tsv#tym:02",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/producer-receipts.json#tym"
+          ],
+          "id": "sf.since-initialization.forecast.2026110212",
+          "source_unit": "m",
+          "steps": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        }
+      ],
+      "parameter_metadata": {
+        "parameters": [
+          {
+            "description": "ORIG snowfall (SF). The reviewed 0, 6 and 48 h fields from 2026-11-02 12 UTC represent accumulated large-scale solid precipitation as liquid-water-equivalent depth.",
+            "description_cn": "ORIG 降雪（SF）。2026-11-02 12 UTC 起报的 0／6／48h 已确认为累计大尺度固态降水的液态水当量深度。",
+            "parameter_id": "cedarkit.sf",
+            "statistics": {
+              "operation": "accumulation",
+              "over": "time",
+              "period": {
+                "kind": "since_initialization"
+              }
+            }
+          },
+          {
+            "description": "ORIG snowfall (SF)",
+            "description_cn": "ORIG 降雪（SF）",
+            "parameter_id": "cedarkit.sf.any"
+          }
+        ],
+        "version": "12"
+      },
+      "version": "15"
+    }
+  },
+  "schema_version": 1
+}

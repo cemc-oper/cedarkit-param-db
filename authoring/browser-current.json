@@ -10,15 +10,18 @@
     ],
     "native_base": "cemc-orig-batch1.json",
     "native_binding": "cemc-orig-stage1.4-bindings.json",
-    "native_mapping_refinement": "cemc-orig-stage1.5-kindex-units.json",
+    "native_mapping_refinement": [
+      "cemc-orig-stage1.5-kindex-units.json",
+      "cemc-orig-stage1.5-snowfall.json"
+    ],
     "native_release": "cemc-orig-task-orig09.json",
     "service": "cmadaas-task-t05.json"
   },
   "catalog": {
     "api_version": "cedarkit.catalog/v1",
     "id": "reki.cemc-catalog",
-    "sha256": "3c921d3c0eb0a50d6e622c0a12aeaa55c6abc50b6032178d223f417b16468b9d",
-    "version": "53"
+    "sha256": "647af53fec454f4c93bc7eadeb41f1db00aa07e863130d635b9bdf4dc5d9aafe",
+    "version": "54"
   },
   "id": "cedarkit.browser.reviewed-current",
   "remaining_migration_obligations": [
@@ -53,14 +56,14 @@
     },
     {
       "evidence": [
-        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04/historical-status.tsv"
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/historical-ledger.tsv"
       ],
       "groups": {
         "06J": 95,
         "06K": 48
       },
       "id": "native-definition-gaps",
-      "note": "Historical denominators. Verified: 20 groups. Partially verified: 1 group. Open: 122 groups. Reviewed scopes are limited to their recorded conditions."
+      "note": "Historical denominators. Verified: 23 groups. Partially verified: 1 group. Open: 119 groups. Reviewed scopes are limited to their recorded conditions."
     },
     {
       "id": "modelvar",
@@ -100,14 +103,14 @@
         "backend": "grib2",
         "file": "current-gfs-mappings.json",
         "id": "cedarkit.grib2.cma-gfs.current",
-        "sha256": "c686d85a738d9e7fb685d684d449e59fbd9b51ee61da694437d96f20d1e1b07b",
-        "version": "24"
+        "sha256": "b179fb87483f72f4958140c36f06081d9eaac355734c43356743215c3beb4617",
+        "version": "25"
       },
       "parameters": {
         "file": "current-gfs-parameters.json",
         "id": "cedarkit.parameters.cma-gfs.current",
-        "sha256": "beffabd1b83213b16a6493a7c9c15d4e3388f0af1b2ab92486e219b369a958e6",
-        "version": "18"
+        "sha256": "ad8d474f1fd551d0f12f04f6a81da77bd21f67c91157f932246207e4ef7bd33b",
+        "version": "19"
       }
     },
     {
@@ -138,14 +141,14 @@
         "backend": "grib2",
         "file": "current-meso3-mappings.json",
         "id": "cedarkit.grib2.cma-meso-3km.current",
-        "sha256": "8deed5c281b09e4548a139294db74312e8c8ec0ad51035c5378303abed8a617f",
-        "version": "15"
+        "sha256": "5218f996edf523641250ff5ccd21d83db10004d027853a7ef8693c4476e8332b",
+        "version": "16"
       },
       "parameters": {
         "file": "current-meso3-parameters.json",
         "id": "cedarkit.parameters.cma-meso-3km.current",
-        "sha256": "ec04076c061c0142e5c8abb18d7dc0e4a314ce6b8329bb60df88fbdce8731483",
-        "version": "12"
+        "sha256": "175af39c78094967ade1b5f9ec041c66c83f4939309512c75045498a801b49bd",
+        "version": "13"
       }
     },
     {
@@ -157,14 +160,14 @@
         "backend": "grib2",
         "file": "current-tym-mappings.json",
         "id": "cedarkit.grib2.cma-tym.current",
-        "sha256": "d8c68ed0c2fed74f9486569ea1e5bf554b552ed4a7cbd9a4dd164724c3e2a13c",
-        "version": "14"
+        "sha256": "c8bfc5ba2fb5a499f7865e1ec4c661b328d8e2c285c0bd267477e79bf9804195",
+        "version": "15"
       },
       "parameters": {
         "file": "current-tym-parameters.json",
         "id": "cedarkit.parameters.cma-tym.current",
-        "sha256": "f898ae1b8066e1c7aaea8cd5164da97eee776426ea962bed5051afd0cf9ab2fd",
-        "version": "11"
+        "sha256": "59fcaf38aa4c45737309fb7974b06783182b1102531fd5a42d958dd36dc869cd",
+        "version": "12"
       }
     },
     {
@@ -242,5 +245,5 @@
     "mappings": "reviewed_mapping_with_references"
   },
   "schema_version": 1,
-  "version": "13"
+  "version": "14"
 }

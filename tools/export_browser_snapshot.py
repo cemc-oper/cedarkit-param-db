@@ -200,10 +200,12 @@ def build_bundle(*, author, policy, catalog, runtime_dir=None, legacy_snapshot=N
                     resource[kind].extend(extra[kind])
         release_name = policy_doc["authoring"].get("native_release")
         binding_name = policy_doc["authoring"].get("native_binding")
-        refinement_name = policy_doc["authoring"].get("native_mapping_refinement")
+        refinement_names = policy_doc["authoring"].get("native_mapping_refinement") or []
+        if isinstance(refinement_names, str):
+            refinement_names = [refinement_names]
         if binding_name and not release_name:
             raise ValueError("native binding needs its base release")
-        if refinement_name and not binding_name:
+        if refinement_names and not binding_name:
             raise ValueError("native mapping refinement needs its base binding")
         if release_name:
             release = read_author(release_name)
@@ -215,17 +217,17 @@ def build_bundle(*, author, policy, catalog, runtime_dir=None, legacy_snapshot=N
                 version = candidate["catalog_version"]
                 if candidate["base_release"] != release["id"] or int(version) <= int(release["catalog_version"]):
                     raise ValueError("native binding needs its base release and a newer catalog version")
-                if not refinement_name and version != catalog_doc["version"]:
+                if not refinement_names and version != catalog_doc["version"]:
                     raise ValueError("native binding needs the pinned newer catalog version")
                 bound_catalog = deepcopy(catalog_doc)
                 helpers["apply_binding_candidate"](native, bound_catalog, candidate)
                 if bound_catalog != catalog_doc:
                     raise ValueError("native binding provisions differ from the pinned catalog")
-                if refinement_name:
+                for refinement_name in refinement_names:
                     refinement = read_author(refinement_name)
-                    version = helpers["apply_mapping_refinement"](native, candidate, refinement)
-                    if version != catalog_doc["version"]:
-                        raise ValueError("native mapping refinement needs the pinned catalog version")
+                    version = helpers["apply_mapping_refinement"](native, candidate, refinement, version)
+                if refinement_names and version != catalog_doc["version"]:
+                    raise ValueError("native mapping refinement needs the pinned catalog version")
     service = read_author(policy_doc["authoring"]["service"]) if any(
         row["mappings"]["backend"] == "cmadaas" for row in selected) else None
     datasets = {row["id"]: row for row in catalog_doc["datasets"]}
