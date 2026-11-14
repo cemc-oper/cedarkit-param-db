@@ -1,0 +1,220 @@
+{
+  "base_binding": "stage1.4-orig06-original-values",
+  "base_catalog_version": "55",
+  "catalog_version": "56",
+  "id": "stage1.5-orig-snowfall-supplement",
+  "products": {
+    "meso1": {
+      "mappings": [
+        {
+          "accumulation_lengths": [
+            0
+          ],
+          "base_mapping": "stage14.meso1-002.1",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/historical-status.tsv#meso1:04",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/production-sources.json#meso1"
+          ],
+          "id": "sf.since-initialization.initial.2026110212",
+          "source_unit": "m",
+          "steps": [
+            "PT0H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "accumulation_lengths": [
+            360,
+            2880
+          ],
+          "base_mapping": "stage14.meso1-002.2",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/historical-status.tsv#meso1:04",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/production-sources.json#meso1"
+          ],
+          "id": "sf.since-initialization.forecast.2026110212",
+          "source_unit": "m",
+          "steps": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T12:00:00Z"
+        }
+      ],
+      "parameter_metadata": {
+        "parameters": [
+          {
+            "description": "ORIG snowfall (SF). The reviewed 0, 6 and 48 h fields from 2026-11-02 12 UTC represent accumulated large-scale solid precipitation as liquid-water-equivalent depth.",
+            "description_cn": "ORIG 降雪（SF）。2026-11-02 12 UTC 起报的 0／6／48h 已确认为累计大尺度固态降水的液态水当量深度。",
+            "parameter_id": "cedarkit.sf",
+            "statistics": {
+              "operation": "accumulation",
+              "over": "time",
+              "period": {
+                "kind": "since_initialization"
+              }
+            }
+          },
+          {
+            "description": "ORIG snowfall (SF)",
+            "description_cn": "ORIG 降雪（SF）",
+            "parameter_id": "cedarkit.sf.any"
+          }
+        ],
+        "version": "12"
+      },
+      "version": "15"
+    },
+    "reps": {
+      "mappings": [
+        {
+          "accumulation_lengths": [
+            0
+          ],
+          "base_mapping": "stage14.reps-003.2",
+          "encoded_interval": true,
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/historical-status.tsv#reps:0-1-29:initial:control",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/production-sources.json#reps",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/reps-diagnostics.json"
+          ],
+          "id": "sf.diagnostic.initial.control.2026110206",
+          "members": [
+            0
+          ],
+          "source_unit": "m",
+          "steps": [
+            "PT0H"
+          ],
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "accumulation_lengths": [
+            0
+          ],
+          "base_mapping": "stage14.reps-003.3",
+          "encoded_interval": true,
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/historical-status.tsv#reps:0-1-29:initial:positive",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/production-sources.json#reps",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/reps-diagnostics.json"
+          ],
+          "id": "sf.diagnostic.initial.positive.2026110206",
+          "members": [
+            1
+          ],
+          "source_unit": "m",
+          "steps": [
+            "PT0H"
+          ],
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "accumulation_lengths": [
+            0
+          ],
+          "base_mapping": "stage14.reps-003.4",
+          "encoded_interval": true,
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/historical-status.tsv#reps:0-1-29:initial:negative",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/production-sources.json#reps",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/reps-diagnostics.json"
+          ],
+          "id": "sf.diagnostic.initial.negative.2026110206",
+          "members": [
+            2,
+            14
+          ],
+          "source_unit": "m",
+          "steps": [
+            "PT0H"
+          ],
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "accumulation_lengths": [
+            6,
+            48
+          ],
+          "base_mapping": "stage14.reps-003.5",
+          "encoded_interval": true,
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/historical-status.tsv#reps:0-1-29:forecast:control",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/production-sources.json#reps",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/reps-diagnostics.json"
+          ],
+          "id": "sf.diagnostic.forecast.control.2026110206",
+          "members": [
+            0
+          ],
+          "source_unit": "m",
+          "steps": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "accumulation_lengths": [
+            6,
+            48
+          ],
+          "base_mapping": "stage14.reps-003.1",
+          "encoded_interval": true,
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/historical-status.tsv#reps:0-1-29:forecast:positive",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/production-sources.json#reps",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/reps-diagnostics.json"
+          ],
+          "id": "sf.diagnostic.forecast.positive.2026110206",
+          "members": [
+            1
+          ],
+          "source_unit": "m",
+          "steps": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T06:00:00Z"
+        },
+        {
+          "accumulation_lengths": [
+            6,
+            48
+          ],
+          "base_mapping": "stage14.reps-003.6",
+          "encoded_interval": true,
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/historical-status.tsv#reps:0-1-29:forecast:negative",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/production-sources.json#reps",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/reps-diagnostics.json"
+          ],
+          "id": "sf.diagnostic.forecast.negative.2026110206",
+          "members": [
+            2,
+            14
+          ],
+          "source_unit": "m",
+          "steps": [
+            "PT6H",
+            "PT48H"
+          ],
+          "time": "2026-11-02T06:00:00Z"
+        }
+      ],
+      "parameter_metadata": {
+        "parameters": [
+          {
+            "description": "CMA-REPS ORIG snowfall (SF) as liquid-water-equivalent depth. The reviewed 2026-11-02 06 UTC members 0, 1, 2 and 14 at 0, 6 and 48 h combine accumulated large-scale snowfall with a convective snow diagnostic recomputed at each output. Values may decrease within the encoded interval from initialization.",
+            "description_cn": "CMA-REPS ORIG 降雪（SF）的液态水当量深度。已核定 2026-11-02 06 UTC 起报成员 0、1、2、14 的 0／6／48h，为累计大尺度雪量与各输出时刻重算的对流雪诊断量之和。报头区间从起报开始，数值可随时效下降。",
+            "parameter_id": "cedarkit.sf",
+            "unit": "m"
+          }
+        ],
+        "version": "9"
+      },
+      "version": "12"
+    }
+  },
+  "schema_version": 1
+}

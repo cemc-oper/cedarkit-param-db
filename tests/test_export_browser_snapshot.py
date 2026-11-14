@@ -335,8 +335,8 @@ def test_legacy_attachment_cannot_claim_current_support(exporter, inputs, tmp_pa
 @pytest.mark.parametrize(("wheel_path", "policy_name", "counts"), [
     (V50_WHEEL, "browser-reviewed-v11.json", (582, 173, 1398, 998, 130, 53)),
     (V52_WHEEL, "browser-reviewed-v12.json", (702, 215, 2581, 2181, 158, 72)),
-    (None, "browser-current.json", (702, 215, 2597, 2187, 158, 75)),
-], ids=["v50-recovery", "v52-recovery", "v55-current"])
+    (None, "browser-current.json", (702, 215, 2605, 2193, 158, 75)),
+], ids=["v50-recovery", "v52-recovery", "v56-current"])
 def test_snapshot_preserves_scoped_definitions_and_mapping_identities(exporter, tmp_path, wheel_path, policy_name, counts):
     runtime = RUNTIME
     if wheel_path:
@@ -407,20 +407,36 @@ def test_snapshot_preserves_scoped_definitions_and_mapping_identities(exporter, 
         binding_source = next(row for row in manifest["sources"] if row["path"] == binding_path)
         assert binding_source["sha256"] == sha256((REPO / binding_path).read_bytes())
         orig = [row for _, row in mappings if row["applies_to"]["product"] == "orig"]
-        assert len(orig) == (1989 if wheel_path is None else 1973)
+        assert len(orig) == (1997 if wheel_path is None else 1973)
         assert sum("unit" not in row["native"].get("translate", {}) for row in orig) == 1171
     if wheel_path is None:
         author_path = "authoring/cemc-orig-stage1.5-kindex-units.json"
         source = next(row for row in manifest["sources"] if row["path"] == author_path)
         assert source["sha256"] == sha256((REPO / author_path).read_bytes())
         snowfall = [row for row in orig if row["id"].startswith("sf.since-initialization.")]
-        snowfall_datasets = {"cma_gfs_gmf", "cma_meso_3km", "cma_tym"}
+        snowfall_datasets = {"cma_gfs_gmf", "cma_meso_1km", "cma_meso_3km", "cma_tym"}
         assert {row["applies_to"]["dataset"] for row in snowfall} == snowfall_datasets
         for dataset in snowfall_datasets:
             rows = [row for row in snowfall if row["applies_to"]["dataset"] == dataset]
             assert all(row["applies_to"]["time"] == "2026-11-02T12:00:00Z" for row in rows)
-            assert {tuple(row["native"]["match"]["lengthOfTimeRange"]) for row in rows} == {(0,), (6, 48)}
+            lengths = (360, 2880) if dataset == "cma_meso_1km" else (6, 48)
+            assert {tuple(row["native"]["match"]["lengthOfTimeRange"]) for row in rows} == {(0,), lengths}
             assert all(row["native"]["translate"]["unit"]["config"]["source_unit"] == "m" for row in rows)
+        reps = next(row for row in browsers["reps"]["parameters"] if row["parameter_id"] == "cedarkit.sf")
+        assert reps["unit"] == "m" and "period" not in reps["fixed_conditions"]["statistics"]
+        diagnostic = [row for row in orig if row["id"].startswith("sf.diagnostic.")]
+        assert len(diagnostic) == 6
+        assert {(tuple(row["when"]["step"]), tuple(row["when"]["member"])) for row in diagnostic} == {
+            (steps, members) for steps in [("PT0H",), ("PT6H", "PT48H")] for members in [(0,), (1,), (2, 14)]
+        }
+        for row in diagnostic:
+            assert row["applies_to"]["dataset"] == "cma_reps"
+            assert row["applies_to"]["time"] == "2026-11-02T06:00:00Z"
+            native = row["native"]
+            assert native["match"]["perturbationNumber"] == row["when"]["member"]
+            assert native["match"]["forecastTime"] == 0
+            assert native["match"]["lengthOfTimeRange"] == [int(step[2:-1]) for step in row["when"]["step"]]
+            assert native["translate"]["unit"]["config"]["source_unit"] == "m"
         radar = [row for row in orig if row["id"].startswith("dbzmaxh.height.")]
         assert {row["applies_to"]["dataset"] for row in radar} == {"cma_meso_3km"}
         assert {row["applies_to"]["time"] for row in radar} == {"2026-11-02T12:00:00Z"}
@@ -447,16 +463,17 @@ def test_frozen_browser_policies_are_retained():
         "12": "aae8f0f67c40b312812e6be0b7f9126791577e51825d3f54ca6697fa9fa97fb0",
         "13": "90f6c1765129a5472c1b4460cc2cb791cf404455586475f8c2e925dcb41cab08",
         "14": "ebca0bf9652c7a1b6967bc057b797c1ae075ef619102dfba27e4a8df1d2f9aae",
+        "15": "0578ad6a5e302b8954cf2c4f410dd85e6c8359c8bb7feaf5e43d11e4328088fa",
     }.items():
         assert sha256((REPO / f"authoring/browser-reviewed-v{version}.json").read_bytes()) == digest
     current = read(REPO / "authoring/browser-current.json")
-    assert current["version"] == "15"
-    assert current["catalog"]["version"] == "55"
+    assert current["version"] == "16"
+    assert current["catalog"]["version"] == "56"
     assert current["authoring"]["native_release"] == "cemc-orig-task-orig09.json"
     assert current["authoring"]["native_binding"] == "cemc-orig-stage1.4-bindings.json"
     assert current["authoring"]["native_mapping_refinement"] == [
         "cemc-orig-stage1.5-kindex-units.json", "cemc-orig-stage1.5-snowfall.json",
-        "cemc-orig-stage1.5-vertical-diagnostics.json",
+        "cemc-orig-stage1.5-vertical-diagnostics.json", "cemc-orig-stage1.5-snowfall-supplement.json",
     ]
     assert "cemc-orig-task-n04b-01.json" in current["authoring"]["native_additions"]
 

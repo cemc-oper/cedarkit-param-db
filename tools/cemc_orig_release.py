@@ -111,6 +111,8 @@ def apply_mapping_refinement(products, binding, refinement, current_version):
                 definition = definitions[row["parameter_id"]]
                 for key in ("description", "description_cn"):
                     definition[key] = row[key]
+                if "unit" in row:
+                    definition["unit"] = row["unit"]
                 if "statistics" in row:
                     definition["fixed_conditions"]["statistics"] = deepcopy(row["statistics"])
             parameters["version"] = metadata["version"]
@@ -135,6 +137,18 @@ def apply_mapping_refinement(products, binding, refinement, current_version):
             scope["time"] = row["time"]
             mapping["when"]["step"] = row["steps"]
             native["match"][lead_fields[lead_key]] = row[lead_key]
+            if "members" in row:
+                members = row["members"]
+                if ("perturbationNumber" in native["match"]
+                        or native["match"].get("productDefinitionTemplateNumber") not in {1, 11}
+                        or not members):
+                    raise ValueError("member refinement needs an unbounded ensemble carrier and reviewed members")
+                mapping["when"]["member"] = members
+                native["match"]["perturbationNumber"] = members
+            if row.get("encoded_interval"):
+                if lead_key != "accumulation_lengths":
+                    raise ValueError("an encoded interval needs reviewed accumulation lengths")
+                native["match"]["forecastTime"] = 0
             native["translate"]["unit"] = {"rule": "common.value_unit", "config": {"source_unit": row["source_unit"]}}
             mapping["id"] = row["id"]
             mapping["evidence"].extend(row["evidence"])
