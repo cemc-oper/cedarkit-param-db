@@ -1,0 +1,251 @@
+{
+  "authoring": {
+    "native_additions": [
+      "cemc-orig-task06b.json",
+      "cemc-orig-task06c.json",
+      "cemc-orig-task06i.json",
+      "cemc-orig-task-n04b-01.json",
+      "cemc-orig-task-orig07.json",
+      "cemc-orig-task-orig08.json"
+    ],
+    "native_base": "cemc-orig-batch1.json",
+    "native_binding": "cemc-orig-stage1.4-bindings.json",
+    "native_mapping_refinement": [
+      "cemc-orig-stage1.5-kindex-units.json",
+      "cemc-orig-stage1.5-snowfall.json",
+      "cemc-orig-stage1.5-vertical-diagnostics.json",
+      "cemc-orig-stage1.5-snowfall-supplement.json"
+    ],
+    "native_release": "cemc-orig-task-orig09.json",
+    "service": "cmadaas-task-t05.json"
+  },
+  "catalog": {
+    "api_version": "cedarkit.catalog/v1",
+    "id": "reki.cemc-catalog",
+    "sha256": "c8e17609271d3a1dc64297cf3015d144cc65265ec5fb65db890b8ff0935450ba",
+    "version": "56"
+  },
+  "id": "cedarkit.browser.reviewed-current",
+  "remaining_migration_obligations": [
+    {
+      "accepted": 598,
+      "evidence": [
+        "doc/2026-11-04-stage1.2-query-reki/task-01-coverage.md",
+        "stage1.2/task-07e6/coverage.json",
+        "stage1.2/task-n06-01/coverage.json",
+        "stage1.2/task-n06-02/coverage.json",
+        "stage1.2/task-n06-03/coverage.json",
+        "stage1.2/task-n06-04/coverage.json",
+        "stage1.2/task-n06-05/coverage.json",
+        "stage1.2/task-t02/coverage.json",
+        "stage1.2/task-t03/coverage.json",
+        "stage1.2/task-t05/coverage.json"
+      ],
+      "id": "service-history",
+      "note": "Historical service rows, not the number of mappings or expected-domain cells",
+      "remaining": 415,
+      "total": 1013
+    },
+    {
+      "id": "service-quality",
+      "note": "Independent quality cells, not additional historical rows",
+      "parts": {
+        "07E14": 2,
+        "07E17": 64,
+        "07E18": 419
+      },
+      "remaining": 485
+    },
+    {
+      "evidence": [
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/historical-ledger.tsv"
+      ],
+      "groups": {
+        "06J": 95,
+        "06K": 48
+      },
+      "id": "native-definition-gaps",
+      "note": "Historical denominators. Verified: 35 groups. Partially verified: 1 group. Open: 107 groups. Reviewed scopes are limited to their recorded conditions."
+    },
+    {
+      "id": "modelvar",
+      "note": "Explicit user deferral; not current browser support or an automatic reopen",
+      "status": "deferred",
+      "task": "N27"
+    },
+    {
+      "id": "legacy-authoring",
+      "note": "Archived 233 active parameters and 803 mappings are not automatically current support",
+      "status": "not_fully_reaudited"
+    },
+    {
+      "evidence": [
+        "stage1.2/task-t03/results/row-review.json#B28"
+      ],
+      "id": "soil-temperature-availability",
+      "note": "Four own-product30-60cmlayer45 cells rejected inT03;separate from485original quality cells and the2T02control observations",
+      "remaining": 4
+    },
+    {
+      "evidence": [
+        "stage1.2/task-t05/results/nonzero-controls.json"
+      ],
+      "id": "diagnostic-supplementary-grid-observations",
+      "note": "Two nonzeroforecastCINcontrols outside39-41N115-117E exceeded thepredeclared1e-5degree latitude bound;value errors pass2float32ULP. Separate from485originalqualitycells.",
+      "remaining": 2
+    }
+  ],
+  "resources": [
+    {
+      "dataset_ids": [
+        "cma_gfs_gmf"
+      ],
+      "key": "gfs",
+      "mappings": {
+        "backend": "grib2",
+        "file": "current-gfs-mappings.json",
+        "id": "cedarkit.grib2.cma-gfs.current",
+        "sha256": "b179fb87483f72f4958140c36f06081d9eaac355734c43356743215c3beb4617",
+        "version": "25"
+      },
+      "parameters": {
+        "file": "current-gfs-parameters.json",
+        "id": "cedarkit.parameters.cma-gfs.current",
+        "sha256": "2667203c29889f16a9d50081ad2d0c1bc975f79f4f77579f8a0cea49f4e0fca9",
+        "version": "20"
+      }
+    },
+    {
+      "dataset_ids": [
+        "cma_meso_1km"
+      ],
+      "key": "meso1",
+      "mappings": {
+        "backend": "grib2",
+        "file": "current-meso1-mappings.json",
+        "id": "cedarkit.grib2.cma-meso-1km.current",
+        "sha256": "a5933d2045b50aebecb2909937adfe8a98f3bed8b49861c165d0f5927594b3ac",
+        "version": "15"
+      },
+      "parameters": {
+        "file": "current-meso1-parameters.json",
+        "id": "cedarkit.parameters.cma-meso-1km.current",
+        "sha256": "7d2f2c19894260f2f88eda43bb561ce769310cdcbea19cc74b645643a0dd8ac4",
+        "version": "12"
+      }
+    },
+    {
+      "dataset_ids": [
+        "cma_meso_3km"
+      ],
+      "key": "meso3",
+      "mappings": {
+        "backend": "grib2",
+        "file": "current-meso3-mappings.json",
+        "id": "cedarkit.grib2.cma-meso-3km.current",
+        "sha256": "a6d6d7772de134b7dd7b594a644a8b319887b5bd902dc9c3796d00896fe434e0",
+        "version": "17"
+      },
+      "parameters": {
+        "file": "current-meso3-parameters.json",
+        "id": "cedarkit.parameters.cma-meso-3km.current",
+        "sha256": "37d7a1e96d6a5412021c4ef9354ab2f934088385e9392bd08841291353d1286f",
+        "version": "14"
+      }
+    },
+    {
+      "dataset_ids": [
+        "cma_tym"
+      ],
+      "key": "tym",
+      "mappings": {
+        "backend": "grib2",
+        "file": "current-tym-mappings.json",
+        "id": "cedarkit.grib2.cma-tym.current",
+        "sha256": "c8bfc5ba2fb5a499f7865e1ec4c661b328d8e2c285c0bd267477e79bf9804195",
+        "version": "15"
+      },
+      "parameters": {
+        "file": "current-tym-parameters.json",
+        "id": "cedarkit.parameters.cma-tym.current",
+        "sha256": "59fcaf38aa4c45737309fb7974b06783182b1102531fd5a42d958dd36dc869cd",
+        "version": "12"
+      }
+    },
+    {
+      "dataset_ids": [
+        "cma_geps"
+      ],
+      "key": "geps",
+      "mappings": {
+        "backend": "grib2",
+        "file": "current-geps-mappings.json",
+        "id": "cedarkit.grib2.cma-geps.current",
+        "sha256": "a8f914ec5e96563edbd7b959d800c890a16d9f3da3b8311e363bd31be220ce91",
+        "version": "11"
+      },
+      "parameters": {
+        "file": "current-geps-parameters.json",
+        "id": "cedarkit.parameters.cma-geps.current",
+        "sha256": "9cdc808a264ccf1e2b3d13f476a8c587f3281fabcce350eeeb94df26792363a7",
+        "version": "8"
+      }
+    },
+    {
+      "dataset_ids": [
+        "cma_reps"
+      ],
+      "key": "reps",
+      "mappings": {
+        "backend": "grib2",
+        "file": "current-reps-mappings.json",
+        "id": "cedarkit.grib2.cma-reps.current",
+        "sha256": "cbd992171df91d77d106ebbbaaa50689d7e12c11f2f547c0d96a5827cb061fee",
+        "version": "12"
+      },
+      "parameters": {
+        "file": "current-reps-parameters.json",
+        "id": "cedarkit.parameters.cma-reps.current",
+        "sha256": "46e0f126333ee55f27230af98ad5f1d9e43c2d797961b2634900edf4ed0f83b4",
+        "version": "9"
+      }
+    },
+    {
+      "dataset_ids": [
+        "cma_geps_control_cmadaas",
+        "cma_geps_perturbation_cmadaas",
+        "cma_gfs_gmf_analysis_cmadaas",
+        "cma_gfs_gmf_cmadaas",
+        "cma_meso_1km_analysis_cmadaas",
+        "cma_meso_1km_forecast_cmadaas",
+        "cma_meso_3km_analysis_cmadaas",
+        "cma_meso_3km_forecast_cmadaas",
+        "cma_reps_control_cmadaas",
+        "cma_reps_perturbation_cmadaas",
+        "cma_tym_analysis_cmadaas",
+        "cma_tym_forecast_cmadaas"
+      ],
+      "key": "cmadaas",
+      "mappings": {
+        "backend": "cmadaas",
+        "file": "current-cmadaas-mappings.json",
+        "id": "cedarkit.mappings.cmadaas",
+        "sha256": "2704d29e98bb1e7099f1c4a2b596e3491f6cf7fe2ba78129be366c32bdf59b66",
+        "version": "16"
+      },
+      "parameters": {
+        "file": "current-cmadaas-parameters.json",
+        "id": "cedarkit.parameters.cmadaas",
+        "sha256": "572c6a7bd17788dbd20b62883d94e94b647b0bdf806b78628975b42f66bc7fcb",
+        "version": "14"
+      }
+    }
+  ],
+  "review_status": {
+    "availability": "not_guaranteed_for_all_cells",
+    "definitions": "reviewed_authoring",
+    "mappings": "reviewed_mapping_with_references"
+  },
+  "schema_version": 1,
+  "version": "16"
+}

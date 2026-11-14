@@ -1,0 +1,99 @@
+{
+  "base_binding": "stage1.4-orig06-original-values",
+  "base_catalog_version": "56",
+  "catalog_version": "57",
+  "id": "stage1.5-orig-vertical-diagnostics-supplement",
+  "products": {
+    "meso1": {
+      "mappings": [
+        {
+          "base_mapping": "stage14.meso1-028.1",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/historical-status.tsv#meso1:23",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/meso1-diagnostics.json"
+          ],
+          "forecast_times": [0],
+          "id": "dbzmaxh.height.initial.2026110212",
+          "source_unit": "m",
+          "steps": ["PT0H"],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "base_mapping": "stage14.meso1-028.2",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/historical-status.tsv#meso1:23",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/meso1-diagnostics.json"
+          ],
+          "forecast_times": [360, 2880],
+          "id": "dbzmaxh.height.forecast.2026110212",
+          "source_unit": "m",
+          "steps": ["PT6H", "PT48H"],
+          "time": "2026-11-02T12:00:00Z"
+        }
+      ],
+      "parameter_metadata": {
+        "parameters": [
+          {
+            "description": "Cloud base height above model terrain for the reviewed ORIG cycle of 2026-11-02 12 UTC at 0, 6 and 48 h. The lowest qualifying model level sets the base. Columns without a qualifying level are missing. A single qualifying level gives the same base and top before packing.",
+            "description_cn": "2026-11-02 12 UTC 起报的 ORIG 0／6／48h，云底取最低合格模式层距模式地面的高度。无合格层时缺测。仅一层合格时，打包前云底与云顶相同。",
+            "parameter_id": "cedarkit.cldb"
+          },
+          {
+            "description": "Cloud top height above model terrain for the reviewed ORIG cycle of 2026-11-02 12 UTC at 0, 6 and 48 h. The highest qualifying model level sets the top. Columns without a qualifying level are missing. A single qualifying level gives the same base and top before packing.",
+            "description_cn": "2026-11-02 12 UTC 起报的 ORIG 0／6／48h，云顶取最高合格模式层距模式地面的高度。无合格层时缺测。仅一层合格时，打包前云底与云顶相同。",
+            "parameter_id": "cedarkit.cldt"
+          },
+          {
+            "description": "Height of maximum radar reflectivity. In the reviewed ORIG cycle of 2026-11-02 12 UTC, forecast fields at 6 and 48 h give the absolute model geopotential height of the strongest echo over the preceding hour. Echoes can reach the 30,000 m model top. The 0 h field is initialized to zero.",
+            "description_cn": "最大雷达回波高度。2026-11-02 12 UTC 起报的 ORIG +6／+48h 给出前一小时最强回波所在模式层的绝对位势高度，回波可达 30,000 m 模式顶。0h 为初始化零场。",
+            "parameter_id": "cedarkit.dbzmaxh"
+          }
+        ],
+        "version": "13"
+      },
+      "version": "16"
+    },
+    "tym": {
+      "mappings": [
+        {
+          "accumulation_lengths": [0],
+          "base_mapping": "stage14.tym-021.1",
+          "encoded_interval": true,
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/historical-status.tsv#tym:13",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/production-review.md#tym"
+          ],
+          "id": "uhmax.hourly.initial.2026110212",
+          "source_unit": "m2/s2",
+          "steps": ["PT0H"],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "accumulation_lengths": [6, 48],
+          "base_mapping": "stage14.tym-021.2",
+          "encoded_interval": true,
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/historical-status.tsv#tym:13",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/production-review.md#tym"
+          ],
+          "id": "uhmax.hourly.forecast.2026110212",
+          "source_unit": "m2/s2",
+          "steps": ["PT6H", "PT48H"],
+          "time": "2026-11-02T12:00:00Z"
+        }
+      ],
+      "parameter_metadata": {
+        "parameters": [
+          {
+            "description": "Updraft helicity maximum. For the reviewed ORIG cycle of 2026-11-02 12 UTC, the 6 and 48 h values accumulate over the preceding output hour. The 0 h field is initialized to zero. Integration uses the 2000–5000 m terrain-following reference coordinate. The GRIB fixed surfaces and statistical interval preserve the producer's encoded selectors.",
+            "description_cn": "上升气流螺旋度最大值。2026-11-02 12 UTC 起报的 ORIG +6／+48h 在各自输出前一小时内取最大值，0h 为初始化零场。积分使用 2000–5000 m 地形跟随参考坐标。GRIB 固定面与统计窗保留生产端编码。",
+            "parameter_id": "cedarkit.uhmax"
+          }
+        ],
+        "version": "13"
+      },
+      "version": "16"
+    }
+  },
+  "schema_version": 1
+}

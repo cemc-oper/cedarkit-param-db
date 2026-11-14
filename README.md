@@ -15,15 +15,15 @@ reki owns the catalog, including layout and the two finite expected-domain sampl
 ## Reviewed browser snapshot set (N03A and subsequent candidates)
 
 [authoring/browser-current.json](authoring/browser-current.json) selects browser
-revision 16. The exporter applies the stage 1.4 ORIG bindings and the reviewed
-K-index, snowfall and vertical diagnostics refinements, then verifies the catalog v56 resources against the sealed
+revision 17. The exporter applies the stage 1.4 ORIG bindings and the reviewed
+K-index, snowfall and vertical diagnostics refinements, then verifies the catalog v57 resources against the sealed
 wheel. It also includes the reviewed CMADaaS resources from T05. Extract the
 wheel and export the schema-4 bundle with `cedarkit-query` 0.2.1 from this repository.
 
 ```sh
-python -m zipfile -e ../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/artifacts/reki-2026.9.1.dev121+g111cb2a.orig56-py3-none-any.whl /tmp/reki-orig56
+python -m zipfile -e ../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/artifacts/reki-2026.9.1.dev122+g1a95894.orig57-py3-none-any.whl /tmp/reki-orig57
 python tools/export_browser_snapshot.py \
-  --catalog /tmp/reki-orig56/reki/catalog/builtin/catalog-v1.json \
+  --catalog /tmp/reki-orig57/reki/catalog/builtin/catalog-v1.json \
   --legacy-snapshot ../cedarkit-param-web/public/params.json \
   --output /tmp/reviewed-browser-schema4
 ```
@@ -426,3 +426,5 @@ For catalog v54, append `--mapping-refinement authoring/cemc-orig-stage1.5-snowf
 For catalog v55, append `--mapping-refinement authoring/cemc-orig-stage1.5-vertical-diagnostics.json` after the snowfall refinement. It records the terrain-relative cloud base and cloud top reference for GFS and MESO-3KM and applies a unit rule in meters to the absolute geopotential height of maximum radar reflectivity for MESO-3KM. The reviewed cycle is 2026-11-02 12 UTC at 0, 6 and 48 hours. Browser revision 14 can be rebuilt with `--policy authoring/browser-reviewed-v14.json` and the v54 wheel. [Stage 1.5-04D evidence](../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/README.md)
 
 For catalog v56, append `--mapping-refinement authoring/cemc-orig-stage1.5-snowfall-supplement.json` after the vertical diagnostics refinement. The new unit rules preserve the stored liquid-water-equivalent depth in meters for MESO-1KM at 2026-11-02 12 UTC and for REPS members 0, 1, 2 and 14 at 2026-11-02 06 UTC, both at leads 0, 6 and 48 hours. The REPS rule preserves the encoded interval and records the convective snow term recomputed at each output. Browser revision 15 can be rebuilt with `--policy authoring/browser-reviewed-v15.json` and the v55 wheel. [Snowfall supplement](../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/README.md)
+
+For catalog v57, append `--mapping-refinement authoring/cemc-orig-stage1.5-vertical-diagnostics-supplement.json` after the snowfall supplement. It records the MESO-1KM cloud-height reference and applies meter and square-meter-per-square-second rules to MESO-1KM maximum reflectivity height and TYM updraft helicity at 2026-11-02 12 UTC and leads 0, 6 and 48 hours. TYM retains its GRIB interval and fixed-surface selectors. Browser revision 16 can be rebuilt with `--policy authoring/browser-reviewed-v16.json` and the v56 wheel. [Vertical diagnostics supplement](../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/README.md)
