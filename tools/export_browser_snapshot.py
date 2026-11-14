@@ -198,11 +198,25 @@ def build_bundle(*, author, policy, catalog, runtime_dir=None, legacy_snapshot=N
                         raise ValueError("authoring increments require newer resource revisions")
                     resource["version"] = extra["version"]
                     resource[kind].extend(extra[kind])
-        if release_name := policy_doc["authoring"].get("native_release"):
+        release_name = policy_doc["authoring"].get("native_release")
+        binding_name = policy_doc["authoring"].get("native_binding")
+        if binding_name and not release_name:
+            raise ValueError("native binding needs its base release")
+        if release_name:
             release = read_author(release_name)
             review = read_author(release["name_review"])
             helpers = run_path(str(Path(__file__).with_name("cemc_orig_release.py")))
             helpers["apply_name_review"](native, release, review)
+            if binding_name:
+                candidate = read_author(binding_name)
+                version = candidate["catalog_version"]
+                if (candidate["base_release"] != release["id"] or int(version) <= int(release["catalog_version"])
+                        or version != catalog_doc["version"]):
+                    raise ValueError("native binding needs its base release and the pinned newer catalog version")
+                bound_catalog = deepcopy(catalog_doc)
+                helpers["apply_binding_candidate"](native, bound_catalog, candidate)
+                if bound_catalog != catalog_doc:
+                    raise ValueError("native binding provisions differ from the pinned catalog")
     service = read_author(policy_doc["authoring"]["service"]) if any(
         row["mappings"]["backend"] == "cmadaas" for row in selected) else None
     datasets = {row["id"]: row for row in catalog_doc["datasets"]}

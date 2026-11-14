@@ -1,15 +1,16 @@
 # Reviewed browser snapshots, schema 4
 
-`tools/export_browser_snapshot.py` exports the current reviewed text authoring
-state for a future schema-4 browser consumer. It does not restore the archived
-database application, edit runtime resources, or update the browser site's
-generated `public/params.json`.
+`tools/export_browser_snapshot.py` exports reviewed text authoring for the schema-4
+parameter browser into a new bundle directory.
 
 The reviewed selection and the independent browser content revision are in
 `authoring/browser-current.json`. The six ORIG resource groups are reconstructed
-from the reviewed base and its ordered authoring increments; the service group
-comes from the selected complete CMADaaS authoring slice. Runtime files provide
-byte comparison, rather than becoming a second authoring authority.
+from the reviewed base, ordered authoring increments, and the selected naming
+release. When the policy selects `native_binding`, the exporter applies the
+binding with the same helper as the native resource exporter and checks its
+base release, catalog version, provisions, and resource bytes. The service
+group comes from the selected CMADaaS authoring slice. Runtime files provide
+the exact bytes for verification.
 
 ## Export a new group
 
@@ -56,8 +57,8 @@ and the manifest. With the optional navigation projection it also produces
 `legacy-links.json`. Machine paths, export timestamps and worktree state do not
 enter the generated group.
 
-The browser content revision is separate from browser schema 4, catalog content
-v40, and each runtime resource's format/ID/revision. Runtime bytes and content
+The browser content revision is separate from browser schema 4, the catalog
+revision, and each runtime resource's format/ID/revision. Runtime bytes and content
 versions are copied unchanged. Edit the browser policy's revision deliberately
 when changing a distributed browser group; the exporter never chooses a newer
 revision automatically.

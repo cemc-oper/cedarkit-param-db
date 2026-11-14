@@ -15,15 +15,15 @@ reki owns the catalog, including layout and the two finite expected-domain sampl
 ## Reviewed browser snapshot set (N03A and subsequent candidates)
 
 [authoring/browser-current.json](authoring/browser-current.json) selects browser
-revision 11. It uses the catalog v50 ORIG resources and the cumulative CMADaaS
-pair from the ORIG-09 wheel. From this repository, extract that wheel's resources
-to a staging directory and generate the schema-4 bundle with
-`cedarkit-query` 0.2.1:
+revision 12. The exporter applies the stage 1.4 ORIG bindings and verifies the
+catalog v52 resources against the sealed wheel. It also includes the reviewed
+CMADaaS resources from T05. Extract the wheel and export the schema-4 bundle with
+`cedarkit-query` 0.2.1 from this repository.
 
 ```sh
-python -m zipfile -e ../../doc/2026-11-11-stage1.3-query-reki/evidence/orig-09/artifacts/reki-2026.9.1.dev115+g03b0f4f.orig09-py3-none-any.whl /tmp/reki-orig09
+python -m zipfile -e ../../doc/2026-11-13-stage1.4-query-reki/evidence/1.4-07/artifacts/reki-2026.9.1.dev117+g8d80735.orig52-py3-none-any.whl /tmp/reki-orig52
 python tools/export_browser_snapshot.py \
-  --catalog /tmp/reki-orig09/reki/catalog/builtin/catalog-v1.json \
+  --catalog /tmp/reki-orig52/reki/catalog/builtin/catalog-v1.json \
   --legacy-snapshot ../cedarkit-param-web/public/params.json \
   --output /tmp/reviewed-browser-schema4
 ```
@@ -386,9 +386,9 @@ QFLX覆盖GFS／MESO‑3KM／TYM分析及预报六行，使用各自同文件Q�
 
 ## ORIG-09 native release
 
-[The ORIG-09 release](authoring/cemc-orig-task-orig09.json) applies the ORIG-06 naming decisions to the published native definitions and binds the ORIG-07 and ORIG-08 additions to their reviewed cycles, forecast hours, and ensemble members. Catalog v50 pins six ORIG resource pairs. Browser revision 11 reconstructs these same resource bytes from the authoring inputs.
+[The ORIG-09 release](authoring/cemc-orig-task-orig09.json) applies the ORIG-06 naming decisions to the published native definitions and binds the ORIG-07 and ORIG-08 additions to their reviewed cycles, forecast hours, and ensemble members. Catalog v50 pins six ORIG resource pairs. Rebuild browser revision 11 using `--policy authoring/browser-reviewed-v11.json` and the [ORIG-09 wheel](../../doc/2026-11-11-stage1.3-query-reki/evidence/orig-09/README.md).
 
-Run the native export from this repository with `cedarkit-query` 0.2.1. A catalog v49 input produces the release, and the v50 catalog extracted above reproduces it byte for byte.
+Run the native export from this repository with `cedarkit-query` 0.2.1. A catalog v49 input produces the release, and the v50 catalog extracted from the ORIG-09 wheel reproduces it byte for byte.
 
 ```sh
 python tools/export_cemc_orig.py \

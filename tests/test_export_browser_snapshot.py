@@ -23,6 +23,10 @@ V50_WHEEL = (
     WORKSPACE / "doc/2026-11-11-stage1.3-query-reki/evidence/orig-09/artifacts/"
     "reki-2026.9.1.dev115+g03b0f4f.orig09-py3-none-any.whl"
 )
+V52_WHEEL = (
+    WORKSPACE / "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-07/artifacts/"
+    "reki-2026.9.1.dev117+g8d80735.orig52-py3-none-any.whl"
+)
 
 
 def encode(value):
@@ -328,15 +332,18 @@ def test_legacy_attachment_cannot_claim_current_support(exporter, inputs, tmp_pa
     assert not (tmp_path / "promoted-history").exists()
 
 
-def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(exporter, tmp_path):
-    # Revision 11 is pinned to v50 even when the reki checkout ships newer ORIG resources.
-    runtime = tmp_path / "browser-v50"
+@pytest.mark.parametrize(("wheel_path", "policy_name", "counts"), [
+    (V50_WHEEL, "browser-reviewed-v11.json", (582, 173, 1398, 998, 130, 53)),
+    (V52_WHEEL, "browser-current.json", (702, 215, 2581, 2181, 158, 72)),
+], ids=["v50-recovery", "v52-current"])
+def test_snapshot_preserves_scoped_definitions_and_mapping_identities(exporter, tmp_path, wheel_path, policy_name, counts):
+    runtime = tmp_path / "runtime"
     runtime.mkdir()
-    with ZipFile(V50_WHEEL) as wheel:
+    with ZipFile(wheel_path) as wheel:
         for name in wheel.namelist():
             if name.startswith("reki/catalog/builtin/") and name.endswith(".json"):
                 (runtime / Path(name).name).write_bytes(wheel.read(name))
-    files = exporter.build_bundle(author=REPO / "authoring", policy=REPO / "authoring/browser-current.json",
+    files = exporter.build_bundle(author=REPO / "authoring", policy=REPO / "authoring" / policy_name,
                                   catalog=runtime / "catalog-v1.json", runtime_dir=runtime)
     manifest, browsers = browser_documents(files)
     assert len(manifest["dataset_bindings"]) == 18
@@ -345,12 +352,13 @@ def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(ex
     mappings = [(resource["id"], row)
                 for document in browsers.values() for resource in document["mapping_resources"]
                 for row in resource["mappings"]]
-    assert len(definitions) == 582
-    assert len({row["parameter_id"] for row in definitions}) == 173
-    assert len(mappings) == 1398
-    assert len({row["id"] for _, row in mappings}) == 998
-    assert len({(resource_id, row["id"]) for resource_id, row in mappings}) == 1398
-    assert len({row["parameter_id"] for _, row in mappings}) == 130
+    definitions_count, stable_ids, scoped_mappings, mapping_ids, mapped_ids, differing_definitions = counts
+    assert len(definitions) == definitions_count
+    assert len({row["parameter_id"] for row in definitions}) == stable_ids
+    assert len(mappings) == scoped_mappings
+    assert len({row["id"] for _, row in mappings}) == mapping_ids
+    assert len({(resource_id, row["id"]) for resource_id, row in mappings}) == scoped_mappings
+    assert len({row["parameter_id"] for _, row in mappings}) == mapped_ids
     native_sf = next(row for row in browsers["geps"]["parameters"] if row["parameter_id"] == "cedarkit.sf")
     service_sf = next(row for row in browsers["cmadaas"]["parameters"] if row["parameter_id"] == "cedarkit.sf")
     assert native_sf["fixed_conditions"]["statistics"]["period"] == {"kind": "since_initialization"}
@@ -387,16 +395,67 @@ def test_current_snapshot_preserves_scoped_definitions_and_mapping_identities(ex
             assert {row["id"] for row in resource["tables"]} == {row["id"] for row in expected["tables"]}
         parameter_pin = next(row for row in manifest["snapshots"] if row["key"] == key)["parameter_resource"]
         assert json.loads(files[parameter_pin["path"]]) == source
-    assert sum(len({json.dumps(row, sort_keys=True) for row in values}) > 1 for values in raw_scoped.values()) == 53
+    assert sum(len({json.dumps(row, sort_keys=True) for row in values}) > 1
+               for values in raw_scoped.values()) == differing_definitions
     assert not any("task07a" in item["path"] for item in manifest["files"])
     assert not any("modelvar" in item["dataset_id"] for item in manifest["dataset_bindings"])
+    if wheel_path == V52_WHEEL:
+        binding_path = "authoring/cemc-orig-stage1.4-bindings.json"
+        binding_source = next(row for row in manifest["sources"] if row["path"] == binding_path)
+        assert binding_source["sha256"] == sha256((REPO / binding_path).read_bytes())
+        orig = [row for _, row in mappings if row["applies_to"]["product"] == "orig"]
+        assert len(orig) == 1973
+        assert sum("unit" not in row["native"].get("translate", {}) for row in orig) == 1171
 
 
-def test_frozen_revision_one_policy_is_retained():
-    raw = (REPO / "authoring/browser-reviewed-v1.json").read_bytes()
-    assert sha256(raw) == "3143397eecf0802db66c93074eda65bdc6a026931c384bdcef1e0450553aca96"
+def test_frozen_browser_policies_are_retained():
+    for version, digest in {
+        "1": "3143397eecf0802db66c93074eda65bdc6a026931c384bdcef1e0450553aca96",
+        "11": "c512841ee038a4f026165396d8b7ce916eb35e9223d3c880f267cdff7289bf22",
+    }.items():
+        assert sha256((REPO / f"authoring/browser-reviewed-v{version}.json").read_bytes()) == digest
     current = read(REPO / "authoring/browser-current.json")
-    assert current["version"] == "11"
-    assert current["catalog"]["version"] == "50"
+    assert current["version"] == "12"
+    assert current["catalog"]["version"] == "52"
     assert current["authoring"]["native_release"] == "cemc-orig-task-orig09.json"
+    assert current["authoring"]["native_binding"] == "cemc-orig-stage1.4-bindings.json"
     assert "cemc-orig-task-n04b-01.json" in current["authoring"]["native_additions"]
+
+
+@pytest.mark.parametrize(("issue", "message"), [
+    ("base", "needs its base release"),
+    ("version", "pinned newer catalog version"),
+    ("scope", "must match its ORIG product"),
+    ("provides", "provisions differ from the pinned catalog"),
+])
+def test_rejects_binding_that_disagrees_with_release_or_catalog(exporter, tmp_path, issue, message):
+    author = REPO / "authoring"
+    policy = read(author / "browser-current.json")
+    for filename in [
+        policy["authoring"]["native_base"],
+        *policy["authoring"]["native_additions"],
+        policy["authoring"]["native_release"],
+        read(author / policy["authoring"]["native_release"])["name_review"],
+    ]:
+        shutil.copyfile(author / filename, tmp_path / filename)
+    binding_path = policy["authoring"]["native_binding"]
+    candidate = read(author / binding_path)
+    gfs = candidate["products"]["gfs"]
+    if issue == "base":
+        candidate["base_release"] = "unexpected-release"
+    elif issue == "version":
+        candidate["catalog_version"] = "51"
+    elif issue == "scope":
+        gfs["mappings"]["mappings"][0]["applies_to"]["dataset"] = "cma_meso_1km"
+    elif issue == "provides":
+        pid = "cedarkit.glw"
+        gfs["provides"].remove(pid)
+        gfs["mappings"]["mappings"] = [
+            row for row in gfs["mappings"]["mappings"] if row["parameter_id"] != pid
+        ]
+    (tmp_path / binding_path).write_bytes(encode(candidate))
+    with ZipFile(V52_WHEEL) as wheel:
+        catalog = tmp_path / "catalog-v1.json"
+        catalog.write_bytes(wheel.read("reki/catalog/builtin/catalog-v1.json"))
+    with pytest.raises(ValueError, match=message):
+        exporter.build_bundle(author=tmp_path, policy=author / "browser-current.json", catalog=catalog)
