@@ -1,0 +1,75 @@
+{
+  "base_binding": "stage1.4-orig06-original-values",
+  "base_catalog_version": "54",
+  "catalog_version": "55",
+  "id": "stage1.5-orig-vertical-diagnostics",
+  "products": {
+    "gfs": {
+      "parameter_metadata": {
+        "parameters": [
+          {
+            "description": "Cloud base height above model terrain for the reviewed ORIG cycle of 2026-11-02 12 UTC at 0, 6 and 48 h.",
+            "description_cn": "2026-11-02 12 UTC 起报的 ORIG 0／6／48h 已确认云底为距模式地面的高度。",
+            "parameter_id": "cedarkit.cldb"
+          },
+          {
+            "description": "Cloud top height above model terrain for the reviewed ORIG cycle of 2026-11-02 12 UTC at 0, 6 and 48 h.",
+            "description_cn": "2026-11-02 12 UTC 起报的 ORIG 0／6／48h 已确认云顶为距模式地面的高度。",
+            "parameter_id": "cedarkit.cldt"
+          }
+        ],
+        "version": "20"
+      }
+    },
+    "meso3": {
+      "mappings": [
+        {
+          "base_mapping": "stage14.meso3-033.1",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/historical-status.tsv#meso3:28",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/producer-receipts.json#meso3"
+          ],
+          "forecast_times": [0],
+          "id": "dbzmaxh.height.initial.2026110212",
+          "source_unit": "m",
+          "steps": ["PT0H"],
+          "time": "2026-11-02T12:00:00Z"
+        },
+        {
+          "base_mapping": "stage14.meso3-033.2",
+          "evidence": [
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/historical-status.tsv#meso3:28",
+            "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/producer-receipts.json#meso3"
+          ],
+          "forecast_times": [6, 48],
+          "id": "dbzmaxh.height.forecast.2026110212",
+          "source_unit": "m",
+          "steps": ["PT6H", "PT48H"],
+          "time": "2026-11-02T12:00:00Z"
+        }
+      ],
+      "parameter_metadata": {
+        "parameters": [
+          {
+            "description": "Cloud base height above model terrain for the reviewed ORIG cycle of 2026-11-02 12 UTC at 0, 6 and 48 h.",
+            "description_cn": "2026-11-02 12 UTC 起报的 ORIG 0／6／48h 已确认云底为距模式地面的高度。",
+            "parameter_id": "cedarkit.cldb"
+          },
+          {
+            "description": "Cloud top height above model terrain for the reviewed ORIG cycle of 2026-11-02 12 UTC at 0, 6 and 48 h.",
+            "description_cn": "2026-11-02 12 UTC 起报的 ORIG 0／6／48h 已确认云顶为距模式地面的高度。",
+            "parameter_id": "cedarkit.cldt"
+          },
+          {
+            "description": "Height of maximum radar reflectivity. In the reviewed ORIG cycle of 2026-11-02 12 UTC, forecast fields at 6 and 48 h give the model geopotential height of the strongest echo over the preceding hour. The 0 h field is initialized to zero.",
+            "description_cn": "最大雷达回波高度。2026-11-02 12 UTC 起报的 ORIG +6／+48h 给出前一小时最强回波所在模式层的绝对位势高度，0h 为初始化零场。",
+            "parameter_id": "cedarkit.dbzmaxh"
+          }
+        ],
+        "version": "14"
+      },
+      "version": "17"
+    }
+  },
+  "schema_version": 1
+}

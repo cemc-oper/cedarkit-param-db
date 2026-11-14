@@ -114,6 +114,8 @@ def apply_mapping_refinement(products, binding, refinement, current_version):
                 if "statistics" in row:
                     definition["fixed_conditions"]["statistics"] = deepcopy(row["statistics"])
             parameters["version"] = metadata["version"]
+        if metadata and "mappings" not in additions:
+            continue
         resource = products[system]["mappings"]
         if int(additions["version"]) <= int(resource["version"]):
             raise ValueError(f"{system} mapping refinement needs a newer resource version")

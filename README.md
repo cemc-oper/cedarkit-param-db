@@ -15,15 +15,15 @@ reki owns the catalog, including layout and the two finite expected-domain sampl
 ## Reviewed browser snapshot set (N03A and subsequent candidates)
 
 [authoring/browser-current.json](authoring/browser-current.json) selects browser
-revision 13. The exporter applies the stage 1.4 ORIG bindings and the reviewed
-K-index unit rules, then verifies the catalog v53 resources against the sealed
+revision 15. The exporter applies the stage 1.4 ORIG bindings and the reviewed
+K-index, snowfall and vertical diagnostics refinements, then verifies the catalog v55 resources against the sealed
 wheel. It also includes the reviewed CMADaaS resources from T05. Extract the
 wheel and export the schema-4 bundle with `cedarkit-query` 0.2.1 from this repository.
 
 ```sh
-python -m zipfile -e ../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04/artifacts/reki-2026.9.1.dev118+gb8b2796.orig53-py3-none-any.whl /tmp/reki-orig53
+python -m zipfile -e ../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/artifacts/reki-2026.9.1.dev120+gd56c2eb.orig55-py3-none-any.whl /tmp/reki-orig55
 python tools/export_browser_snapshot.py \
-  --catalog /tmp/reki-orig53/reki/catalog/builtin/catalog-v1.json \
+  --catalog /tmp/reki-orig55/reki/catalog/builtin/catalog-v1.json \
   --legacy-snapshot ../cedarkit-param-web/public/params.json \
   --output /tmp/reviewed-browser-schema4
 ```
@@ -416,3 +416,11 @@ Append `--binding-candidate authoring/cemc-orig-stage1.4-bindings.json` to the O
 ## Stage 1.5 ORIG K-index units
 
 Add `--mapping-refinement authoring/cemc-orig-stage1.5-kindex-units.json` to the native export command that selects the v52 binding. The eight derived mapping branches publish the stored K-index values in K for GFS, MESO-1KM, MESO-3KM, and TYM at 2026-11-02 12 UTC and leads 0, 6, and 48 hours. The scale is the numeric temperature-index scale with zero offset. Browser revision 12 can be rebuilt with `--policy authoring/browser-reviewed-v12.json` and the v52 wheel. [Stage 1.5-04 evidence](../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04/README.md)
+
+## Stage 1.5 ORIG snowfall units
+
+For catalog v54, append `--mapping-refinement authoring/cemc-orig-stage1.5-snowfall.json` after the K-index refinement. The six snowfall branches match the reference time and the native accumulation length. They expose the unchanged GFS, MESO-3KM, and TYM surface `cedarkit.sf` values in meters of liquid-water equivalent at 2026-11-02 12 UTC and leads 0, 6, and 48 hours. Browser revision 13 can be rebuilt with `--policy authoring/browser-reviewed-v13.json` and the v53 wheel. [Stage 1.5-04C evidence](../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/README.md)
+
+## Stage 1.5 ORIG vertical diagnostics
+
+For catalog v55, append `--mapping-refinement authoring/cemc-orig-stage1.5-vertical-diagnostics.json` after the snowfall refinement. It records the terrain-relative cloud base and cloud top reference for GFS and MESO-3KM and applies a unit rule in meters to the absolute geopotential height of maximum radar reflectivity for MESO-3KM. The reviewed cycle is 2026-11-02 12 UTC at 0, 6 and 48 hours. Browser revision 14 can be rebuilt with `--policy authoring/browser-reviewed-v14.json` and the v54 wheel. [Stage 1.5-04D evidence](../../doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/README.md)
