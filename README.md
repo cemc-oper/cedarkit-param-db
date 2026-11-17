@@ -434,3 +434,17 @@ For catalog v57, append `--mapping-refinement authoring/cemc-orig-stage1.5-verti
 The [authoring registry](authoring/cemc-orig-stage1.6-registry.json) holds the reviewed public parameter definitions and eight generic GRIB2 mappings. Each product lists its definitions in v57 publication order. A `public_parameter_id` entry inherits the public record with optional top-level `set` and `remove` fields. A `definition` entry supplies a complete product definition. The projection preserves each product's names, aliases, parent relationships and fixed conditions. For example, `2t` is a public alias of `t2m`, and the product entries for `t2m` remove the public alias to reproduce v57. [Product projection](tools/cemc_orig_registry.py)
 
 The [carrier registry](authoring/cemc-orig-stage1.6-carriers.json) is indexed by `carrier_id`. Use its dataset and parameter ID to find the product definition, then follow its public reference where present. Each `product_mappings` entry identifies the pinned mapping row and the authoring files that supply it. The ordered v57 recipe and the six product resource pins are in the authoring registry. The carrier rows retain the source spellings, encoded conditions, representative message locations and evidence references. [Verification and replay](../../doc/2026-11-16-stage1.6-query-reki/evidence/1.6-03/README.md)
+
+### Export the standalone and product resources
+
+Use `cedarkit-query` 0.2.3 for the Stage 1.6 export. Pass the reki v57 catalog or the sealed v52 catalog input and use a new output directory.
+
+```sh
+python -B tools/export_cemc_orig_snapshot.py \
+  --catalog /path/to/reki/src/reki/catalog/builtin/catalog-v1.json \
+  --output /tmp/cemc-orig-stage16
+```
+
+`public-parameters.json` and `generic-grib2-mappings.json` form the standalone pair. Both resources start at content version `1`. The exporter validates their names, inheritance, references, scopes and overlapping rules. The six ORIG pairs reuse the pinned authoring recipe and project their definitions from the Stage 1.6 registry. They are validated with their catalog dataset and checked against the v57 pins.
+
+Use `manifest.json` to resolve the exported files and verify their format versions, IDs, content versions and SHA-256 digests. The catalog retains its v57 references for product bindings. The standalone pair has its own references in the manifest. Update a resource's content version when publishing changed bytes. [Sealed snapshot and replay](../../doc/2026-11-16-stage1.6-query-reki/evidence/1.6-04/README.md)
