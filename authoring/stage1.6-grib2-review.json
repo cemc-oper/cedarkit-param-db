@@ -1,0 +1,146 @@
+{
+  "evidence": {
+    "cloud_and_uhmax": "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/README.md",
+    "ensemble": "https://raw.githubusercontent.com/wmo-im/GRIB2/v37/GRIB2_CodeFlag_4_6_CodeTable_en.csv",
+    "orig_carriers": "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-01/carrier-index.tsv",
+    "product_reads": "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-08/README.md",
+    "soil": "doc/2026-11-04-stage1.2-query-reki/evidence/task-t03/originals/manifest.json",
+    "statistics": "https://raw.githubusercontent.com/wmo-im/GRIB2/v37/GRIB2_CodeFlag_4_10_CodeTable_en.csv",
+    "unit_and_windows": "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-06/follow-up-2026-11-15/README.md"
+  },
+  "grid_wind_axes": {
+    "5e501770810b13ef9971c082973f22b7": 0,
+    "9d795bf25b275190eb14f07e9febde52": 0,
+    "ad3fde1864364cbb229199717acf346d": 0,
+    "b3fbd4819e2e92b2436a4dc01672573a": 0,
+    "c891e96e77e3f454a95d8064aee355a7": 0
+  },
+  "notebook_files": [
+    4,
+    68,
+    110,
+    163,
+    206,
+    524
+  ],
+  "pilot": [
+    {
+      "evidence": [
+        "https://raw.githubusercontent.com/wmo-im/GRIB2/v37/GRIB2_CodeFlag_4_2_0_1_CodeTable_en.csv",
+        "https://raw.githubusercontent.com/wmo-im/GRIB2/v37/GRIB2_CodeFlag_4_5_CodeTable_en.csv",
+        "https://codes.ecmwf.int/grib/format/grib2/templates/4/0/",
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-01/carrier-index.tsv#gfs-024"
+      ],
+      "id": "wmo.q2m.instantaneous.103",
+      "match": {
+        "discipline": 0,
+        "edition": 2,
+        "localTablesVersion": 0,
+        "parameterCategory": 1,
+        "parameterNumber": 0,
+        "productDefinitionTemplateNumber": 0,
+        "tablesVersion": {
+          "range": {
+            "end": 37,
+            "start": 1
+          }
+        },
+        "typeOfFirstFixedSurface": 103,
+        "typeOfSecondFixedSurface": 255
+      },
+      "parameter_id": "cedarkit.q2m",
+      "source_unit": "kg/kg",
+      "when": {
+        "level": 2,
+        "level_type": "height_above_ground",
+        "level_unit": "m"
+      }
+    },
+    {
+      "evidence": [
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-01/carrier-index.tsv#gfs-022",
+        "data/cedarkit-param-db/authoring/cemc-orig-task06b.json#znt",
+        "ref/grib_util/models/gfs/varname.dat",
+        "https://codes.ecmwf.int/grib/format/grib2/sections/1/"
+      ],
+      "id": "cemc.znt.instantaneous.38.0.4.1",
+      "match": {
+        "centre": 38,
+        "discipline": 0,
+        "edition": 2,
+        "localTablesVersion": 1,
+        "parameterCategory": 3,
+        "parameterNumber": 228,
+        "productDefinitionTemplateNumber": 0,
+        "subCentre": 0,
+        "tablesVersion": 4,
+        "typeOfFirstFixedSurface": 1,
+        "typeOfSecondFixedSurface": 255
+      },
+      "parameter_id": "cedarkit.znt",
+      "source_unit": "m",
+      "when": {
+        "level_type": "surface"
+      }
+    }
+  ],
+  "raw_vertical": {
+    "cedarkit.ripbl": "原生固定面 166 指向边界层定义，保留报头值。",
+    "cedarkit.uhmax": "TYM 两个编码端点与生产地形跟随 2000–5000 m 层分别登记。"
+  },
+  "schema_version": 1,
+  "soil_carrier_targets": {
+    "meso3-067": "cedarkit.st-10-30",
+    "meso3-069": "cedarkit.st-60-100",
+    "tym-037": "cedarkit.st-10-30",
+    "tym-039": "cedarkit.st-60-100"
+  },
+  "sources": {
+    "carrier_positions": {
+      "path": "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-01/messages.jsonl.gz",
+      "sha256": "0705b64cda9f4982f5c503954846d8f235982a2e8ab68c5453047c7e05e51791"
+    },
+    "carriers": {
+      "path": "data/cedarkit-param-db/authoring/cemc-orig-stage1.6-carriers.json",
+      "sha256": "a112623b7ec3e6e2b97f529e598a1f76734f9a283599066683a56c4b5d776581"
+    },
+    "cross_centre": {
+      "path": "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-02/cross-centre-headers.json",
+      "sha256": "8b8f9b4e4794e90f1d3831efb8978113d0da0848a4683d344aac6dceb3171af6"
+    },
+    "files": {
+      "path": "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-01/files.json",
+      "sha256": "bb957f6e349398537ddbcd994dafea99b7b47177a7ae0c4c561287a5220c0309"
+    },
+    "identity_review": {
+      "path": "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-07/verification.json",
+      "sha256": "773df2d7f6f91cab3f2aeaa3eaa92e3c5f4117c499873a7bdb38d6eae092596f"
+    },
+    "original_headers": {
+      "path": "doc/2026-11-11-stage1.3-query-reki/evidence/orig-01/messages.jsonl.gz",
+      "sha256": "0cafb2ae80ab38d2160d9fd39930f28cfdd5a8b7973349d2dc45bedb83900c5a"
+    },
+    "product_reads": {
+      "path": "doc/2026-11-13-stage1.4-query-reki/evidence/1.4-08/receipts.jsonl.gz",
+      "sha256": "7fcbbfd9bc048132e89ccf376c047c980e99c7308cd2dd520eefa835bf18267c"
+    },
+    "soil": {
+      "path": "doc/2026-11-04-stage1.2-query-reki/evidence/task-t03/originals/manifest.json",
+      "sha256": "a380f63858b789360e02f6f665b50f54e97455e2f97702f09d24a1538549998d"
+    },
+    "source_branches": {
+      "path": "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-07/branch-index.tsv",
+      "sha256": "9f58538e15de8e84cf9bce5eb55f034a2d5d8618b5ae99122f51d7e57dd97128"
+    },
+    "v57_reads": {
+      "path": "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-05/named-reads.json.gz",
+      "sha256": "c735e71168f564630887003dba87bf2f5f16179a0044f47acee04f945c0f95dc"
+    }
+  },
+  "task": "1.6-08",
+  "unresolved_header_cases": [
+    "net-short-wave",
+    "downward-long-wave",
+    "sensible-heat"
+  ]
+}

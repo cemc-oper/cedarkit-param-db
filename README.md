@@ -454,3 +454,15 @@ Use `manifest.json` to resolve the exported files and verify their format versio
 Stage 1.6-07 registers all 702 definitions from the seven v57 resources against 226 unified identities. Each scoped entry retains its source definition and links to its mappings, carriers or inheritance children. Service mappings can refine a broad source definition to a specific unified field. The identity decisions record physical distinctions such as flux versus accumulated energy, and keep historical spellings traceable to their source. [Identity registry](authoring/stage1.6-identity-registry.json) · [Identity decisions](authoring/stage1.6-identity-decisions.json)
 
 Use the source and branch indices to trace an original entry and its evidence before reviewing independent GRIB2 mappings in Stage 1.6-08. The replay rebuilds the registration from browser revision 17 and the frozen v57 resources. [Indices, verification and replay](../../doc/2026-11-16-stage1.6-query-reki/evidence/1.6-07/README.md)
+
+### Independent GRIB2 mapping batches
+
+Stage 1.6-08 adds reviewed header rules in three cumulative batches. The exports contain the unified parameters, the mappings with empty product scopes, and a manifest pinning both resources. The full batch contains 344 mappings for 129 unified identities. The evidence records original-value branches, shared-header conflicts, and service-derived windows that still need an independent message. [Authoring rules](authoring/stage1.6-grib2-rules.json) · [Coverage and replay](../../doc/2026-11-16-stage1.6-query-reki/evidence/1.6-08/README.md)
+
+With `cedarkit-query 0.2.3` installed, export a batch to a new directory.
+
+```sh
+python -B tools/export_stage16_grib2.py --batch gfs-22-45 --output /tmp/cedarkit-gfs-page
+```
+
+The other batch names are `q2m-znt` and `full-library`. The evidence replay verifies the GFS page through an explicit independent context and checks all full-batch header matches against the frozen ORIG corpus.
