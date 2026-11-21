@@ -1,0 +1,692 @@
+{
+  "decisions": {
+    "classification-and-index": {
+      "definitions": {
+        "cedarkit.bti": {
+          "description": "Simulated brightness temperature of FY-4B AGRI channel 13 (infrared window)",
+          "description_cn": "FY-4B AGRI 第 13 通道红外窗模拟亮温"
+        },
+        "cedarkit.btv": {
+          "description": "Simulated brightness temperature of FY-4B AGRI channel 10 (mid-level water vapour)",
+          "description_cn": "FY-4B AGRI 第 10 通道中层水汽模拟亮温"
+        },
+        "cedarkit.fogod.any": {
+          "description": "Fog optical depth",
+          "description_cn": "雾光学厚度",
+          "unit": "1"
+        },
+        "cedarkit.light": {
+          "description": "Model lightning diagnostic index on a 0–100 scale",
+          "description_cn": "0–100 尺度的模式雷电诊断指数",
+          "unit": "1"
+        },
+        "cedarkit.precitype": {
+          "description": "Precipitation-type category code",
+          "description_cn": "降水相态分类码",
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "unit": "1"
+        },
+        "cedarkit.ri": {
+          "unit": "1"
+        },
+        "cedarkit.ripbl": {
+          "description": "Planetary boundary layer Richardson number",
+          "description_cn": "边界层理查森数"
+        },
+        "cedarkit.risfc": {
+          "description": "Surface-layer Richardson number",
+          "description_cn": "地表层理查森数"
+        },
+        "cedarkit.ssi": {
+          "unit": "1"
+        },
+        "cedarkit.wi.any": {
+          "unit": "m/s"
+        }
+      },
+      "evidence": [
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04G/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-07e3/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-n04a/README.md",
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04F/README.md"
+      ],
+      "parameter_ids": [
+        "cedarkit.hi",
+        "cedarkit.hi.any"
+      ],
+      "reason": "降水相态为无量纲分类码。原值 1、3、5、8 有生产和码表依据，0 同时来自多种生产路径。理查森数的地表与边界层载体分别登记，物理定义为无量纲。FY-4B AGRI 红外窗和中层水汽亮温分别使用通道 13 和 10。雷电诊断为模式指数，雾光学厚度为无量纲，风指数按 m/s 定义。",
+      "remaining_evidence": "相态码 0 的无降水、混合相态与哨兵输入需逐格取证。理查森数继续核非零打包前场。冰雹指数保留定义单位占位及原值。"
+    },
+    "diagnostic-scales": {
+      "definitions": {
+        "cedarkit.mpv1": {
+          "unit": "K m2/(kg s)"
+        },
+        "cedarkit.qdiv": {
+          "unit": "g/(cm2.hPa.s)"
+        },
+        "cedarkit.qflx": {
+          "description": "Magnitude of horizontal moisture transport",
+          "description_cn": "水平水汽输送量的模"
+        },
+        "cedarkit.tadv": {
+          "unit": "K/s"
+        },
+        "cedarkit.voradv": {
+          "unit": "s-2"
+        }
+      },
+      "evidence": [
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04F/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-t02/README.md"
+      ],
+      "parameter_ids": [
+        "cedarkit.mpv1",
+        "cedarkit.pc",
+        "cedarkit.pc.any",
+        "cedarkit.qflx",
+        "cedarkit.qfxsfc",
+        "cedarkit.shrmax-0-600",
+        "cedarkit.shrmaxdir-0-600"
+      ],
+      "reason": "按生产复算给出平流和散度的量纲与已核尺度。凝结层气压使用 Pa 作标准定义，已审原报文的存值为 hPa；MPV1 为湿位涡垂直项，原生产程序的整数读取造成逐层倍率差异。其科学单位随已核范围解释。",
+      "remaining_evidence": "核定 MPV1 顶层、各层原值倍率及其他未验证生产范围，保留 v57 原值回执。"
+    },
+    "downward-long-wave": {
+      "definitions": {
+        "cedarkit.glw": {
+          "description": "Surface all-sky downward long-wave radiation flux",
+          "description_cn": "地表全天空向下长波辐射通量",
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "name": "glw-flux",
+          "unit": "W/m2"
+        },
+        "cedarkit.glw.since-initialization": {
+          "description": "Surface all-sky downward long-wave radiation energy since initialization",
+          "description_cn": "自起报累计的地表全天空向下长波辐射能量",
+          "fixed_conditions": {
+            "level_type": "surface",
+            "statistics": {
+              "operation": "accumulation",
+              "over": "time",
+              "period": {
+                "kind": "since_initialization"
+              }
+            }
+          },
+          "name": "glw-since-initialization",
+          "unit": "J/m2"
+        }
+      },
+      "evidence": [
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04B/supplement/README.md"
+      ],
+      "reason": "同版生产链给出地表全天空向下长波。区域产品是输出时效的通量，GFS 是起报累计能量。区域旧 net/str 拼写及 GFS 原值单位占位保留在来源中。统一身份按实际物理量登记。",
+      "remaining_evidence": "需核定共用报头下能量和通量的可观测区分条件及生产单位适用范围。",
+      "shared_header_carriers": [
+        "gfs-006",
+        "meso1-004",
+        "meso3-004",
+        "tym-006"
+      ],
+      "source_name_targets": {
+        "glw": null,
+        "str": null
+      },
+      "source_targets": {
+        "gfs": {
+          "cedarkit.glw": "cedarkit.glw.since-initialization"
+        }
+      }
+    },
+    "extrema-and-outer-windows": {
+      "definitions": {
+        "cedarkit.rain5max": {
+          "description": "Maximum five-minute precipitation depth during the preceding output hour",
+          "description_cn": "输出前一小时内的五分钟累计降水深度最大值"
+        },
+        "cedarkit.rhmax2m": {
+          "fixed_conditions": {
+            "level": 2,
+            "level_type": "height_above_ground",
+            "level_unit": "m",
+            "statistics": {
+              "operation": "maximum",
+              "over": "time"
+            }
+          }
+        },
+        "cedarkit.rhmin2m": {
+          "fixed_conditions": {
+            "level": 2,
+            "level_type": "height_above_ground",
+            "level_unit": "m",
+            "statistics": {
+              "operation": "minimum",
+              "over": "time"
+            }
+          }
+        }
+      },
+      "evidence": [
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04E/README.md",
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-06/follow-up-2026-11-15/README.md"
+      ],
+      "parameter_ids": [
+        "cedarkit.cdbzmax-1",
+        "cedarkit.gust",
+        "cedarkit.mn2t",
+        "cedarkit.mx2t",
+        "cedarkit.rain5max",
+        "cedarkit.rhmax",
+        "cedarkit.rhmin",
+        "cedarkit.u10mmax-1",
+        "cedarkit.v10mmax-1",
+        "cedarkit.wmax-1"
+      ],
+      "reason": "GFS 的 2 m 温湿极值与阵风按各自模式缓冲区更新。温湿极值报头给出 [0,h]，原周期前 240h 生产按三小时时钟重设。MESO-3KM 和 TYM 的 10 m 风分量极值由最大风速时刻成对选取，0h 为初始化。区域五分钟降水场为小时外窗中的短窗降水深度最大值。",
+      "remaining_evidence": "各产品保留编码统计窗、实际生产采样窗及初始化条件，MESO-1KM 的原起报五分钟生产缓冲区和风极值成对算法按已验范围继续补证。"
+    },
+    "integrated-stress": {
+      "definitions": {
+        "cedarkit.nsss": {
+          "fixed_conditions": {
+            "level_type": "surface",
+            "statistics": {
+              "operation": "accumulation",
+              "over": "time",
+              "period": {
+                "kind": "since_initialization"
+              }
+            }
+          }
+        },
+        "cedarkit.nsss.any": {
+          "description": "Time-integrated north-south surface stress on the atmosphere, positive toward the north",
+          "description_cn": "地表作用于大气的南北向应力积分，向北为正",
+          "unit": "N s/m2"
+        },
+        "cedarkit.wess": {
+          "fixed_conditions": {
+            "level_type": "surface",
+            "statistics": {
+              "operation": "accumulation",
+              "over": "time",
+              "period": {
+                "kind": "since_initialization"
+              }
+            }
+          }
+        },
+        "cedarkit.wess.any": {
+          "description": "Time-integrated east-west surface stress on the atmosphere, positive toward the east",
+          "description_cn": "地表作用于大气的东西向应力积分，向东为正",
+          "unit": "N s/m2"
+        }
+      },
+      "evidence": [
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-06/follow-up-2026-11-15/README.md",
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04F/README.md"
+      ],
+      "reason": "GFS 地表应力从起报清零并按模式步长积分。东西和南北两分量保留各自 ID，标准单位为 N·s/m²。原条目 N/m² 及原报文 PDT 0 仅描述来源声明与编码。",
+      "remaining_evidence": "核定有限生产证据之外的积分窗与写入约定。PDT 0 的有效时次和实际积分期分别记录。"
+    },
+    "k-index": {
+      "definitions": {
+        "cedarkit.kidx": {
+          "parent": "cedarkit.kidx.any"
+        }
+      },
+      "evidence": [
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-02/README.md",
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04/README.md"
+      ],
+      "reason": "保留公共 K 指数、温差单位及 v57 父定义。海平面固定面为已见的 CEMC 编码分支条件，作为映射取证处理，公共定义可用于其他已审层面。"
+    },
+    "net-short-wave": {
+      "definitions": {
+        "cedarkit.gsw": {
+          "description": "Surface net short-wave radiation flux, downward positive",
+          "description_cn": "地表净短波辐射通量，向下为正",
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "name": "gsw-flux",
+          "unit": "W/m2"
+        },
+        "cedarkit.gsw.energy": {
+          "name": "gsw-energy"
+        },
+        "cedarkit.gsw.since-initialization": {
+          "name": "gsw-since-initialization"
+        }
+      },
+      "evidence": [
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04B/supplement/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-n06-02/README.md",
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-02/README.md"
+      ],
+      "reason": "区域 GSW 是地表净短波通量，W/m2。GFS 的 GSW 和 CMADaaS NSRF 地表分支是起报累计净短波能量，J/m2。GFS 旧 gsw 父项转为广义能量定义，并供大气顶 TSW 父链继承。旧短名 gsw、ssr 随来源保留。",
+      "remaining_evidence": "已审报文共享编码统计条件。需核定可从报文读取且能区分通量与能量的生产标识或版本化模板约定。",
+      "shared_header_carriers": [
+        "gfs-007",
+        "meso1-005",
+        "meso3-005",
+        "tym-007"
+      ],
+      "source_name_targets": {
+        "cedarkit.gsw": null,
+        "gsw": null,
+        "ssr": null
+      },
+      "source_targets": {
+        "cmadaas": {
+          "cedarkit.gsw": "cedarkit.gsw.since-initialization"
+        },
+        "gfs": {
+          "cedarkit.gsw": "cedarkit.gsw.energy"
+        }
+      }
+    },
+    "parent-names": {
+      "evidence": [
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-02/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-07c/README.md",
+        "data/cedarkit-param-db/authoring/cmadaas-task-t05.json"
+      ],
+      "reason": "同一族的父定义使用可独立解析的名称。来源短名同时用于父定义和具体场时，统一名称指向已有短名的具体场，父项仍可按稳定 ID 引用。跨物理量或跨时窗的同名另有逐项裁定。"
+    },
+    "precipitation-windows": {
+      "evidence": [
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-07b/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-07e1/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-07e6/README.md",
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-02/README.md"
+      ],
+      "parameter_ids": [
+        "cedarkit.rain",
+        "cedarkit.rain.any",
+        "cedarkit.rainc",
+        "cedarkit.rainc.any",
+        "cedarkit.rainnc",
+        "cedarkit.rainnc.any"
+      ],
+      "reason": "总量、对流和大尺度降水分开。rain/rainc/rainnc 查询短名指向自起报累计；固定回看窗保留各自 ID。服务冻结 CPE/LPE 的 +24h 单可用场对应各自 24h 子定义，在该起报时效窗口与自起报窗重合。其余已审后缀响应经两个原 GRIB 端点差核对。apcp 的历史父项与具体累计项写法保留来历。",
+      "remaining_evidence": "回看窗的独立报文需核实原生起止和统计操作，现有服务端点对照用于辨明窗口定义。",
+      "service_targets": {
+        "S-gfs-fcst.frozen.CPE": "cedarkit.rainc.24h",
+        "S-gfs-fcst.frozen.LPE": "cedarkit.rainnc.24h"
+      },
+      "source_name_targets": {
+        "apcp": null
+      }
+    },
+    "radiation-energy-parents": {
+      "evidence": [
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-n06-02/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-n06-03/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-n06-04/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-n06-05/README.md"
+      ],
+      "parameter_ids": [
+        "cedarkit.gswc",
+        "cedarkit.gulw",
+        "cedarkit.gusw",
+        "cedarkit.tsw",
+        "cedarkit.tswc",
+        "cedarkit.tulw",
+        "cedarkit.tusw"
+      ],
+      "reason": "NSRF 大气顶和 NWFS 地表／大气顶服务分支已用同场原件核对，指向对应 ORIG 起报累计能量子项。GFS 的 tsw、gswc、tswc 原条目继续提供继承，来源名由各自的具体场解析。GULW、GUSW、TULW、TUSW 的带符号累计量沿用已验单位和原符号。",
+      "source_targets": {
+        "cmadaas": {
+          "cedarkit.gswc": "cedarkit.gswc.since-initialization",
+          "cedarkit.tsw": "cedarkit.tsw.since-initialization",
+          "cedarkit.tswc": "cedarkit.tswc.since-initialization"
+        }
+      }
+    },
+    "sensible-heat": {
+      "definitions": {
+        "cedarkit.hfx": {
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "name": "hfx-flux"
+        },
+        "cedarkit.hfx.any": {
+          "description": "Surface sensible heat flux, upward positive",
+          "description_cn": "地表感热通量，向上为正",
+          "unit": "W/m2"
+        },
+        "cedarkit.hfx.energy": {
+          "description": "Time-integrated surface sensible heat, upward positive",
+          "description_cn": "地表向上感热时间积分量",
+          "name": "hfx-energy",
+          "unit": "J/m2"
+        },
+        "cedarkit.hfx.since-initialization": {
+          "fixed_conditions": {
+            "level_type": "surface",
+            "statistics": {
+              "operation": "accumulation",
+              "over": "time",
+              "period": {
+                "kind": "since_initialization"
+              }
+            }
+          },
+          "name": "hfx-since-initialization"
+        }
+      },
+      "evidence": [
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04B/supplement/README.md"
+      ],
+      "reason": "同版生产链核定地表向上为正的感热。GFS 积分为 J/m2，MESO-3KM 和 TYM 输出 W/m2 通量。GFS 的旧 hfx.any 父项随能量分支登记。",
+      "remaining_evidence": "需核定共用报头下能量和通量的可观测区分条件，保存原值和生产单位。",
+      "shared_header_carriers": [
+        "gfs-008",
+        "meso3-006",
+        "tym-008"
+      ],
+      "source_name_targets": {
+        "cedarkit.hfx.any": "cedarkit.hfx.any",
+        "hfx": null
+      },
+      "source_targets": {
+        "gfs": {
+          "cedarkit.hfx": "cedarkit.hfx.since-initialization",
+          "cedarkit.hfx.any": "cedarkit.hfx.energy"
+        }
+      }
+    },
+    "service-instantaneous": {
+      "evidence": [
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-02/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-07c/README.md",
+        "data/cedarkit-param-db/authoring/cmadaas-task-t05.json"
+      ],
+      "reason": "同一量在 ORIG 用报头和映射区分瞬时场，在 CMADaaS 中常由定义或父项声明瞬时统计。保留共同的层次和身份，服务的瞬时限制保留在来源定义。父项仍可服务于其他统计变体。"
+    },
+    "snowfall": {
+      "definitions": {
+        "cedarkit.sf": {
+          "description": "Accumulated liquid-water-equivalent snowfall depth",
+          "description_cn": "累计降雪液态水当量深度",
+          "name": "sf-accumulation"
+        },
+        "cedarkit.sf.12h": {
+          "name": "sf-12h"
+        },
+        "cedarkit.sf.1h": {
+          "name": "sf-1h"
+        },
+        "cedarkit.sf.24h": {
+          "name": "sf-24h"
+        },
+        "cedarkit.sf.3h": {
+          "name": "sf-3h"
+        },
+        "cedarkit.sf.6h": {
+          "name": "sf-6h"
+        },
+        "cedarkit.sf.any": {
+          "description": "Liquid-water-equivalent snowfall depth and related diagnostics",
+          "description_cn": "降雪液态水当量深度及相关诊断量",
+          "name": "cedarkit.sf.any",
+          "unit": "m"
+        },
+        "cedarkit.sf.diagnostic-change.12h": {
+          "description": "Difference of the snowfall diagnostic at the two ends of a trailing 12-hour interval",
+          "description_cn": "输出前 12 小时两个端点的降雪诊断量之差",
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "name": "sf-diagnostic-change-12h",
+          "parent": "cedarkit.sf.any"
+        },
+        "cedarkit.sf.diagnostic-change.1h": {
+          "description": "Difference of the snowfall diagnostic at the two ends of a trailing 1-hour interval",
+          "description_cn": "输出前 1 小时两个端点的降雪诊断量之差",
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "name": "sf-diagnostic-change-1h",
+          "parent": "cedarkit.sf.any"
+        },
+        "cedarkit.sf.diagnostic-change.24h": {
+          "description": "Difference of the snowfall diagnostic at the two ends of a trailing 24-hour interval",
+          "description_cn": "输出前 24 小时两个端点的降雪诊断量之差",
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "name": "sf-diagnostic-change-24h",
+          "parent": "cedarkit.sf.any"
+        },
+        "cedarkit.sf.diagnostic-change.3h": {
+          "description": "Difference of the snowfall diagnostic at the two ends of a trailing 3-hour interval",
+          "description_cn": "输出前 3 小时两个端点的降雪诊断量之差",
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "name": "sf-diagnostic-change-3h",
+          "parent": "cedarkit.sf.any"
+        },
+        "cedarkit.sf.diagnostic-change.6h": {
+          "description": "Difference of the snowfall diagnostic at the two ends of a trailing 6-hour interval",
+          "description_cn": "输出前 6 小时两个端点的降雪诊断量之差",
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "name": "sf-diagnostic-change-6h",
+          "parent": "cedarkit.sf.any"
+        },
+        "cedarkit.sf.large-scale.since-initialization": {
+          "description": "Large-scale solid precipitation accumulated since initialization as liquid-water-equivalent depth",
+          "description_cn": "从起报累计的大尺度固态降水液态水当量深度",
+          "name": "sf-large-scale-since-initialization",
+          "parent": "cedarkit.sf"
+        },
+        "cedarkit.sf.since-initialization": {
+          "description": "Liquid-water-equivalent snowfall depth accumulated since initialization",
+          "description_cn": "从起报累计的降雪液态水当量深度",
+          "name": "sf-since-initialization",
+          "parent": "cedarkit.sf"
+        },
+        "cedarkit.sf.with-convective-diagnostic": {
+          "description": "Liquid-water-equivalent depth of accumulated large-scale snowfall plus the convective snow diagnostic at output time",
+          "description_cn": "大尺度累计降雪加输出时刻重算的对流雪诊断，按液态水当量深度表示",
+          "fixed_conditions": {
+            "level_type": "surface"
+          },
+          "name": "sf-with-convective-diagnostic",
+          "parent": "cedarkit.sf.any"
+        }
+      },
+      "evidence": [
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/README.md",
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04C/supplement/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-07e6/README.md",
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-02/README.md"
+      ],
+      "reason": "GEPS 的起报累计降雪沿用通用累计身份。四套确定性 ORIG 的已核范围为大尺度固态降水水当量，同场 TOSN 分支关联该身份。REPS 的源场另含逐输出重算的对流雪诊断。REPS TOSN 短时产品比较两个诊断端点，另外登记有明确窗口的诊断差值。普通降雪累加窗与诊断量分别继承对应父项。",
+      "remaining_evidence": "核定 PDT11 的 GEPS／REPS 可观测区分字段，并复核各产品降雪生产版本。短时服务差值需取得同义的独立报文才可验证单报文直读。",
+      "service_targets": {
+        "S-gfs-ana-row-7.sf.since-initialization": "cedarkit.sf.large-scale.since-initialization",
+        "S-gfs-fcst-row-20.sf.since-initialization": "cedarkit.sf.large-scale.since-initialization",
+        "S-meso1-ana-row-8.sf.since-initialization": "cedarkit.sf.large-scale.since-initialization",
+        "S-meso1-fcst-row-25.sf.since-initialization": "cedarkit.sf.large-scale.since-initialization",
+        "S-meso3-ana-row-16.sf.since-initialization": "cedarkit.sf.large-scale.since-initialization",
+        "S-meso3-fcst-row-27.sf.since-initialization": "cedarkit.sf.large-scale.since-initialization",
+        "S-reps-ctl-row-1.sf.24h": "cedarkit.sf.diagnostic-change.24h",
+        "S-reps-ctl-row-10.sf.3h": "cedarkit.sf.diagnostic-change.3h",
+        "S-reps-ctl-row-12.sf.6h": "cedarkit.sf.diagnostic-change.6h",
+        "S-reps-ctl-row-13.sf.1h": "cedarkit.sf.diagnostic-change.1h",
+        "S-reps-ctl-row-2.sf.12h": "cedarkit.sf.diagnostic-change.12h",
+        "S-reps-ctl-row-41.sf.since-initialization": "cedarkit.sf.with-convective-diagnostic",
+        "S-reps-pert-row-1.sf.24h": "cedarkit.sf.diagnostic-change.24h",
+        "S-reps-pert-row-10.sf.3h": "cedarkit.sf.diagnostic-change.3h",
+        "S-reps-pert-row-13.sf.1h": "cedarkit.sf.diagnostic-change.1h",
+        "S-reps-pert-row-3.sf.6h": "cedarkit.sf.diagnostic-change.6h",
+        "S-reps-pert-row-47.sf.since-initialization": "cedarkit.sf.with-convective-diagnostic",
+        "S-reps-pert-row-6.sf.12h": "cedarkit.sf.diagnostic-change.12h",
+        "S-tym-ana-row-15.sf.since-initialization": "cedarkit.sf.large-scale.since-initialization",
+        "S-tym-fcst-row-82.sf.since-initialization": "cedarkit.sf.large-scale.since-initialization"
+      },
+      "shared_header_carriers": [
+        "geps-016",
+        "reps-003"
+      ],
+      "source_name_targets": {
+        "asnow": null,
+        "sf": null,
+        "sf12h": null,
+        "sf1h": null,
+        "sf24h": null,
+        "sf3h": null,
+        "sf6h": null,
+        "snow": null
+      },
+      "source_targets": {
+        "geps": {
+          "cedarkit.sf": "cedarkit.sf.since-initialization"
+        },
+        "gfs": {
+          "cedarkit.sf": "cedarkit.sf.large-scale.since-initialization"
+        },
+        "meso1": {
+          "cedarkit.sf": "cedarkit.sf.large-scale.since-initialization"
+        },
+        "meso3": {
+          "cedarkit.sf": "cedarkit.sf.large-scale.since-initialization"
+        },
+        "reps": {
+          "cedarkit.sf": "cedarkit.sf.with-convective-diagnostic"
+        },
+        "tym": {
+          "cedarkit.sf": "cedarkit.sf.large-scale.since-initialization"
+        }
+      }
+    },
+    "soil-depth": {
+      "evidence": [
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-t03/README.md",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-t03/originals/manifest.json",
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-02/README.md"
+      ],
+      "parameter_ids": [
+        "cedarkit.st",
+        "cedarkit.st-0-10",
+        "cedarkit.st-10-30",
+        "cedarkit.st-10-40",
+        "cedarkit.st-100-200",
+        "cedarkit.st-40-100",
+        "cedarkit.st-60-100",
+        "cedarkit.sw",
+        "cedarkit.sw-0-10",
+        "cedarkit.sw-10-40",
+        "cedarkit.sw-100-200",
+        "cedarkit.sw-40-100"
+      ],
+      "reason": "土温按两个固定面缩放后的实际边界登记。T03 的 10–30 和 60–100 cm 已有独立原件定位，与 10–40 和 40–100 cm 分别保留。土壤湿度与大气比湿分立；各产品需核对体积分数和报头质量分数字面差异。"
+    },
+    "source-definitions": {
+      "evidence": [
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-02/README.md",
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-03/README.md",
+        "data/cedarkit-param-db/authoring/cmadaas-task-t05.json"
+      ],
+      "reason": "按既有公共定义优先，其后依目录中的 ORIG、CMADaaS 顺序取定义。同义的翻译、别名和产品适用域随各自原条目保留。同一物理量的层次、统计或单位在有行为差异时依具体裁定处理。现行 ORIG 映射的原值分支与已审转换分支各自保留证据。"
+    },
+    "surface-and-two-metres": {
+      "evidence": [
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-07b/originals.jsonl",
+        "doc/2026-11-04-stage1.2-query-reki/evidence/task-07c/originals.jsonl",
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-01/carrier-index.tsv"
+      ],
+      "parameter_ids": [
+        "cedarkit.h",
+        "cedarkit.h.any",
+        "cedarkit.q",
+        "cedarkit.q2m",
+        "cedarkit.t",
+        "cedarkit.t2m",
+        "cedarkit.ts",
+        "cedarkit.zs"
+      ],
+      "reason": "旧服务广义 ID 的具体分支按实际原场收窄。GPH 地面 1/255 转为 zs，地面 TEM 转为 ts，离地 2 m 的 SHU 转为 q2m。等压面分支仍归原身份。服务 t2m 继承温度说明，层次与 ORIG 一致，两者同指离地 2 m 气温。GPH 的源单位字面及数值依据按实读范围保存。",
+      "service_targets": {
+        "S-geps-ctl-row-18.h.any": "cedarkit.zs",
+        "S-gfs-ana-row-16.q": "cedarkit.q2m",
+        "S-gfs-ana-row-27.t": "cedarkit.ts",
+        "S-gfs-ana-row-79.h.any": "cedarkit.zs",
+        "S-gfs-fcst-row-101.q": "cedarkit.q2m",
+        "S-gfs-fcst.frozen.GPH": "cedarkit.zs",
+        "S-gfs-fcst.frozen.TEM": "cedarkit.ts",
+        "S-meso1-ana-row-10.t": "cedarkit.ts",
+        "S-meso1-ana-row-15.q": "cedarkit.q2m",
+        "S-meso1-ana-row-53.h.any": "cedarkit.zs",
+        "S-meso1-fcst-row-23.t": "cedarkit.ts",
+        "S-meso1-fcst-row-63.h.any": "cedarkit.zs",
+        "S-meso1-fcst-row-96.q": "cedarkit.q2m",
+        "S-meso3-ana-row-20.t": "cedarkit.ts",
+        "S-meso3-ana-row-75.h.any": "cedarkit.zs",
+        "S-meso3-ana-row-86.q": "cedarkit.q2m",
+        "S-meso3-fcst-row-22.t": "cedarkit.ts",
+        "S-meso3-fcst-row-84.h.any": "cedarkit.zs",
+        "S-meso3-fcst-row-94.q": "cedarkit.q2m",
+        "S-reps-ctl-row-39.t": "cedarkit.ts",
+        "S-reps-pert-row-38.t": "cedarkit.ts",
+        "S-tym-ana-row-11.t": "cedarkit.ts",
+        "S-tym-ana-row-38.h.any": "cedarkit.zs",
+        "S-tym-ana-row-55.q": "cedarkit.q2m",
+        "S-tym-fcst-row-67.h.any": "cedarkit.zs",
+        "S-tym-fcst-row-73.t": "cedarkit.ts",
+        "S-tym-fcst-row-95.q": "cedarkit.q2m"
+      }
+    },
+    "sweat-spelling": {
+      "evidence": [
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-02/README.md",
+        "data/cedarkit-param-db/authoring/cmadaas-task-t05.json"
+      ],
+      "reason": "SWEATX 在 ORIG 用作具体 SWEAT 指数的别名，在服务资源继承父项时沿用同一拼写。统一别名解析到已登记的地表 SWEAT 指数。父项用稳定 ID 引用。",
+      "source_name_targets": {
+        "SWEATX": "cedarkit.sweatidx"
+      }
+    },
+    "vertical-diagnostics": {
+      "definitions": {
+        "cedarkit.cldb": {
+          "description": "Cloud base height above model terrain",
+          "description_cn": "相对模式地形的云底高度"
+        },
+        "cedarkit.cldt": {
+          "description": "Cloud top height above model terrain",
+          "description_cn": "相对模式地形的云顶高度"
+        },
+        "cedarkit.dbzmaxh": {
+          "description": "Model geopotential height of the strongest radar echo over the preceding hour",
+          "description_cn": "输出前一小时最强雷达回波的模式位势高度"
+        }
+      },
+      "evidence": [
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/README.md",
+        "doc/2026-11-14-stage1.5-query-reki/evidence/1.5-04D/supplement/README.md",
+        "doc/2026-11-16-stage1.6-query-reki/evidence/1.6-02/README.md"
+      ],
+      "parameter_ids": [
+        "cedarkit.uhmax",
+        "cedarkit.uhmax-2000-5000",
+        "cedarkit.uhmax.any"
+      ],
+      "reason": "云底、云顶使用相对模式地形的高度；最强回波高度使用模式位势高度。TYM UHMAX 保留独立的逐小时、地形跟随参考分支，与两套 MESO 从起报累计的 2000–5000 m 层带变体区分。同三元组和固定面类型的实际端点按报头回执追踪。"
+    }
+  },
+  "schema_version": 1,
+  "task": "1.6-07"
+}

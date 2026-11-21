@@ -448,3 +448,9 @@ python -B tools/export_cemc_orig_snapshot.py \
 `public-parameters.json` and `generic-grib2-mappings.json` form the standalone pair. Both resources start at content version `1`. The exporter validates their names, inheritance, references, scopes and overlapping rules. The six ORIG pairs reuse the pinned authoring recipe and project their definitions from the Stage 1.6 registry. They are validated with their catalog dataset and checked against the v57 pins.
 
 Use `manifest.json` to resolve the exported files and verify their format versions, IDs, content versions and SHA-256 digests. The catalog retains its v57 references for product bindings. The standalone pair has its own references in the manifest. Update a resource's content version when publishing changed bytes. [Sealed snapshot and replay](../../doc/2026-11-16-stage1.6-query-reki/evidence/1.6-04/README.md)
+
+### Whole-library identity registration
+
+Stage 1.6-07 registers all 702 definitions from the seven v57 resources against 226 unified identities. Each scoped entry retains its source definition and links to its mappings, carriers or inheritance children. Service mappings can refine a broad source definition to a specific unified field. The identity decisions record physical distinctions such as flux versus accumulated energy, and keep historical spellings traceable to their source. [Identity registry](authoring/stage1.6-identity-registry.json) · [Identity decisions](authoring/stage1.6-identity-decisions.json)
+
+Use the source and branch indices to trace an original entry and its evidence before reviewing independent GRIB2 mappings in Stage 1.6-08. The replay rebuilds the registration from browser revision 17 and the frozen v57 resources. [Indices, verification and replay](../../doc/2026-11-16-stage1.6-query-reki/evidence/1.6-07/README.md)
