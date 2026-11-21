@@ -1,4 +1,4 @@
-"""Export a reviewed Stage 1.6-08 standalone GRIB2 batch."""
+"""Export a reviewed Stage 1.6 standalone GRIB2 batch."""
 
 import argparse
 from hashlib import sha256
@@ -15,6 +15,8 @@ BASELINE = "cemc-orig-stage1.6-registry.json"
 POLICY = "stage1.6-grib2-review.json"
 RULES = "stage1.6-grib2-rules.json"
 BATCHES = {"q2m-znt": "2", "gfs-22-45": "3", "full-library": "4"}
+ORIGINAL_FIELDS_BATCH = "full-library-original-fields"
+ORIGINAL_FIELDS = "stage1.6-grib2-original-fields.json"
 
 
 def build_snapshot(batch, author=AUTHOR):
@@ -30,18 +32,28 @@ def build_snapshot(batch, author=AUTHOR):
             raise ValueError(f"{name} differs from the reviewed rule group's input")
         documents[name] = json.loads(raw)
 
-    version = BATCHES[batch]
-    parameters = Parameters({
-        "api_version": "cedarkit.parameters/v1",
-        "id": "cedarkit.parameters.public",
-        "version": "2",
-        "parameters": documents[IDENTITIES]["unified_parameters"],
-    })
+    original_fields = batch == ORIGINAL_FIELDS_BATCH
+    version = "5" if original_fields else BATCHES[batch]
+    authoring = {**reviewed["authoring_sha256"], RULES: sha256(raw_rules).hexdigest()}
+    definition_rows = documents[IDENTITIES]["unified_parameters"]
     mapping_rows = list(documents[BASELINE]["generic_grib2_mappings"])
     mapping_rows.extend(
         rule["mapping"] for rule in reviewed["rules"]
         if int(BATCHES[rule["batch"]]) <= int(version)
     )
+    if original_fields:
+        raw = (author / ORIGINAL_FIELDS).read_bytes()
+        original = json.loads(raw)
+        authoring[ORIGINAL_FIELDS] = sha256(raw).hexdigest()
+        definition_rows.extend(original["parameters"])
+        mapping_rows.extend(original["mappings"])
+
+    parameters = Parameters({
+        "api_version": "cedarkit.parameters/v1",
+        "id": "cedarkit.parameters.public",
+        "version": "3" if original_fields else "2",
+        "parameters": definition_rows,
+    })
     mappings = Mappings({
         "api_version": "cedarkit.mappings/v1",
         "id": "cedarkit.grib2.generic",
@@ -56,7 +68,7 @@ def build_snapshot(batch, author=AUTHOR):
         "schema_version": 1,
         "task": "1.6-08",
         "batch": batch,
-        "authoring": {**reviewed["authoring_sha256"], RULES: sha256(raw_rules).hexdigest()},
+        "authoring": authoring,
         "v57_catalog": documents[IDENTITIES]["catalog"],
         "standalone": {
             "parameter_registry": _pin(PUBLIC, files[PUBLIC]),
@@ -72,7 +84,7 @@ def build_snapshot(batch, author=AUTHOR):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--batch", choices=tuple(BATCHES), required=True)
+    parser.add_argument("--batch", choices=(*BATCHES, ORIGINAL_FIELDS_BATCH), required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     try:

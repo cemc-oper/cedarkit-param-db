@@ -1,0 +1,126 @@
+{
+  "parameters": [
+    {
+      "description": "Original values of the CEMC surface downward long-wave radiation field",
+      "description_cn": "CEMC 地表下行长波辐射原值",
+      "fixed_conditions": {"level_type": "surface"},
+      "name": "glw",
+      "parameter_id": "cedarkit.glw.raw",
+      "unit": "unknown"
+    },
+    {
+      "description": "Original values of the CEMC surface net short-wave radiation field",
+      "description_cn": "CEMC 地表净短波辐射原值",
+      "fixed_conditions": {"level_type": "surface"},
+      "name": "gsw",
+      "parameter_id": "cedarkit.gsw.raw",
+      "unit": "unknown"
+    },
+    {
+      "description": "Original values of the CEMC upward surface sensible heat field",
+      "description_cn": "CEMC 地表向上感热原值",
+      "fixed_conditions": {"level_type": "surface"},
+      "name": "hfx",
+      "parameter_id": "cedarkit.hfx.raw",
+      "unit": "unknown"
+    }
+  ],
+  "mappings": [
+    {
+      "applies_to": {},
+      "backend": "grib2",
+      "evidence": ["doc/2026-11-16-stage1.6-query-reki/evidence/1.6-08/verification.json#conflicts/downward-long-wave"],
+      "id": "cemc.glw.raw",
+      "native": {
+        "match": {
+          "centre": 38,
+          "discipline": 0,
+          "edition": 2,
+          "generatingProcessIdentifier": 15,
+          "localTablesVersion": 0,
+          "numberOfTimeRange": 1,
+          "parameterCategory": 5,
+          "parameterNumber": 5,
+          "productDefinitionTemplateNumber": 8,
+          "productionStatusOfProcessedData": 0,
+          "subCentre": 0,
+          "tablesVersion": 4,
+          "typeOfFirstFixedSurface": 1,
+          "typeOfSecondFixedSurface": 255,
+          "typeOfStatisticalProcessing": 1,
+          "typeOfTimeIncrement": 2
+        },
+        "translate": {
+          "time": {"rule": "grib.time"},
+          "vertical": {"rule": "grib.fixed_surfaces"}
+        }
+      },
+      "parameter_id": "cedarkit.glw.raw",
+      "when": {}
+    },
+    {
+      "applies_to": {},
+      "backend": "grib2",
+      "evidence": ["doc/2026-11-16-stage1.6-query-reki/evidence/1.6-08/verification.json#conflicts/net-short-wave"],
+      "id": "cemc.gsw.raw",
+      "native": {
+        "match": {
+          "centre": 38,
+          "discipline": 0,
+          "edition": 2,
+          "generatingProcessIdentifier": 15,
+          "localTablesVersion": 0,
+          "numberOfTimeRange": 1,
+          "parameterCategory": 4,
+          "parameterNumber": 9,
+          "productDefinitionTemplateNumber": 8,
+          "productionStatusOfProcessedData": 0,
+          "subCentre": 0,
+          "tablesVersion": 4,
+          "typeOfFirstFixedSurface": 1,
+          "typeOfSecondFixedSurface": 255,
+          "typeOfStatisticalProcessing": 1,
+          "typeOfTimeIncrement": 2
+        },
+        "translate": {
+          "time": {"rule": "grib.time"},
+          "vertical": {"rule": "grib.fixed_surfaces"}
+        }
+      },
+      "parameter_id": "cedarkit.gsw.raw",
+      "when": {}
+    },
+    {
+      "applies_to": {},
+      "backend": "grib2",
+      "evidence": ["doc/2026-11-16-stage1.6-query-reki/evidence/1.6-08/verification.json#conflicts/sensible-heat"],
+      "id": "cemc.hfx.raw",
+      "native": {
+        "match": {
+          "centre": 38,
+          "discipline": 2,
+          "edition": 2,
+          "generatingProcessIdentifier": 15,
+          "localTablesVersion": 0,
+          "numberOfTimeRange": 1,
+          "parameterCategory": 0,
+          "parameterNumber": 24,
+          "productDefinitionTemplateNumber": 8,
+          "productionStatusOfProcessedData": 0,
+          "subCentre": 0,
+          "tablesVersion": 4,
+          "typeOfFirstFixedSurface": 1,
+          "typeOfSecondFixedSurface": 255,
+          "typeOfStatisticalProcessing": 1,
+          "typeOfTimeIncrement": 2
+        },
+        "translate": {
+          "time": {"rule": "grib.time"},
+          "vertical": {"rule": "grib.fixed_surfaces"}
+        }
+      },
+      "parameter_id": "cedarkit.hfx.raw",
+      "when": {}
+    }
+  ]
+}

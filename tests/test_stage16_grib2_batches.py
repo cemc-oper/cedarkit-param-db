@@ -89,3 +89,27 @@ def test_full_batch_retains_native_member_and_statistic_boundaries(snapshots):
         "cedarkit.glw", "cedarkit.glw.since-initialization",
         "cedarkit.hfx", "cedarkit.hfx.since-initialization",
     })
+
+
+def test_original_fields_extend_full_batch_with_raw_surface_selectors(snapshots, monkeypatch):
+    monkeypatch.syspath_prepend(str(DB / "tools"))
+    from export_stage16_grib2 import ORIGINAL_FIELDS_BATCH, build_snapshot
+
+    files = build_snapshot(ORIGINAL_FIELDS_BATCH)
+    baseline = snapshots["full-library"]
+    parameters = json.loads(files["public-parameters.json"])
+    base_parameters = json.loads(baseline["public-parameters.json"])["parameters"]
+    mappings = json.loads(files["generic-grib2-mappings.json"])
+    base_mappings = json.loads(baseline["generic-grib2-mappings.json"])["mappings"]
+    assert (parameters["version"], mappings["version"]) == ("3", "5")
+    assert parameters["parameters"][:len(base_parameters)] == base_parameters
+    assert mappings["mappings"][:len(base_mappings)] == base_mappings
+    new_definitions = parameters["parameters"][len(base_parameters):]
+    new_mappings = mappings["mappings"][len(base_mappings):]
+    assert {row["name"]: row["parameter_id"] for row in new_definitions} == {
+        name: f"cedarkit.{name}.raw" for name in ("glw", "gsw", "hfx")
+    }
+    assert {row["parameter_id"] for row in new_mappings} == {r["parameter_id"] for r in new_definitions}
+    for rule in new_mappings:
+        assert rule["native"]["match"]["typeOfFirstFixedSurface"] == 1
+        assert "unit" not in rule["native"]["translate"]

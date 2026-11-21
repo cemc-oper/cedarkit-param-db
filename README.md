@@ -466,3 +466,5 @@ python -B tools/export_stage16_grib2.py --batch gfs-22-45 --output /tmp/cedarkit
 ```
 
 The other batch names are `q2m-znt` and `full-library`. The evidence replay verifies the GFS page through an explicit independent context and checks all full-batch header matches against the frozen ORIG corpus.
+
+Use `--batch full-library-original-fields` to add name-based access to the original CEMC surface `glw`, `gsw` and `hfx` fields. This batch exports parameter registry version 3 and GRIB2 mapping version 5. The three added rules retain the decoded values and leave the physical unit unresolved. The authoring file links each rule to the reviewed carrier groups. [Original field definitions and rules](authoring/stage1.6-grib2-original-fields.json)
