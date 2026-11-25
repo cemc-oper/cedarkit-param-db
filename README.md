@@ -468,3 +468,25 @@ python -B tools/export_stage16_grib2.py --batch gfs-22-45 --output /tmp/cedarkit
 The other batch names are `q2m-znt` and `full-library`. The evidence replay verifies the GFS page through an explicit independent context and checks all full-batch header matches against the frozen ORIG corpus.
 
 Use `--batch full-library-original-fields` to add name-based access to the original CEMC surface `glw`, `gsw` and `hfx` fields. This batch exports parameter registry version 3 and GRIB2 mapping version 5. The three added rules retain the decoded values and leave the physical unit unresolved. The authoring file links each rule to the reviewed carrier groups. [Original field definitions and rules](authoring/stage1.6-grib2-original-fields.json)
+
+## wgrib2 short names
+
+Export the short names used with the wgrib2 NCEP naming convention from a local
+copy of the pinned wgrib2 source. The authoring policy pins the upstream
+v3.8.0 commit and checksums of its tables and lookup sources.
+
+```sh
+python3 tools/export_wgrib2_names.py \
+  --source /path/to/wgrib2-v3.8.0 \
+  --output /tmp/wgrib2-names.json
+```
+
+The generated resource supplies reki's `catalog/builtin/wgrib2-names.json`.
+It preserves the table order, master table ranges, and centre and local
+table keys used to match GRIB2 headers. The exporter stores short names in
+uppercase and limits the fallback groups to rows that can be reached with the
+NCEP convention. The export carries the upstream source digests and contains
+the encoded keys and abbreviations. A revised upstream snapshot takes a new
+content version.
+[Import policy](authoring/wgrib2-names.json) ·
+[Upstream component notices](https://github.com/NOAA-EMC/wgrib2/blob/v3.8.0/wgrib2/LICENSE-wgrib2)

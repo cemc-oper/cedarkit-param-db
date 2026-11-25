@@ -1,0 +1,48 @@
+{
+  "version": "1",
+  "upstream": {
+    "repository": "https://github.com/NOAA-EMC/wgrib2",
+    "tag": "v3.8.0",
+    "commit": "986287cc4f77ed3f5f97056fd0f90d099964dba7",
+    "names": "ncep",
+    "sha256": {
+      "wgrib2/gribtab.c": "1c24c012a6c2c3ec731736ccc8e0fae72d6edf790ea01fec0f6c6877664870fc",
+      "wgrib2/cname.c": "406369b8af8bd59d1dadf308834ad96859ca429a468fd08e6fb40201813070a7",
+      "wgrib2/LICENSE-wgrib2": "223d4f9373dc2a932bc684fa3bc3cb2e0802d3bb5846c8608e3ec024f42375af",
+      "wgrib2/gribtables/ncep/gribtable.dat": "298e68e46332e10823bfcf5c5db9c782960b3d9fc411fae19585f66271c4ce64",
+      "wgrib2/gribtables/tigge/tigge_gribtable.dat": "46823d72f8c3fd3471eacc62a641332570f92fd99e47bd3edd1895c2f4a1273a",
+      "wgrib2/gribtables/ecmwf/ECMWF_gribtable.dat": "af5a388ace18701f64a616ea3cad309b7a801d3d2f54174ce7b677f5a078ac46",
+      "wgrib2/gribtables/dwd/dwd_gribtable.dat": "b3b55830763124bc30c75459955567b68c1599ce6e629fab3124556051f49f9c",
+      "wgrib2/gribtables/ndfd/NDFD_gribtable.dat": "a6613919b5f9d22ff030fc7d6a459c95b40eaf0cae324c6ce683dfe44a8cf899",
+      "wgrib2/gribtables/mrms/MRMS_gribtable.dat": "023ef901888252bb740c6f5eaecf90f3aae8f651cbaccd10009b857e62f9424a",
+      "wgrib2/gribtables/bom/BOM_gribtable.dat": "65b3a3ef7905754fffb5e350388f60b5f118ca217a5cd31ea7c5a6af3bc39d81",
+      "wgrib2/gribtables/kma/KMA_gribtable.dat": "f9b445e6c60210ff8c4cd5d249e0f30580ca8d0eceee1163d8b61e9b7a387784",
+      "wgrib2/gribtables/misc/misc_gribtable.dat": "7171b0a381f499b3b2a3d37134e9b08340be87c7778f1bacd4886cd0b712f523",
+      "wgrib2/gribtables/usaf/USAF_gribtable.dat": "8de37d79f8ec66b1247f7f0de4904bc80186ed66533fceff64887eaa4b3c8f6e",
+      "wgrib2/gribtables/nesdis/NESDIS_gribtable.dat": "57f62231f63b2155820417e351031f6778df4036d406a9264661c26d08d54d94"
+    }
+  },
+  "tables": {
+    "ncep": [
+      "wgrib2/gribtables/ncep/gribtable.dat"
+    ],
+    "tigge": [
+      "wgrib2/gribtables/tigge/tigge_gribtable.dat"
+    ],
+    "ecmwf_local": [
+      "wgrib2/gribtables/ecmwf/ECMWF_gribtable.dat"
+    ],
+    "dwd_local": [
+      "wgrib2/gribtables/dwd/dwd_gribtable.dat"
+    ],
+    "local": [
+      "wgrib2/gribtables/ndfd/NDFD_gribtable.dat",
+      "wgrib2/gribtables/mrms/MRMS_gribtable.dat",
+      "wgrib2/gribtables/bom/BOM_gribtable.dat",
+      "wgrib2/gribtables/kma/KMA_gribtable.dat",
+      "wgrib2/gribtables/misc/misc_gribtable.dat",
+      "wgrib2/gribtables/usaf/USAF_gribtable.dat",
+      "wgrib2/gribtables/nesdis/NESDIS_gribtable.dat"
+    ]
+  }
+}
